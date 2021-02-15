@@ -196,23 +196,29 @@ const Inspector = ({ attributes, setAttributes }) => {
 							label={__("Starting Number")}
 							value={startValue}
 							type="number"
-							onChange={(startValue) => setAttributes({ startValue })}
+							onChange={(value) =>
+								!/[\-\.]/.test(value) && setAttributes({ startValue: value })
+							}
 						/>
 					</BaseControl>
 					<BaseControl id="eb-counter-end-value">
 						<TextControl
 							label={__("Ending Number")}
-							value={target || " "}
+							value={target}
 							type="number"
-							onChange={(target) => setAttributes({ target })}
+							onChange={(value) =>
+								!/[\-\.]/.test(value) && setAttributes({ target: value })
+							}
 						/>
 					</BaseControl>
 					<BaseControl id="eb-counter-duration">
 						<TextControl
 							label={__("Animation Duration")}
-							value={duration || " "}
+							value={duration}
 							type="number"
-							onChange={(duration) => setAttributes({ duration })}
+							onChange={(value) =>
+								!/[\-\.]/.test(value) && setAttributes({ duration: value })
+							}
 						/>
 					</BaseControl>
 					<BaseControl id="eb-counter-prefix">
