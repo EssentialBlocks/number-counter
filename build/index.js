@@ -2138,7 +2138,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 // parseGradientColor function parses the gradientColor Strings
 var parseGradientColor = function parseGradientColor(gradientColor) {
-  console.log(gradientColor);
   var angle = 45,
       color1Position = 0,
       color2Position = 100,
@@ -2160,28 +2159,12 @@ var parseGradientColor = function parseGradientColor(gradientColor) {
     var colorsPositions = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
     color1Position = colorsPositions[0];
     color2Position = colorsPositions[1];
-    console.log({
-      angle: angle,
-      color1: color1,
-      color2: color2,
-      color1Position: color1Position,
-      color2Position: color2Position
-    });
   } else {
     radialShape = gradientColor.match(/\w+(?= at)/gi)[0];
     radialX = gradientColor.match(/(?<=at )\d{1,3}/gi)[0];
     radialY = gradientColor.match(/(?<=% )\d{1,3}/gi)[0];
     color1Position = gradientColor.match(/\d{1,3}(?=% ,)/gi)[0];
     color2Position = gradientColor.match(/\d{1,3}(?=%\))/gi)[0];
-    console.log({
-      radialShape: radialShape,
-      color1: color1,
-      color2: color2,
-      radialX: radialX,
-      radialY: radialY,
-      color1Position: color1Position,
-      color2Position: color2Position
-    });
   }
 
   return {
@@ -4466,6 +4449,7 @@ var GradientColorControl = function GradientColorControl(_ref) {
     className: "eb-gradient-toggle-label"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_toggle_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
     options: _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPES"],
+    defaultSelect: gradientType === "linear" ? _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPES"][1],
     onChange: function onChange(gradientType) {
       return setGradientType(gradientType);
     },
@@ -4475,6 +4459,7 @@ var GradientColorControl = function GradientColorControl(_ref) {
     className: "eb-gradient-toggle-label"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_toggle_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
     options: _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"],
+    defaultSelect: radialShape === "ellipse" ? _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][1],
     onChange: function onChange(radialShape) {
       return setRadialShape(radialShape);
     },
@@ -7069,9 +7054,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ToggleButton = function ToggleButton(_ref) {
   var options = _ref.options,
       focusColor = _ref.focusColor,
-      onChange = _ref.onChange;
+      onChange = _ref.onChange,
+      defaultSelect = _ref.defaultSelect;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(options[0]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultSelect),
       _useState2 = _slicedToArray(_useState, 2),
       selected = _useState2[0],
       setSelected = _useState2[1];

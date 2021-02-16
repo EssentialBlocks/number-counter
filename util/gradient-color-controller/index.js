@@ -77,6 +77,9 @@ const GradientColorControl = ({
 			>
 				<ToggleButton
 					options={GRADIENT_TYPES}
+					defaultSelect={
+						gradientType === "linear" ? GRADIENT_TYPES[0] : GRADIENT_TYPES[1]
+					}
 					onChange={(gradientType) => setGradientType(gradientType)}
 					focusColor={FOCUS_COLOR}
 				/>
@@ -89,6 +92,9 @@ const GradientColorControl = ({
 				>
 					<ToggleButton
 						options={RADIAL_TYPES}
+						defaultSelect={
+							radialShape === "ellipse" ? RADIAL_TYPES[0] : RADIAL_TYPES[1]
+						}
 						onChange={(radialShape) => setRadialShape(radialShape)}
 						focusColor={FOCUS_COLOR}
 					/>

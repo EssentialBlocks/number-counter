@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 
-const ToggleButton = ({ options, focusColor, onChange }) => {
-	const [selected, setSelected] = useState(options[0]);
+const ToggleButton = ({ options, focusColor, onChange, defaultSelect }) => {
+	const [selected, setSelected] = useState(defaultSelect);
 
 	useEffect(() => {
 		onChange(selected.value);
