@@ -1413,19 +1413,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   paddingTop: {
     type: "string",
-    "default": "0"
+    "default": "50"
   },
   paddingRight: {
     type: "string",
-    "default": "0"
+    "default": "10"
   },
   paddingBottom: {
     type: "string",
-    "default": "10"
+    "default": "50"
   },
   paddingLeft: {
     type: "string",
-    "default": "0"
+    "default": "10"
   },
   // background attributes ⬇
   backgroundType: {
@@ -1438,7 +1438,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   gradientColor: {
     type: "string",
-    "default": "linear-gradient(45deg,#eef2f3,#8e92ab)"
+    "default": "linear-gradient(45deg,#8200ff,#ff0071)"
   },
   backgroundSize: {
     type: "string",
@@ -3006,8 +3006,8 @@ var Inspector = function Inspector(_ref) {
     title: __("Gradient"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    colorTwo: "#8e9eab",
-    colorOne: "#eef2f3",
+    colorOne: "#8200ff",
+    colorTwo: "#ff0071",
     angle: 45,
     onChange: function onChange(gradientColor) {
       return setAttributes({

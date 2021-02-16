@@ -100,19 +100,19 @@ export default {
 	},
 	paddingTop: {
 		type: "string",
-		default: "0",
+		default: "50",
 	},
 	paddingRight: {
 		type: "string",
-		default: "0",
+		default: "10",
 	},
 	paddingBottom: {
 		type: "string",
-		default: "10",
+		default: "50",
 	},
 	paddingLeft: {
 		type: "string",
-		default: "0",
+		default: "10",
 	},
 
 	// background attributes ⬇
@@ -126,7 +126,7 @@ export default {
 	},
 	gradientColor: {
 		type: "string",
-		default: "linear-gradient(45deg,#eef2f3,#8e92ab)",
+		default: "linear-gradient(45deg,#8200ff,#ff0071)",
 	},
 	backgroundSize: {
 		type: "string",
