@@ -1,4 +1,3 @@
-const { __ } = wp.i18n;
 const { useState, useEffect } = wp.element;
 const { BaseControl, Dropdown, Tooltip, ColorPicker } = wp.components;
 import "./style.css";

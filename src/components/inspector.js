@@ -28,6 +28,7 @@ import ResetControl from "../../util/reset-control";
 import ToggleButton from "../../util/toggle-button";
 import { TypographyIcon } from "../../util/icons";
 import FontPicker from "../../util/typography-control/FontPicker";
+import { parseGradientColor } from "./helpers";
 
 import {
 	BACKGROUND_TYPES,
@@ -156,27 +157,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 		suffixLineHeightUnit,
 		suffixLineHeight,
 	} = attributes;
-
-	const isLinear = /linear\-gradient/i.test(gradientColor);
-	console.log({ gradientColor, isLinear });
-
-	const parseGradientColor = () => {
-		if (isLinear) {
-			const angle = gradientColor.match(/\d{1,3}deg/gi);
-			const colors = gradientColor.match(/\#[a-f\d]{6}|/gi);
-			console.log({ angle, colors });
-			// \#[a-f\d]{6}|rgba?\(\d{1,3},\d{1,3},\d{1,3},[0,1][\.]?\d{1,2}
-
-			// 			linear-gradient(45deg, #8200ff 0% , #ff0071 100%)
-			// linear-gradient(45deg, rgba(87,22,148,1) 0% , #ff0071 100%)
-			// linear-gradient(45deg, rgba(87,22,148,0.1) 0% , #ff0071 100%)
-			// linear-gradient(45deg, rgba(87,22,148,0.61) 0% , #ff0071 100%)
-		} else {
-			return null;
-		}
-	};
-
-	parseGradientColor();
 
 	const handleSeparatorChange = (separastorSelectLabel) => {
 		switch (separastorSelectLabel) {
@@ -927,9 +907,8 @@ const Inspector = ({ attributes, setAttributes }) => {
 					{backgroundType === "gradient" && (
 						<PanelBody title={__("Gradient")} initialOpen={false}>
 							<GradientColorController
-								colorOne="#8200ff"
-								colorTwo="#ff0071"
-								angle={45}
+								gradientColor={gradientColor}
+								parseGradientColor={parseGradientColor}
 								onChange={(gradientColor) => setAttributes({ gradientColor })}
 							/>
 						</PanelBody>

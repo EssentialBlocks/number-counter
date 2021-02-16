@@ -11,21 +11,26 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ColorControl from "../color-control";
 import ToggleButton from "../toggle-button";
-import { GRADIENT_TYPE, RADIAL_TYPES, FOCUS_COLOR } from "./constants";
+import { GRADIENT_TYPES, RADIAL_TYPES, FOCUS_COLOR } from "./constants";
 
 const GradientColorControl = ({
-	gradientType: bgGradientType,
-	colorOne: firstColor,
-	colorOnePosition: grColorOnePosition,
-	colorTwo: secondColor,
-	colorTwoPosition: grColorTwoPosition,
-	angle: gradientAngle,
-	radialShape: grRadialShape,
-	radialX: grRadialX,
-	radialY: grRadialY,
+	parseGradientColor,
+	gradientColor,
 	onChange,
 }) => {
-	const [gradientType, setGradientType] = useState(bgGradientType || "linear");
+	const {
+		gradientType: bgGradientType,
+		color1: firstColor,
+		color1Position: grColorOnePosition,
+		color2: secondColor,
+		color2Position: grColorTwoPosition,
+		angle: gradientAngle,
+		radialShape: grRadialShape,
+		radialX: grRadialX,
+		radialY: grRadialY,
+	} = parseGradientColor(gradientColor);
+
+	const [gradientType, setGradientType] = useState(bgGradientType);
 	const [colorOne, setColorOne] = useState(firstColor || "transparent");
 	const [colorOnePosition, setColorOnePosition] = useState(
 		grColorOnePosition || 0
@@ -71,7 +76,7 @@ const GradientColorControl = ({
 				className="eb-gradient-toggle-label"
 			>
 				<ToggleButton
-					options={GRADIENT_TYPE}
+					options={GRADIENT_TYPES}
 					onChange={(gradientType) => setGradientType(gradientType)}
 					focusColor={FOCUS_COLOR}
 				/>
