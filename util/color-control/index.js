@@ -1,7 +1,15 @@
+const { __ } = wp.i18n;
+const { useState, useEffect } = wp.element;
 const { BaseControl, Dropdown, Tooltip, ColorPicker } = wp.components;
 import "./style.css";
 
 const ColorControl = ({ label, color, onChange }) => {
+	const [bgColor, setBgColor] = useState(color);
+
+	useEffect(() => {
+		setBgColor(color);
+	}, [color]);
+
 	const onChangeComplete = ({ rgb, hex }) => {
 		let color = rgb ? `rgba(${rgb.r},${rgb.g},${rgb.b},${rgb.a})` : hex;
 		onChange(color);
@@ -26,7 +34,7 @@ const ColorControl = ({ label, color, onChange }) => {
 									width: 16,
 									borderRadius: "0%",
 									boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
-									backgroundColor: color,
+									backgroundColor: bgColor,
 								}}
 								aria-expanded={isOpen}
 								onClick={onToggle}
@@ -38,9 +46,7 @@ const ColorControl = ({ label, color, onChange }) => {
 				renderContent={() => (
 					<ColorPicker
 						color={color}
-						onChangeComplete={(color) => {
-							onChangeComplete(color);
-						}}
+						onChangeComplete={(color) => onChangeComplete(color)}
 					/>
 				)}
 			/>

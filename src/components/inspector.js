@@ -157,6 +157,22 @@ const Inspector = ({ attributes, setAttributes }) => {
 		suffixLineHeight,
 	} = attributes;
 
+	const isLinear = /linear\-gradient/i.test(gradientColor);
+	console.log({ gradientColor, isLinear });
+
+	const parseGradientColor = () => {
+		if (isLinear) {
+			const angle = gradientColor.match(/\d{1,3}deg/gi);
+			const colors = gradientColor.match(/\#[a-f\d]{6}|/gi);
+			console.log({ angle, colors });
+			// \#[a-f\d]{6}|rgba?\(\d{1,3},\d{1,3},\d{1,3},[0,1][\.]?\d{1,2}
+		} else {
+			return null;
+		}
+	};
+
+	parseGradientColor();
+
 	const handleSeparatorChange = (separastorSelectLabel) => {
 		switch (separastorSelectLabel) {
 			case "Default":
