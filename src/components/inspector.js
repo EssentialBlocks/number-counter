@@ -166,6 +166,11 @@ const Inspector = ({ attributes, setAttributes }) => {
 			const colors = gradientColor.match(/\#[a-f\d]{6}|/gi);
 			console.log({ angle, colors });
 			// \#[a-f\d]{6}|rgba?\(\d{1,3},\d{1,3},\d{1,3},[0,1][\.]?\d{1,2}
+
+			// 			linear-gradient(45deg, #8200ff 0% , #ff0071 100%)
+			// linear-gradient(45deg, rgba(87,22,148,1) 0% , #ff0071 100%)
+			// linear-gradient(45deg, rgba(87,22,148,0.1) 0% , #ff0071 100%)
+			// linear-gradient(45deg, rgba(87,22,148,0.61) 0% , #ff0071 100%)
 		} else {
 			return null;
 		}
