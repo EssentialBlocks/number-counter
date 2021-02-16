@@ -12,7 +12,6 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { GRADIENT_TYPE, RADIAL_TYPES } from "./constants";
 import ColorControl from "../color-control";
-import ToggleButton from "../toggle-button";
 
 class GradientColorControl extends Component {
 	state = {
@@ -73,17 +72,8 @@ class GradientColorControl extends Component {
 		} = this.state;
 
 		return (
-			<div className="eb-gradient-control">
-				<BaseControl
-					label={__("Gradient Type")}
-					className="eb-gradient-toggle-label"
-				>
-					<ToggleButton
-						options={GRADIENT_TYPE}
-						onChange={(value) => this.onGradientChange("gradientType", value)}
-						focusColor="#007cba"
-					/>
-					{/*
+			<div>
+				<BaseControl label={__("Gradient Type")}>
 					<ButtonGroup>
 						{GRADIENT_TYPE.map((item) => (
 							<Button
@@ -98,20 +88,10 @@ class GradientColorControl extends Component {
 							</Button>
 						))}
 					</ButtonGroup>
-          */}
 				</BaseControl>
 
 				{gradientType === "radial" && (
-					<BaseControl
-						label={__("Radial Type")}
-						className="eb-gradient-toggle-label"
-					>
-						<ToggleButton
-							options={RADIAL_TYPES}
-							onChange={(value) => this.onGradientChange("radialShape", value)}
-							focusColor="#007cba"
-						/>
-						{/*
+					<BaseControl label={__("Radial Type")}>
 						<ButtonGroup>
 							{RADIAL_TYPES.map((item) => (
 								<Button
@@ -126,7 +106,6 @@ class GradientColorControl extends Component {
 								</Button>
 							))}
 						</ButtonGroup>
-        */}
 					</BaseControl>
 				)}
 
