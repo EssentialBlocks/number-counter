@@ -7057,7 +7057,7 @@ var ToggleButton = function ToggleButton(_ref) {
       onChange = _ref.onChange,
       defaultSelect = _ref.defaultSelect;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultSelect),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultSelect || options[0]),
       _useState2 = _slicedToArray(_useState, 2),
       selected = _useState2[0],
       setSelected = _useState2[1];
