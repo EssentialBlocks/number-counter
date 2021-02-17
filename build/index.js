@@ -4252,7 +4252,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 // parseGradientColor function parses the gradientColor Strings
 var parseGradientColor = function parseGradientColor(_gradientColor) {
-  var gradientColor = _gradientColor ? _gradientColor : "linear-gradient(45deg,#820000,#ff0071)";
+  console.log({
+    _gradientColor: _gradientColor
+  });
+  var gradientColor = _gradientColor || "linear-gradient(45deg,#8200ff,#ff0071)";
   var angle = 45,
       color1Position = 0,
       color2Position = 100,

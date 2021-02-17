@@ -1,8 +1,8 @@
 // parseGradientColor function parses the gradientColor Strings
 export const parseGradientColor = (_gradientColor) => {
-	const gradientColor = _gradientColor
-		? _gradientColor
-		: "linear-gradient(45deg,#820000,#ff0071)";
+	console.log({ _gradientColor });
+	const gradientColor =
+		_gradientColor || "linear-gradient(45deg,#8200ff,#ff0071)";
 	let angle = 45,
 		color1Position = 0,
 		color2Position = 100,
