@@ -2114,74 +2114,6 @@ var Edit = function Edit(_ref) {
 
 /***/ }),
 
-/***/ "./src/components/helpers.js":
-/*!***********************************!*\
-  !*** ./src/components/helpers.js ***!
-  \***********************************/
-/*! exports provided: parseGradientColor */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseGradientColor", function() { return parseGradientColor; });
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-// parseGradientColor function parses the gradientColor Strings
-var parseGradientColor = function parseGradientColor(gradientColor) {
-  var angle = 45,
-      color1Position = 0,
-      color2Position = 100,
-      radialShape,
-      radialX = 50,
-      radialY = 50;
-
-  var _gradientColor$match = gradientColor.match(/\#[a-f\d]{6}|rgba?\([\d\,\.]{3,16}\)/gi),
-      _gradientColor$match2 = _slicedToArray(_gradientColor$match, 2),
-      color1 = _gradientColor$match2[0],
-      color2 = _gradientColor$match2[1];
-
-  var _gradientColor$match3 = gradientColor.match(/\w{6}(?=-)/gi),
-      _gradientColor$match4 = _slicedToArray(_gradientColor$match3, 1),
-      gradientType = _gradientColor$match4[0];
-
-  if (gradientType == "linear") {
-    angle = gradientColor.match(/\d{1,3}(?=deg)/gi)[0];
-    var colorsPositions = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
-    color1Position = colorsPositions[0];
-    color2Position = colorsPositions[1];
-  } else {
-    radialShape = gradientColor.match(/\w+(?= at)/gi)[0];
-    radialX = gradientColor.match(/(?<=at )\d{1,3}/gi)[0];
-    radialY = gradientColor.match(/(?<=% )\d{1,3}/gi)[0];
-    color1Position = gradientColor.match(/\d{1,3}(?=% ,)/gi)[0];
-    color2Position = gradientColor.match(/\d{1,3}(?=%\))/gi)[0];
-  }
-
-  return {
-    gradientType: gradientType,
-    angle: parseInt(angle),
-    color1: color1,
-    color2: color2,
-    color1Position: parseInt(color1Position),
-    color2Position: parseInt(color2Position),
-    radialShape: radialShape,
-    radialX: parseInt(radialX),
-    radialY: parseInt(radialY)
-  };
-};
-
-/***/ }),
-
 /***/ "./src/components/inspector.js":
 /*!*************************************!*\
   !*** ./src/components/inspector.js ***!
@@ -2200,8 +2132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_toggle_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../util/toggle-button */ "./util/toggle-button/index.js");
 /* harmony import */ var _util_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../util/icons */ "./util/icons.js");
 /* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./constants */ "./src/components/constants.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./constants */ "./src/components/constants.js");
 /**
  * WordPress dependencies
  */
@@ -2222,7 +2153,6 @@ var _wp$components = wp.components,
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -2437,7 +2367,7 @@ var Inspector = function Inspector(_ref) {
     }
   })), /*#__PURE__*/React.createElement(SelectControl, {
     label: __("Layouts"),
-    options: _constants__WEBPACK_IMPORTED_MODULE_10__["LAYOUT_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_9__["LAYOUT_OPTIONS"],
     value: layoutLabel,
     onChange: function onChange(value) {
       return handleLayoutChange(value);
@@ -2452,7 +2382,7 @@ var Inspector = function Inspector(_ref) {
     }
   }), isShowSeparator && /*#__PURE__*/React.createElement(SelectControl, {
     label: __("Separator"),
-    options: _constants__WEBPACK_IMPORTED_MODULE_10__["SEPARATOR_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_9__["SEPARATOR_OPTIONS"],
     value: separastorSelectLabel,
     onChange: function onChange(value) {
       return handleSeparatorChange(value);
@@ -2492,7 +2422,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: numberSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_SIZE_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
         onClick: function onClick(SizeUnit) {
           return setAttributes({
             numberSizeUnit: SizeUnit
@@ -2512,7 +2442,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Font Weight"),
         value: numberFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_WEIGHTS"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
         onChange: function onChange(FontWeight) {
           return setAttributes({
             numberFontWeight: FontWeight
@@ -2521,7 +2451,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Transform"),
         value: numberTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_TRANSFORM"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
         onChange: function onChange(TextTransform) {
           return setAttributes({
             numberTextTransform: TextTransform
@@ -2530,7 +2460,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Decoration"),
         value: numberTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_DECORATION"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
         onChange: function onChange(TextDecoration) {
           return setAttributes({
             numberTextDecoration: TextDecoration
@@ -2538,7 +2468,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: numberSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LetterSpacingUnit) {
           return setAttributes({
             numberLetterSpacingUnit: LetterSpacingUnit
@@ -2557,7 +2487,7 @@ var Inspector = function Inspector(_ref) {
         step: numberLetterSpacingUnit === "em" ? 0.1 : 1
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: numberLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LineHeightUnit) {
           return setAttributes({
             numberLineHeightUnit: LineHeightUnit
@@ -2608,7 +2538,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: titleSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_SIZE_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
         onClick: function onClick(SizeUnit) {
           return setAttributes({
             titleSizeUnit: SizeUnit
@@ -2628,7 +2558,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Font Weight"),
         value: titleFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_WEIGHTS"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
         onChange: function onChange(FontWeight) {
           return setAttributes({
             titleFontWeight: FontWeight
@@ -2637,7 +2567,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Transform"),
         value: titleTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_TRANSFORM"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
         onChange: function onChange(TextTransform) {
           return setAttributes({
             titleTextTransform: TextTransform
@@ -2646,7 +2576,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Decoration"),
         value: titleTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_DECORATION"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
         onChange: function onChange(TextDecoration) {
           return setAttributes({
             titleTextDecoration: TextDecoration
@@ -2654,7 +2584,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: titleSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LetterSpacingUnit) {
           return setAttributes({
             titleLetterSpacingUnit: LetterSpacingUnit
@@ -2673,7 +2603,7 @@ var Inspector = function Inspector(_ref) {
         step: titleLetterSpacingUnit === "em" ? 0.1 : 1
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: titleLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LineHeightUnit) {
           return setAttributes({
             titleLineHeightUnit: LineHeightUnit
@@ -2724,7 +2654,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: prefixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_SIZE_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
         onClick: function onClick(SizeUnit) {
           return setAttributes({
             prefixSizeUnit: SizeUnit
@@ -2744,7 +2674,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Font Weight"),
         value: prefixFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_WEIGHTS"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
         onChange: function onChange(FontWeight) {
           return setAttributes({
             prefixFontWeight: FontWeight
@@ -2753,7 +2683,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Transform"),
         value: prefixTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_TRANSFORM"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
         onChange: function onChange(TextTransform) {
           return setAttributes({
             prefixTextTransform: TextTransform
@@ -2762,7 +2692,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Decoration"),
         value: prefixTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_DECORATION"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
         onChange: function onChange(TextDecoration) {
           return setAttributes({
             prefixTextDecoration: TextDecoration
@@ -2770,7 +2700,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: prefixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LetterSpacingUnit) {
           return setAttributes({
             prefixLetterSpacingUnit: LetterSpacingUnit
@@ -2789,7 +2719,7 @@ var Inspector = function Inspector(_ref) {
         step: prefixLetterSpacingUnit === "em" ? 0.1 : 1
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: prefixLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LineHeightUnit) {
           return setAttributes({
             prefixLineHeightUnit: LineHeightUnit
@@ -2840,7 +2770,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: suffixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_SIZE_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
         onClick: function onClick(SizeUnit) {
           return setAttributes({
             suffixSizeUnit: SizeUnit
@@ -2860,7 +2790,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Font Weight"),
         value: suffixFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_WEIGHTS"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
         onChange: function onChange(FontWeight) {
           return setAttributes({
             suffixFontWeight: FontWeight
@@ -2869,7 +2799,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Transform"),
         value: suffixTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_TRANSFORM"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
         onChange: function onChange(TextTransform) {
           return setAttributes({
             suffixTextTransform: TextTransform
@@ -2878,7 +2808,7 @@ var Inspector = function Inspector(_ref) {
       }), /*#__PURE__*/React.createElement(SelectControl, {
         label: __("Text Decoration"),
         value: suffixTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_10__["TEXT_DECORATION"],
+        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
         onChange: function onChange(TextDecoration) {
           return setAttributes({
             suffixTextDecoration: TextDecoration
@@ -2886,7 +2816,7 @@ var Inspector = function Inspector(_ref) {
         }
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: suffixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LetterSpacingUnit) {
           return setAttributes({
             suffixLetterSpacingUnit: LetterSpacingUnit
@@ -2905,7 +2835,7 @@ var Inspector = function Inspector(_ref) {
         step: suffixLetterSpacingUnit === "em" ? 0.1 : 1
       }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
         selectedUnit: suffixLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
         onClick: function onClick(LineHeightUnit) {
           return setAttributes({
             suffixLineHeightUnit: LineHeightUnit
@@ -2997,7 +2927,7 @@ var Inspector = function Inspector(_ref) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
     selectedUnit: marginUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_SIZE_UNITS"],
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
     onClick: function onClick(marginUnit) {
       return setAttributes({
         marginUnit: marginUnit
@@ -3023,7 +2953,7 @@ var Inspector = function Inspector(_ref) {
     }
   }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
     selectedUnit: paddingUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["FONT_SIZE_UNITS"],
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
     onClick: function onClick(paddingUnit) {
       return setAttributes({
         paddingUnit: paddingUnit
@@ -3052,7 +2982,7 @@ var Inspector = function Inspector(_ref) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(BaseControl, {
     label: __("Background Type")
-  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_10__["BACKGROUND_TYPES"].map(function (_ref8) {
+  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_TYPES"].map(function (_ref8) {
     var value = _ref8.value,
         label = _ref8.label;
     return /*#__PURE__*/React.createElement(Button, {
@@ -3077,7 +3007,6 @@ var Inspector = function Inspector(_ref) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_3__["default"], {
     gradientColor: gradientColor,
-    parseGradientColor: _helpers__WEBPACK_IMPORTED_MODULE_9__["parseGradientColor"],
     onChange: function onChange(gradientColor) {
       return setAttributes({
         gradientColor: gradientColor
@@ -3112,7 +3041,7 @@ var Inspector = function Inspector(_ref) {
     }
   }), /*#__PURE__*/React.createElement(BaseControl, {
     label: __("Background Size")
-  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_10__["BACKGROUND_SIZES"].map(function (_ref10) {
+  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_SIZES"].map(function (_ref10) {
     var value = _ref10.value,
         label = _ref10.label;
     return /*#__PURE__*/React.createElement(Button, {
@@ -3145,7 +3074,7 @@ var Inspector = function Inspector(_ref) {
     max: 100
   })), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
     selectedUnit: radiusUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_10__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
     onClick: function onClick(radiusUnit) {
       return setAttributes({
         radiusUnit: radiusUnit
@@ -3170,7 +3099,7 @@ var Inspector = function Inspector(_ref) {
   })), /*#__PURE__*/React.createElement(SelectControl, {
     label: __("Border Style"),
     value: borderStyle,
-    options: _constants__WEBPACK_IMPORTED_MODULE_10__["BORDER_STYLES"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_9__["BORDER_STYLES"],
     onChange: function onChange(borderStyle) {
       return setAttributes({
         borderStyle: borderStyle
@@ -3190,7 +3119,7 @@ var Inspector = function Inspector(_ref) {
   }, /*#__PURE__*/React.createElement("span", {
     className: shadowType === "normal" ? "blueOnNormal" : "blueOnHover"
   }, /*#__PURE__*/React.createElement(_util_toggle_button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    options: _constants__WEBPACK_IMPORTED_MODULE_10__["SHADOW_HOVER_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_9__["SHADOW_HOVER_OPTIONS"],
     onChange: function onChange(value) {
       return setAttributes({
         shadowType: value
@@ -3999,18 +3928,6 @@ registerBlockType("block/counter-up-block", {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./util/color-control/style.css");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 var _wp$element = wp.element,
     useState = _wp$element.useState,
     useEffect = _wp$element.useEffect;
@@ -4025,15 +3942,6 @@ var ColorControl = function ColorControl(_ref) {
   var label = _ref.label,
       color = _ref.color,
       onChange = _ref.onChange;
-
-  var _useState = useState(color),
-      _useState2 = _slicedToArray(_useState, 2),
-      bgColor = _useState2[0],
-      setBgColor = _useState2[1];
-
-  useEffect(function () {
-    setBgColor(color);
-  }, [color]);
 
   var _onChangeComplete = function onChangeComplete(_ref2) {
     var rgb = _ref2.rgb,
@@ -4066,7 +3974,7 @@ var ColorControl = function ColorControl(_ref) {
           width: 16,
           borderRadius: "0%",
           boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
-          backgroundColor: bgColor
+          backgroundColor: color
         },
         "aria-expanded": isOpen,
         onClick: onToggle,
@@ -4320,6 +4228,75 @@ var FOCUS_COLOR = "#007cba";
 
 /***/ }),
 
+/***/ "./util/gradient-color-controller/helpers.js":
+/*!***************************************************!*\
+  !*** ./util/gradient-color-controller/helpers.js ***!
+  \***************************************************/
+/*! exports provided: parseGradientColor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseGradientColor", function() { return parseGradientColor; });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+// parseGradientColor function parses the gradientColor Strings
+var parseGradientColor = function parseGradientColor(_gradientColor) {
+  var gradientColor = _gradientColor ? _gradientColor : "linear-gradient(45deg,#820000,#ff0071)";
+  var angle = 45,
+      color1Position = 0,
+      color2Position = 100,
+      radialShape,
+      radialX = 50,
+      radialY = 50;
+
+  var _gradientColor$match = gradientColor.match(/\#[a-f\d]{6}|rgba?\([\d\,\.]{3,16}\)/gi),
+      _gradientColor$match2 = _slicedToArray(_gradientColor$match, 2),
+      color1 = _gradientColor$match2[0],
+      color2 = _gradientColor$match2[1];
+
+  var _gradientColor$match3 = gradientColor.match(/\w{6}(?=-)/i),
+      _gradientColor$match4 = _slicedToArray(_gradientColor$match3, 1),
+      gradientType = _gradientColor$match4[0];
+
+  if (gradientType == "linear") {
+    angle = gradientColor.match(/\d{1,3}(?=deg)/i)[0];
+    var colorsPositions = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
+    color1Position = colorsPositions[0];
+    color2Position = colorsPositions[1];
+  } else {
+    radialShape = gradientColor.match(/\w+(?= at)/i)[0];
+    radialX = gradientColor.match(/(?<=at )\d{1,3}/i)[0];
+    radialY = gradientColor.match(/(?<=% )\d{1,3}/i)[0];
+    color1Position = gradientColor.match(/\d{1,3}(?=% ,)/gi)[0];
+    color2Position = gradientColor.match(/\d{1,3}(?=%\))/gi)[0];
+  }
+
+  return {
+    gradientType: gradientType,
+    angle: parseInt(angle),
+    color1: color1,
+    color2: color2,
+    color1Position: parseInt(color1Position),
+    color2Position: parseInt(color2Position),
+    radialShape: radialShape,
+    radialX: parseInt(radialX),
+    radialY: parseInt(radialY)
+  };
+};
+
+/***/ }),
+
 /***/ "./util/gradient-color-controller/index.js":
 /*!*************************************************!*\
   !*** ./util/gradient-color-controller/index.js ***!
@@ -4336,6 +4313,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
 /* harmony import */ var _toggle_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../toggle-button */ "./util/toggle-button/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./util/gradient-color-controller/constants.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./util/gradient-color-controller/helpers.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4365,12 +4343,12 @@ var _wp$components = wp.components,
 
 
 
+
 var GradientColorControl = function GradientColorControl(_ref) {
-  var parseGradientColor = _ref.parseGradientColor,
-      gradientColor = _ref.gradientColor,
+  var gradientColor = _ref.gradientColor,
       onChange = _ref.onChange;
 
-  var _parseGradientColor = parseGradientColor(gradientColor),
+  var _parseGradientColor = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["parseGradientColor"])(gradientColor),
       bgGradientType = _parseGradientColor.gradientType,
       firstColor = _parseGradientColor.color1,
       grColorOnePosition = _parseGradientColor.color1Position,

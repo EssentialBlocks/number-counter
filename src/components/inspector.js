@@ -28,7 +28,6 @@ import ResetControl from "../../util/reset-control";
 import ToggleButton from "../../util/toggle-button";
 import { TypographyIcon } from "../../util/icons";
 import FontPicker from "../../util/typography-control/FontPicker";
-import { parseGradientColor } from "./helpers";
 
 import {
 	BACKGROUND_TYPES,
@@ -908,7 +907,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 						<PanelBody title={__("Gradient")} initialOpen={false}>
 							<GradientColorController
 								gradientColor={gradientColor}
-								parseGradientColor={parseGradientColor}
 								onChange={(gradientColor) => setAttributes({ gradientColor })}
 							/>
 						</PanelBody>

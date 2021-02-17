@@ -12,12 +12,9 @@ import PropTypes from "prop-types";
 import ColorControl from "../color-control";
 import ToggleButton from "../toggle-button";
 import { GRADIENT_TYPES, RADIAL_TYPES, FOCUS_COLOR } from "./constants";
+import { parseGradientColor } from "./helpers";
 
-const GradientColorControl = ({
-	parseGradientColor,
-	gradientColor,
-	onChange,
-}) => {
+const GradientColorControl = ({ gradientColor, onChange }) => {
 	const {
 		gradientType: bgGradientType,
 		color1: firstColor,
