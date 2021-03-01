@@ -220,6 +220,12 @@ const Edit = (props) => {
 			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit,
 		} = attributes;
 
+		const typoStylesDesktop = `
+			font-family: ${fontFamily ? fontFamily : "inherit"};
+			
+
+		`;
+
 		return {
 			fontFamily: fontFamily ? fontFamily : "inherit",
 			// fontSize: defaultFontSize

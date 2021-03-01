@@ -2301,6 +2301,7 @@ var Edit = function Edit(props) {
         MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
         MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
         MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")];
+    var typoStylesDesktop = "\n\t\t\tfont-family: ".concat(fontFamily ? fontFamily : "inherit", ";\n\t\t\t\n\n\t\t");
     return {
       fontFamily: fontFamily ? fontFamily : "inherit",
       // fontSize: defaultFontSize
