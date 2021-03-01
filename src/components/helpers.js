@@ -114,42 +114,6 @@ export const generateTypographyAttributes = (prefixArray) => {
 	}, {});
 };
 
-// function to generate typography styles for an element based on it's prefix
-export const generateTypographyStyles = (
-	attributes,
-	prefix,
-	defaultFontSize = false
-) => {
-	return {
-		fontFamily: attributes[`${prefix}FontFamily`]
-			? attributes[`${prefix}FontFamily`]
-			: "inherit",
-		// fontSize: defaultFontSize
-		// 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
-		// 			attributes[`${prefix}SizeUnit`]
-		// 	  }`
-		// 	: attributes[`${prefix}FontSize`]
-		// 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
-		// 	: "inherit",
-
-		fontSize: attributes[`${prefix}FontSize`]
-			? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
-			: defaultFontSize
-			? `${defaultFontSize}${attributes[`${prefix}SizeUnit`]}`
-			: "inherit",
-
-		fontWeight: attributes[`${prefix}FontWeight`],
-		textTransform: attributes[`${prefix}TextTransform`],
-		textDecoration: attributes[`${prefix}TextDecoration`],
-		letterSpacing: `${attributes[`${prefix}LetterSpacing`]}${
-			attributes[`${prefix}LetterSpacingUnit`]
-		} `,
-		lineHeight: `${attributes[`${prefix}LineHeight`]}${
-			attributes[`${prefix}LineHeightUnit`]
-		} `,
-	};
-};
-
 // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
 export const textInsideForEdit = (value, isShowSeparator, separator) =>
 	isShowSeparator

@@ -2267,22 +2267,68 @@ var Edit = function Edit(props) {
         randomNumber: genRandomNumber
       });
     }
-  }, []);
+  }, []); // function to generate typography styles for an element based on it's prefix
 
-  var titleStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["title"], 40));
+  var generateTypographyStyles = function generateTypographyStyles(prefixConstant) {
+    var defaultFontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
+        fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
+        textTransform = attributes["".concat(prefixConstant, "TextTransform")],
+        textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
+        fontSize = attributes["".concat(prefixConstant, "FontSize")],
+        sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
+        letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
+        letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
+        lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
+        lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
+        TABfontFamily = attributes["TAB".concat(prefixConstant, "FontFamily")],
+        TABfontWeight = attributes["TAB".concat(prefixConstant, "FontWeight")],
+        TABtextTransform = attributes["TAB".concat(prefixConstant, "TextTransform")],
+        TABtextDecoration = attributes["TAB".concat(prefixConstant, "TextDecoration")],
+        TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
+        TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
+        TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
+        TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
+        TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
+        TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
+        MOBfontFamily = attributes["MOB".concat(prefixConstant, "FontFamily")],
+        MOBfontWeight = attributes["MOB".concat(prefixConstant, "FontWeight")],
+        MOBtextTransform = attributes["MOB".concat(prefixConstant, "TextTransform")],
+        MOBtextDecoration = attributes["MOB".concat(prefixConstant, "TextDecoration")],
+        MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
+        MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
+        MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
+        MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
+        MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
+        MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")];
+    return {
+      fontFamily: fontFamily ? fontFamily : "inherit",
+      // fontSize: defaultFontSize
+      // 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
+      // 			attributes[`${prefix}SizeUnit`]
+      // 	  }`
+      // 	: attributes[`${prefix}FontSize`]
+      // 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
+      // 	: "inherit",
+      fontSize: attributes["".concat(prefixConstant, "FontSize")] ? "".concat(attributes["".concat(prefixConstant, "FontSize")]).concat(attributes["".concat(prefixConstant, "SizeUnit")]) : defaultFontSize ? "".concat(defaultFontSize).concat(attributes["".concat(prefixConstant, "SizeUnit")]) : "inherit",
+      fontWeight: attributes["".concat(prefixConstant, "FontWeight")],
+      textTransform: attributes["".concat(prefixConstant, "TextTransform")],
+      textDecoration: attributes["".concat(prefixConstant, "TextDecoration")],
+      letterSpacing: "".concat(attributes["".concat(prefixConstant, "LetterSpacing")]).concat(attributes["".concat(prefixConstant, "LetterSpacingUnit")], " "),
+      lineHeight: "".concat(attributes["".concat(prefixConstant, "LineHeight")]).concat(attributes["".concat(prefixConstant, "LineHeightUnit")], " ")
+    };
+  };
 
-  var numberStyles = _objectSpread(_objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["number"], 64)), {}, {
-    // color: numberColor,
-    paddingLeft: "".concat(gapNumPrefix, "px"),
-    paddingRight: "".concat(gapNumSuffix, "px")
-  });
+  var titleStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["title"], 40));
 
-  var numPrefixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numPrefix"]));
+  var numberStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["number"], 64));
 
-  var numSuffixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numSuffix"]));
+  var numPrefixStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numPrefix"]));
 
-  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t\t\t\t\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
-  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\tcolor : ").concat(numberColor, ";\n\t}\n\t");
+  var numSuffixStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numSuffix"]));
+
+  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
   var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
   var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
@@ -2343,13 +2389,12 @@ var Edit = function Edit(props) {
 /*!***********************************!*\
   !*** ./src/components/helpers.js ***!
   \***********************************/
-/*! exports provided: generateTypographyAttributes, generateTypographyStyles, textInsideForEdit, generateRandomNumber */
+/*! exports provided: generateTypographyAttributes, textInsideForEdit, generateRandomNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -2365,26 +2410,6 @@ var generateTypographyAttributes = function generateTypographyAttributes(prefixA
     var result = templateForTypographyAttributes.replace(/_prefix_/g, current);
     return _objectSpread(_objectSpread({}, total), JSON.parse(result));
   }, {});
-}; // function to generate typography styles for an element based on it's prefix
-
-var generateTypographyStyles = function generateTypographyStyles(attributes, prefix) {
-  var defaultFontSize = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  return {
-    fontFamily: attributes["".concat(prefix, "FontFamily")] ? attributes["".concat(prefix, "FontFamily")] : "inherit",
-    // fontSize: defaultFontSize
-    // 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
-    // 			attributes[`${prefix}SizeUnit`]
-    // 	  }`
-    // 	: attributes[`${prefix}FontSize`]
-    // 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
-    // 	: "inherit",
-    fontSize: attributes["".concat(prefix, "FontSize")] ? "".concat(attributes["".concat(prefix, "FontSize")]).concat(attributes["".concat(prefix, "SizeUnit")]) : defaultFontSize ? "".concat(defaultFontSize).concat(attributes["".concat(prefix, "SizeUnit")]) : "inherit",
-    fontWeight: attributes["".concat(prefix, "FontWeight")],
-    textTransform: attributes["".concat(prefix, "TextTransform")],
-    textDecoration: attributes["".concat(prefix, "TextDecoration")],
-    letterSpacing: "".concat(attributes["".concat(prefix, "LetterSpacing")]).concat(attributes["".concat(prefix, "LetterSpacingUnit")], " "),
-    lineHeight: "".concat(attributes["".concat(prefix, "LineHeight")]).concat(attributes["".concat(prefix, "LineHeightUnit")], " ")
-  };
 }; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
 
 var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
@@ -3290,7 +3315,6 @@ var Inspector = function Inspector(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -3304,7 +3328,6 @@ var RichText = wp.blockEditor.RichText;
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -3368,19 +3391,69 @@ var Save = function Save(props) {
       hoverBlur = attributes.hoverBlur,
       hoverSpread = attributes.hoverSpread,
       hoverInset = attributes.hoverInset,
-      wrapperTransitionTime = attributes.wrapperTransitionTime;
+      wrapperTransitionTime = attributes.wrapperTransitionTime; // function to generate typography styles for an element based on it's prefix
 
-  var titleStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40));
+  var generateTypographyStyles = function generateTypographyStyles(prefixConstant) {
+    var defaultFontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
+        fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
+        textTransform = attributes["".concat(prefixConstant, "TextTransform")],
+        textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
+        fontSize = attributes["".concat(prefixConstant, "FontSize")],
+        sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
+        letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
+        letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
+        lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
+        lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
+        TABfontFamily = attributes["TAB".concat(prefixConstant, "FontFamily")],
+        TABfontWeight = attributes["TAB".concat(prefixConstant, "FontWeight")],
+        TABtextTransform = attributes["TAB".concat(prefixConstant, "TextTransform")],
+        TABtextDecoration = attributes["TAB".concat(prefixConstant, "TextDecoration")],
+        TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
+        TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
+        TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
+        TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
+        TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
+        TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
+        MOBfontFamily = attributes["MOB".concat(prefixConstant, "FontFamily")],
+        MOBfontWeight = attributes["MOB".concat(prefixConstant, "FontWeight")],
+        MOBtextTransform = attributes["MOB".concat(prefixConstant, "TextTransform")],
+        MOBtextDecoration = attributes["MOB".concat(prefixConstant, "TextDecoration")],
+        MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
+        MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
+        MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
+        MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
+        MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
+        MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")];
+    return {
+      fontFamily: fontFamily ? fontFamily : "inherit",
+      // fontSize: defaultFontSize
+      // 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
+      // 			attributes[`${prefix}SizeUnit`]
+      // 	  }`
+      // 	: attributes[`${prefix}FontSize`]
+      // 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
+      // 	: "inherit",
+      fontSize: attributes["".concat(prefixConstant, "FontSize")] ? "".concat(attributes["".concat(prefixConstant, "FontSize")]).concat(attributes["".concat(prefixConstant, "SizeUnit")]) : defaultFontSize ? "".concat(defaultFontSize).concat(attributes["".concat(prefixConstant, "SizeUnit")]) : "inherit",
+      fontWeight: attributes["".concat(prefixConstant, "FontWeight")],
+      textTransform: attributes["".concat(prefixConstant, "TextTransform")],
+      textDecoration: attributes["".concat(prefixConstant, "TextDecoration")],
+      letterSpacing: "".concat(attributes["".concat(prefixConstant, "LetterSpacing")]).concat(attributes["".concat(prefixConstant, "LetterSpacingUnit")], " "),
+      lineHeight: "".concat(attributes["".concat(prefixConstant, "LineHeight")]).concat(attributes["".concat(prefixConstant, "LineHeightUnit")], " ")
+    };
+  };
 
-  var numberStyles = _objectSpread(_objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 64)), {}, {
+  var titleStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40));
+
+  var numberStyles = _objectSpread(_objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 64)), {}, {
     // color: numberColor,
     paddingLeft: "".concat(gapNumPrefix, "px"),
     paddingRight: "".concat(gapNumSuffix, "px")
   });
 
-  var numPrefixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]));
+  var numPrefixStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]));
 
-  var numSuffixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]));
+  var numSuffixStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]));
 
   var wrapperStyles = {// marginTop: `${marginTop || 0}${marginUnit}`,
     // marginBottom: `${marginBottom || 0}${marginUnit}`,

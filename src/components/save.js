@@ -14,7 +14,6 @@ import {
 	numPrefix,
 	numSuffix,
 } from "./constants/typographyPrefixConstants";
-import { generateTypographyStyles } from "./helpers";
 
 const Save = (props) => {
 	const { attributes } = props;
@@ -95,25 +94,95 @@ const Save = (props) => {
 		wrapperTransitionTime,
 	} = attributes;
 
+	// function to generate typography styles for an element based on it's prefix
+	const generateTypographyStyles = (
+		prefixConstant,
+		defaultFontSize = false
+	) => {
+		const {
+			[`${prefixConstant}FontFamily`]: fontFamily,
+			[`${prefixConstant}FontWeight`]: fontWeight,
+			[`${prefixConstant}TextTransform`]: textTransform,
+			[`${prefixConstant}TextDecoration`]: textDecoration,
+			[`${prefixConstant}FontSize`]: fontSize,
+			[`${prefixConstant}SizeUnit`]: sizeUnit,
+			[`${prefixConstant}LetterSpacing`]: letterSpacing,
+			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
+			[`${prefixConstant}LineHeight`]: lineHeight,
+			[`${prefixConstant}LineHeightUnit`]: lineHeightUnit,
+
+			[`TAB${prefixConstant}FontFamily`]: TABfontFamily,
+			[`TAB${prefixConstant}FontWeight`]: TABfontWeight,
+			[`TAB${prefixConstant}TextTransform`]: TABtextTransform,
+			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
+			[`TAB${prefixConstant}FontSize`]: TABfontSize,
+			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit,
+			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
+			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit,
+			[`TAB${prefixConstant}LineHeight`]: TABlineHeight,
+			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit,
+
+			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily,
+			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight,
+			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform,
+			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration,
+			[`MOB${prefixConstant}FontSize`]: MOBfontSize,
+			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit,
+			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing,
+			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit,
+			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight,
+			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit,
+		} = attributes;
+
+		return {
+			fontFamily: fontFamily ? fontFamily : "inherit",
+			// fontSize: defaultFontSize
+			// 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
+			// 			attributes[`${prefix}SizeUnit`]
+			// 	  }`
+			// 	: attributes[`${prefix}FontSize`]
+			// 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
+			// 	: "inherit",
+
+			fontSize: attributes[`${prefixConstant}FontSize`]
+				? `${attributes[`${prefixConstant}FontSize`]}${
+						attributes[`${prefixConstant}SizeUnit`]
+				  }`
+				: defaultFontSize
+				? `${defaultFontSize}${attributes[`${prefixConstant}SizeUnit`]}`
+				: "inherit",
+
+			fontWeight: attributes[`${prefixConstant}FontWeight`],
+			textTransform: attributes[`${prefixConstant}TextTransform`],
+			textDecoration: attributes[`${prefixConstant}TextDecoration`],
+			letterSpacing: `${attributes[`${prefixConstant}LetterSpacing`]}${
+				attributes[`${prefixConstant}LetterSpacingUnit`]
+			} `,
+			lineHeight: `${attributes[`${prefixConstant}LineHeight`]}${
+				attributes[`${prefixConstant}LineHeightUnit`]
+			} `,
+		};
+	};
+
 	const titleStyles = {
-		...generateTypographyStyles(attributes, title, 40),
+		...generateTypographyStyles(title, 40),
 
 		// color: titleColor,
 	};
 	const numberStyles = {
-		...generateTypographyStyles(attributes, number, 64),
+		...generateTypographyStyles(number, 64),
 
 		// color: numberColor,
 		paddingLeft: `${gapNumPrefix}px`,
 		paddingRight: `${gapNumSuffix}px`,
 	};
 	const numPrefixStyles = {
-		...generateTypographyStyles(attributes, numPrefix),
+		...generateTypographyStyles(numPrefix),
 
 		// color: numPrefixColor,
 	};
 	const numSuffixStyles = {
-		...generateTypographyStyles(attributes, numSuffix),
+		...generateTypographyStyles(numSuffix),
 
 		// color: numSuffixColor,
 	};
