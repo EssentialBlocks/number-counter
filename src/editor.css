@@ -512,3 +512,29 @@
 //
 //
 // */
+
+.eb-resButtons {
+	display: flex;
+	justify-content: space-between;
+	background-color: #aaa;
+	padding: 10px 5px;
+	margin-bottom: 10px;
+	gap: 5px;
+}
+
+button.eb-res-btn {
+	background: #fff;
+	border: 1px solid #fff;
+	padding: 5px 0;
+	flex: 1;
+}
+
+button.eb-res-btn.active {
+	background: #ccc;
+	border: 1px solid #ccc;
+}
+
+.edit-post-visual-editor.editor-styles-wrapper {
+	margin: auto;
+	width: 100%;
+}

@@ -1313,7 +1313,147 @@ if (false) {} else {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony import */ var _components_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
+/* harmony import */ var _components_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/helpers */ "./src/components/helpers.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_objectSpread(_objectSpread({
+  // responsive control attributes ⬇
+  resOption: {
+    type: "string",
+    "default": "desktop"
+  },
+  // randomNumber attribute for making unique className
+  randomNumber: {
+    type: "number"
+  }
+}, Object(_components_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyAttributes"])(Object.values(_components_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__))), {}, {
+  // MOBnumberFontFamily: { type: "string" },
+  // MOBnumberFontSize: { type: "number" },
+  // MOBnumberFontWeight: { type: "string" },
+  // MOBnumberLetterSpacing: { type: "number" },
+  // MOBnumberLetterSpacingUnit: { type: "string" },
+  // MOBnumberLineHeight: { type: "number" },
+  // MOBnumberLineHeightUnit: { type: "string" },
+  // MOBnumberSizeUnit: { type: "string" },
+  // MOBnumberTextDecoration: { type: "string" },
+  // MOBnumberTextTransform: { type: "string" },
+  // MOBprefixFontFamily: { type: "string" },
+  // MOBprefixFontSize: { type: "number" },
+  // MOBprefixFontWeight: { type: "string" },
+  // MOBprefixLetterSpacing: { type: "number" },
+  // MOBprefixLetterSpacingUnit: { type: "string" },
+  // MOBprefixLineHeight: { type: "number" },
+  // MOBprefixLineHeightUnit: { type: "string" },
+  // MOBprefixSizeUnit: { type: "string" },
+  // MOBprefixTextDecoration: { type: "string" },
+  // MOBprefixTextTransform: { type: "string" },
+  // MOBsuffixFontFamily: { type: "string" },
+  // MOBsuffixFontSize: { type: "number" },
+  // MOBsuffixFontWeight: { type: "string" },
+  // MOBsuffixLetterSpacing: { type: "number" },
+  // MOBsuffixLetterSpacingUnit: { type: "string" },
+  // MOBsuffixLineHeight: { type: "number" },
+  // MOBsuffixLineHeightUnit: { type: "string" },
+  // MOBsuffixSizeUnit: { type: "string" },
+  // MOBsuffixTextDecoration: { type: "string" },
+  // MOBsuffixTextTransform: { type: "string" },
+  // MOBtitleFontFamily: { type: "string" },
+  // MOBtitleFontSize: { type: "number" },
+  // MOBtitleFontWeight: { type: "string" },
+  // MOBtitleLetterSpacing: { type: "number" },
+  // MOBtitleLetterSpacingUnit: { type: "string" },
+  // MOBtitleLineHeight: { type: "number" },
+  // MOBtitleLineHeightUnit: { type: "string" },
+  // MOBtitleSizeUnit: { type: "string" },
+  // MOBtitleTextDecoration: { type: "string" },
+  // MOBtitleTextTransform: { type: "string" },
+  // TABnumberFontFamily: { type: "string" },
+  // TABnumberFontSize: { type: "number" },
+  // TABnumberFontWeight: { type: "string" },
+  // TABnumberLetterSpacing: { type: "number" },
+  // TABnumberLetterSpacingUnit: { type: "string" },
+  // TABnumberLineHeight: { type: "number" },
+  // TABnumberLineHeightUnit: { type: "string" },
+  // TABnumberSizeUnit: { type: "string" },
+  // TABnumberTextDecoration: { type: "string" },
+  // TABnumberTextTransform: { type: "string" },
+  // TABprefixFontFamily: { type: "string" },
+  // TABprefixFontSize: { type: "number" },
+  // TABprefixFontWeight: { type: "string" },
+  // TABprefixLetterSpacing: { type: "number" },
+  // TABprefixLetterSpacingUnit: { type: "string" },
+  // TABprefixLineHeight: { type: "number" },
+  // TABprefixLineHeightUnit: { type: "string" },
+  // TABprefixSizeUnit: { type: "string" },
+  // TABprefixTextDecoration: { type: "string" },
+  // TABprefixTextTransform: { type: "string" },
+  // TABsuffixFontFamily: { type: "string" },
+  // TABsuffixFontSize: { type: "number" },
+  // TABsuffixFontWeight: { type: "string" },
+  // TABsuffixLetterSpacing: { type: "number" },
+  // TABsuffixLetterSpacingUnit: { type: "string" },
+  // TABsuffixLineHeight: { type: "number" },
+  // TABsuffixLineHeightUnit: { type: "string" },
+  // TABsuffixSizeUnit: { type: "string" },
+  // TABsuffixTextDecoration: { type: "string" },
+  // TABsuffixTextTransform: { type: "string" },
+  // TABtitleFontFamily: { type: "string" },
+  // TABtitleFontSize: { type: "number" },
+  // TABtitleFontWeight: { type: "string" },
+  // TABtitleLetterSpacing: { type: "number" },
+  // TABtitleLetterSpacingUnit: { type: "string" },
+  // TABtitleLineHeight: { type: "number" },
+  // TABtitleLineHeightUnit: { type: "string" },
+  // TABtitleSizeUnit: { type: "string" },
+  // TABtitleTextDecoration: { type: "string" },
+  // TABtitleTextTransform: { type: "string" },
+  // numberFontFamily: { type: "string" },
+  // numberFontSize: { type: "number" },
+  // numberFontWeight: { type: "string", default: "400" },
+  // numberLetterSpacing: { type: "number", default: 0 },
+  // numberLetterSpacingUnit: { type: "string", default: "px" },
+  // numberLineHeight: { type: "number", default: 1 },
+  // numberLineHeightUnit: { type: "string", default: "em" },
+  // numberSizeUnit: { type: "string", default: "px" },
+  // numberTextDecoration: { type: "string", default: "initial" },
+  // numberTextTransform: { type: "string", default: "none" },
+  // prefixFontFamily: { type: "string" },
+  // prefixFontSize: { type: "number" },
+  // prefixFontWeight: { type: "string", default: "400" },
+  // prefixLetterSpacing: { type: "number", default: 0 },
+  // prefixLetterSpacingUnit: { type: "string", default: "px" },
+  // prefixLineHeight: { type: "number", default: 1 },
+  // prefixLineHeightUnit: { type: "string", default: "em" },
+  // prefixSizeUnit: { type: "string", default: "px" },
+  // prefixTextDecoration: { type: "string", default: "initial" },
+  // prefixTextTransform: { type: "string", default: "none" },
+  // suffixFontFamily: { type: "string" },
+  // suffixFontSize: { type: "number" },
+  // suffixFontWeight: { type: "string", default: "400" },
+  // suffixLetterSpacing: { type: "number", default: 0 },
+  // suffixLetterSpacingUnit: { type: "string", default: "px" },
+  // suffixLineHeight: { type: "number", default: 1 },
+  // suffixLineHeightUnit: { type: "string", default: "em" },
+  // suffixSizeUnit: { type: "string", default: "px" },
+  // suffixTextDecoration: { type: "string", default: "initial" },
+  // suffixTextTransform: { type: "string", default: "none" },
+  // titleFontFamily: { type: "string" },
+  // titleFontSize: { type: "number" },
+  // titleFontWeight: { type: "string", default: "400" },
+  // titleLetterSpacing: { type: "number", default: 0 },
+  // titleLetterSpacingUnit: { type: "string", default: "px" },
+  // titleLineHeight: { type: "number", default: 1 },
+  // titleLineHeightUnit: { type: "string", default: "em" },
+  // titleSizeUnit: { type: "string", default: "px" },
+  // titleTextDecoration: { type: "string", default: "initial" },
+  // titleTextTransform: { type: "string", default: "none" },
   // counter settings attributes ⬇
   startValue: {
     type: "string",
@@ -1359,6 +1499,7 @@ __webpack_require__.r(__webpack_exports__);
     type: "string",
     "default": "Default"
   },
+  // color attributes ⬇
   titleColor: {
     type: "string",
     "default": "#566162"
@@ -1375,16 +1516,42 @@ __webpack_require__.r(__webpack_exports__);
     type: "string",
     "default": "#3074ff"
   },
+  TABtitleColor: {
+    type: "string"
+  },
+  TABnumberColor: {
+    type: "string"
+  },
+  TABnumPrefixColor: {
+    type: "string"
+  },
+  TABnumSuffixColor: {
+    type: "string"
+  },
+  MOBtitleColor: {
+    type: "string"
+  },
+  MOBnumberColor: {
+    type: "string"
+  },
+  MOBnumPrefixColor: {
+    type: "string"
+  },
+  MOBnumSuffixColor: {
+    type: "string"
+  },
   // spacing attributes ⬇
   gapNumTitle: {
     type: "number",
-    "default": 30
+    "default": 10
   },
   gapNumPrefix: {
-    type: "number"
+    type: "number",
+    "default": 0
   },
   gapNumSuffix: {
-    type: "number"
+    type: "number",
+    "default": 0
   },
   // margin padding attributes ⬇
   marginUnit: {
@@ -1521,165 +1688,232 @@ __webpack_require__.r(__webpack_exports__);
   wrapperTransitionTime: {
     type: "string",
     "default": "500"
-  },
-  // Typography Attributes  ⬇
-  // title typography attributes  ⬇
-  titleFontFamily: {
-    type: "string"
-  },
-  titleSizeUnit: {
-    type: "string",
-    "default": "px"
-  },
-  titleFontSize: {
-    type: "number"
-  },
-  titleFontWeight: {
-    type: "string",
-    "default": "400"
-  },
-  titleTextTransform: {
-    type: "string",
-    "default": "none"
-  },
-  titleTextDecoration: {
-    type: "string",
-    "default": "initial"
-  },
-  titleLetterSpacingUnit: {
-    type: "string",
-    "default": "px"
-  },
-  titleLetterSpacing: {
-    type: "number",
-    "default": 0
-  },
-  titleLineHeightUnit: {
-    type: "string",
-    "default": "em"
-  },
-  titleLineHeight: {
-    type: "number",
-    "default": 1
-  },
-  // number typography attributes  ⬇
-  numberFontFamily: {
-    type: "string"
-  },
-  numberSizeUnit: {
-    type: "string",
-    "default": "px"
-  },
-  numberFontSize: {
-    type: "number"
-  },
-  numberFontWeight: {
-    type: "string",
-    "default": "400"
-  },
-  numberTextTransform: {
-    type: "string",
-    "default": "none"
-  },
-  numberTextDecoration: {
-    type: "string",
-    "default": "initial"
-  },
-  numberLetterSpacingUnit: {
-    type: "string",
-    "default": "px"
-  },
-  numberLetterSpacing: {
-    type: "number",
-    "default": 0
-  },
-  numberLineHeightUnit: {
-    type: "string",
-    "default": "em"
-  },
-  numberLineHeight: {
-    type: "number",
-    "default": 1
-  },
-  // prefix typography attributes  ⬇
-  prefixFontFamily: {
-    type: "string"
-  },
-  prefixSizeUnit: {
-    type: "string",
-    "default": "px"
-  },
-  prefixFontSize: {
-    type: "number"
-  },
-  prefixFontWeight: {
-    type: "string",
-    "default": "400"
-  },
-  prefixTextTransform: {
-    type: "string",
-    "default": "none"
-  },
-  prefixTextDecoration: {
-    type: "string",
-    "default": "initial"
-  },
-  prefixLetterSpacingUnit: {
-    type: "string",
-    "default": "px"
-  },
-  prefixLetterSpacing: {
-    type: "number",
-    "default": 0
-  },
-  prefixLineHeightUnit: {
-    type: "string",
-    "default": "em"
-  },
-  prefixLineHeight: {
-    type: "number",
-    "default": 1
-  },
-  // suffix typography attributes  ⬇
-  suffixFontFamily: {
-    type: "string"
-  },
-  suffixSizeUnit: {
-    type: "string",
-    "default": "px"
-  },
-  suffixFontSize: {
-    type: "number"
-  },
-  suffixFontWeight: {
-    type: "string",
-    "default": "400"
-  },
-  suffixTextTransform: {
-    type: "string",
-    "default": "none"
-  },
-  suffixTextDecoration: {
-    type: "string",
-    "default": "initial"
-  },
-  suffixLetterSpacingUnit: {
-    type: "string",
-    "default": "px"
-  },
-  suffixLetterSpacing: {
-    type: "number",
-    "default": 0
-  },
-  suffixLineHeightUnit: {
-    type: "string",
-    "default": "em"
-  },
-  suffixLineHeight: {
-    type: "number",
-    "default": 1
-  }
-});
+  } // // Typography Attributes  ⬇
+  // // title typography attributes  ⬇
+  // titleFontFamily: {
+  // 	type: "string",
+  // },
+  // titleSizeUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // titleFontSize: {
+  // 	type: "number",
+  // },
+  // titleFontWeight: {
+  // 	type: "string",
+  // 	default: "400",
+  // },
+  // titleTextTransform: {
+  // 	type: "string",
+  // 	default: "none",
+  // },
+  // titleTextDecoration: {
+  // 	type: "string",
+  // 	default: "initial",
+  // },
+  // titleLetterSpacingUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // titleLetterSpacing: {
+  // 	type: "number",
+  // 	default: 0,
+  // },
+  // titleLineHeightUnit: {
+  // 	type: "string",
+  // 	default: "em",
+  // },
+  // titleLineHeight: {
+  // 	type: "number",
+  // 	default: 1,
+  // },
+  // // number typography attributes  ⬇
+  // numberFontFamily: {
+  // 	type: "string",
+  // },
+  // numberSizeUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // numberFontSize: {
+  // 	type: "number",
+  // },
+  // numberFontWeight: {
+  // 	type: "string",
+  // 	default: "400",
+  // },
+  // numberTextTransform: {
+  // 	type: "string",
+  // 	default: "none",
+  // },
+  // numberTextDecoration: {
+  // 	type: "string",
+  // 	default: "initial",
+  // },
+  // numberLetterSpacingUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // numberLetterSpacing: {
+  // 	type: "number",
+  // 	default: 0,
+  // },
+  // numberLineHeightUnit: {
+  // 	type: "string",
+  // 	default: "em",
+  // },
+  // numberLineHeight: {
+  // 	type: "number",
+  // 	default: 1,
+  // },
+  // // prefix typography attributes  ⬇
+  // prefixFontFamily: {
+  // 	type: "string",
+  // },
+  // prefixSizeUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // prefixFontSize: {
+  // 	type: "number",
+  // },
+  // prefixFontWeight: {
+  // 	type: "string",
+  // 	default: "400",
+  // },
+  // prefixTextTransform: {
+  // 	type: "string",
+  // 	default: "none",
+  // },
+  // prefixTextDecoration: {
+  // 	type: "string",
+  // 	default: "initial",
+  // },
+  // prefixLetterSpacingUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // prefixLetterSpacing: {
+  // 	type: "number",
+  // 	default: 0,
+  // },
+  // prefixLineHeightUnit: {
+  // 	type: "string",
+  // 	default: "em",
+  // },
+  // prefixLineHeight: {
+  // 	type: "number",
+  // 	default: 1,
+  // },
+  // // suffix typography attributes  ⬇
+  // suffixFontFamily: {
+  // 	type: "string",
+  // },
+  // suffixSizeUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // suffixFontSize: {
+  // 	type: "number",
+  // },
+  // suffixFontWeight: {
+  // 	type: "string",
+  // 	default: "400",
+  // },
+  // suffixTextTransform: {
+  // 	type: "string",
+  // 	default: "none",
+  // },
+  // suffixTextDecoration: {
+  // 	type: "string",
+  // 	default: "initial",
+  // },
+  // suffixLetterSpacingUnit: {
+  // 	type: "string",
+  // 	default: "px",
+  // },
+  // suffixLetterSpacing: {
+  // 	type: "number",
+  // 	default: 0,
+  // },
+  // suffixLineHeightUnit: {
+  // 	type: "string",
+  // 	default: "em",
+  // },
+  // suffixLineHeight: {
+  // 	type: "number",
+  // 	default: 1,
+  // },
+
+}));
+
+/***/ }),
+
+/***/ "./src/components/ResPanelBody.js":
+/*!****************************************!*\
+  !*** ./src/components/ResPanelBody.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var PanelBody = wp.components.PanelBody;
+
+function ResPanelBody(props) {
+  console.log("----------ResPanelBody", {
+    props: props
+  });
+  var title = props.title,
+      initialOpen = props.initialOpen,
+      children = props.children,
+      resRequiredProps = props.resRequiredProps;
+  var resOption = resRequiredProps.resOption,
+      setAttributes = resRequiredProps.setAttributes;
+
+  var handleDesktopBtnClick = function handleDesktopBtnClick() {
+    document.body.classList.add("eb-res-option-desktop");
+    document.body.classList.remove("eb-res-option-tab", "eb-res-option-mobile");
+    setAttributes({
+      resOption: "desktop"
+    });
+  };
+
+  var handleTabBtnClick = function handleTabBtnClick() {
+    document.body.classList.add("eb-res-option-tab");
+    document.body.classList.remove("eb-res-option-desktop", "eb-res-option-mobile");
+    setAttributes({
+      resOption: "tab"
+    });
+  };
+
+  var handleMobileBtnClick = function handleMobileBtnClick() {
+    document.body.classList.add("eb-res-option-mobile");
+    document.body.classList.remove("eb-res-option-desktop", "eb-res-option-tab");
+    setAttributes({
+      resOption: "mobile"
+    });
+  };
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(PanelBody, {
+    title: title,
+    initialOpen: initialOpen
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eb-resButtons"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "eb-res-btn eb-res-btn-desktop ".concat(resOption == "desktop" && "active"),
+    onClick: handleDesktopBtnClick
+  }, "Desktop"), /*#__PURE__*/React.createElement("button", {
+    className: "eb-res-btn eb-res-btn-tab ".concat(resOption == "tab" && "active"),
+    onClick: handleTabBtnClick
+  }, "Tab"), /*#__PURE__*/React.createElement("button", {
+    className: "eb-res-btn eb-res-btn-mobile ".concat(resOption == "mobile" && "active"),
+    onClick: handleMobileBtnClick
+  }, "Mobile")), children));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ResPanelBody);
 
 /***/ }),
 
@@ -1853,6 +2087,26 @@ var SHADOW_HOVER_OPTIONS = [{
 
 /***/ }),
 
+/***/ "./src/components/constants/typographyPrefixConstants.js":
+/*!***************************************************************!*\
+  !*** ./src/components/constants/typographyPrefixConstants.js ***!
+  \***************************************************************/
+/*! exports provided: title, number, numPrefix, numSuffix */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "title", function() { return title; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "number", function() { return number; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numPrefix", function() { return numPrefix; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numSuffix", function() { return numSuffix; });
+var title = "title";
+var number = "number";
+var numPrefix = "prefix";
+var numSuffix = "suffix";
+
+/***/ }),
+
 /***/ "./src/components/edit.js":
 /*!********************************!*\
   !*** ./src/components/edit.js ***!
@@ -1863,6 +2117,14 @@ var SHADOW_HOVER_OPTIONS = [{
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./inspector */ "./src/components/inspector.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /**
  * WordPress dependencies
  */
@@ -1874,17 +2136,17 @@ var RichText = wp.blockEditor.RichText;
  * Internal dependencies
  */
 
- // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
 
-var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
-  return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
-};
 
-var Edit = function Edit(_ref) {
-  var isSelected = _ref.isSelected,
-      attributes = _ref.attributes,
-      setAttributes = _ref.setAttributes;
-  var target = attributes.target,
+
+
+var Edit = function Edit(props) {
+  var isSelected = props.isSelected,
+      attributes = props.attributes,
+      setAttributes = props.setAttributes;
+  console.log("--------edit:", props);
+  var randomNumber = attributes.randomNumber,
+      target = attributes.target,
       duration = attributes.duration,
       counterTitle = attributes.counterTitle,
       counterSuffix = attributes.counterSuffix,
@@ -1892,11 +2154,19 @@ var Edit = function Edit(_ref) {
       startValue = attributes.startValue,
       isShowSeparator = attributes.isShowSeparator,
       separator = attributes.separator,
+      wrapperFlexDirection = attributes.wrapperFlexDirection,
       titleColor = attributes.titleColor,
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      wrapperFlexDirection = attributes.wrapperFlexDirection,
+      TABtitleColor = attributes.TABtitleColor,
+      TABnumberColor = attributes.TABnumberColor,
+      TABnumPrefixColor = attributes.TABnumPrefixColor,
+      TABnumSuffixColor = attributes.TABnumSuffixColor,
+      MOBtitleColor = attributes.MOBtitleColor,
+      MOBnumberColor = attributes.MOBnumberColor,
+      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
+      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
@@ -1933,47 +2203,7 @@ var Edit = function Edit(_ref) {
       hoverBlur = attributes.hoverBlur,
       hoverSpread = attributes.hoverSpread,
       hoverInset = attributes.hoverInset,
-      wrapperTransitionTime = attributes.wrapperTransitionTime,
-      titleFontFamily = attributes.titleFontFamily,
-      titleSizeUnit = attributes.titleSizeUnit,
-      titleFontSize = attributes.titleFontSize,
-      titleFontWeight = attributes.titleFontWeight,
-      titleTextTransform = attributes.titleTextTransform,
-      titleTextDecoration = attributes.titleTextDecoration,
-      titleLetterSpacingUnit = attributes.titleLetterSpacingUnit,
-      titleLetterSpacing = attributes.titleLetterSpacing,
-      titleLineHeightUnit = attributes.titleLineHeightUnit,
-      titleLineHeight = attributes.titleLineHeight,
-      numberFontFamily = attributes.numberFontFamily,
-      numberSizeUnit = attributes.numberSizeUnit,
-      numberFontSize = attributes.numberFontSize,
-      numberFontWeight = attributes.numberFontWeight,
-      numberTextTransform = attributes.numberTextTransform,
-      numberTextDecoration = attributes.numberTextDecoration,
-      numberLetterSpacingUnit = attributes.numberLetterSpacingUnit,
-      numberLetterSpacing = attributes.numberLetterSpacing,
-      numberLineHeightUnit = attributes.numberLineHeightUnit,
-      numberLineHeight = attributes.numberLineHeight,
-      prefixFontFamily = attributes.prefixFontFamily,
-      prefixSizeUnit = attributes.prefixSizeUnit,
-      prefixFontSize = attributes.prefixFontSize,
-      prefixFontWeight = attributes.prefixFontWeight,
-      prefixTextTransform = attributes.prefixTextTransform,
-      prefixTextDecoration = attributes.prefixTextDecoration,
-      prefixLetterSpacingUnit = attributes.prefixLetterSpacingUnit,
-      prefixLetterSpacing = attributes.prefixLetterSpacing,
-      prefixLineHeightUnit = attributes.prefixLineHeightUnit,
-      prefixLineHeight = attributes.prefixLineHeight,
-      suffixFontFamily = attributes.suffixFontFamily,
-      suffixSizeUnit = attributes.suffixSizeUnit,
-      suffixFontSize = attributes.suffixFontSize,
-      suffixFontWeight = attributes.suffixFontWeight,
-      suffixTextTransform = attributes.suffixTextTransform,
-      suffixTextDecoration = attributes.suffixTextDecoration,
-      suffixLetterSpacingUnit = attributes.suffixLetterSpacingUnit,
-      suffixLetterSpacing = attributes.suffixLetterSpacing,
-      suffixLineHeightUnit = attributes.suffixLineHeightUnit,
-      suffixLineHeight = attributes.suffixLineHeight;
+      wrapperTransitionTime = attributes.wrapperTransitionTime;
   var counterRef = useRef(null);
 
   var CounterAnimation = function CounterAnimation() {
@@ -1985,14 +2215,14 @@ var Edit = function Edit(_ref) {
     var timeoutId = setTimeout(function () {
       function updateCount() {
         cleanStartValue += increaseBy;
-        counterRef.current.innerText = textInsideForEdit(Math.floor(cleanStartValue), isShowSeparator, separator);
+        counterRef.current.innerText = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["textInsideForEdit"])(Math.floor(cleanStartValue), isShowSeparator, separator);
 
         if (cleanStartValue < endTarget) {
           timeoutIdInside = setTimeout(function () {
             updateCount();
           }, 53);
         } else {
-          counterRef.current.innerText = textInsideForEdit(endTarget, isShowSeparator, separator);
+          counterRef.current.innerText = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["textInsideForEdit"])(endTarget, isShowSeparator, separator);
         }
       }
 
@@ -2007,72 +2237,68 @@ var Edit = function Edit(_ref) {
   useEffect(function () {
     return CounterAnimation();
   }, [target, duration, startValue, separator, isShowSeparator]);
-  var titleStyles = {
-    fontFamily: titleFontFamily || "inherit",
-    fontSize: titleFontSize ? "".concat(titleFontSize).concat(titleSizeUnit) : "40px",
-    fontWeight: titleFontWeight,
-    textTransform: titleTextTransform,
-    textDecoration: titleTextDecoration,
-    letterSpacing: "".concat(titleLetterSpacing).concat(titleLetterSpacingUnit),
-    lineHeight: "".concat(titleLineHeight).concat(titleLineHeightUnit),
-    color: titleColor
-  };
-  var numberStyles = {
-    fontFamily: numberFontFamily || "inherit",
-    fontSize: numberFontSize ? "".concat(numberFontSize).concat(numberSizeUnit) : "64px",
-    fontWeight: numberFontWeight,
-    textTransform: numberTextTransform,
-    textDecoration: numberTextDecoration,
-    letterSpacing: "".concat(numberLetterSpacing).concat(numberLetterSpacingUnit),
-    lineHeight: "".concat(numberLineHeight).concat(numberLineHeightUnit),
-    color: numberColor,
+  useEffect(function () {
+    var bodyClasses = document.body.className;
+
+    if (!bodyClasses.includes("eb-res-option-")) {
+      document.body.classList.add("eb-res-option-desktop");
+    } else if (bodyClasses.includes("eb-res-option-desktop")) {
+      setAttributes({
+        resOption: "desktop"
+      });
+    } else if (bodyClasses.includes("eb-res-option-tab")) {
+      setAttributes({
+        resOption: "tab"
+      });
+    } else if (bodyClasses.includes("eb-res-option-mobile")) {
+      setAttributes({
+        resOption: "mobile"
+      });
+    }
+
+    console.log("-----edit er moddhe theke useEffect on [] log holo", {
+      bodyClasses: bodyClasses
+    });
+    var genRandomNumber = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateRandomNumber"])();
+    var anotherSameClassElements = document.querySelectorAll(".eb-counter-wrapper-".concat(randomNumber));
+
+    if (!randomNumber || anotherSameClassElements[1]) {
+      setAttributes({
+        randomNumber: genRandomNumber
+      });
+    }
+  }, []);
+
+  var titleStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["title"], 40));
+
+  var numberStyles = _objectSpread(_objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["number"], 64)), {}, {
+    // color: numberColor,
     paddingLeft: "".concat(gapNumPrefix, "px"),
     paddingRight: "".concat(gapNumSuffix, "px")
-  };
-  var numPrefixStyles = {
-    fontFamily: prefixFontFamily || "inherit",
-    fontSize: prefixFontSize ? "".concat(prefixFontSize).concat(prefixSizeUnit) : "inherit",
-    fontWeight: prefixFontWeight,
-    textTransform: prefixTextTransform,
-    textDecoration: prefixTextDecoration,
-    letterSpacing: "".concat(prefixLetterSpacing).concat(prefixLetterSpacingUnit),
-    lineHeight: "".concat(prefixLineHeight).concat(prefixLineHeightUnit),
-    color: numPrefixColor
-  };
-  var numSuffixStyles = {
-    fontFamily: suffixFontFamily || "inherit",
-    fontSize: suffixFontSize ? "".concat(suffixFontSize).concat(suffixSizeUnit) : "inherit",
-    fontWeight: suffixFontWeight,
-    textTransform: suffixTextTransform,
-    textDecoration: suffixTextDecoration,
-    letterSpacing: "".concat(suffixLetterSpacing).concat(suffixLetterSpacingUnit),
-    lineHeight: "".concat(suffixLineHeight).concat(suffixLineHeightUnit),
-    color: numSuffixColor
-  };
-  var wrapperStyles = {
-    marginTop: "".concat(marginTop || 0).concat(marginUnit),
-    marginBottom: "".concat(marginBottom || 0).concat(marginUnit),
-    marginLeft: "".concat(marginLeft || 0).concat(marginUnit),
-    marginRight: "".concat(marginRight || 0).concat(marginUnit),
-    paddingTop: "".concat(paddingTop || 0).concat(paddingUnit),
-    paddingBottom: "".concat(paddingBottom || 0).concat(paddingUnit),
-    paddingRight: "".concat(paddingRight || 0).concat(paddingUnit),
-    paddingLeft: "".concat(paddingLeft || 0).concat(paddingUnit),
-    gap: "".concat(gapNumTitle, "px"),
-    flexDirection: wrapperFlexDirection,
-    backgroundImage: backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none",
-    backgroundSize: backgroundSize,
-    backgroundColor: backgroundType === "fill" && backgroundColor || "transparent",
-    border: "".concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000"),
-    borderRadius: "".concat(borderRadius || 0).concat(radiusUnit),
-    boxShadow: isHover ? "".concat(hoverHOffset || 0, "px ").concat(hoverVOffset || 0, "px ").concat(hoverBlur || 0, "px ").concat(hoverSpread || 0, "px ").concat(hoverShadowColor || "#000000", " ").concat(hoverInset ? "inset" : "") : "".concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(shadowColor || "#000000", " ").concat(inset ? "inset" : ""),
-    transition: wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s"
-  };
+  });
+
+  var numPrefixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numPrefix"]));
+
+  var numSuffixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numSuffix"]));
+
+  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t\t\t\t\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\tcolor : ").concat(numberColor, ";\n\t}\n\t");
+  var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
+  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
+  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
+  var numberStylesTab = "   .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t} ");
+  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t}  ");
+  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\tcolor : ").concat(TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
+  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t} ");
+  var numberStylesMobile = " .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t}");
+  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t} ");
+  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\tcolor : ").concat(MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
+  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t}\n\n\t");
   return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "eb-counter-wrapper",
+  }), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\n\t\t\t\t".concat(wrapperStylesDesktop, "\n\t\t\t\t").concat(numberStylesDesktop, "\n\t\t\t\t").concat(titleStylesDesktop, "\n\t\t\t\t").concat(numPrefixStylesDesktop, "\n\t\t\t\t").concat(numSuffixStylesDesktop, "\n\t\t\t\t\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(numberStylesTab, "\n\t\t\t\t\t").concat(titleStylesTab, "\n\t\t\t\t\t").concat(numPrefixStylesTab, "\n\t\t\t\t\t").concat(numSuffixStylesTab, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(numberStylesMobile, "\n\t\t\t\t\t").concat(titleStylesMobile, "\n\t\t\t\t\t").concat(numPrefixStylesMobile, "\n\t\t\t\t\t").concat(numSuffixStylesMobile, "\n\t\t\t\t}\n\n\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
+    className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     onMouseEnter: function onMouseEnter() {
       return setAttributes({
         isHover: true
@@ -2082,8 +2308,7 @@ var Edit = function Edit(_ref) {
       return setAttributes({
         isHover: false
       });
-    },
-    style: wrapperStyles
+    }
   }, /*#__PURE__*/React.createElement("h4", {
     className: "eb-counter-number"
   }, /*#__PURE__*/React.createElement("span", {
@@ -2091,7 +2316,7 @@ var Edit = function Edit(_ref) {
     style: numPrefixStyles
   }, counterPrefix), /*#__PURE__*/React.createElement("span", {
     ref: counterRef,
-    className: "eb-counter",
+    className: "eb-counter eb-counter-number",
     style: numberStyles
   }, "0"), /*#__PURE__*/React.createElement("span", {
     className: "eb-counter-suffix",
@@ -2107,10 +2332,67 @@ var Edit = function Edit(_ref) {
         counterTitle: counterTitle
       });
     }
-  }))];
+  })))];
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
+
+/***/ }),
+
+/***/ "./src/components/helpers.js":
+/*!***********************************!*\
+  !*** ./src/components/helpers.js ***!
+  \***********************************/
+/*! exports provided: generateTypographyAttributes, generateTypographyStyles, textInsideForEdit, generateRandomNumber */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// function to generate typography attributes for multiple typography control based on the array of prefix
+var generateTypographyAttributes = function generateTypographyAttributes(prefixArray) {
+  var templateForTypographyAttributes = "{\n\t\t\"_prefix_FontFamily\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"_prefix_SizeUnit\":{\n\t\t\t\"type\":\"string\",\n\t\t\t\"default\":\"px\"\n\t\t},\n\t\t\"_prefix_FontSize\":{\n\t\t\t\"type\":\"number\"\n\t\t},\n\t\t\"_prefix_FontWeight\":{\n\t\t\t\"type\":\"string\",\n\t\t\t\"default\":\"400\"\n\t\t},\n\t\t\"_prefix_TextTransform\":{\n\t\t\t\"type\":\"string\",\n\t\t\t\"default\":\"none\"\n\t\t},\n\t\t\"_prefix_TextDecoration\":{\n\t\t\t\"type\":\"string\",\n\t\t\t\"default\":\"initial\"\n\t\t},\n\t\t\"_prefix_LetterSpacingUnit\":{\n\t\t\t\"type\":\"string\",\n\t\t\t\"default\":\"px\"\n\t\t},\n\t\t\"_prefix_LetterSpacing\":{\n\t\t\t\"type\":\"number\",\n\t\t\t\"default\":0\n\t\t},\n\t\t\"_prefix_LineHeightUnit\":{\n\t\t\t\"type\":\"string\",\n\t\t\t\"default\":\"em\"\n\t\t},\n\t\t\"_prefix_LineHeight\":{\n\t\t\t\"type\":\"number\",\n\t\t\t\"default\":1\n\t\t},\n\t\t\"TAB_prefix_FontFamily\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_SizeUnit\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_FontSize\":{\n\t\t\t\"type\":\"number\"\n\t\t},\n\t\t\"TAB_prefix_FontWeight\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_TextTransform\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_TextDecoration\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_LetterSpacingUnit\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_LetterSpacing\":{\n\t\t\t\"type\":\"number\"\n\t\t},\n\t\t\"TAB_prefix_LineHeightUnit\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"TAB_prefix_LineHeight\":{\n\t\t\t\"type\":\"number\"\n\t\t},\n\t\t\"MOB_prefix_FontFamily\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_SizeUnit\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_FontSize\":{\n\t\t\t\"type\":\"number\"\n\t\t},\n\t\t\"MOB_prefix_FontWeight\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_TextTransform\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_TextDecoration\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_LetterSpacingUnit\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_LetterSpacing\":{\n\t\t\t\"type\":\"number\"\n\t\t},\n\t\t\"MOB_prefix_LineHeightUnit\":{\n\t\t\t\"type\":\"string\"\n\t\t},\n\t\t\"MOB_prefix_LineHeight\":{\n\t\t\t\"type\":\"number\"\n\t\t}\n\t\t\n\t}";
+  return prefixArray.reduce(function (total, current) {
+    var result = templateForTypographyAttributes.replace(/_prefix_/g, current);
+    return _objectSpread(_objectSpread({}, total), JSON.parse(result));
+  }, {});
+}; // function to generate typography styles for an element based on it's prefix
+
+var generateTypographyStyles = function generateTypographyStyles(attributes, prefix) {
+  var defaultFontSize = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  return {
+    fontFamily: attributes["".concat(prefix, "FontFamily")] ? attributes["".concat(prefix, "FontFamily")] : "inherit",
+    // fontSize: defaultFontSize
+    // 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
+    // 			attributes[`${prefix}SizeUnit`]
+    // 	  }`
+    // 	: attributes[`${prefix}FontSize`]
+    // 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
+    // 	: "inherit",
+    fontSize: attributes["".concat(prefix, "FontSize")] ? "".concat(attributes["".concat(prefix, "FontSize")]).concat(attributes["".concat(prefix, "SizeUnit")]) : defaultFontSize ? "".concat(defaultFontSize).concat(attributes["".concat(prefix, "SizeUnit")]) : "inherit",
+    fontWeight: attributes["".concat(prefix, "FontWeight")],
+    textTransform: attributes["".concat(prefix, "TextTransform")],
+    textDecoration: attributes["".concat(prefix, "TextDecoration")],
+    letterSpacing: "".concat(attributes["".concat(prefix, "LetterSpacing")]).concat(attributes["".concat(prefix, "LetterSpacingUnit")], " "),
+    lineHeight: "".concat(attributes["".concat(prefix, "LineHeight")]).concat(attributes["".concat(prefix, "LineHeightUnit")], " ")
+  };
+}; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
+
+var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
+  return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
+};
+var generateRandomNumber = function generateRandomNumber() {
+  return Math.floor(Math.random() * 1000000000);
+};
 
 /***/ }),
 
@@ -2130,9 +2412,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_image_avatar_ImageAvater__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/image-avatar/ImageAvater */ "./util/image-avatar/ImageAvater.js");
 /* harmony import */ var _util_reset_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/reset-control */ "./util/reset-control/index.js");
 /* harmony import */ var _util_toggle_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../util/toggle-button */ "./util/toggle-button/index.js");
-/* harmony import */ var _util_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../util/icons */ "./util/icons.js");
-/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
+/* harmony import */ var _controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../controls/typographyControl */ "./src/controls/typographyControl/index.js");
+/* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ResPanelBody */ "./src/components/ResPanelBody.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./constants */ "./src/components/constants.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
 /**
  * WordPress dependencies
  */
@@ -2140,6 +2423,7 @@ var __ = wp.i18n.__;
 var _wp$blockEditor = wp.blockEditor,
     InspectorControls = _wp$blockEditor.InspectorControls,
     MediaUpload = _wp$blockEditor.MediaUpload;
+var useEffect = wp.element.useEffect;
 var _wp$components = wp.components,
     ButtonGroup = _wp$components.ButtonGroup,
     Button = _wp$components.Button,
@@ -2148,8 +2432,7 @@ var _wp$components = wp.components,
     TextControl = _wp$components.TextControl,
     SelectControl = _wp$components.SelectControl,
     BaseControl = _wp$components.BaseControl,
-    RangeControl = _wp$components.RangeControl,
-    Dropdown = _wp$components.Dropdown;
+    RangeControl = _wp$components.RangeControl;
 /**
  * Internal dependencies
  */
@@ -2165,21 +2448,32 @@ var _wp$components = wp.components,
 
 
 
-var Inspector = function Inspector(_ref) {
-  var attributes = _ref.attributes,
-      setAttributes = _ref.setAttributes;
-  var startValue = attributes.startValue,
+
+var Inspector = function Inspector(props) {
+  console.log("--------inspector:", props);
+  var attributes = props.attributes,
+      setAttributes = props.setAttributes;
+  var resOption = attributes.resOption,
+      startValue = attributes.startValue,
       target = attributes.target,
       counterPrefix = attributes.counterPrefix,
       counterSuffix = attributes.counterSuffix,
       duration = attributes.duration,
       isShowSeparator = attributes.isShowSeparator,
       separastorSelectLabel = attributes.separastorSelectLabel,
+      layoutLabel = attributes.layoutLabel,
       titleColor = attributes.titleColor,
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      layoutLabel = attributes.layoutLabel,
+      TABtitleColor = attributes.TABtitleColor,
+      TABnumberColor = attributes.TABnumberColor,
+      TABnumPrefixColor = attributes.TABnumPrefixColor,
+      TABnumSuffixColor = attributes.TABnumSuffixColor,
+      MOBtitleColor = attributes.MOBtitleColor,
+      MOBnumberColor = attributes.MOBnumberColor,
+      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
+      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
@@ -2217,47 +2511,7 @@ var Inspector = function Inspector(_ref) {
       hoverBlur = attributes.hoverBlur,
       hoverSpread = attributes.hoverSpread,
       hoverInset = attributes.hoverInset,
-      wrapperTransitionTime = attributes.wrapperTransitionTime,
-      titleFontFamily = attributes.titleFontFamily,
-      titleSizeUnit = attributes.titleSizeUnit,
-      titleFontSize = attributes.titleFontSize,
-      titleFontWeight = attributes.titleFontWeight,
-      titleTextTransform = attributes.titleTextTransform,
-      titleTextDecoration = attributes.titleTextDecoration,
-      titleLetterSpacingUnit = attributes.titleLetterSpacingUnit,
-      titleLetterSpacing = attributes.titleLetterSpacing,
-      titleLineHeightUnit = attributes.titleLineHeightUnit,
-      titleLineHeight = attributes.titleLineHeight,
-      numberFontFamily = attributes.numberFontFamily,
-      numberSizeUnit = attributes.numberSizeUnit,
-      numberFontSize = attributes.numberFontSize,
-      numberFontWeight = attributes.numberFontWeight,
-      numberTextTransform = attributes.numberTextTransform,
-      numberTextDecoration = attributes.numberTextDecoration,
-      numberLetterSpacingUnit = attributes.numberLetterSpacingUnit,
-      numberLetterSpacing = attributes.numberLetterSpacing,
-      numberLineHeightUnit = attributes.numberLineHeightUnit,
-      numberLineHeight = attributes.numberLineHeight,
-      prefixFontFamily = attributes.prefixFontFamily,
-      prefixSizeUnit = attributes.prefixSizeUnit,
-      prefixFontSize = attributes.prefixFontSize,
-      prefixFontWeight = attributes.prefixFontWeight,
-      prefixTextTransform = attributes.prefixTextTransform,
-      prefixTextDecoration = attributes.prefixTextDecoration,
-      prefixLetterSpacingUnit = attributes.prefixLetterSpacingUnit,
-      prefixLetterSpacing = attributes.prefixLetterSpacing,
-      prefixLineHeightUnit = attributes.prefixLineHeightUnit,
-      prefixLineHeight = attributes.prefixLineHeight,
-      suffixFontFamily = attributes.suffixFontFamily,
-      suffixSizeUnit = attributes.suffixSizeUnit,
-      suffixFontSize = attributes.suffixFontSize,
-      suffixFontWeight = attributes.suffixFontWeight,
-      suffixTextTransform = attributes.suffixTextTransform,
-      suffixTextDecoration = attributes.suffixTextDecoration,
-      suffixLetterSpacingUnit = attributes.suffixLetterSpacingUnit,
-      suffixLetterSpacing = attributes.suffixLetterSpacing,
-      suffixLineHeightUnit = attributes.suffixLineHeightUnit,
-      suffixLineHeight = attributes.suffixLineHeight;
+      wrapperTransitionTime = attributes.wrapperTransitionTime;
 
   var handleSeparatorChange = function handleSeparatorChange(separastorSelectLabel) {
     switch (separastorSelectLabel) {
@@ -2305,6 +2559,103 @@ var Inspector = function Inspector(_ref) {
     });
   };
 
+  console.log("---from inspector outside without any useEffect: ", {
+    resOption: resOption
+  });
+  var resRequiredProps = {
+    setAttributes: setAttributes,
+    resOption: resOption
+  };
+
+  var generateTypographyAttributes = function generateTypographyAttributes(prefixConstant) {
+    var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
+        fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
+        textTransform = attributes["".concat(prefixConstant, "TextTransform")],
+        textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
+        fontSize = attributes["".concat(prefixConstant, "FontSize")],
+        sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
+        letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
+        letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
+        lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
+        lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
+        TABfontFamily = attributes["TAB".concat(prefixConstant, "FontFamily")],
+        TABfontWeight = attributes["TAB".concat(prefixConstant, "FontWeight")],
+        TABtextTransform = attributes["TAB".concat(prefixConstant, "TextTransform")],
+        TABtextDecoration = attributes["TAB".concat(prefixConstant, "TextDecoration")],
+        TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
+        TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
+        TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
+        TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
+        TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
+        TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
+        MOBfontFamily = attributes["MOB".concat(prefixConstant, "FontFamily")],
+        MOBfontWeight = attributes["MOB".concat(prefixConstant, "FontWeight")],
+        MOBtextTransform = attributes["MOB".concat(prefixConstant, "TextTransform")],
+        MOBtextDecoration = attributes["MOB".concat(prefixConstant, "TextDecoration")],
+        MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
+        MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
+        MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
+        MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
+        MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
+        MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")];
+    return {
+      fontFamily: fontFamily,
+      fontWeight: fontWeight,
+      textTransform: textTransform,
+      textDecoration: textDecoration,
+      fontSize: fontSize,
+      sizeUnit: sizeUnit,
+      letterSpacing: letterSpacing,
+      letterSpacingUnit: letterSpacingUnit,
+      lineHeight: lineHeight,
+      lineHeightUnit: lineHeightUnit,
+      TABfontFamily: TABfontFamily,
+      TABfontWeight: TABfontWeight,
+      TABtextTransform: TABtextTransform,
+      TABtextDecoration: TABtextDecoration,
+      TABfontSize: TABfontSize,
+      TABsizeUnit: TABsizeUnit,
+      TABletterSpacing: TABletterSpacing,
+      TABletterSpacingUnit: TABletterSpacingUnit,
+      TABlineHeight: TABlineHeight,
+      TABlineHeightUnit: TABlineHeightUnit,
+      MOBfontFamily: MOBfontFamily,
+      MOBfontWeight: MOBfontWeight,
+      MOBtextTransform: MOBtextTransform,
+      MOBtextDecoration: MOBtextDecoration,
+      MOBfontSize: MOBfontSize,
+      MOBsizeUnit: MOBsizeUnit,
+      MOBletterSpacing: MOBletterSpacing,
+      MOBletterSpacingUnit: MOBletterSpacingUnit,
+      MOBlineHeight: MOBlineHeight,
+      MOBlineHeightUnit: MOBlineHeightUnit
+    };
+  };
+
+  var typoAttrr = generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"]);
+  console.log("------------title typo attributes", {
+    typoAttrr: typoAttrr
+  });
+  useEffect(function () {
+    var bodyClasses = document.body.className;
+    console.log("----log from inspector useEffect with empty []", {
+      bodyClasses: bodyClasses
+    });
+
+    if (bodyClasses.includes("eb-res-option-desktop")) {
+      setAttributes({
+        resOption: "desktop"
+      });
+    } else if (bodyClasses.includes("eb-res-option-tab")) {
+      setAttributes({
+        resOption: "tab"
+      });
+    } else if (bodyClasses.includes("eb-res-option-mobile")) {
+      setAttributes({
+        resOption: "mobile"
+      });
+    }
+  }, []);
   return /*#__PURE__*/React.createElement(InspectorControls, {
     key: "controls"
   }, /*#__PURE__*/React.createElement("span", {
@@ -2387,477 +2738,39 @@ var Inspector = function Inspector(_ref) {
     onChange: function onChange(value) {
       return handleSeparatorChange(value);
     }
-  })), /*#__PURE__*/React.createElement(PanelBody, {
+  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: __("Typography"),
-    initialOpen: false
-  }, /*#__PURE__*/React.createElement(BaseControl, {
-    label: __("Number "),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref2) {
-      var isOpen = _ref2.isOpen,
-          onToggle = _ref2.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_7__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: __("Font Family"),
-        value: numberFontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes({
-            numberFontFamily: FontFamily
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: numberSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes({
-            numberSizeUnit: SizeUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: numberFontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes({
-            numberFontSize: FontSize
-          });
-        },
-        step: numberSizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: numberSizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: numberFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
-        onChange: function onChange(FontWeight) {
-          return setAttributes({
-            numberFontWeight: FontWeight
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: numberTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
-        onChange: function onChange(TextTransform) {
-          return setAttributes({
-            numberTextTransform: TextTransform
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: numberTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes({
-            numberTextDecoration: TextDecoration
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: numberSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes({
-            numberLetterSpacingUnit: LetterSpacingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: numberLetterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes({
-            numberLetterSpacing: LetterSpacing
-          });
-        },
-        min: 0,
-        max: numberLetterSpacingUnit === "em" ? 10 : 100,
-        step: numberLetterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: numberLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes({
-            numberLineHeightUnit: LineHeightUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: numberLineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes({
-            numberLineHeight: LineHeight
-          });
-        },
-        min: 0,
-        max: numberLineHeightUnit === "em" ? 10 : 600,
-        step: numberLineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  })), /*#__PURE__*/React.createElement(BaseControl, {
-    label: __("Title "),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref3) {
-      var isOpen = _ref3.isOpen,
-          onToggle = _ref3.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_7__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: __("Font Family"),
-        value: titleFontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes({
-            titleFontFamily: FontFamily
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: titleSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes({
-            titleSizeUnit: SizeUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: titleFontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes({
-            titleFontSize: FontSize
-          });
-        },
-        step: titleSizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: titleSizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: titleFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
-        onChange: function onChange(FontWeight) {
-          return setAttributes({
-            titleFontWeight: FontWeight
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: titleTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
-        onChange: function onChange(TextTransform) {
-          return setAttributes({
-            titleTextTransform: TextTransform
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: titleTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes({
-            titleTextDecoration: TextDecoration
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: titleSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes({
-            titleLetterSpacingUnit: LetterSpacingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: titleLetterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes({
-            titleLetterSpacing: LetterSpacing
-          });
-        },
-        min: 0,
-        max: titleLetterSpacingUnit === "em" ? 10 : 100,
-        step: titleLetterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: titleLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes({
-            titleLineHeightUnit: LineHeightUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: titleLineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes({
-            titleLineHeight: LineHeight
-          });
-        },
-        min: 0,
-        max: titleLineHeightUnit === "em" ? 10 : 600,
-        step: titleLineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  })), /*#__PURE__*/React.createElement(BaseControl, {
-    label: __("Number Prefix"),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref4) {
-      var isOpen = _ref4.isOpen,
-          onToggle = _ref4.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_7__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: __("Font Family"),
-        value: prefixFontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes({
-            prefixFontFamily: FontFamily
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: prefixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes({
-            prefixSizeUnit: SizeUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: prefixFontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes({
-            prefixFontSize: FontSize
-          });
-        },
-        step: prefixSizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: prefixSizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: prefixFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
-        onChange: function onChange(FontWeight) {
-          return setAttributes({
-            prefixFontWeight: FontWeight
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: prefixTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
-        onChange: function onChange(TextTransform) {
-          return setAttributes({
-            prefixTextTransform: TextTransform
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: prefixTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes({
-            prefixTextDecoration: TextDecoration
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: prefixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes({
-            prefixLetterSpacingUnit: LetterSpacingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: prefixLetterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes({
-            prefixLetterSpacing: LetterSpacing
-          });
-        },
-        min: 0,
-        max: prefixLetterSpacingUnit === "em" ? 10 : 100,
-        step: prefixLetterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: prefixLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes({
-            prefixLineHeightUnit: LineHeightUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: prefixLineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes({
-            prefixLineHeight: LineHeight
-          });
-        },
-        min: 0,
-        max: prefixLineHeightUnit === "em" ? 10 : 600,
-        step: prefixLineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  })), /*#__PURE__*/React.createElement(BaseControl, {
-    label: __("Number Suffix"),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref5) {
-      var isOpen = _ref5.isOpen,
-          onToggle = _ref5.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_7__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        label: __("Font Family"),
-        value: suffixFontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes({
-            suffixFontFamily: FontFamily
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: suffixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes({
-            suffixSizeUnit: SizeUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: suffixFontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes({
-            suffixFontSize: FontSize
-          });
-        },
-        step: suffixSizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: suffixSizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: suffixFontWeight,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_WEIGHTS"],
-        onChange: function onChange(FontWeight) {
-          return setAttributes({
-            suffixFontWeight: FontWeight
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: suffixTextTransform,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_TRANSFORM"],
-        onChange: function onChange(TextTransform) {
-          return setAttributes({
-            suffixTextTransform: TextTransform
-          });
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: suffixTextDecoration,
-        options: _constants__WEBPACK_IMPORTED_MODULE_9__["TEXT_DECORATION"],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes({
-            suffixTextDecoration: TextDecoration
-          });
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: suffixSizeUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes({
-            suffixLetterSpacingUnit: LetterSpacingUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: suffixLetterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes({
-            suffixLetterSpacing: LetterSpacing
-          });
-        },
-        min: 0,
-        max: suffixLetterSpacingUnit === "em" ? 10 : 100,
-        step: suffixLetterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: suffixLineHeightUnit,
-        unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes({
-            suffixLineHeightUnit: LineHeightUnit
-          });
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: suffixLineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes({
-            suffixLineHeight: LineHeight
-          });
-        },
-        min: 0,
-        max: suffixLineHeightUnit === "em" ? 10 : 600,
-        step: suffixLineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  }))), /*#__PURE__*/React.createElement(PanelBody, {
+    initialOpen: false,
+    resRequiredProps: resRequiredProps
+  }, /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    baseLabel: "Title",
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"],
+    typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"]),
+    resOption: resOption,
+    setAttributes: setAttributes
+  }), /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    baseLabel: "Number",
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["number"],
+    typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["number"]),
+    resOption: resOption,
+    setAttributes: setAttributes
+  }), /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    baseLabel: "Prefix",
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numPrefix"],
+    typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numPrefix"]),
+    resOption: resOption,
+    setAttributes: setAttributes
+  }), /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    baseLabel: "Suffix",
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numSuffix"],
+    typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numSuffix"]),
+    resOption: resOption,
+    setAttributes: setAttributes
+  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: __("Colors"),
-    initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    initialOpen: false,
+    resRequiredProps: resRequiredProps
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number"),
     color: numberColor,
     onChange: function onChange(numberColor) {
@@ -2889,7 +2802,71 @@ var Inspector = function Inspector(_ref) {
         numSuffixColor: numSuffixColor
       });
     }
-  })), /*#__PURE__*/React.createElement(PanelBody, {
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Number"),
+    color: TABnumberColor || numberColor,
+    onChange: function onChange(TABnumberColor) {
+      return setAttributes({
+        TABnumberColor: TABnumberColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Title"),
+    color: TABtitleColor || titleColor,
+    onChange: function onChange(TABtitleColor) {
+      return setAttributes({
+        TABtitleColor: TABtitleColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Number Prefix"),
+    color: TABnumPrefixColor || numPrefixColor,
+    onChange: function onChange(TABnumPrefixColor) {
+      return setAttributes({
+        TABnumPrefixColor: TABnumPrefixColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Number Suffix"),
+    color: TABnumSuffixColor || numSuffixColor,
+    onChange: function onChange(TABnumSuffixColor) {
+      return setAttributes({
+        TABnumSuffixColor: TABnumSuffixColor
+      });
+    }
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Number"),
+    color: MOBnumberColor || TABnumberColor || numberColor,
+    onChange: function onChange(MOBnumberColor) {
+      return setAttributes({
+        MOBnumberColor: MOBnumberColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Title"),
+    color: MOBtitleColor || TABtitleColor || titleColor,
+    onChange: function onChange(MOBtitleColor) {
+      return setAttributes({
+        MOBtitleColor: MOBtitleColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Number Prefix"),
+    color: MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor,
+    onChange: function onChange(MOBnumPrefixColor) {
+      return setAttributes({
+        MOBnumPrefixColor: MOBnumPrefixColor
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    label: __("Number Suffix"),
+    color: MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor,
+    onChange: function onChange(MOBnumSuffixColor) {
+      return setAttributes({
+        MOBnumSuffixColor: MOBnumSuffixColor
+      });
+    }
+  }))), /*#__PURE__*/React.createElement(PanelBody, {
     title: __("Spacing"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(RangeControl, {
@@ -2939,11 +2916,11 @@ var Inspector = function Inspector(_ref) {
     right: marginRight,
     bottom: marginBottom,
     left: marginLeft,
-    onChange: function onChange(_ref6) {
-      var top = _ref6.top,
-          right = _ref6.right,
-          bottom = _ref6.bottom,
-          left = _ref6.left;
+    onChange: function onChange(_ref) {
+      var top = _ref.top,
+          right = _ref.right,
+          bottom = _ref.bottom,
+          left = _ref.left;
       return setAttributes({
         marginTop: top,
         marginRight: right,
@@ -2965,11 +2942,11 @@ var Inspector = function Inspector(_ref) {
     right: paddingRight,
     bottom: paddingBottom,
     left: paddingLeft,
-    onChange: function onChange(_ref7) {
-      var top = _ref7.top,
-          right = _ref7.right,
-          bottom = _ref7.bottom,
-          left = _ref7.left;
+    onChange: function onChange(_ref2) {
+      var top = _ref2.top,
+          right = _ref2.right,
+          bottom = _ref2.bottom,
+          left = _ref2.left;
       return setAttributes({
         paddingTop: top,
         paddingRight: right,
@@ -2982,9 +2959,9 @@ var Inspector = function Inspector(_ref) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(BaseControl, {
     label: __("Background Type")
-  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_TYPES"].map(function (_ref8) {
-    var value = _ref8.value,
-        label = _ref8.label;
+  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_TYPES"].map(function (_ref3) {
+    var value = _ref3.value,
+        label = _ref3.label;
     return /*#__PURE__*/React.createElement(Button, {
       isPrimary: backgroundType === value,
       isSecondary: backgroundType !== value,
@@ -3023,8 +3000,8 @@ var Inspector = function Inspector(_ref) {
     },
     type: "image",
     value: imageID,
-    render: function render(_ref9) {
-      var open = _ref9.open;
+    render: function render(_ref4) {
+      var open = _ref4.open;
       return !imageURL && /*#__PURE__*/React.createElement(Button, {
         className: "eb-wrapper-upload-button",
         label: __("Upload Image"),
@@ -3041,9 +3018,9 @@ var Inspector = function Inspector(_ref) {
     }
   }), /*#__PURE__*/React.createElement(BaseControl, {
     label: __("Background Size")
-  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_SIZES"].map(function (_ref10) {
-    var value = _ref10.value,
-        label = _ref10.label;
+  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_SIZES"].map(function (_ref5) {
+    var value = _ref5.value,
+        label = _ref5.label;
     return /*#__PURE__*/React.createElement(Button, {
       isPrimary: backgroundSize === value,
       isSecondary: backgroundSize !== value,
@@ -3312,6 +3289,14 @@ var Inspector = function Inspector(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /**
  * WordPress dependencies
  */
@@ -3320,9 +3305,14 @@ var RichText = wp.blockEditor.RichText;
  * Internal dependencies
  */
 
-var Save = function Save(_ref) {
-  var attributes = _ref.attributes;
-  var target = attributes.target,
+
+
+
+var Save = function Save(props) {
+  var attributes = props.attributes;
+  console.log("--------save:", props);
+  var randomNumber = attributes.randomNumber,
+      target = attributes.target,
       duration = attributes.duration,
       counterTitle = attributes.counterTitle,
       counterSuffix = attributes.counterSuffix,
@@ -3330,11 +3320,19 @@ var Save = function Save(_ref) {
       startValue = attributes.startValue,
       isShowSeparator = attributes.isShowSeparator,
       separator = attributes.separator,
+      wrapperFlexDirection = attributes.wrapperFlexDirection,
       titleColor = attributes.titleColor,
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      wrapperFlexDirection = attributes.wrapperFlexDirection,
+      TABtitleColor = attributes.TABtitleColor,
+      TABnumberColor = attributes.TABnumberColor,
+      TABnumPrefixColor = attributes.TABnumPrefixColor,
+      TABnumSuffixColor = attributes.TABnumSuffixColor,
+      MOBtitleColor = attributes.MOBtitleColor,
+      MOBnumberColor = attributes.MOBnumberColor,
+      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
+      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
@@ -3370,110 +3368,50 @@ var Save = function Save(_ref) {
       hoverBlur = attributes.hoverBlur,
       hoverSpread = attributes.hoverSpread,
       hoverInset = attributes.hoverInset,
-      wrapperTransitionTime = attributes.wrapperTransitionTime,
-      titleFontFamily = attributes.titleFontFamily,
-      titleSizeUnit = attributes.titleSizeUnit,
-      titleFontSize = attributes.titleFontSize,
-      titleFontWeight = attributes.titleFontWeight,
-      titleTextTransform = attributes.titleTextTransform,
-      titleTextDecoration = attributes.titleTextDecoration,
-      titleLetterSpacingUnit = attributes.titleLetterSpacingUnit,
-      titleLetterSpacing = attributes.titleLetterSpacing,
-      titleLineHeightUnit = attributes.titleLineHeightUnit,
-      titleLineHeight = attributes.titleLineHeight,
-      numberFontFamily = attributes.numberFontFamily,
-      numberSizeUnit = attributes.numberSizeUnit,
-      numberFontSize = attributes.numberFontSize,
-      numberFontWeight = attributes.numberFontWeight,
-      numberTextTransform = attributes.numberTextTransform,
-      numberTextDecoration = attributes.numberTextDecoration,
-      numberLetterSpacingUnit = attributes.numberLetterSpacingUnit,
-      numberLetterSpacing = attributes.numberLetterSpacing,
-      numberLineHeightUnit = attributes.numberLineHeightUnit,
-      numberLineHeight = attributes.numberLineHeight,
-      prefixFontFamily = attributes.prefixFontFamily,
-      prefixSizeUnit = attributes.prefixSizeUnit,
-      prefixFontSize = attributes.prefixFontSize,
-      prefixFontWeight = attributes.prefixFontWeight,
-      prefixTextTransform = attributes.prefixTextTransform,
-      prefixTextDecoration = attributes.prefixTextDecoration,
-      prefixLetterSpacingUnit = attributes.prefixLetterSpacingUnit,
-      prefixLetterSpacing = attributes.prefixLetterSpacing,
-      prefixLineHeightUnit = attributes.prefixLineHeightUnit,
-      prefixLineHeight = attributes.prefixLineHeight,
-      suffixFontFamily = attributes.suffixFontFamily,
-      suffixSizeUnit = attributes.suffixSizeUnit,
-      suffixFontSize = attributes.suffixFontSize,
-      suffixFontWeight = attributes.suffixFontWeight,
-      suffixTextTransform = attributes.suffixTextTransform,
-      suffixTextDecoration = attributes.suffixTextDecoration,
-      suffixLetterSpacingUnit = attributes.suffixLetterSpacingUnit,
-      suffixLetterSpacing = attributes.suffixLetterSpacing,
-      suffixLineHeightUnit = attributes.suffixLineHeightUnit,
-      suffixLineHeight = attributes.suffixLineHeight;
-  var titleStyles = {
-    fontFamily: titleFontFamily || "inherit",
-    fontSize: titleFontSize ? "".concat(titleFontSize).concat(titleSizeUnit) : "40px",
-    fontWeight: titleFontWeight,
-    textTransform: titleTextTransform,
-    textDecoration: titleTextDecoration,
-    letterSpacing: "".concat(titleLetterSpacing).concat(titleLetterSpacingUnit),
-    lineHeight: "".concat(titleLineHeight).concat(titleLineHeightUnit),
-    color: titleColor
-  };
-  var numberStyles = {
-    fontFamily: numberFontFamily || "inherit",
-    fontSize: numberFontSize ? "".concat(numberFontSize).concat(numberSizeUnit) : "64px",
-    fontWeight: numberFontWeight,
-    textTransform: numberTextTransform,
-    textDecoration: numberTextDecoration,
-    letterSpacing: "".concat(numberLetterSpacing).concat(numberLetterSpacingUnit),
-    lineHeight: "".concat(numberLineHeight).concat(numberLineHeightUnit),
-    color: numberColor,
+      wrapperTransitionTime = attributes.wrapperTransitionTime;
+
+  var titleStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40));
+
+  var numberStyles = _objectSpread(_objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 64)), {}, {
+    // color: numberColor,
     paddingLeft: "".concat(gapNumPrefix, "px"),
     paddingRight: "".concat(gapNumSuffix, "px")
+  });
+
+  var numPrefixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]));
+
+  var numSuffixStyles = _objectSpread({}, Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["generateTypographyStyles"])(attributes, _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]));
+
+  var wrapperStyles = {// marginTop: `${marginTop || 0}${marginUnit}`,
+    // marginBottom: `${marginBottom || 0}${marginUnit}`,
+    // marginLeft: `${marginLeft || 0}${marginUnit}`,
+    // marginRight: `${marginRight || 0}${marginUnit}`,
+    // paddingTop: `${paddingTop || 0}${paddingUnit}`,
+    // paddingBottom: `${paddingBottom || 0}${paddingUnit}`,
+    // paddingRight: `${paddingRight || 0}${paddingUnit}`,
+    // paddingLeft: `${paddingLeft || 0}${paddingUnit}`,
+    // gap: `${gapNumTitle}px`,
+    // flexDirection: wrapperFlexDirection,
+    // backgroundImage:
+    // 	backgroundType === "image" && imageURL
+    // 		? `url("${imageURL}")`
+    // 		: backgroundType === "gradient"
+    // 		? gradientColor
+    // 		: "none",
+    // backgroundSize: backgroundSize,
+    // backgroundColor:
+    // 	(backgroundType === "fill" && backgroundColor) || "transparent",
+    // border: `${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"}`,
+    // borderRadius: `${borderRadius || 0}${radiusUnit}`,
+    // boxShadow: `${shadowColor || "#000000"} ${hOffset || 0}px ${
+    // 	vOffset || 0
+    // }px ${blur || 0}px ${spread || 0}px ${inset ? "inset" : ""}`,
+    // transition: wrapperTransitionTime
+    // 	? `${wrapperTransitionTime / 1000}s`
+    // 	: ".5s",
   };
-  var numPrefixStyles = {
-    fontFamily: prefixFontFamily || "inherit",
-    fontSize: prefixFontSize ? "".concat(prefixFontSize).concat(prefixSizeUnit) : "inherit",
-    fontWeight: prefixFontWeight,
-    textTransform: prefixTextTransform,
-    textDecoration: prefixTextDecoration,
-    letterSpacing: "".concat(prefixLetterSpacing).concat(prefixLetterSpacingUnit),
-    lineHeight: "".concat(prefixLineHeight).concat(prefixLineHeightUnit),
-    color: numPrefixColor
-  };
-  var numSuffixStyles = {
-    fontFamily: suffixFontFamily || "inherit",
-    fontSize: suffixFontSize ? "".concat(suffixFontSize).concat(suffixSizeUnit) : "inherit",
-    fontWeight: suffixFontWeight,
-    textTransform: suffixTextTransform,
-    textDecoration: suffixTextDecoration,
-    letterSpacing: "".concat(suffixLetterSpacing).concat(suffixLetterSpacingUnit),
-    lineHeight: "".concat(suffixLineHeight).concat(suffixLineHeightUnit),
-    color: numSuffixColor
-  };
-  var wrapperStyles = {
-    marginTop: "".concat(marginTop || 0).concat(marginUnit),
-    marginBottom: "".concat(marginBottom || 0).concat(marginUnit),
-    marginLeft: "".concat(marginLeft || 0).concat(marginUnit),
-    marginRight: "".concat(marginRight || 0).concat(marginUnit),
-    paddingTop: "".concat(paddingTop || 0).concat(paddingUnit),
-    paddingBottom: "".concat(paddingBottom || 0).concat(paddingUnit),
-    paddingRight: "".concat(paddingRight || 0).concat(paddingUnit),
-    paddingLeft: "".concat(paddingLeft || 0).concat(paddingUnit),
-    gap: "".concat(gapNumTitle, "px"),
-    flexDirection: wrapperFlexDirection,
-    backgroundImage: backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none",
-    backgroundSize: backgroundSize,
-    backgroundColor: backgroundType === "fill" && backgroundColor || "transparent",
-    border: "".concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000"),
-    borderRadius: "".concat(borderRadius || 0).concat(radiusUnit),
-    boxShadow: "".concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : ""),
-    transition: wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s"
-  };
-  return /*#__PURE__*/React.createElement("div", {
-    className: "eb-counter-wrapper",
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t\t\t\t\t\n\t\t\t\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\t\t\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\t\t\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\t\t\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\t\t\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\t\t\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\t\t\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\t\t\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\t\t\t\tgap: ").concat(gapNumTitle, "px;\n\t\t\t\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\t\t\t\tbackground-image:\n\t\t\t\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\t\t\t\tbackground-size: ").concat(backgroundSize, ";\n\t\t\t\t\tbackground-color:\n\t\t\t\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\t\t\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\t\t\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\t\t\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\t\t\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-number{\n\t\t\t\t\tcolor : ").concat(numberColor, ";\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-title{\n\t\t\t\t\tcolor : ").concat(titleColor, ";\n\t\t\t\t}\n\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-prefix{\n\t\t\t\t\tcolor : ").concat(numPrefixColor, ";\n\t\t\t\t}\n\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-suffix{\n\t\t\t\t\tcolor : ").concat(numSuffixColor, ";\n\t\t\t\t}\n\n\n\t\t\t\t@media all and (max-width: 1190px) {\n\t\t\t\t\th2 {\n\t\t\t\t\t\tcolor: blue !important;\n\t\t\t\t\t}\n\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-number{\n\t\t\t\t\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t\t\t\t\t}\n\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-title{\n\t\t\t\t\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-prefix{\n\t\t\t\t\t\tcolor : ").concat(TABnumPrefixColor || numPrefixColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-suffix{\n\t\t\t\t\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t\t\t\t\t}\n\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 700px) {\n\t\t\t\t\th2 {\n\t\t\t\t\t\tcolor: red !important;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-number{\n\t\t\t\t\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-title{\n\t\t\t\t\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-prefix{\n\t\t\t\t\t\tcolor : ").concat(MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-suffix{\n\t\t\t\t\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t\t\t\t\t}\n\n\t\t\t\t}\n\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
+    className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     style: wrapperStyles,
     "data-shadowColor": shadowColor || "#00000000",
     "data-hOffset": hOffset || 0,
@@ -3493,7 +3431,7 @@ var Save = function Save(_ref) {
     className: "eb-counter-prefix",
     style: numPrefixStyles
   }, counterPrefix), /*#__PURE__*/React.createElement("span", {
-    className: "eb-counter",
+    className: "eb-counter eb-counter-number",
     "data-duration": duration ? Math.floor(Math.abs(duration)) : 0,
     "data-startValue": startValue ? Math.floor(Math.abs(startValue)) : 0,
     "data-target": target ? Math.floor(Math.abs(target)) : 0,
@@ -3508,10 +3446,611 @@ var Save = function Save(_ref) {
     style: titleStyles,
     className: "eb-counter-title",
     value: counterTitle
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
+
+/***/ }),
+
+/***/ "./src/controls/typographyControl/index.js":
+/*!*************************************************!*\
+  !*** ./src/controls/typographyControl/index.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../util/icons */ "./util/icons.js");
+/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
+/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../util/unit-control */ "./util/unit-control/index.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var __ = wp.i18n.__;
+var _wp$components = wp.components,
+    Button = _wp$components.Button,
+    SelectControl = _wp$components.SelectControl,
+    BaseControl = _wp$components.BaseControl,
+    RangeControl = _wp$components.RangeControl,
+    Dropdown = _wp$components.Dropdown;
+
+
+
+
+function TypographyControllsDropdown(_ref) {
+  var baseLabel = _ref.baseLabel,
+      typographyPrefixConstant = _ref.typographyPrefixConstant,
+      resOption = _ref.resOption,
+      setAttributes = _ref.setAttributes,
+      typographyAttributes = _ref.typographyAttributes;
+  var fontFamily = typographyAttributes.fontFamily,
+      fontWeight = typographyAttributes.fontWeight,
+      textTransform = typographyAttributes.textTransform,
+      textDecoration = typographyAttributes.textDecoration,
+      fontSize = typographyAttributes.fontSize,
+      sizeUnit = typographyAttributes.sizeUnit,
+      letterSpacing = typographyAttributes.letterSpacing,
+      letterSpacingUnit = typographyAttributes.letterSpacingUnit,
+      lineHeight = typographyAttributes.lineHeight,
+      lineHeightUnit = typographyAttributes.lineHeightUnit,
+      _typographyAttributes = typographyAttributes.TABfontFamily,
+      TABfontFamily = _typographyAttributes === void 0 ? TABfontFamily || fontFamily : _typographyAttributes,
+      _typographyAttributes2 = typographyAttributes.TABfontWeight,
+      TABfontWeight = _typographyAttributes2 === void 0 ? TABfontWeight || fontWeight : _typographyAttributes2,
+      _typographyAttributes3 = typographyAttributes.TABtextTransform,
+      TABtextTransform = _typographyAttributes3 === void 0 ? TABtextTransform || textTransform : _typographyAttributes3,
+      _typographyAttributes4 = typographyAttributes.TABtextDecoration,
+      TABtextDecoration = _typographyAttributes4 === void 0 ? TABtextDecoration || textDecoration : _typographyAttributes4,
+      _typographyAttributes5 = typographyAttributes.TABfontSize,
+      TABfontSize = _typographyAttributes5 === void 0 ? TABfontSize || fontSize : _typographyAttributes5,
+      _typographyAttributes6 = typographyAttributes.TABsizeUnit,
+      TABsizeUnit = _typographyAttributes6 === void 0 ? TABsizeUnit || sizeUnit : _typographyAttributes6,
+      _typographyAttributes7 = typographyAttributes.TABletterSpacing,
+      TABletterSpacing = _typographyAttributes7 === void 0 ? TABletterSpacing || letterSpacing : _typographyAttributes7,
+      _typographyAttributes8 = typographyAttributes.TABletterSpacingUnit,
+      TABletterSpacingUnit = _typographyAttributes8 === void 0 ? TABletterSpacingUnit || letterSpacingUnit : _typographyAttributes8,
+      _typographyAttributes9 = typographyAttributes.TABlineHeight,
+      TABlineHeight = _typographyAttributes9 === void 0 ? TABlineHeight || lineHeight : _typographyAttributes9,
+      _typographyAttributes10 = typographyAttributes.TABlineHeightUnit,
+      TABlineHeightUnit = _typographyAttributes10 === void 0 ? TABlineHeightUnit || lineHeightUnit : _typographyAttributes10,
+      _typographyAttributes11 = typographyAttributes.MOBfontFamily,
+      MOBfontFamily = _typographyAttributes11 === void 0 ? MOBfontFamily || TABfontFamily || fontFamily : _typographyAttributes11,
+      _typographyAttributes12 = typographyAttributes.MOBfontWeight,
+      MOBfontWeight = _typographyAttributes12 === void 0 ? MOBfontWeight || TABfontWeight || fontWeight : _typographyAttributes12,
+      _typographyAttributes13 = typographyAttributes.MOBtextTransform,
+      MOBtextTransform = _typographyAttributes13 === void 0 ? MOBtextTransform || TABtextTransform || textTransform : _typographyAttributes13,
+      _typographyAttributes14 = typographyAttributes.MOBtextDecoration,
+      MOBtextDecoration = _typographyAttributes14 === void 0 ? MOBtextDecoration || TABtextDecoration || textDecoration : _typographyAttributes14,
+      _typographyAttributes15 = typographyAttributes.MOBfontSize,
+      MOBfontSize = _typographyAttributes15 === void 0 ? MOBfontSize || TABfontSize || fontSize : _typographyAttributes15,
+      _typographyAttributes16 = typographyAttributes.MOBsizeUnit,
+      MOBsizeUnit = _typographyAttributes16 === void 0 ? MOBsizeUnit || TABsizeUnit || sizeUnit : _typographyAttributes16,
+      _typographyAttributes17 = typographyAttributes.MOBletterSpacing,
+      MOBletterSpacing = _typographyAttributes17 === void 0 ? MOBletterSpacing || TABletterSpacing || letterSpacing : _typographyAttributes17,
+      _typographyAttributes18 = typographyAttributes.MOBletterSpacingUnit,
+      MOBletterSpacingUnit = _typographyAttributes18 === void 0 ? MOBletterSpacingUnit || TABletterSpacingUnit || letterSpacingUnit : _typographyAttributes18,
+      _typographyAttributes19 = typographyAttributes.MOBlineHeight,
+      MOBlineHeight = _typographyAttributes19 === void 0 ? MOBlineHeight || TABlineHeight || lineHeight : _typographyAttributes19,
+      _typographyAttributes20 = typographyAttributes.MOBlineHeightUnit,
+      MOBlineHeightUnit = _typographyAttributes20 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _typographyAttributes20;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, resOption == "desktop" && /*#__PURE__*/React.createElement(BaseControl, {
+    label: __(baseLabel),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(Dropdown, {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref2) {
+      var isOpen = _ref2.isOpen,
+          onToggle = _ref2.onToggle;
+      return /*#__PURE__*/React.createElement(Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          padding: "0.2rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: __("Font Family"),
+        value: fontFamily,
+        onChange: function onChange(FontFamily) {
+          setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: sizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(SizeUnit) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Font Size"),
+        value: fontSize,
+        onChange: function onChange(FontSize) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontSize"), FontSize));
+        },
+        step: sizeUnit === "em" ? 0.1 : 1,
+        min: 0,
+        max: sizeUnit === "em" ? 10 : 300
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Font Weight"),
+        value: fontWeight,
+        options: [{
+          label: __("100"),
+          value: "100"
+        }, {
+          label: __("200"),
+          value: "200"
+        }, {
+          label: __("300"),
+          value: "300"
+        }, {
+          label: __("400"),
+          value: "400"
+        }, {
+          label: __("500"),
+          value: "500"
+        }, {
+          label: __("600"),
+          value: "600"
+        }, {
+          label: __("700"),
+          value: "700"
+        }, {
+          label: __("800"),
+          value: "800"
+        }, {
+          label: __("900"),
+          value: "900"
+        }],
+        onChange: function onChange(FontWeight) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Transform"),
+        value: textTransform,
+        options: [{
+          label: __("None"),
+          value: "none"
+        }, {
+          label: __("Lowercase"),
+          value: "lowercase"
+        }, {
+          label: __("Capitalize"),
+          value: "capitalize"
+        }, {
+          label: __("Uppercase"),
+          value: "uppercase"
+        }],
+        onChange: function onChange(TextTransform) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Decoration"),
+        value: textDecoration,
+        options: [{
+          label: __("Initial"),
+          value: "initial"
+        }, {
+          label: __("Overline"),
+          value: "overline"
+        }, {
+          label: __("Line Through"),
+          value: "line-through"
+        }, {
+          label: __("Underline"),
+          value: "underline"
+        }, {
+          label: __("Underline Oveline"),
+          value: "underline overline"
+        }],
+        onChange: function onChange(TextDecoration) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: letterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LetterSpacingUnit) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Letter Spacing"),
+        value: letterSpacing,
+        onChange: function onChange(LetterSpacing) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
+        },
+        min: 0,
+        max: letterSpacingUnit === "em" ? 10 : 100,
+        step: letterSpacingUnit === "em" ? 0.1 : 1
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: lineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LineHeightUnit) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Line Height"),
+        value: lineHeight,
+        onChange: function onChange(LineHeight) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
+        },
+        min: 0,
+        max: lineHeightUnit === "em" ? 10 : 600,
+        step: lineHeightUnit === "em" ? 0.1 : 1
+      }));
+    }
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(BaseControl, {
+    label: __(baseLabel),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(Dropdown, {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref3) {
+      var isOpen = _ref3.isOpen,
+          onToggle = _ref3.onToggle;
+      return /*#__PURE__*/React.createElement(Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          padding: "0.2rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: __("Font Family"),
+        value: TABfontFamily,
+        onChange: function onChange(FontFamily) {
+          setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: TABsizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(SizeUnit) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Font Size"),
+        value: TABfontSize,
+        onChange: function onChange(FontSize) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontSize"), FontSize));
+        },
+        step: TABsizeUnit === "em" ? 0.1 : 1,
+        min: 0,
+        max: TABsizeUnit === "em" ? 10 : 300
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Font Weight"),
+        value: TABfontWeight,
+        options: [{
+          label: __("100"),
+          value: "100"
+        }, {
+          label: __("200"),
+          value: "200"
+        }, {
+          label: __("300"),
+          value: "300"
+        }, {
+          label: __("400"),
+          value: "400"
+        }, {
+          label: __("500"),
+          value: "500"
+        }, {
+          label: __("600"),
+          value: "600"
+        }, {
+          label: __("700"),
+          value: "700"
+        }, {
+          label: __("800"),
+          value: "800"
+        }, {
+          label: __("900"),
+          value: "900"
+        }],
+        onChange: function onChange(FontWeight) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Transform"),
+        value: TABtextTransform,
+        options: [{
+          label: __("None"),
+          value: "none"
+        }, {
+          label: __("Lowercase"),
+          value: "lowercase"
+        }, {
+          label: __("Capitalize"),
+          value: "capitalize"
+        }, {
+          label: __("Uppercase"),
+          value: "uppercase"
+        }],
+        onChange: function onChange(TextTransform) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Decoration"),
+        value: TABtextDecoration,
+        options: [{
+          label: __("Initial"),
+          value: "initial"
+        }, {
+          label: __("Overline"),
+          value: "overline"
+        }, {
+          label: __("Line Through"),
+          value: "line-through"
+        }, {
+          label: __("Underline"),
+          value: "underline"
+        }, {
+          label: __("Underline Oveline"),
+          value: "underline overline"
+        }],
+        onChange: function onChange(TextDecoration) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: TABletterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LetterSpacingUnit) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Letter Spacing"),
+        value: TABletterSpacing,
+        onChange: function onChange(LetterSpacing) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
+        },
+        min: 0,
+        max: TABletterSpacingUnit === "em" ? 10 : 100,
+        step: TABletterSpacingUnit === "em" ? 0.1 : 1
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: TABlineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LineHeightUnit) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Line Height"),
+        value: TABlineHeight,
+        onChange: function onChange(LineHeight) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
+        },
+        min: 0,
+        max: TABlineHeightUnit === "em" ? 10 : 600,
+        step: TABlineHeightUnit === "em" ? 0.1 : 1
+      }));
+    }
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(BaseControl, {
+    label: __(baseLabel),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(Dropdown, {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref4) {
+      var isOpen = _ref4.isOpen,
+          onToggle = _ref4.onToggle;
+      return /*#__PURE__*/React.createElement(Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          padding: "0.2rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: __("Font Family"),
+        value: MOBfontFamily,
+        onChange: function onChange(FontFamily) {
+          setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: MOBsizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(SizeUnit) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Font Size"),
+        value: MOBfontSize,
+        onChange: function onChange(FontSize) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontSize"), FontSize));
+        },
+        step: MOBsizeUnit === "em" ? 0.1 : 1,
+        min: 0,
+        max: MOBsizeUnit === "em" ? 10 : 300
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Font Weight"),
+        value: MOBfontWeight,
+        options: [{
+          label: __("100"),
+          value: "100"
+        }, {
+          label: __("200"),
+          value: "200"
+        }, {
+          label: __("300"),
+          value: "300"
+        }, {
+          label: __("400"),
+          value: "400"
+        }, {
+          label: __("500"),
+          value: "500"
+        }, {
+          label: __("600"),
+          value: "600"
+        }, {
+          label: __("700"),
+          value: "700"
+        }, {
+          label: __("800"),
+          value: "800"
+        }, {
+          label: __("900"),
+          value: "900"
+        }],
+        onChange: function onChange(FontWeight) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Transform"),
+        value: MOBtextTransform,
+        options: [{
+          label: __("None"),
+          value: "none"
+        }, {
+          label: __("Lowercase"),
+          value: "lowercase"
+        }, {
+          label: __("Capitalize"),
+          value: "capitalize"
+        }, {
+          label: __("Uppercase"),
+          value: "uppercase"
+        }],
+        onChange: function onChange(TextTransform) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Decoration"),
+        value: MOBtextDecoration,
+        options: [{
+          label: __("Initial"),
+          value: "initial"
+        }, {
+          label: __("Overline"),
+          value: "overline"
+        }, {
+          label: __("Line Through"),
+          value: "line-through"
+        }, {
+          label: __("Underline"),
+          value: "underline"
+        }, {
+          label: __("Underline Oveline"),
+          value: "underline overline"
+        }],
+        onChange: function onChange(TextDecoration) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: MOBletterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LetterSpacingUnit) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Letter Spacing"),
+        value: MOBletterSpacing,
+        onChange: function onChange(LetterSpacing) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
+        },
+        min: 0,
+        max: MOBletterSpacingUnit === "em" ? 10 : 100,
+        step: MOBletterSpacingUnit === "em" ? 0.1 : 1
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: MOBlineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LineHeightUnit) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Line Height"),
+        value: MOBlineHeight,
+        onChange: function onChange(LineHeight) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
+        },
+        min: 0,
+        max: MOBlineHeightUnit === "em" ? 10 : 600,
+        step: MOBlineHeightUnit === "em" ? 0.1 : 1
+      }));
+    }
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (TypographyControllsDropdown);
 
 /***/ }),
 

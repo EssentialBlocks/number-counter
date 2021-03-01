@@ -1,5 +1,36 @@
 "use strict";
 
+// document.addEventListener("mouseup", (e) => {
+// 	const isSelectedElem = document.querySelector(".is-selected");
+// 	const wrapperAdvanceButton = document.querySelector(
+// 		".components-panel__body.block-editor-block-inspector__advanced"
+// 	);
+// 	const advanceButton = wrapperAdvanceButton.querySelector(
+// 		".components-panel__body.block-editor-block-inspector__advanced button.components-button.components-panel__body-toggle"
+// 	);
+// 	const isExpanded = advanceButton
+// 		? advanceButton.getAttribute("aria-expanded")
+// 		: false;
+// 	console.log("----document click fired ", e, e.target, {
+// 		isSelectedElem,
+// 		wrapperAdvanceButton,
+// 		advanceButton,
+// 		isExpanded,
+// 	});
+// 	if (isSelectedElem && e.target !== advanceButton && isExpanded == "false") {
+// 		advanceButton.click();
+// 		const theInputField = wrapperAdvanceButton.querySelectorAll(
+// 			".components-text-control__input"
+// 		)[1];
+
+// 		const valueInput = theInputField
+// 			? (theInputField.value += "eb-cool-class-name")
+// 			: false;
+
+// 		console.log("here's the input field", { theInputField, valueInput });
+// 	}
+// });
+
 window.addEventListener("DOMContentLoaded", function () {
 	var counters = document.querySelectorAll(".eb-counter-wrapper  .eb-counter");
 	if (!counters) return;

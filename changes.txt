@@ -1,0 +1,13 @@
+1) crated 'randomNumber' attribute in attributes.js to make unique className of wrapper
+2) in inspector.js created a unique 'randomNumber' once by using 'setAttributes' & 'generateRandomNumber' function from helpers.js once inside useEffect. which will make sure the unique randomNumber is generated only once not on every render.
+3) the unique 'randomNumber' then received in edit.js & save.js as an attribute to make a unique className beside the one that is being used.
+4) then theres used a '<style>' tag in edit.js and save.js before the markup and using the unique className theres styles written inside the '<style>' tag.
+0.1) now we can easily write media-quieries inside that style tag and there we can use different attributes for styles in different screensize. 
+0.2) we can also take one attribute for one set of styles and parse that attribute to make different styles similar to what we did for "gradientColor" attributes and it's functionality in new gradient-controller 
+---------------------------------------------------
+fixed error on leaving the block and clicking another block by using if statement instead of "&&" in 'useEffect' in inspector.js which returned a boolean causing error on leaving the block.
+changed the randomNumber attribute type to number from string in attributes.js so that it doesn't ask for 'attempt block recovery' every time on reload
+changed default spacing attributes value to in attributes.js 
+---------------------------------------------------
+applied responsive on colors in both edit & save
+need to take an attribute to see which button of the 3 buttons (desktop,tab,mobile) is active (clicked) throughout inspector and edit.js so that we can reduce the edit page (.edit-post-visual-editor.editor-styles-wrapper) width on tab and mobile button clicked and mimmik the css in edit.js based on that attribute which will tell us which button is clicked. in this case we won't need media queries for edit.js only for save.js(frontend).

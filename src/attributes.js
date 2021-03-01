@@ -1,4 +1,142 @@
+import * as prefixObjs from "./components/constants/typographyPrefixConstants";
+import { generateTypographyAttributes } from "./components/helpers";
+
 export default {
+	// responsive control attributes ⬇
+	resOption: {
+		type: "string",
+		default: "desktop",
+	},
+
+	// randomNumber attribute for making unique className
+	randomNumber: {
+		type: "number",
+	},
+
+	// typography attributes ⬇
+	...generateTypographyAttributes(Object.values(prefixObjs)),
+
+	// MOBnumberFontFamily: { type: "string" },
+	// MOBnumberFontSize: { type: "number" },
+	// MOBnumberFontWeight: { type: "string" },
+	// MOBnumberLetterSpacing: { type: "number" },
+	// MOBnumberLetterSpacingUnit: { type: "string" },
+	// MOBnumberLineHeight: { type: "number" },
+	// MOBnumberLineHeightUnit: { type: "string" },
+	// MOBnumberSizeUnit: { type: "string" },
+	// MOBnumberTextDecoration: { type: "string" },
+	// MOBnumberTextTransform: { type: "string" },
+	// MOBprefixFontFamily: { type: "string" },
+	// MOBprefixFontSize: { type: "number" },
+	// MOBprefixFontWeight: { type: "string" },
+	// MOBprefixLetterSpacing: { type: "number" },
+	// MOBprefixLetterSpacingUnit: { type: "string" },
+	// MOBprefixLineHeight: { type: "number" },
+	// MOBprefixLineHeightUnit: { type: "string" },
+	// MOBprefixSizeUnit: { type: "string" },
+	// MOBprefixTextDecoration: { type: "string" },
+	// MOBprefixTextTransform: { type: "string" },
+	// MOBsuffixFontFamily: { type: "string" },
+	// MOBsuffixFontSize: { type: "number" },
+	// MOBsuffixFontWeight: { type: "string" },
+	// MOBsuffixLetterSpacing: { type: "number" },
+	// MOBsuffixLetterSpacingUnit: { type: "string" },
+	// MOBsuffixLineHeight: { type: "number" },
+	// MOBsuffixLineHeightUnit: { type: "string" },
+	// MOBsuffixSizeUnit: { type: "string" },
+	// MOBsuffixTextDecoration: { type: "string" },
+	// MOBsuffixTextTransform: { type: "string" },
+	// MOBtitleFontFamily: { type: "string" },
+	// MOBtitleFontSize: { type: "number" },
+	// MOBtitleFontWeight: { type: "string" },
+	// MOBtitleLetterSpacing: { type: "number" },
+	// MOBtitleLetterSpacingUnit: { type: "string" },
+	// MOBtitleLineHeight: { type: "number" },
+	// MOBtitleLineHeightUnit: { type: "string" },
+	// MOBtitleSizeUnit: { type: "string" },
+	// MOBtitleTextDecoration: { type: "string" },
+	// MOBtitleTextTransform: { type: "string" },
+	// TABnumberFontFamily: { type: "string" },
+	// TABnumberFontSize: { type: "number" },
+	// TABnumberFontWeight: { type: "string" },
+	// TABnumberLetterSpacing: { type: "number" },
+	// TABnumberLetterSpacingUnit: { type: "string" },
+	// TABnumberLineHeight: { type: "number" },
+	// TABnumberLineHeightUnit: { type: "string" },
+	// TABnumberSizeUnit: { type: "string" },
+	// TABnumberTextDecoration: { type: "string" },
+	// TABnumberTextTransform: { type: "string" },
+	// TABprefixFontFamily: { type: "string" },
+	// TABprefixFontSize: { type: "number" },
+	// TABprefixFontWeight: { type: "string" },
+	// TABprefixLetterSpacing: { type: "number" },
+	// TABprefixLetterSpacingUnit: { type: "string" },
+	// TABprefixLineHeight: { type: "number" },
+	// TABprefixLineHeightUnit: { type: "string" },
+	// TABprefixSizeUnit: { type: "string" },
+	// TABprefixTextDecoration: { type: "string" },
+	// TABprefixTextTransform: { type: "string" },
+	// TABsuffixFontFamily: { type: "string" },
+	// TABsuffixFontSize: { type: "number" },
+	// TABsuffixFontWeight: { type: "string" },
+	// TABsuffixLetterSpacing: { type: "number" },
+	// TABsuffixLetterSpacingUnit: { type: "string" },
+	// TABsuffixLineHeight: { type: "number" },
+	// TABsuffixLineHeightUnit: { type: "string" },
+	// TABsuffixSizeUnit: { type: "string" },
+	// TABsuffixTextDecoration: { type: "string" },
+	// TABsuffixTextTransform: { type: "string" },
+	// TABtitleFontFamily: { type: "string" },
+	// TABtitleFontSize: { type: "number" },
+	// TABtitleFontWeight: { type: "string" },
+	// TABtitleLetterSpacing: { type: "number" },
+	// TABtitleLetterSpacingUnit: { type: "string" },
+	// TABtitleLineHeight: { type: "number" },
+	// TABtitleLineHeightUnit: { type: "string" },
+	// TABtitleSizeUnit: { type: "string" },
+	// TABtitleTextDecoration: { type: "string" },
+	// TABtitleTextTransform: { type: "string" },
+	// numberFontFamily: { type: "string" },
+	// numberFontSize: { type: "number" },
+	// numberFontWeight: { type: "string", default: "400" },
+	// numberLetterSpacing: { type: "number", default: 0 },
+	// numberLetterSpacingUnit: { type: "string", default: "px" },
+	// numberLineHeight: { type: "number", default: 1 },
+	// numberLineHeightUnit: { type: "string", default: "em" },
+	// numberSizeUnit: { type: "string", default: "px" },
+	// numberTextDecoration: { type: "string", default: "initial" },
+	// numberTextTransform: { type: "string", default: "none" },
+	// prefixFontFamily: { type: "string" },
+	// prefixFontSize: { type: "number" },
+	// prefixFontWeight: { type: "string", default: "400" },
+	// prefixLetterSpacing: { type: "number", default: 0 },
+	// prefixLetterSpacingUnit: { type: "string", default: "px" },
+	// prefixLineHeight: { type: "number", default: 1 },
+	// prefixLineHeightUnit: { type: "string", default: "em" },
+	// prefixSizeUnit: { type: "string", default: "px" },
+	// prefixTextDecoration: { type: "string", default: "initial" },
+	// prefixTextTransform: { type: "string", default: "none" },
+	// suffixFontFamily: { type: "string" },
+	// suffixFontSize: { type: "number" },
+	// suffixFontWeight: { type: "string", default: "400" },
+	// suffixLetterSpacing: { type: "number", default: 0 },
+	// suffixLetterSpacingUnit: { type: "string", default: "px" },
+	// suffixLineHeight: { type: "number", default: 1 },
+	// suffixLineHeightUnit: { type: "string", default: "em" },
+	// suffixSizeUnit: { type: "string", default: "px" },
+	// suffixTextDecoration: { type: "string", default: "initial" },
+	// suffixTextTransform: { type: "string", default: "none" },
+	// titleFontFamily: { type: "string" },
+	// titleFontSize: { type: "number" },
+	// titleFontWeight: { type: "string", default: "400" },
+	// titleLetterSpacing: { type: "number", default: 0 },
+	// titleLetterSpacingUnit: { type: "string", default: "px" },
+	// titleLineHeight: { type: "number", default: 1 },
+	// titleLineHeightUnit: { type: "string", default: "em" },
+	// titleSizeUnit: { type: "string", default: "px" },
+	// titleTextDecoration: { type: "string", default: "initial" },
+	// titleTextTransform: { type: "string", default: "none" },
+
 	// counter settings attributes ⬇
 	startValue: {
 		type: "string",
@@ -44,6 +182,8 @@ export default {
 		type: "string",
 		default: "Default",
 	},
+
+	// color attributes ⬇
 	titleColor: {
 		type: "string",
 		default: "#566162",
@@ -61,16 +201,44 @@ export default {
 		default: "#3074ff",
 	},
 
+	TABtitleColor: {
+		type: "string",
+	},
+	TABnumberColor: {
+		type: "string",
+	},
+	TABnumPrefixColor: {
+		type: "string",
+	},
+	TABnumSuffixColor: {
+		type: "string",
+	},
+
+	MOBtitleColor: {
+		type: "string",
+	},
+	MOBnumberColor: {
+		type: "string",
+	},
+	MOBnumPrefixColor: {
+		type: "string",
+	},
+	MOBnumSuffixColor: {
+		type: "string",
+	},
+
 	// spacing attributes ⬇
 	gapNumTitle: {
 		type: "number",
-		default: 30,
+		default: 10,
 	},
 	gapNumPrefix: {
 		type: "number",
+		default: 0,
 	},
 	gapNumSuffix: {
 		type: "number",
+		default: 0,
 	},
 
 	// margin padding attributes ⬇
@@ -213,164 +381,164 @@ export default {
 		default: "500",
 	},
 
-	// Typography Attributes  ⬇
-	// title typography attributes  ⬇
-	titleFontFamily: {
-		type: "string",
-	},
-	titleSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	titleFontSize: {
-		type: "number",
-	},
-	titleFontWeight: {
-		type: "string",
-		default: "400",
-	},
-	titleTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	titleTextDecoration: {
-		type: "string",
-		default: "initial",
-	},
-	titleLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	titleLetterSpacing: {
-		type: "number",
-		default: 0,
-	},
-	titleLineHeightUnit: {
-		type: "string",
-		default: "em",
-	},
-	titleLineHeight: {
-		type: "number",
-		default: 1,
-	},
+	// // Typography Attributes  ⬇
+	// // title typography attributes  ⬇
+	// titleFontFamily: {
+	// 	type: "string",
+	// },
+	// titleSizeUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// titleFontSize: {
+	// 	type: "number",
+	// },
+	// titleFontWeight: {
+	// 	type: "string",
+	// 	default: "400",
+	// },
+	// titleTextTransform: {
+	// 	type: "string",
+	// 	default: "none",
+	// },
+	// titleTextDecoration: {
+	// 	type: "string",
+	// 	default: "initial",
+	// },
+	// titleLetterSpacingUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// titleLetterSpacing: {
+	// 	type: "number",
+	// 	default: 0,
+	// },
+	// titleLineHeightUnit: {
+	// 	type: "string",
+	// 	default: "em",
+	// },
+	// titleLineHeight: {
+	// 	type: "number",
+	// 	default: 1,
+	// },
 
-	// number typography attributes  ⬇
-	numberFontFamily: {
-		type: "string",
-	},
-	numberSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	numberFontSize: {
-		type: "number",
-	},
-	numberFontWeight: {
-		type: "string",
-		default: "400",
-	},
-	numberTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	numberTextDecoration: {
-		type: "string",
-		default: "initial",
-	},
-	numberLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	numberLetterSpacing: {
-		type: "number",
-		default: 0,
-	},
-	numberLineHeightUnit: {
-		type: "string",
-		default: "em",
-	},
-	numberLineHeight: {
-		type: "number",
-		default: 1,
-	},
+	// // number typography attributes  ⬇
+	// numberFontFamily: {
+	// 	type: "string",
+	// },
+	// numberSizeUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// numberFontSize: {
+	// 	type: "number",
+	// },
+	// numberFontWeight: {
+	// 	type: "string",
+	// 	default: "400",
+	// },
+	// numberTextTransform: {
+	// 	type: "string",
+	// 	default: "none",
+	// },
+	// numberTextDecoration: {
+	// 	type: "string",
+	// 	default: "initial",
+	// },
+	// numberLetterSpacingUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// numberLetterSpacing: {
+	// 	type: "number",
+	// 	default: 0,
+	// },
+	// numberLineHeightUnit: {
+	// 	type: "string",
+	// 	default: "em",
+	// },
+	// numberLineHeight: {
+	// 	type: "number",
+	// 	default: 1,
+	// },
 
-	// prefix typography attributes  ⬇
-	prefixFontFamily: {
-		type: "string",
-	},
-	prefixSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	prefixFontSize: {
-		type: "number",
-	},
-	prefixFontWeight: {
-		type: "string",
-		default: "400",
-	},
-	prefixTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	prefixTextDecoration: {
-		type: "string",
-		default: "initial",
-	},
-	prefixLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	prefixLetterSpacing: {
-		type: "number",
-		default: 0,
-	},
-	prefixLineHeightUnit: {
-		type: "string",
-		default: "em",
-	},
-	prefixLineHeight: {
-		type: "number",
-		default: 1,
-	},
+	// // prefix typography attributes  ⬇
+	// prefixFontFamily: {
+	// 	type: "string",
+	// },
+	// prefixSizeUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// prefixFontSize: {
+	// 	type: "number",
+	// },
+	// prefixFontWeight: {
+	// 	type: "string",
+	// 	default: "400",
+	// },
+	// prefixTextTransform: {
+	// 	type: "string",
+	// 	default: "none",
+	// },
+	// prefixTextDecoration: {
+	// 	type: "string",
+	// 	default: "initial",
+	// },
+	// prefixLetterSpacingUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// prefixLetterSpacing: {
+	// 	type: "number",
+	// 	default: 0,
+	// },
+	// prefixLineHeightUnit: {
+	// 	type: "string",
+	// 	default: "em",
+	// },
+	// prefixLineHeight: {
+	// 	type: "number",
+	// 	default: 1,
+	// },
 
-	// suffix typography attributes  ⬇
-	suffixFontFamily: {
-		type: "string",
-	},
-	suffixSizeUnit: {
-		type: "string",
-		default: "px",
-	},
-	suffixFontSize: {
-		type: "number",
-	},
-	suffixFontWeight: {
-		type: "string",
-		default: "400",
-	},
-	suffixTextTransform: {
-		type: "string",
-		default: "none",
-	},
-	suffixTextDecoration: {
-		type: "string",
-		default: "initial",
-	},
-	suffixLetterSpacingUnit: {
-		type: "string",
-		default: "px",
-	},
-	suffixLetterSpacing: {
-		type: "number",
-		default: 0,
-	},
-	suffixLineHeightUnit: {
-		type: "string",
-		default: "em",
-	},
-	suffixLineHeight: {
-		type: "number",
-		default: 1,
-	},
+	// // suffix typography attributes  ⬇
+	// suffixFontFamily: {
+	// 	type: "string",
+	// },
+	// suffixSizeUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// suffixFontSize: {
+	// 	type: "number",
+	// },
+	// suffixFontWeight: {
+	// 	type: "string",
+	// 	default: "400",
+	// },
+	// suffixTextTransform: {
+	// 	type: "string",
+	// 	default: "none",
+	// },
+	// suffixTextDecoration: {
+	// 	type: "string",
+	// 	default: "initial",
+	// },
+	// suffixLetterSpacingUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
+	// suffixLetterSpacing: {
+	// 	type: "number",
+	// 	default: 0,
+	// },
+	// suffixLineHeightUnit: {
+	// 	type: "string",
+	// 	default: "em",
+	// },
+	// suffixLineHeight: {
+	// 	type: "number",
+	// 	default: 1,
+	// },
 };

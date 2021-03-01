@@ -8,15 +8,26 @@ const { RichText } = wp.blockEditor;
  * Internal dependencies
  */
 import Inspector from "./inspector";
+import {
+	title,
+	number,
+	numPrefix,
+	numSuffix,
+} from "./constants/typographyPrefixConstants";
 
-// helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
-const textInsideForEdit = (value, isShowSeparator, separator) =>
-	isShowSeparator
-		? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator)
-		: value.toString();
+import {
+	generateRandomNumber,
+	generateTypographyStyles,
+	textInsideForEdit,
+} from "./helpers";
 
-const Edit = ({ isSelected, attributes, setAttributes }) => {
+const Edit = (props) => {
+	const { isSelected, attributes, setAttributes } = props;
+	console.log("--------edit:", props);
 	const {
+		// to make unique className ⬇
+		randomNumber,
+
 		// counter settings attributes ⬇
 		target,
 		duration,
@@ -26,11 +37,21 @@ const Edit = ({ isSelected, attributes, setAttributes }) => {
 		startValue,
 		isShowSeparator,
 		separator,
+		wrapperFlexDirection,
+
+		// counter color attributes ⬇
 		titleColor,
 		numberColor,
 		numPrefixColor,
 		numSuffixColor,
-		wrapperFlexDirection,
+		TABtitleColor,
+		TABnumberColor,
+		TABnumPrefixColor,
+		TABnumSuffixColor,
+		MOBtitleColor,
+		MOBnumberColor,
+		MOBnumPrefixColor,
+		MOBnumSuffixColor,
 
 		// spacing attributes ⬇
 		gapNumTitle,
@@ -78,55 +99,6 @@ const Edit = ({ isSelected, attributes, setAttributes }) => {
 		hoverSpread,
 		hoverInset,
 		wrapperTransitionTime,
-
-		// Typography Attributes  ⬇
-		// title typography attributes  ⬇
-		titleFontFamily,
-		titleSizeUnit,
-		titleFontSize,
-		titleFontWeight,
-		titleTextTransform,
-		titleTextDecoration,
-		titleLetterSpacingUnit,
-		titleLetterSpacing,
-		titleLineHeightUnit,
-		titleLineHeight,
-
-		// number typography attributes  ⬇
-		numberFontFamily,
-		numberSizeUnit,
-		numberFontSize,
-		numberFontWeight,
-		numberTextTransform,
-		numberTextDecoration,
-		numberLetterSpacingUnit,
-		numberLetterSpacing,
-		numberLineHeightUnit,
-		numberLineHeight,
-
-		// prefix typography attributes  ⬇
-		prefixFontFamily,
-		prefixSizeUnit,
-		prefixFontSize,
-		prefixFontWeight,
-		prefixTextTransform,
-		prefixTextDecoration,
-		prefixLetterSpacingUnit,
-		prefixLetterSpacing,
-		prefixLineHeightUnit,
-		prefixLineHeight,
-
-		// suffix typography attributes ⬇
-		suffixFontFamily,
-		suffixSizeUnit,
-		suffixFontSize,
-		suffixFontWeight,
-		suffixTextTransform,
-		suffixTextDecoration,
-		suffixLetterSpacingUnit,
-		suffixLetterSpacing,
-		suffixLineHeightUnit,
-		suffixLineHeight,
 	} = attributes;
 
 	const counterRef = useRef(null);
@@ -179,116 +151,224 @@ const Edit = ({ isSelected, attributes, setAttributes }) => {
 		isShowSeparator,
 	]);
 
-	const titleStyles = {
-		fontFamily: titleFontFamily || "inherit",
-		fontSize: titleFontSize ? `${titleFontSize}${titleSizeUnit}` : "40px",
-		fontWeight: titleFontWeight,
-		textTransform: titleTextTransform,
-		textDecoration: titleTextDecoration,
-		letterSpacing: `${titleLetterSpacing}${titleLetterSpacingUnit}`,
-		lineHeight: `${titleLineHeight}${titleLineHeightUnit}`,
+	useEffect(() => {
+		const bodyClasses = document.body.className;
+		if (!bodyClasses.includes("eb-res-option-")) {
+			document.body.classList.add("eb-res-option-desktop");
+		} else if (bodyClasses.includes("eb-res-option-desktop")) {
+			setAttributes({
+				resOption: "desktop",
+			});
+		} else if (bodyClasses.includes("eb-res-option-tab")) {
+			setAttributes({
+				resOption: "tab",
+			});
+		} else if (bodyClasses.includes("eb-res-option-mobile")) {
+			setAttributes({
+				resOption: "mobile",
+			});
+		}
+		console.log("-----edit er moddhe theke useEffect on [] log holo", {
+			bodyClasses,
+		});
 
-		color: titleColor,
+		const genRandomNumber = generateRandomNumber();
+		const anotherSameClassElements = document.querySelectorAll(
+			`.eb-counter-wrapper-${randomNumber}`
+		);
+
+		if (!randomNumber || anotherSameClassElements[1]) {
+			setAttributes({
+				randomNumber: genRandomNumber,
+			});
+		}
+	}, []);
+
+	const titleStyles = {
+		...generateTypographyStyles(attributes, title, 40),
+
+		// color: titleColor,
 	};
 	const numberStyles = {
-		fontFamily: numberFontFamily || "inherit",
-		fontSize: numberFontSize ? `${numberFontSize}${numberSizeUnit}` : "64px",
-		fontWeight: numberFontWeight,
-		textTransform: numberTextTransform,
-		textDecoration: numberTextDecoration,
-		letterSpacing: `${numberLetterSpacing}${numberLetterSpacingUnit}`,
-		lineHeight: `${numberLineHeight}${numberLineHeightUnit}`,
+		...generateTypographyStyles(attributes, number, 64),
 
-		color: numberColor,
+		// color: numberColor,
 		paddingLeft: `${gapNumPrefix}px`,
 		paddingRight: `${gapNumSuffix}px`,
 	};
 	const numPrefixStyles = {
-		fontFamily: prefixFontFamily || "inherit",
-		fontSize: prefixFontSize ? `${prefixFontSize}${prefixSizeUnit}` : "inherit",
-		fontWeight: prefixFontWeight,
-		textTransform: prefixTextTransform,
-		textDecoration: prefixTextDecoration,
-		letterSpacing: `${prefixLetterSpacing}${prefixLetterSpacingUnit}`,
-		lineHeight: `${prefixLineHeight}${prefixLineHeightUnit}`,
+		...generateTypographyStyles(attributes, numPrefix),
 
-		color: numPrefixColor,
+		// color: numPrefixColor,
 	};
 	const numSuffixStyles = {
-		fontFamily: suffixFontFamily || "inherit",
-		fontSize: suffixFontSize ? `${suffixFontSize}${suffixSizeUnit}` : "inherit",
-		fontWeight: suffixFontWeight,
-		textTransform: suffixTextTransform,
-		textDecoration: suffixTextDecoration,
-		letterSpacing: `${suffixLetterSpacing}${suffixLetterSpacingUnit}`,
-		lineHeight: `${suffixLineHeight}${suffixLineHeightUnit}`,
+		...generateTypographyStyles(attributes, numSuffix),
 
-		color: numSuffixColor,
+		// color: numSuffixColor,
 	};
-	const wrapperStyles = {
-		marginTop: `${marginTop || 0}${marginUnit}`,
-		marginBottom: `${marginBottom || 0}${marginUnit}`,
-		marginLeft: `${marginLeft || 0}${marginUnit}`,
-		marginRight: `${marginRight || 0}${marginUnit}`,
-		paddingTop: `${paddingTop || 0}${paddingUnit}`,
-		paddingBottom: `${paddingBottom || 0}${paddingUnit}`,
-		paddingRight: `${paddingRight || 0}${paddingUnit}`,
-		paddingLeft: `${paddingLeft || 0}${paddingUnit}`,
-		gap: `${gapNumTitle}px`,
-		flexDirection: wrapperFlexDirection,
-		backgroundImage:
-			backgroundType === "image" && imageURL
-				? `url("${imageURL}")`
-				: backgroundType === "gradient"
-				? gradientColor
-				: "none",
-		backgroundSize: backgroundSize,
-		backgroundColor:
-			(backgroundType === "fill" && backgroundColor) || "transparent",
-		border: `${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"}`,
-		borderRadius: `${borderRadius || 0}${radiusUnit}`,
-		boxShadow: isHover
-			? `${hoverHOffset || 0}px ${hoverVOffset || 0}px ${hoverBlur || 0}px ${
-					hoverSpread || 0
-			  }px ${hoverShadowColor || "#000000"} ${hoverInset ? "inset" : ""}`
-			: `${hOffset || 0}px ${vOffset || 0}px ${blur || 0}px ${spread || 0}px ${
-					shadowColor || "#000000"
-			  } ${inset ? "inset" : ""}`,
-		transition: wrapperTransitionTime
-			? `${wrapperTransitionTime / 1000}s`
-			: ".5s",
-	};
+	const wrapperStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
+					
+		margin-top: ${marginTop || 0}${marginUnit};
+		margin-bottom: ${marginBottom || 0}${marginUnit};
+		margin-left: ${marginLeft || 0}${marginUnit};
+		margin-right: ${marginRight || 0}${marginUnit};
+		padding-top: ${paddingTop || 0}${paddingUnit};
+		padding-bottom: ${paddingBottom || 0}${paddingUnit};
+		padding-right: ${paddingRight || 0}${paddingUnit};
+		padding-left: ${paddingLeft || 0}${paddingUnit};
+		gap: ${gapNumTitle}px;
+		flex-direction: ${wrapperFlexDirection};
+		background-image:
+			${
+				backgroundType === "image" && imageURL
+					? `url("${imageURL}")`
+					: backgroundType === "gradient"
+					? gradientColor
+					: "none"
+			};
+		background-size: ${backgroundSize};
+		background-color:
+			${(backgroundType === "fill" && backgroundColor) || "transparent"};
+		border: ${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"};
+		border-radius: ${borderRadius || 0}${radiusUnit};
+		box-shadow: ${shadowColor || "#000000"} ${hOffset || 0}px ${vOffset || 0}px ${
+		blur || 0
+	}px ${spread || 0}px ${inset ? "inset" : ""};
+		transition: ${
+			wrapperTransitionTime ? `${wrapperTransitionTime / 1000}s` : ".5s"
+		};
+	}
+	`;
+
+	const numberStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		color : ${numberColor};
+	}
+	`;
+
+	const titleStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		color : ${titleColor};
+	}
+	`;
+
+	const numPrefixStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		color : ${numPrefixColor};
+	}
+	`;
+
+	const numSuffixStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		color : ${numSuffixColor};
+	}
+	`;
+
+	const numberStylesTab = `   .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		color : ${TABnumberColor || numberColor};
+	} `;
+
+	const titleStylesTab = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		color : ${TABtitleColor || titleColor};
+	}  `;
+
+	const numPrefixStylesTab = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		color : ${TABnumPrefixColor || numPrefixColor};
+	}  `;
+
+	const numSuffixStylesTab = `   				
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		color : ${TABnumSuffixColor || numSuffixColor};
+	} `;
+
+	const numberStylesMobile = ` .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		color : ${MOBnumberColor || TABnumberColor || numberColor};
+	}`;
+
+	const titleStylesMobile = `  	
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		color : ${MOBtitleColor || TABtitleColor || titleColor};
+	} `;
+
+	const numPrefixStylesMobile = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		color : ${MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor};
+	}  `;
+
+	const numSuffixStylesMobile = `   	
+				
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		color : ${MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor};
+	}
+
+	`;
+
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
 		),
 
-		<div
-			className="eb-counter-wrapper"
-			onMouseEnter={() => setAttributes({ isHover: true })}
-			onMouseLeave={() => setAttributes({ isHover: false })}
-			style={wrapperStyles}
-		>
-			<h4 className="eb-counter-number">
-				<span className="eb-counter-prefix" style={numPrefixStyles}>
-					{counterPrefix}
-				</span>
-				<span ref={counterRef} className="eb-counter" style={numberStyles}>
-					0
-				</span>
-				<span className="eb-counter-suffix" style={numSuffixStyles}>
-					{counterSuffix}
-				</span>
-			</h4>
-			<RichText
-				tagName="h3"
-				style={titleStyles}
-				className="eb-counter-title"
-				value={counterTitle}
-				formattingControl={["bold", "italic"]}
-				onChange={(counterTitle) => setAttributes({ counterTitle })}
-			/>
-		</div>,
+		<>
+			<style>
+				{`
+		
+				${wrapperStylesDesktop}
+				${numberStylesDesktop}
+				${titleStylesDesktop}
+				${numPrefixStylesDesktop}
+				${numSuffixStylesDesktop}
+				
+
+				@media all and (max-width: 1030px) {				
+					${numberStylesTab}
+					${titleStylesTab}
+					${numPrefixStylesTab}
+					${numSuffixStylesTab}
+				}
+
+				@media all and (max-width: 680px) {
+					${numberStylesMobile}
+					${titleStylesMobile}
+					${numPrefixStylesMobile}
+					${numSuffixStylesMobile}
+				}
+
+
+				`}
+			</style>
+			<div
+				className={`eb-counter-wrapper eb-counter-wrapper-${randomNumber}`}
+				onMouseEnter={() => setAttributes({ isHover: true })}
+				onMouseLeave={() => setAttributes({ isHover: false })}
+			>
+				<h4 className="eb-counter-number">
+					<span className="eb-counter-prefix" style={numPrefixStyles}>
+						{counterPrefix}
+					</span>
+					<span
+						ref={counterRef}
+						className="eb-counter eb-counter-number"
+						style={numberStyles}
+					>
+						0
+					</span>
+					<span className="eb-counter-suffix" style={numSuffixStyles}>
+						{counterSuffix}
+					</span>
+				</h4>
+				<RichText
+					tagName="h3"
+					style={titleStyles}
+					className="eb-counter-title"
+					value={counterTitle}
+					formattingControl={["bold", "italic"]}
+					onChange={(counterTitle) => setAttributes({ counterTitle })}
+				/>
+			</div>
+		</>,
 	];
 };
 
