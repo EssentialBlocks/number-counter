@@ -538,3 +538,15 @@ button.eb-res-btn.active {
 	margin: auto;
 	width: 100%;
 }
+
+/* 
+* making the edit page respond to the responsive width
+*/
+
+body.eb-res-option-tab .edit-post-visual-editor.editor-styles-wrapper {
+	width: 768px;
+}
+
+body.eb-res-option-mobile .edit-post-visual-editor.editor-styles-wrapper {
+	width: 480px;
+}
