@@ -353,21 +353,6 @@ const Edit = (props) => {
 		typoStylesMobile: numSuffixTypoStylesMobile,
 	} = generateTypographyStyles(numSuffix);
 
-	console.log({
-		numberTypoStylesDesktop,
-		numberTypoStylesTab,
-		numberTypoStylesMobile,
-		titleTypoStylesDesktop,
-		titleTypoStylesTab,
-		titleTypoStylesMobile,
-		numPrefixTypoStylesDesktop,
-		numPrefixTypoStylesTab,
-		numPrefixTypoStylesMobile,
-		numSuffixTypoStylesDesktop,
-		numSuffixTypoStylesTab,
-		numSuffixTypoStylesMobile,
-	});
-
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
 		margin-top: ${marginTop || 0}${marginUnit};
@@ -402,6 +387,34 @@ const Edit = (props) => {
 	}
 	`;
 
+	const wrapperStylesTab = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
+		margin-top: ${TABmarginTop || 0}${TABmarginUnit};
+		margin-bottom: ${TABmarginBottom || 0}${TABmarginUnit};
+		margin-left: ${TABmarginLeft || 0}${TABmarginUnit};
+		margin-right: ${TABmarginRight || 0}${TABmarginUnit};
+		padding-top: ${TABpaddingTop || 0}${TABpaddingUnit};
+		padding-bottom: ${TABpaddingBottom || 0}${TABpaddingUnit};
+		padding-right: ${TABpaddingRight || 0}${TABpaddingUnit};
+		padding-left: ${TABpaddingLeft || 0}${TABpaddingUnit};
+		gap: ${TABgapNumTitle}px;	
+	}
+	`;
+
+	const wrapperStylesMobile = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
+		margin-top: ${MOBmarginTop || 0}${MOBmarginUnit};
+		margin-bottom: ${MOBmarginBottom || 0}${MOBmarginUnit};
+		margin-left: ${MOBmarginLeft || 0}${MOBmarginUnit};
+		margin-right: ${MOBmarginRight || 0}${MOBmarginUnit};
+		padding-top: ${MOBpaddingTop || 0}${MOBpaddingUnit};
+		padding-bottom: ${MOBpaddingBottom || 0}${MOBpaddingUnit};
+		padding-right: ${MOBpaddingRight || 0}${MOBpaddingUnit};
+		padding-left: ${MOBpaddingLeft || 0}${MOBpaddingUnit};
+		gap: ${MOBgapNumTitle}px;
+	}
+	`;
+
 	const numberStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesDesktop}
@@ -415,12 +428,16 @@ const Edit = (props) => {
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesTab}
 		color : ${TABnumberColor};
+		padding-left: ${TABgapNumPrefix}px;
+		padding-right: ${TABgapNumSuffix}px;
 	} `;
 
 	const numberStylesMobile = `
 	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
 		color : ${MOBnumberColor};
+		padding-left: ${MOBgapNumPrefix}px;
+		padding-right: ${MOBgapNumSuffix}px;
 	}`;
 
 	const titleStylesDesktop = `
@@ -444,7 +461,7 @@ const Edit = (props) => {
 
 	const numPrefixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-		${numPrefixStylesDesktop}
+		${numPrefixTypoStylesDesktop}
 		color : ${numPrefixColor};
 	}
 	`;
@@ -463,7 +480,7 @@ const Edit = (props) => {
 
 	const numSuffixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
-		${numSuffixStylesDesktop}
+		${numSuffixTypoStylesDesktop}
 		color : ${numSuffixColor};
 	}
 	`;
@@ -492,6 +509,7 @@ const Edit = (props) => {
 	`;
 
 	const tabAllStyles = `
+		${wrapperStylesTab}
 		${numberStylesTab}
 		${titleStylesTab}
 		${numPrefixStylesTab}
@@ -499,6 +517,7 @@ const Edit = (props) => {
 	`;
 
 	const mobileAllStyles = `
+		${wrapperStylesMobile}
 		${numberStylesMobile}
 		${titleStylesMobile}
 		${numPrefixStylesMobile}

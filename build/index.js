@@ -2525,36 +2525,24 @@ var Edit = function Edit(props) {
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  console.log({
-    numberTypoStylesDesktop: numberTypoStylesDesktop,
-    numberTypoStylesTab: numberTypoStylesTab,
-    numberTypoStylesMobile: numberTypoStylesMobile,
-    titleTypoStylesDesktop: titleTypoStylesDesktop,
-    titleTypoStylesTab: titleTypoStylesTab,
-    titleTypoStylesMobile: titleTypoStylesMobile,
-    numPrefixTypoStylesDesktop: numPrefixTypoStylesDesktop,
-    numPrefixTypoStylesTab: numPrefixTypoStylesTab,
-    numPrefixTypoStylesMobile: numPrefixTypoStylesMobile,
-    numSuffixTypoStylesDesktop: numSuffixTypoStylesDesktop,
-    numSuffixTypoStylesTab: numSuffixTypoStylesTab,
-    numSuffixTypoStylesMobile: numSuffixTypoStylesMobile
-  });
   var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop || 0).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom || 0).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft || 0).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight || 0).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop || 0).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom || 0).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight || 0).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft || 0).concat(TABpaddingUnit, ";\n\t\tgap: ").concat(TABgapNumTitle, "px;\t\n\t}\n\t");
+  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop || 0).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom || 0).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft || 0).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight || 0).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft || 0).concat(MOBpaddingUnit, ";\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
-  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t} ");
-  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t}");
+  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t\tpadding-left: ").concat(TABgapNumPrefix, "px;\n\t\tpadding-right: ").concat(TABgapNumSuffix, "px;\n\t} ");
+  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t\tpadding-left: ").concat(MOBgapNumPrefix, "px;\n\t\tpadding-right: ").concat(MOBgapNumSuffix, "px;\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
   var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor, ";\n\t}  ");
   var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor, ";\n\t} ");
-  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
+  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
   var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor, ";\n\t}  ");
   var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor, ";\n\t}  ");
-  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
+  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
   var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor, ";\n\t} ");
   var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor, ";\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
-  var tabAllStyles = "\n\t\t".concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
-  var mobileAllStyles = "\n\t\t".concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
+  var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
   return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -3779,17 +3767,37 @@ var Save = function Save(props) {
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      TABtitleColor = attributes.TABtitleColor,
-      TABnumberColor = attributes.TABnumberColor,
-      TABnumPrefixColor = attributes.TABnumPrefixColor,
-      TABnumSuffixColor = attributes.TABnumSuffixColor,
-      MOBtitleColor = attributes.MOBtitleColor,
-      MOBnumberColor = attributes.MOBnumberColor,
-      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
-      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
+      _attributes$TABtitleC = attributes.TABtitleColor,
+      TABtitleColor = _attributes$TABtitleC === void 0 ? TABtitleColor || titleColor : _attributes$TABtitleC,
+      _attributes$TABnumber = attributes.TABnumberColor,
+      TABnumberColor = _attributes$TABnumber === void 0 ? TABnumberColor || numberColor : _attributes$TABnumber,
+      _attributes$TABnumPre = attributes.TABnumPrefixColor,
+      TABnumPrefixColor = _attributes$TABnumPre === void 0 ? TABnumPrefixColor || numPrefixColor : _attributes$TABnumPre,
+      _attributes$TABnumSuf = attributes.TABnumSuffixColor,
+      TABnumSuffixColor = _attributes$TABnumSuf === void 0 ? TABnumSuffixColor || numSuffixColor : _attributes$TABnumSuf,
+      _attributes$MOBtitleC = attributes.MOBtitleColor,
+      MOBtitleColor = _attributes$MOBtitleC === void 0 ? MOBtitleColor || TABtitleColor || titleColor : _attributes$MOBtitleC,
+      _attributes$MOBnumber = attributes.MOBnumberColor,
+      MOBnumberColor = _attributes$MOBnumber === void 0 ? MOBnumberColor || TABnumberColor || numberColor : _attributes$MOBnumber,
+      _attributes$MOBnumPre = attributes.MOBnumPrefixColor,
+      MOBnumPrefixColor = _attributes$MOBnumPre === void 0 ? MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor : _attributes$MOBnumPre,
+      _attributes$MOBnumSuf = attributes.MOBnumSuffixColor,
+      MOBnumSuffixColor = _attributes$MOBnumSuf === void 0 ? MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor : _attributes$MOBnumSuf,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
+      _attributes$TABgapNum = attributes.TABgapNumTitle,
+      TABgapNumTitle = _attributes$TABgapNum === void 0 ? TABgapNumTitle || gapNumTitle : _attributes$TABgapNum,
+      _attributes$TABgapNum2 = attributes.TABgapNumPrefix,
+      TABgapNumPrefix = _attributes$TABgapNum2 === void 0 ? TABgapNumPrefix || gapNumPrefix : _attributes$TABgapNum2,
+      _attributes$TABgapNum3 = attributes.TABgapNumSuffix,
+      TABgapNumSuffix = _attributes$TABgapNum3 === void 0 ? TABgapNumSuffix || gapNumSuffix : _attributes$TABgapNum3,
+      _attributes$MOBgapNum = attributes.MOBgapNumTitle,
+      MOBgapNumTitle = _attributes$MOBgapNum === void 0 ? MOBgapNumTitle || TABgapNumTitle || gapNumTitle : _attributes$MOBgapNum,
+      _attributes$MOBgapNum2 = attributes.MOBgapNumPrefix,
+      MOBgapNumPrefix = _attributes$MOBgapNum2 === void 0 ? MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix : _attributes$MOBgapNum2,
+      _attributes$MOBgapNum3 = attributes.MOBgapNumSuffix,
+      MOBgapNumSuffix = _attributes$MOBgapNum3 === void 0 ? MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix : _attributes$MOBgapNum3,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
       marginRight = attributes.marginRight,
@@ -3800,6 +3808,46 @@ var Save = function Save(props) {
       paddingRight = attributes.paddingRight,
       paddingBottom = attributes.paddingBottom,
       paddingLeft = attributes.paddingLeft,
+      _attributes$TABmargin = attributes.TABmarginUnit,
+      TABmarginUnit = _attributes$TABmargin === void 0 ? TABmarginUnit || marginUnit : _attributes$TABmargin,
+      _attributes$TABmargin2 = attributes.TABmarginTop,
+      TABmarginTop = _attributes$TABmargin2 === void 0 ? TABmarginTop || marginTop : _attributes$TABmargin2,
+      _attributes$TABmargin3 = attributes.TABmarginRight,
+      TABmarginRight = _attributes$TABmargin3 === void 0 ? TABmarginRight || marginRight : _attributes$TABmargin3,
+      _attributes$TABmargin4 = attributes.TABmarginBottom,
+      TABmarginBottom = _attributes$TABmargin4 === void 0 ? TABmarginBottom || marginBottom : _attributes$TABmargin4,
+      _attributes$TABmargin5 = attributes.TABmarginLeft,
+      TABmarginLeft = _attributes$TABmargin5 === void 0 ? TABmarginLeft || marginLeft : _attributes$TABmargin5,
+      _attributes$TABpaddin = attributes.TABpaddingUnit,
+      TABpaddingUnit = _attributes$TABpaddin === void 0 ? TABpaddingUnit || paddingUnit : _attributes$TABpaddin,
+      _attributes$TABpaddin2 = attributes.TABpaddingTop,
+      TABpaddingTop = _attributes$TABpaddin2 === void 0 ? TABpaddingTop || paddingTop : _attributes$TABpaddin2,
+      _attributes$TABpaddin3 = attributes.TABpaddingRight,
+      TABpaddingRight = _attributes$TABpaddin3 === void 0 ? TABpaddingRight || paddingRight : _attributes$TABpaddin3,
+      _attributes$TABpaddin4 = attributes.TABpaddingBottom,
+      TABpaddingBottom = _attributes$TABpaddin4 === void 0 ? TABpaddingBottom || paddingBottom : _attributes$TABpaddin4,
+      _attributes$TABpaddin5 = attributes.TABpaddingLeft,
+      TABpaddingLeft = _attributes$TABpaddin5 === void 0 ? TABpaddingLeft || paddingLeft : _attributes$TABpaddin5,
+      _attributes$MOBmargin = attributes.MOBmarginUnit,
+      MOBmarginUnit = _attributes$MOBmargin === void 0 ? MOBmarginUnit || TABmarginUnit || marginUnit : _attributes$MOBmargin,
+      _attributes$MOBmargin2 = attributes.MOBmarginTop,
+      MOBmarginTop = _attributes$MOBmargin2 === void 0 ? MOBmarginTop || TABmarginTop || marginTop : _attributes$MOBmargin2,
+      _attributes$MOBmargin3 = attributes.MOBmarginRight,
+      MOBmarginRight = _attributes$MOBmargin3 === void 0 ? MOBmarginRight || TABmarginRight || marginRight : _attributes$MOBmargin3,
+      _attributes$MOBmargin4 = attributes.MOBmarginBottom,
+      MOBmarginBottom = _attributes$MOBmargin4 === void 0 ? MOBmarginBottom || TABmarginBottom || marginBottom : _attributes$MOBmargin4,
+      _attributes$MOBmargin5 = attributes.MOBmarginLeft,
+      MOBmarginLeft = _attributes$MOBmargin5 === void 0 ? MOBmarginLeft || TABmarginLeft || marginLeft : _attributes$MOBmargin5,
+      _attributes$MOBpaddin = attributes.MOBpaddingUnit,
+      MOBpaddingUnit = _attributes$MOBpaddin === void 0 ? MOBpaddingUnit || TABpaddingUnit || paddingUnit : _attributes$MOBpaddin,
+      _attributes$MOBpaddin2 = attributes.MOBpaddingTop,
+      MOBpaddingTop = _attributes$MOBpaddin2 === void 0 ? MOBpaddingTop || TABpaddingTop || paddingTop : _attributes$MOBpaddin2,
+      _attributes$MOBpaddin3 = attributes.MOBpaddingRight,
+      MOBpaddingRight = _attributes$MOBpaddin3 === void 0 ? MOBpaddingRight || TABpaddingRight || paddingRight : _attributes$MOBpaddin3,
+      _attributes$MOBpaddin4 = attributes.MOBpaddingBottom,
+      MOBpaddingBottom = _attributes$MOBpaddin4 === void 0 ? MOBpaddingBottom || TABpaddingBottom || paddingBottom : _attributes$MOBpaddin4,
+      _attributes$MOBpaddin5 = attributes.MOBpaddingLeft,
+      MOBpaddingLeft = _attributes$MOBpaddin5 === void 0 ? MOBpaddingLeft || TABpaddingLeft || paddingLeft : _attributes$MOBpaddin5,
       backgroundType = attributes.backgroundType,
       imageURL = attributes.imageURL,
       gradientColor = attributes.gradientColor,
@@ -3908,36 +3956,24 @@ var Save = function Save(props) {
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  console.log("--------from Save: ", {
-    numberTypoStylesDesktop: numberTypoStylesDesktop,
-    numberTypoStylesTab: numberTypoStylesTab,
-    numberTypoStylesMobile: numberTypoStylesMobile,
-    titleTypoStylesDesktop: titleTypoStylesDesktop,
-    titleTypoStylesTab: titleTypoStylesTab,
-    titleTypoStylesMobile: titleTypoStylesMobile,
-    numPrefixTypoStylesDesktop: numPrefixTypoStylesDesktop,
-    numPrefixTypoStylesTab: numPrefixTypoStylesTab,
-    numPrefixTypoStylesMobile: numPrefixTypoStylesMobile,
-    numSuffixTypoStylesDesktop: numSuffixTypoStylesDesktop,
-    numSuffixTypoStylesTab: numSuffixTypoStylesTab,
-    numSuffixTypoStylesMobile: numSuffixTypoStylesMobile
-  });
   var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop || 0).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom || 0).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft || 0).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight || 0).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop || 0).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom || 0).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight || 0).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft || 0).concat(TABpaddingUnit, ";\n\t\tgap: ").concat(TABgapNumTitle, "px;\t\n\t}\n\t");
+  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop || 0).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom || 0).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft || 0).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight || 0).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft || 0).concat(MOBpaddingUnit, ";\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
-  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t} ");
-  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t}");
+  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t\tpadding-left: ").concat(TABgapNumPrefix, "px;\n\t\tpadding-right: ").concat(TABgapNumSuffix, "px;\n\t} ");
+  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t\tpadding-left: ").concat(MOBgapNumPrefix, "px;\n\t\tpadding-right: ").concat(MOBgapNumSuffix, "px;\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
-  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t}  ");
-  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t} ");
-  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
-  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
-  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
-  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
-  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t} ");
-  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t}\n\n\t");
+  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor, ";\n\t}  ");
+  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor, ";\n\t} ");
+  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
+  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor, ";\n\t}  ");
+  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor, ";\n\t}  ");
+  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
+  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor, ";\n\t} ");
+  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor, ";\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
-  var tabAllStyles = "\n\t\t".concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
-  var mobileAllStyles = "\n\t\t".concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
+  var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(tabAllStyles, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(mobileAllStyles, "\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     "data-shadowColor": shadowColor || "#00000000",

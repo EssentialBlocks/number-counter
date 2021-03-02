@@ -38,19 +38,33 @@ const Save = (props) => {
 		numberColor,
 		numPrefixColor,
 		numSuffixColor,
-		TABtitleColor,
-		TABnumberColor,
-		TABnumPrefixColor,
-		TABnumSuffixColor,
-		MOBtitleColor,
-		MOBnumberColor,
-		MOBnumPrefixColor,
-		MOBnumSuffixColor,
+
+		TABtitleColor = TABtitleColor || titleColor,
+		TABnumberColor = TABnumberColor || numberColor,
+		TABnumPrefixColor = TABnumPrefixColor || numPrefixColor,
+		TABnumSuffixColor = TABnumSuffixColor || numSuffixColor,
+
+		MOBtitleColor = MOBtitleColor || TABtitleColor || titleColor,
+		MOBnumberColor = MOBnumberColor || TABnumberColor || numberColor,
+		MOBnumPrefixColor = MOBnumPrefixColor ||
+			TABnumPrefixColor ||
+			numPrefixColor,
+		MOBnumSuffixColor = MOBnumSuffixColor ||
+			TABnumSuffixColor ||
+			numSuffixColor,
 
 		// spacing attributes ⬇
 		gapNumTitle,
 		gapNumPrefix,
 		gapNumSuffix,
+
+		TABgapNumTitle = TABgapNumTitle || gapNumTitle,
+		TABgapNumPrefix = TABgapNumPrefix || gapNumPrefix,
+		TABgapNumSuffix = TABgapNumSuffix || gapNumSuffix,
+
+		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle || gapNumTitle,
+		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix,
+		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix,
 
 		// margin padding attributes ⬇
 		marginUnit,
@@ -63,6 +77,28 @@ const Save = (props) => {
 		paddingRight,
 		paddingBottom,
 		paddingLeft,
+
+		TABmarginUnit = TABmarginUnit || marginUnit,
+		TABmarginTop = TABmarginTop || marginTop,
+		TABmarginRight = TABmarginRight || marginRight,
+		TABmarginBottom = TABmarginBottom || marginBottom,
+		TABmarginLeft = TABmarginLeft || marginLeft,
+		TABpaddingUnit = TABpaddingUnit || paddingUnit,
+		TABpaddingTop = TABpaddingTop || paddingTop,
+		TABpaddingRight = TABpaddingRight || paddingRight,
+		TABpaddingBottom = TABpaddingBottom || paddingBottom,
+		TABpaddingLeft = TABpaddingLeft || paddingLeft,
+
+		MOBmarginUnit = MOBmarginUnit || TABmarginUnit || marginUnit,
+		MOBmarginTop = MOBmarginTop || TABmarginTop || marginTop,
+		MOBmarginRight = MOBmarginRight || TABmarginRight || marginRight,
+		MOBmarginBottom = MOBmarginBottom || TABmarginBottom || marginBottom,
+		MOBmarginLeft = MOBmarginLeft || TABmarginLeft || marginLeft,
+		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit || paddingUnit,
+		MOBpaddingTop = MOBpaddingTop || TABpaddingTop || paddingTop,
+		MOBpaddingRight = MOBpaddingRight || TABpaddingRight || paddingRight,
+		MOBpaddingBottom = MOBpaddingBottom || TABpaddingBottom || paddingBottom,
+		MOBpaddingLeft = MOBpaddingLeft || TABpaddingLeft || paddingLeft,
 
 		// background attributes ⬇
 		backgroundType,
@@ -225,21 +261,6 @@ const Save = (props) => {
 		typoStylesMobile: numSuffixTypoStylesMobile,
 	} = generateTypographyStyles(numSuffix);
 
-	console.log("--------from Save: ", {
-		numberTypoStylesDesktop,
-		numberTypoStylesTab,
-		numberTypoStylesMobile,
-		titleTypoStylesDesktop,
-		titleTypoStylesTab,
-		titleTypoStylesMobile,
-		numPrefixTypoStylesDesktop,
-		numPrefixTypoStylesTab,
-		numPrefixTypoStylesMobile,
-		numSuffixTypoStylesDesktop,
-		numSuffixTypoStylesTab,
-		numSuffixTypoStylesMobile,
-	});
-
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
 		margin-top: ${marginTop || 0}${marginUnit};
@@ -274,6 +295,34 @@ const Save = (props) => {
 	}
 	`;
 
+	const wrapperStylesTab = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
+		margin-top: ${TABmarginTop || 0}${TABmarginUnit};
+		margin-bottom: ${TABmarginBottom || 0}${TABmarginUnit};
+		margin-left: ${TABmarginLeft || 0}${TABmarginUnit};
+		margin-right: ${TABmarginRight || 0}${TABmarginUnit};
+		padding-top: ${TABpaddingTop || 0}${TABpaddingUnit};
+		padding-bottom: ${TABpaddingBottom || 0}${TABpaddingUnit};
+		padding-right: ${TABpaddingRight || 0}${TABpaddingUnit};
+		padding-left: ${TABpaddingLeft || 0}${TABpaddingUnit};
+		gap: ${TABgapNumTitle}px;	
+	}
+	`;
+
+	const wrapperStylesMobile = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
+		margin-top: ${MOBmarginTop || 0}${MOBmarginUnit};
+		margin-bottom: ${MOBmarginBottom || 0}${MOBmarginUnit};
+		margin-left: ${MOBmarginLeft || 0}${MOBmarginUnit};
+		margin-right: ${MOBmarginRight || 0}${MOBmarginUnit};
+		padding-top: ${MOBpaddingTop || 0}${MOBpaddingUnit};
+		padding-bottom: ${MOBpaddingBottom || 0}${MOBpaddingUnit};
+		padding-right: ${MOBpaddingRight || 0}${MOBpaddingUnit};
+		padding-left: ${MOBpaddingLeft || 0}${MOBpaddingUnit};
+		gap: ${MOBgapNumTitle}px;
+	}
+	`;
+
 	const numberStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesDesktop}
@@ -286,13 +335,17 @@ const Save = (props) => {
 	const numberStylesTab = `   
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesTab}
-		color : ${TABnumberColor || numberColor};
+		color : ${TABnumberColor};
+		padding-left: ${TABgapNumPrefix}px;
+		padding-right: ${TABgapNumSuffix}px;
 	} `;
 
 	const numberStylesMobile = `
 	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
-		color : ${MOBnumberColor || TABnumberColor || numberColor};
+		color : ${MOBnumberColor};
+		padding-left: ${MOBgapNumPrefix}px;
+		padding-right: ${MOBgapNumSuffix}px;
 	}`;
 
 	const titleStylesDesktop = `
@@ -305,18 +358,18 @@ const Save = (props) => {
 	const titleStylesTab = `  
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesTab}
-		color : ${TABtitleColor || titleColor};
+		color : ${TABtitleColor};
 	}  `;
 
 	const titleStylesMobile = `  	
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesMobile}
-		color : ${MOBtitleColor || TABtitleColor || titleColor};
+		color : ${MOBtitleColor};
 	} `;
 
 	const numPrefixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-		${numPrefixStylesDesktop}
+		${numPrefixTypoStylesDesktop}
 		color : ${numPrefixColor};
 	}
 	`;
@@ -324,18 +377,18 @@ const Save = (props) => {
 	const numPrefixStylesTab = `  
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
-		color : ${TABnumPrefixColor || numPrefixColor};
+		color : ${TABnumPrefixColor};
 	}  `;
 
 	const numPrefixStylesMobile = `  
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
-		color : ${MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor};
+		color : ${MOBnumPrefixColor};
 	}  `;
 
 	const numSuffixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
-		${numSuffixStylesDesktop}
+		${numSuffixTypoStylesDesktop}
 		color : ${numSuffixColor};
 	}
 	`;
@@ -343,14 +396,14 @@ const Save = (props) => {
 	const numSuffixStylesTab = `   				
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
-		color : ${TABnumSuffixColor || numSuffixColor};
+		color : ${TABnumSuffixColor};
 	} `;
 
 	const numSuffixStylesMobile = `   	
 				
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
-		color : ${MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor};
+		color : ${MOBnumSuffixColor};
 	}
 
 	`;
@@ -364,6 +417,7 @@ const Save = (props) => {
 	`;
 
 	const tabAllStyles = `
+		${wrapperStylesTab}
 		${numberStylesTab}
 		${titleStylesTab}
 		${numPrefixStylesTab}
@@ -371,6 +425,7 @@ const Save = (props) => {
 	`;
 
 	const mobileAllStyles = `
+		${wrapperStylesMobile}
 		${numberStylesMobile}
 		${titleStylesMobile}
 		${numPrefixStylesMobile}
