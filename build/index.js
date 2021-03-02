@@ -2365,7 +2365,7 @@ var Edit = function Edit(props) {
   var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
   var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t} ");
-  var numberStylesMobile = " .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t}");
+  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
   var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t}  ");
   var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t} ");
@@ -2468,7 +2468,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_image_avatar_ImageAvater__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../util/image-avatar/ImageAvater */ "./util/image-avatar/ImageAvater.js");
 /* harmony import */ var _util_reset_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../util/reset-control */ "./util/reset-control/index.js");
 /* harmony import */ var _util_toggle_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../util/toggle-button */ "./util/toggle-button/index.js");
-/* harmony import */ var _controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../controls/typographyControl */ "./src/controls/typographyControl/index.js");
+/* harmony import */ var _util_typography_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../util/typography-component */ "./util/typography-component/index.js");
 /* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ResPanelBody */ "./src/components/ResPanelBody.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./constants */ "./src/components/constants.js");
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
@@ -2798,25 +2798,25 @@ var Inspector = function Inspector(props) {
     title: __("Typography"),
     initialOpen: false,
     resRequiredProps: resRequiredProps
-  }, /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_typography_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Title",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"],
     typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"]),
     resOption: resOption,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Number",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["number"],
     typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["number"]),
     resOption: resOption,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Prefix",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numPrefix"],
     typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numPrefix"]),
     resOption: resOption,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement(_controls_typographyControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Suffix",
     typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numSuffix"],
     typographyAttributes: generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["numSuffix"]),
@@ -3554,607 +3554,6 @@ var Save = function Save(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
-
-/***/ }),
-
-/***/ "./src/controls/typographyControl/index.js":
-/*!*************************************************!*\
-  !*** ./src/controls/typographyControl/index.js ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _util_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../util/icons */ "./util/icons.js");
-/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
-/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../util/unit-control */ "./util/unit-control/index.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var __ = wp.i18n.__;
-var _wp$components = wp.components,
-    Button = _wp$components.Button,
-    SelectControl = _wp$components.SelectControl,
-    BaseControl = _wp$components.BaseControl,
-    RangeControl = _wp$components.RangeControl,
-    Dropdown = _wp$components.Dropdown;
-
-
-
-
-function TypographyControllsDropdown(_ref) {
-  var baseLabel = _ref.baseLabel,
-      typographyPrefixConstant = _ref.typographyPrefixConstant,
-      resOption = _ref.resOption,
-      setAttributes = _ref.setAttributes,
-      typographyAttributes = _ref.typographyAttributes;
-  var fontFamily = typographyAttributes.fontFamily,
-      fontWeight = typographyAttributes.fontWeight,
-      textTransform = typographyAttributes.textTransform,
-      textDecoration = typographyAttributes.textDecoration,
-      fontSize = typographyAttributes.fontSize,
-      sizeUnit = typographyAttributes.sizeUnit,
-      letterSpacing = typographyAttributes.letterSpacing,
-      letterSpacingUnit = typographyAttributes.letterSpacingUnit,
-      lineHeight = typographyAttributes.lineHeight,
-      lineHeightUnit = typographyAttributes.lineHeightUnit,
-      _typographyAttributes = typographyAttributes.TABfontFamily,
-      TABfontFamily = _typographyAttributes === void 0 ? TABfontFamily || fontFamily : _typographyAttributes,
-      _typographyAttributes2 = typographyAttributes.TABfontWeight,
-      TABfontWeight = _typographyAttributes2 === void 0 ? TABfontWeight || fontWeight : _typographyAttributes2,
-      _typographyAttributes3 = typographyAttributes.TABtextTransform,
-      TABtextTransform = _typographyAttributes3 === void 0 ? TABtextTransform || textTransform : _typographyAttributes3,
-      _typographyAttributes4 = typographyAttributes.TABtextDecoration,
-      TABtextDecoration = _typographyAttributes4 === void 0 ? TABtextDecoration || textDecoration : _typographyAttributes4,
-      _typographyAttributes5 = typographyAttributes.TABfontSize,
-      TABfontSize = _typographyAttributes5 === void 0 ? TABfontSize || fontSize : _typographyAttributes5,
-      _typographyAttributes6 = typographyAttributes.TABsizeUnit,
-      TABsizeUnit = _typographyAttributes6 === void 0 ? TABsizeUnit || sizeUnit : _typographyAttributes6,
-      _typographyAttributes7 = typographyAttributes.TABletterSpacing,
-      TABletterSpacing = _typographyAttributes7 === void 0 ? TABletterSpacing || letterSpacing : _typographyAttributes7,
-      _typographyAttributes8 = typographyAttributes.TABletterSpacingUnit,
-      TABletterSpacingUnit = _typographyAttributes8 === void 0 ? TABletterSpacingUnit || letterSpacingUnit : _typographyAttributes8,
-      _typographyAttributes9 = typographyAttributes.TABlineHeight,
-      TABlineHeight = _typographyAttributes9 === void 0 ? TABlineHeight || lineHeight : _typographyAttributes9,
-      _typographyAttributes10 = typographyAttributes.TABlineHeightUnit,
-      TABlineHeightUnit = _typographyAttributes10 === void 0 ? TABlineHeightUnit || lineHeightUnit : _typographyAttributes10,
-      _typographyAttributes11 = typographyAttributes.MOBfontFamily,
-      MOBfontFamily = _typographyAttributes11 === void 0 ? MOBfontFamily || TABfontFamily || fontFamily : _typographyAttributes11,
-      _typographyAttributes12 = typographyAttributes.MOBfontWeight,
-      MOBfontWeight = _typographyAttributes12 === void 0 ? MOBfontWeight || TABfontWeight || fontWeight : _typographyAttributes12,
-      _typographyAttributes13 = typographyAttributes.MOBtextTransform,
-      MOBtextTransform = _typographyAttributes13 === void 0 ? MOBtextTransform || TABtextTransform || textTransform : _typographyAttributes13,
-      _typographyAttributes14 = typographyAttributes.MOBtextDecoration,
-      MOBtextDecoration = _typographyAttributes14 === void 0 ? MOBtextDecoration || TABtextDecoration || textDecoration : _typographyAttributes14,
-      _typographyAttributes15 = typographyAttributes.MOBfontSize,
-      MOBfontSize = _typographyAttributes15 === void 0 ? MOBfontSize || TABfontSize || fontSize : _typographyAttributes15,
-      _typographyAttributes16 = typographyAttributes.MOBsizeUnit,
-      MOBsizeUnit = _typographyAttributes16 === void 0 ? MOBsizeUnit || TABsizeUnit || sizeUnit : _typographyAttributes16,
-      _typographyAttributes17 = typographyAttributes.MOBletterSpacing,
-      MOBletterSpacing = _typographyAttributes17 === void 0 ? MOBletterSpacing || TABletterSpacing || letterSpacing : _typographyAttributes17,
-      _typographyAttributes18 = typographyAttributes.MOBletterSpacingUnit,
-      MOBletterSpacingUnit = _typographyAttributes18 === void 0 ? MOBletterSpacingUnit || TABletterSpacingUnit || letterSpacingUnit : _typographyAttributes18,
-      _typographyAttributes19 = typographyAttributes.MOBlineHeight,
-      MOBlineHeight = _typographyAttributes19 === void 0 ? MOBlineHeight || TABlineHeight || lineHeight : _typographyAttributes19,
-      _typographyAttributes20 = typographyAttributes.MOBlineHeightUnit,
-      MOBlineHeightUnit = _typographyAttributes20 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _typographyAttributes20;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, resOption == "desktop" && /*#__PURE__*/React.createElement(BaseControl, {
-    label: __(baseLabel),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref2) {
-      var isOpen = _ref2.isOpen,
-          onToggle = _ref2.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        label: __("Font Family"),
-        value: fontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: sizeUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "%",
-          value: "%"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: fontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontSize"), FontSize));
-        },
-        step: sizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: sizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: fontWeight,
-        options: [{
-          label: __("100"),
-          value: "100"
-        }, {
-          label: __("200"),
-          value: "200"
-        }, {
-          label: __("300"),
-          value: "300"
-        }, {
-          label: __("400"),
-          value: "400"
-        }, {
-          label: __("500"),
-          value: "500"
-        }, {
-          label: __("600"),
-          value: "600"
-        }, {
-          label: __("700"),
-          value: "700"
-        }, {
-          label: __("800"),
-          value: "800"
-        }, {
-          label: __("900"),
-          value: "900"
-        }],
-        onChange: function onChange(FontWeight) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: textTransform,
-        options: [{
-          label: __("None"),
-          value: "none"
-        }, {
-          label: __("Lowercase"),
-          value: "lowercase"
-        }, {
-          label: __("Capitalize"),
-          value: "capitalize"
-        }, {
-          label: __("Uppercase"),
-          value: "uppercase"
-        }],
-        onChange: function onChange(TextTransform) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: textDecoration,
-        options: [{
-          label: __("Initial"),
-          value: "initial"
-        }, {
-          label: __("Overline"),
-          value: "overline"
-        }, {
-          label: __("Line Through"),
-          value: "line-through"
-        }, {
-          label: __("Underline"),
-          value: "underline"
-        }, {
-          label: __("Underline Oveline"),
-          value: "underline overline"
-        }],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: letterSpacingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: letterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
-        },
-        min: 0,
-        max: letterSpacingUnit === "em" ? 10 : 100,
-        step: letterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: lineHeightUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: lineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
-        },
-        min: 0,
-        max: lineHeightUnit === "em" ? 10 : 600,
-        step: lineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  })), resOption == "tab" && /*#__PURE__*/React.createElement(BaseControl, {
-    label: __(baseLabel),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref3) {
-      var isOpen = _ref3.isOpen,
-          onToggle = _ref3.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        label: __("Font Family"),
-        value: TABfontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: TABsizeUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "%",
-          value: "%"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: TABfontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontSize"), FontSize));
-        },
-        step: TABsizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: TABsizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: TABfontWeight,
-        options: [{
-          label: __("100"),
-          value: "100"
-        }, {
-          label: __("200"),
-          value: "200"
-        }, {
-          label: __("300"),
-          value: "300"
-        }, {
-          label: __("400"),
-          value: "400"
-        }, {
-          label: __("500"),
-          value: "500"
-        }, {
-          label: __("600"),
-          value: "600"
-        }, {
-          label: __("700"),
-          value: "700"
-        }, {
-          label: __("800"),
-          value: "800"
-        }, {
-          label: __("900"),
-          value: "900"
-        }],
-        onChange: function onChange(FontWeight) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: TABtextTransform,
-        options: [{
-          label: __("None"),
-          value: "none"
-        }, {
-          label: __("Lowercase"),
-          value: "lowercase"
-        }, {
-          label: __("Capitalize"),
-          value: "capitalize"
-        }, {
-          label: __("Uppercase"),
-          value: "uppercase"
-        }],
-        onChange: function onChange(TextTransform) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: TABtextDecoration,
-        options: [{
-          label: __("Initial"),
-          value: "initial"
-        }, {
-          label: __("Overline"),
-          value: "overline"
-        }, {
-          label: __("Line Through"),
-          value: "line-through"
-        }, {
-          label: __("Underline"),
-          value: "underline"
-        }, {
-          label: __("Underline Oveline"),
-          value: "underline overline"
-        }],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: TABletterSpacingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: TABletterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
-        },
-        min: 0,
-        max: TABletterSpacingUnit === "em" ? 10 : 100,
-        step: TABletterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: TABlineHeightUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: TABlineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
-        },
-        min: 0,
-        max: TABlineHeightUnit === "em" ? 10 : 600,
-        step: TABlineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  })), resOption == "mobile" && /*#__PURE__*/React.createElement(BaseControl, {
-    label: __(baseLabel),
-    className: "eb-typography-base"
-  }, /*#__PURE__*/React.createElement(Dropdown, {
-    className: "eb-typography-dropdown",
-    contentClassName: "my-popover-content-classname",
-    position: "bottom right",
-    renderToggle: function renderToggle(_ref4) {
-      var isOpen = _ref4.isOpen,
-          onToggle = _ref4.onToggle;
-      return /*#__PURE__*/React.createElement(Button, {
-        isSmall: true,
-        onClick: onToggle,
-        "aria-expanded": isOpen
-      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
-    },
-    renderContent: function renderContent() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "eb-panel-control",
-        style: {
-          padding: "0.2rem"
-        }
-      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        label: __("Font Family"),
-        value: MOBfontFamily,
-        onChange: function onChange(FontFamily) {
-          setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: MOBsizeUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "%",
-          value: "%"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(SizeUnit) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Font Size"),
-        value: MOBfontSize,
-        onChange: function onChange(FontSize) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontSize"), FontSize));
-        },
-        step: MOBsizeUnit === "em" ? 0.1 : 1,
-        min: 0,
-        max: MOBsizeUnit === "em" ? 10 : 300
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Font Weight"),
-        value: MOBfontWeight,
-        options: [{
-          label: __("100"),
-          value: "100"
-        }, {
-          label: __("200"),
-          value: "200"
-        }, {
-          label: __("300"),
-          value: "300"
-        }, {
-          label: __("400"),
-          value: "400"
-        }, {
-          label: __("500"),
-          value: "500"
-        }, {
-          label: __("600"),
-          value: "600"
-        }, {
-          label: __("700"),
-          value: "700"
-        }, {
-          label: __("800"),
-          value: "800"
-        }, {
-          label: __("900"),
-          value: "900"
-        }],
-        onChange: function onChange(FontWeight) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Transform"),
-        value: MOBtextTransform,
-        options: [{
-          label: __("None"),
-          value: "none"
-        }, {
-          label: __("Lowercase"),
-          value: "lowercase"
-        }, {
-          label: __("Capitalize"),
-          value: "capitalize"
-        }, {
-          label: __("Uppercase"),
-          value: "uppercase"
-        }],
-        onChange: function onChange(TextTransform) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
-        }
-      }), /*#__PURE__*/React.createElement(SelectControl, {
-        label: __("Text Decoration"),
-        value: MOBtextDecoration,
-        options: [{
-          label: __("Initial"),
-          value: "initial"
-        }, {
-          label: __("Overline"),
-          value: "overline"
-        }, {
-          label: __("Line Through"),
-          value: "line-through"
-        }, {
-          label: __("Underline"),
-          value: "underline"
-        }, {
-          label: __("Underline Oveline"),
-          value: "underline overline"
-        }],
-        onChange: function onChange(TextDecoration) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
-        }
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: MOBletterSpacingUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(LetterSpacingUnit) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Letter Spacing"),
-        value: MOBletterSpacing,
-        onChange: function onChange(LetterSpacing) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
-        },
-        min: 0,
-        max: MOBletterSpacingUnit === "em" ? 10 : 100,
-        step: MOBletterSpacingUnit === "em" ? 0.1 : 1
-      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        selectedUnit: MOBlineHeightUnit,
-        unitTypes: [{
-          label: "px",
-          value: "px"
-        }, {
-          label: "em",
-          value: "em"
-        }],
-        onClick: function onClick(LineHeightUnit) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
-        }
-      }), /*#__PURE__*/React.createElement(RangeControl, {
-        label: __("Line Height"),
-        value: MOBlineHeight,
-        onChange: function onChange(LineHeight) {
-          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
-        },
-        min: 0,
-        max: MOBlineHeightUnit === "em" ? 10 : 600,
-        step: MOBlineHeightUnit === "em" ? 0.1 : 1
-      }));
-    }
-  })));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (TypographyControllsDropdown);
 
 /***/ }),
 
@@ -7716,6 +7115,607 @@ var ToggleButton = function ToggleButton(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ToggleButton);
+
+/***/ }),
+
+/***/ "./util/typography-component/index.js":
+/*!********************************************!*\
+  !*** ./util/typography-component/index.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util_icons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/icons */ "./util/icons.js");
+/* harmony import */ var _util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/typography-control/FontPicker */ "./util/typography-control/FontPicker.js");
+/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/unit-control */ "./util/unit-control/index.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var __ = wp.i18n.__;
+var _wp$components = wp.components,
+    Button = _wp$components.Button,
+    SelectControl = _wp$components.SelectControl,
+    BaseControl = _wp$components.BaseControl,
+    RangeControl = _wp$components.RangeControl,
+    Dropdown = _wp$components.Dropdown;
+
+
+
+
+function TypographyControllsDropdown(_ref) {
+  var baseLabel = _ref.baseLabel,
+      typographyPrefixConstant = _ref.typographyPrefixConstant,
+      resOption = _ref.resOption,
+      setAttributes = _ref.setAttributes,
+      typographyAttributes = _ref.typographyAttributes;
+  var fontFamily = typographyAttributes.fontFamily,
+      fontWeight = typographyAttributes.fontWeight,
+      textTransform = typographyAttributes.textTransform,
+      textDecoration = typographyAttributes.textDecoration,
+      fontSize = typographyAttributes.fontSize,
+      sizeUnit = typographyAttributes.sizeUnit,
+      letterSpacing = typographyAttributes.letterSpacing,
+      letterSpacingUnit = typographyAttributes.letterSpacingUnit,
+      lineHeight = typographyAttributes.lineHeight,
+      lineHeightUnit = typographyAttributes.lineHeightUnit,
+      _typographyAttributes = typographyAttributes.TABfontFamily,
+      TABfontFamily = _typographyAttributes === void 0 ? TABfontFamily || fontFamily : _typographyAttributes,
+      _typographyAttributes2 = typographyAttributes.TABfontWeight,
+      TABfontWeight = _typographyAttributes2 === void 0 ? TABfontWeight || fontWeight : _typographyAttributes2,
+      _typographyAttributes3 = typographyAttributes.TABtextTransform,
+      TABtextTransform = _typographyAttributes3 === void 0 ? TABtextTransform || textTransform : _typographyAttributes3,
+      _typographyAttributes4 = typographyAttributes.TABtextDecoration,
+      TABtextDecoration = _typographyAttributes4 === void 0 ? TABtextDecoration || textDecoration : _typographyAttributes4,
+      _typographyAttributes5 = typographyAttributes.TABfontSize,
+      TABfontSize = _typographyAttributes5 === void 0 ? TABfontSize || fontSize : _typographyAttributes5,
+      _typographyAttributes6 = typographyAttributes.TABsizeUnit,
+      TABsizeUnit = _typographyAttributes6 === void 0 ? TABsizeUnit || sizeUnit : _typographyAttributes6,
+      _typographyAttributes7 = typographyAttributes.TABletterSpacing,
+      TABletterSpacing = _typographyAttributes7 === void 0 ? TABletterSpacing || letterSpacing : _typographyAttributes7,
+      _typographyAttributes8 = typographyAttributes.TABletterSpacingUnit,
+      TABletterSpacingUnit = _typographyAttributes8 === void 0 ? TABletterSpacingUnit || letterSpacingUnit : _typographyAttributes8,
+      _typographyAttributes9 = typographyAttributes.TABlineHeight,
+      TABlineHeight = _typographyAttributes9 === void 0 ? TABlineHeight || lineHeight : _typographyAttributes9,
+      _typographyAttributes10 = typographyAttributes.TABlineHeightUnit,
+      TABlineHeightUnit = _typographyAttributes10 === void 0 ? TABlineHeightUnit || lineHeightUnit : _typographyAttributes10,
+      _typographyAttributes11 = typographyAttributes.MOBfontFamily,
+      MOBfontFamily = _typographyAttributes11 === void 0 ? MOBfontFamily || TABfontFamily || fontFamily : _typographyAttributes11,
+      _typographyAttributes12 = typographyAttributes.MOBfontWeight,
+      MOBfontWeight = _typographyAttributes12 === void 0 ? MOBfontWeight || TABfontWeight || fontWeight : _typographyAttributes12,
+      _typographyAttributes13 = typographyAttributes.MOBtextTransform,
+      MOBtextTransform = _typographyAttributes13 === void 0 ? MOBtextTransform || TABtextTransform || textTransform : _typographyAttributes13,
+      _typographyAttributes14 = typographyAttributes.MOBtextDecoration,
+      MOBtextDecoration = _typographyAttributes14 === void 0 ? MOBtextDecoration || TABtextDecoration || textDecoration : _typographyAttributes14,
+      _typographyAttributes15 = typographyAttributes.MOBfontSize,
+      MOBfontSize = _typographyAttributes15 === void 0 ? MOBfontSize || TABfontSize || fontSize : _typographyAttributes15,
+      _typographyAttributes16 = typographyAttributes.MOBsizeUnit,
+      MOBsizeUnit = _typographyAttributes16 === void 0 ? MOBsizeUnit || TABsizeUnit || sizeUnit : _typographyAttributes16,
+      _typographyAttributes17 = typographyAttributes.MOBletterSpacing,
+      MOBletterSpacing = _typographyAttributes17 === void 0 ? MOBletterSpacing || TABletterSpacing || letterSpacing : _typographyAttributes17,
+      _typographyAttributes18 = typographyAttributes.MOBletterSpacingUnit,
+      MOBletterSpacingUnit = _typographyAttributes18 === void 0 ? MOBletterSpacingUnit || TABletterSpacingUnit || letterSpacingUnit : _typographyAttributes18,
+      _typographyAttributes19 = typographyAttributes.MOBlineHeight,
+      MOBlineHeight = _typographyAttributes19 === void 0 ? MOBlineHeight || TABlineHeight || lineHeight : _typographyAttributes19,
+      _typographyAttributes20 = typographyAttributes.MOBlineHeightUnit,
+      MOBlineHeightUnit = _typographyAttributes20 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _typographyAttributes20;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, resOption == "desktop" && /*#__PURE__*/React.createElement(BaseControl, {
+    label: __(baseLabel),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(Dropdown, {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref2) {
+      var isOpen = _ref2.isOpen,
+          onToggle = _ref2.onToggle;
+      return /*#__PURE__*/React.createElement(Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          padding: "0.2rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: __("Font Family"),
+        value: fontFamily,
+        onChange: function onChange(FontFamily) {
+          setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: sizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(SizeUnit) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Font Size"),
+        value: fontSize,
+        onChange: function onChange(FontSize) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontSize"), FontSize));
+        },
+        step: sizeUnit === "em" ? 0.1 : 1,
+        min: 0,
+        max: sizeUnit === "em" ? 10 : 300
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Font Weight"),
+        value: fontWeight,
+        options: [{
+          label: __("100"),
+          value: "100"
+        }, {
+          label: __("200"),
+          value: "200"
+        }, {
+          label: __("300"),
+          value: "300"
+        }, {
+          label: __("400"),
+          value: "400"
+        }, {
+          label: __("500"),
+          value: "500"
+        }, {
+          label: __("600"),
+          value: "600"
+        }, {
+          label: __("700"),
+          value: "700"
+        }, {
+          label: __("800"),
+          value: "800"
+        }, {
+          label: __("900"),
+          value: "900"
+        }],
+        onChange: function onChange(FontWeight) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Transform"),
+        value: textTransform,
+        options: [{
+          label: __("None"),
+          value: "none"
+        }, {
+          label: __("Lowercase"),
+          value: "lowercase"
+        }, {
+          label: __("Capitalize"),
+          value: "capitalize"
+        }, {
+          label: __("Uppercase"),
+          value: "uppercase"
+        }],
+        onChange: function onChange(TextTransform) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Decoration"),
+        value: textDecoration,
+        options: [{
+          label: __("Initial"),
+          value: "initial"
+        }, {
+          label: __("Overline"),
+          value: "overline"
+        }, {
+          label: __("Line Through"),
+          value: "line-through"
+        }, {
+          label: __("Underline"),
+          value: "underline"
+        }, {
+          label: __("Underline Oveline"),
+          value: "underline overline"
+        }],
+        onChange: function onChange(TextDecoration) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: letterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LetterSpacingUnit) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Letter Spacing"),
+        value: letterSpacing,
+        onChange: function onChange(LetterSpacing) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
+        },
+        min: 0,
+        max: letterSpacingUnit === "em" ? 10 : 100,
+        step: letterSpacingUnit === "em" ? 0.1 : 1
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: lineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LineHeightUnit) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Line Height"),
+        value: lineHeight,
+        onChange: function onChange(LineHeight) {
+          return setAttributes(_defineProperty({}, "".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
+        },
+        min: 0,
+        max: lineHeightUnit === "em" ? 10 : 600,
+        step: lineHeightUnit === "em" ? 0.1 : 1
+      }));
+    }
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(BaseControl, {
+    label: __(baseLabel),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(Dropdown, {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref3) {
+      var isOpen = _ref3.isOpen,
+          onToggle = _ref3.onToggle;
+      return /*#__PURE__*/React.createElement(Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          padding: "0.2rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: __("Font Family"),
+        value: TABfontFamily,
+        onChange: function onChange(FontFamily) {
+          setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: TABsizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(SizeUnit) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Font Size"),
+        value: TABfontSize,
+        onChange: function onChange(FontSize) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontSize"), FontSize));
+        },
+        step: TABsizeUnit === "em" ? 0.1 : 1,
+        min: 0,
+        max: TABsizeUnit === "em" ? 10 : 300
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Font Weight"),
+        value: TABfontWeight,
+        options: [{
+          label: __("100"),
+          value: "100"
+        }, {
+          label: __("200"),
+          value: "200"
+        }, {
+          label: __("300"),
+          value: "300"
+        }, {
+          label: __("400"),
+          value: "400"
+        }, {
+          label: __("500"),
+          value: "500"
+        }, {
+          label: __("600"),
+          value: "600"
+        }, {
+          label: __("700"),
+          value: "700"
+        }, {
+          label: __("800"),
+          value: "800"
+        }, {
+          label: __("900"),
+          value: "900"
+        }],
+        onChange: function onChange(FontWeight) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Transform"),
+        value: TABtextTransform,
+        options: [{
+          label: __("None"),
+          value: "none"
+        }, {
+          label: __("Lowercase"),
+          value: "lowercase"
+        }, {
+          label: __("Capitalize"),
+          value: "capitalize"
+        }, {
+          label: __("Uppercase"),
+          value: "uppercase"
+        }],
+        onChange: function onChange(TextTransform) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Decoration"),
+        value: TABtextDecoration,
+        options: [{
+          label: __("Initial"),
+          value: "initial"
+        }, {
+          label: __("Overline"),
+          value: "overline"
+        }, {
+          label: __("Line Through"),
+          value: "line-through"
+        }, {
+          label: __("Underline"),
+          value: "underline"
+        }, {
+          label: __("Underline Oveline"),
+          value: "underline overline"
+        }],
+        onChange: function onChange(TextDecoration) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: TABletterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LetterSpacingUnit) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Letter Spacing"),
+        value: TABletterSpacing,
+        onChange: function onChange(LetterSpacing) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
+        },
+        min: 0,
+        max: TABletterSpacingUnit === "em" ? 10 : 100,
+        step: TABletterSpacingUnit === "em" ? 0.1 : 1
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: TABlineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LineHeightUnit) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Line Height"),
+        value: TABlineHeight,
+        onChange: function onChange(LineHeight) {
+          return setAttributes(_defineProperty({}, "TAB".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
+        },
+        min: 0,
+        max: TABlineHeightUnit === "em" ? 10 : 600,
+        step: TABlineHeightUnit === "em" ? 0.1 : 1
+      }));
+    }
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(BaseControl, {
+    label: __(baseLabel),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(Dropdown, {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref4) {
+      var isOpen = _ref4.isOpen,
+          onToggle = _ref4.onToggle;
+      return /*#__PURE__*/React.createElement(Button, {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_util_icons__WEBPACK_IMPORTED_MODULE_0__["TypographyIcon"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          padding: "0.2rem"
+        }
+      }, /*#__PURE__*/React.createElement(_util_typography_control_FontPicker__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: __("Font Family"),
+        value: MOBfontFamily,
+        onChange: function onChange(FontFamily) {
+          setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontFamily"), FontFamily));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: MOBsizeUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "%",
+          value: "%"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(SizeUnit) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "SizeUnit"), SizeUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Font Size"),
+        value: MOBfontSize,
+        onChange: function onChange(FontSize) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontSize"), FontSize));
+        },
+        step: MOBsizeUnit === "em" ? 0.1 : 1,
+        min: 0,
+        max: MOBsizeUnit === "em" ? 10 : 300
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Font Weight"),
+        value: MOBfontWeight,
+        options: [{
+          label: __("100"),
+          value: "100"
+        }, {
+          label: __("200"),
+          value: "200"
+        }, {
+          label: __("300"),
+          value: "300"
+        }, {
+          label: __("400"),
+          value: "400"
+        }, {
+          label: __("500"),
+          value: "500"
+        }, {
+          label: __("600"),
+          value: "600"
+        }, {
+          label: __("700"),
+          value: "700"
+        }, {
+          label: __("800"),
+          value: "800"
+        }, {
+          label: __("900"),
+          value: "900"
+        }],
+        onChange: function onChange(FontWeight) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "FontWeight"), FontWeight));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Transform"),
+        value: MOBtextTransform,
+        options: [{
+          label: __("None"),
+          value: "none"
+        }, {
+          label: __("Lowercase"),
+          value: "lowercase"
+        }, {
+          label: __("Capitalize"),
+          value: "capitalize"
+        }, {
+          label: __("Uppercase"),
+          value: "uppercase"
+        }],
+        onChange: function onChange(TextTransform) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "TextTransform"), TextTransform));
+        }
+      }), /*#__PURE__*/React.createElement(SelectControl, {
+        label: __("Text Decoration"),
+        value: MOBtextDecoration,
+        options: [{
+          label: __("Initial"),
+          value: "initial"
+        }, {
+          label: __("Overline"),
+          value: "overline"
+        }, {
+          label: __("Line Through"),
+          value: "line-through"
+        }, {
+          label: __("Underline"),
+          value: "underline"
+        }, {
+          label: __("Underline Oveline"),
+          value: "underline overline"
+        }],
+        onChange: function onChange(TextDecoration) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "TextDecoration"), TextDecoration));
+        }
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: MOBletterSpacingUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LetterSpacingUnit) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LetterSpacingUnit"), LetterSpacingUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Letter Spacing"),
+        value: MOBletterSpacing,
+        onChange: function onChange(LetterSpacing) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LetterSpacing"), LetterSpacing));
+        },
+        min: 0,
+        max: MOBletterSpacingUnit === "em" ? 10 : 100,
+        step: MOBletterSpacingUnit === "em" ? 0.1 : 1
+      }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectedUnit: MOBlineHeightUnit,
+        unitTypes: [{
+          label: "px",
+          value: "px"
+        }, {
+          label: "em",
+          value: "em"
+        }],
+        onClick: function onClick(LineHeightUnit) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LineHeightUnit"), LineHeightUnit));
+        }
+      }), /*#__PURE__*/React.createElement(RangeControl, {
+        label: __("Line Height"),
+        value: MOBlineHeight,
+        onChange: function onChange(LineHeight) {
+          return setAttributes(_defineProperty({}, "MOB".concat(typographyPrefixConstant, "LineHeight"), LineHeight));
+        },
+        min: 0,
+        max: MOBlineHeightUnit === "em" ? 10 : 600,
+        step: MOBlineHeightUnit === "em" ? 0.1 : 1
+      }));
+    }
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (TypographyControllsDropdown);
 
 /***/ }),
 

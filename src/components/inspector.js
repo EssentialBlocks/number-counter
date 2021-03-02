@@ -26,7 +26,7 @@ import GradientColorController from "../../util/gradient-color-controller";
 import ImageAvater from "../../util/image-avatar/ImageAvater";
 import ResetControl from "../../util/reset-control";
 import ToggleButton from "../../util/toggle-button";
-import TypographyControl from "../controls/typographyControl";
+import TypographyControl from "../../util/typography-component";
 import ResPanelBody from "./ResPanelBody";
 
 import {

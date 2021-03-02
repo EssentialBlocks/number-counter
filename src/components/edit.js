@@ -377,7 +377,8 @@ const Edit = (props) => {
 		color : ${TABnumberColor || numberColor};
 	} `;
 
-	const numberStylesMobile = ` .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+	const numberStylesMobile = `
+	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
 		color : ${MOBnumberColor || TABnumberColor || numberColor};
 	}`;
