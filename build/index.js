@@ -2139,7 +2139,8 @@ var Edit = function Edit(props) {
       attributes = props.attributes,
       setAttributes = props.setAttributes;
   console.log("--------edit:", props);
-  var randomNumber = attributes.randomNumber,
+  var resOption = attributes.resOption,
+      randomNumber = attributes.randomNumber,
       target = attributes.target,
       duration = attributes.duration,
       counterTitle = attributes.counterTitle,
@@ -2319,8 +2320,7 @@ var Edit = function Edit(props) {
         MOBlineHeightUnit = _attributes$22 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _attributes$22;
     var typoStylesDesktop = "\n\t\t\tfont-family: ".concat(fontFamily, ";\n\t\t\tfont-size: ").concat(fontSize).concat(sizeUnit, ";\n\t\t\tline-height: ").concat(lineHeight).concat(lineHeightUnit, ";\n\t\t\tfont-weight: ").concat(fontWeight, ";\n\t\t\ttext-decoration: ").concat(textDecoration, ";\n\t\t\ttext-transform: ").concat(textTransform, ";\n\t\t\tletter-spacing: ").concat(letterSpacing).concat(letterSpacingUnit, ";\n\t\t");
     var typoStylesTab = "\n\t\t\tfont-family: ".concat(TABfontFamily, ";\n\t\t\tfont-size: ").concat(TABfontSize).concat(TABsizeUnit, ";\n\t\t\tline-height: ").concat(TABlineHeight).concat(TABlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(TABfontWeight, ";\n\t\t\ttext-decoration: ").concat(TABtextDecoration, ";\n\t\t\ttext-transform: ").concat(TABtextTransform, ";\n\t\t\tletter-spacing: ").concat(TABletterSpacing).concat(TABletterSpacingUnit, ";\n\t\t");
-    var typoStylesMobile = "\n\t\t\tfont-family: ".concat(MOBfontFamily, ";\n\t\t\tfont-size: ").concat(MOBfontSize).concat(MOBsizeUnit, ";\n\t\t\tline-height: ").concat(MOBlineHeight).concat(MOBlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(MOBfontWeight, ";\n\t\t\ttext-decoration: ").concat(MOBtextDecoration, ";\n\t\t\ttext-transform: ").concat(MOBtextTransform, ";\n\t\t\tletter-spacing: ").concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";\n\t\t"); // console.log({ typoStylesDesktop, typoStylesTab, typoStylesMobile });
-
+    var typoStylesMobile = "\n\t\t\tfont-family: ".concat(MOBfontFamily, ";\n\t\t\tfont-size: ").concat(MOBfontSize).concat(MOBsizeUnit, ";\n\t\t\tline-height: ").concat(MOBlineHeight).concat(MOBlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(MOBfontWeight, ";\n\t\t\ttext-decoration: ").concat(MOBtextDecoration, ";\n\t\t\ttext-transform: ").concat(MOBtextTransform, ";\n\t\t\tletter-spacing: ").concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";\n\t\t");
     return {
       typoStylesDesktop: typoStylesDesktop,
       typoStylesTab: typoStylesTab,
@@ -2375,10 +2375,13 @@ var Edit = function Edit(props) {
   var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
   var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t} ");
   var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t}\n\n\t");
+  var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
+  var tabAllStyles = "\n\t\t".concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
   return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\n\t\t\t\t".concat(wrapperStylesDesktop, "\n\t\t\t\t").concat(numberStylesDesktop, "\n\t\t\t\t").concat(titleStylesDesktop, "\n\t\t\t\t").concat(numPrefixStylesDesktop, "\n\t\t\t\t").concat(numSuffixStylesDesktop, "\n\t\t\t\t\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(numberStylesTab, "\n\t\t\t\t\t").concat(titleStylesTab, "\n\t\t\t\t\t").concat(numPrefixStylesTab, "\n\t\t\t\t\t").concat(numSuffixStylesTab, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(numberStylesMobile, "\n\t\t\t\t\t").concat(titleStylesMobile, "\n\t\t\t\t\t").concat(numPrefixStylesMobile, "\n\t\t\t\t\t").concat(numSuffixStylesMobile, "\n\t\t\t\t}\n\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t").concat(resOption === "tab" && tabAllStyles, "\n\t\t\t\t").concat(resOption === "mobile" && mobileAllStyles, "\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(tabAllStyles, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(mobileAllStyles, "\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     onMouseEnter: function onMouseEnter() {
       return setAttributes({
@@ -2922,9 +2925,10 @@ var Inspector = function Inspector(props) {
         MOBnumSuffixColor: MOBnumSuffixColor
       });
     }
-  }))), /*#__PURE__*/React.createElement(PanelBody, {
+  }))), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: __("Spacing"),
-    initialOpen: false
+    initialOpen: false,
+    resRequiredProps: resRequiredProps
   }, /*#__PURE__*/React.createElement(RangeControl, {
     label: __("Number & Title Gap"),
     value: gapNumTitle,
@@ -3346,12 +3350,6 @@ var Inspector = function Inspector(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /**
  * WordPress dependencies
  */
@@ -3426,97 +3424,120 @@ var Save = function Save(props) {
 
   var generateTypographyStyles = function generateTypographyStyles(prefixConstant) {
     var defaultFontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
+    var _attributes$ = attributes["".concat(prefixConstant, "FontFamily")],
+        fontFamily = _attributes$ === void 0 ? fontFamily || "inherit" : _attributes$,
         fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
         textTransform = attributes["".concat(prefixConstant, "TextTransform")],
         textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
-        fontSize = attributes["".concat(prefixConstant, "FontSize")],
+        _attributes$2 = attributes["".concat(prefixConstant, "FontSize")],
+        fontSize = _attributes$2 === void 0 ? fontSize || defaultFontSize || "inherit" : _attributes$2,
         sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
         letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
         letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
         lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
         lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
-        TABfontFamily = attributes["TAB".concat(prefixConstant, "FontFamily")],
-        TABfontWeight = attributes["TAB".concat(prefixConstant, "FontWeight")],
-        TABtextTransform = attributes["TAB".concat(prefixConstant, "TextTransform")],
-        TABtextDecoration = attributes["TAB".concat(prefixConstant, "TextDecoration")],
-        TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
-        TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
-        TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
-        TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
-        TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
-        TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
-        MOBfontFamily = attributes["MOB".concat(prefixConstant, "FontFamily")],
-        MOBfontWeight = attributes["MOB".concat(prefixConstant, "FontWeight")],
-        MOBtextTransform = attributes["MOB".concat(prefixConstant, "TextTransform")],
-        MOBtextDecoration = attributes["MOB".concat(prefixConstant, "TextDecoration")],
-        MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
-        MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
-        MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
-        MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
-        MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
-        MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")];
+        _attributes$3 = attributes["TAB".concat(prefixConstant, "FontFamily")],
+        TABfontFamily = _attributes$3 === void 0 ? TABfontFamily || fontFamily : _attributes$3,
+        _attributes$4 = attributes["TAB".concat(prefixConstant, "FontWeight")],
+        TABfontWeight = _attributes$4 === void 0 ? TABfontWeight || fontWeight : _attributes$4,
+        _attributes$5 = attributes["TAB".concat(prefixConstant, "TextTransform")],
+        TABtextTransform = _attributes$5 === void 0 ? TABtextTransform || textTransform : _attributes$5,
+        _attributes$6 = attributes["TAB".concat(prefixConstant, "TextDecoration")],
+        TABtextDecoration = _attributes$6 === void 0 ? TABtextDecoration || textDecoration : _attributes$6,
+        _attributes$7 = attributes["TAB".concat(prefixConstant, "FontSize")],
+        TABfontSize = _attributes$7 === void 0 ? TABfontSize || fontSize : _attributes$7,
+        _attributes$8 = attributes["TAB".concat(prefixConstant, "SizeUnit")],
+        TABsizeUnit = _attributes$8 === void 0 ? TABsizeUnit || sizeUnit : _attributes$8,
+        _attributes$9 = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
+        TABletterSpacing = _attributes$9 === void 0 ? TABletterSpacing || letterSpacing : _attributes$9,
+        _attributes$10 = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
+        TABletterSpacingUnit = _attributes$10 === void 0 ? TABletterSpacingUnit || letterSpacingUnit : _attributes$10,
+        _attributes$11 = attributes["TAB".concat(prefixConstant, "LineHeight")],
+        TABlineHeight = _attributes$11 === void 0 ? TABlineHeight || lineHeight : _attributes$11,
+        _attributes$12 = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
+        TABlineHeightUnit = _attributes$12 === void 0 ? TABlineHeightUnit || lineHeightUnit : _attributes$12,
+        _attributes$13 = attributes["MOB".concat(prefixConstant, "FontFamily")],
+        MOBfontFamily = _attributes$13 === void 0 ? MOBfontFamily || TABfontFamily || fontFamily : _attributes$13,
+        _attributes$14 = attributes["MOB".concat(prefixConstant, "FontWeight")],
+        MOBfontWeight = _attributes$14 === void 0 ? MOBfontWeight || TABfontWeight || fontWeight : _attributes$14,
+        _attributes$15 = attributes["MOB".concat(prefixConstant, "TextTransform")],
+        MOBtextTransform = _attributes$15 === void 0 ? MOBtextTransform || TABtextTransform || textTransform : _attributes$15,
+        _attributes$16 = attributes["MOB".concat(prefixConstant, "TextDecoration")],
+        MOBtextDecoration = _attributes$16 === void 0 ? MOBtextDecoration || TABtextDecoration || textDecoration : _attributes$16,
+        _attributes$17 = attributes["MOB".concat(prefixConstant, "FontSize")],
+        MOBfontSize = _attributes$17 === void 0 ? MOBfontSize || TABfontSize || fontSize : _attributes$17,
+        _attributes$18 = attributes["MOB".concat(prefixConstant, "SizeUnit")],
+        MOBsizeUnit = _attributes$18 === void 0 ? MOBsizeUnit || TABsizeUnit || sizeUnit : _attributes$18,
+        _attributes$19 = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
+        MOBletterSpacing = _attributes$19 === void 0 ? MOBletterSpacing || TABletterSpacing || letterSpacing : _attributes$19,
+        _attributes$20 = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
+        MOBletterSpacingUnit = _attributes$20 === void 0 ? MOBletterSpacingUnit || TABletterSpacingUnit || letterSpacingUnit : _attributes$20,
+        _attributes$21 = attributes["MOB".concat(prefixConstant, "LineHeight")],
+        MOBlineHeight = _attributes$21 === void 0 ? MOBlineHeight || TABlineHeight || lineHeight : _attributes$21,
+        _attributes$22 = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
+        MOBlineHeightUnit = _attributes$22 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _attributes$22;
+    var typoStylesDesktop = "\n\t\t\tfont-family: ".concat(fontFamily, ";\n\t\t\tfont-size: ").concat(fontSize).concat(sizeUnit, ";\n\t\t\tline-height: ").concat(lineHeight).concat(lineHeightUnit, ";\n\t\t\tfont-weight: ").concat(fontWeight, ";\n\t\t\ttext-decoration: ").concat(textDecoration, ";\n\t\t\ttext-transform: ").concat(textTransform, ";\n\t\t\tletter-spacing: ").concat(letterSpacing).concat(letterSpacingUnit, ";\n\t\t");
+    var typoStylesTab = "\n\t\t\tfont-family: ".concat(TABfontFamily, ";\n\t\t\tfont-size: ").concat(TABfontSize).concat(TABsizeUnit, ";\n\t\t\tline-height: ").concat(TABlineHeight).concat(TABlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(TABfontWeight, ";\n\t\t\ttext-decoration: ").concat(TABtextDecoration, ";\n\t\t\ttext-transform: ").concat(TABtextTransform, ";\n\t\t\tletter-spacing: ").concat(TABletterSpacing).concat(TABletterSpacingUnit, ";\n\t\t");
+    var typoStylesMobile = "\n\t\t\tfont-family: ".concat(MOBfontFamily, ";\n\t\t\tfont-size: ").concat(MOBfontSize).concat(MOBsizeUnit, ";\n\t\t\tline-height: ").concat(MOBlineHeight).concat(MOBlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(MOBfontWeight, ";\n\t\t\ttext-decoration: ").concat(MOBtextDecoration, ";\n\t\t\ttext-transform: ").concat(MOBtextTransform, ";\n\t\t\tletter-spacing: ").concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";\n\t\t");
     return {
-      fontFamily: fontFamily ? fontFamily : "inherit",
-      // fontSize: defaultFontSize
-      // 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
-      // 			attributes[`${prefix}SizeUnit`]
-      // 	  }`
-      // 	: attributes[`${prefix}FontSize`]
-      // 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
-      // 	: "inherit",
-      fontSize: attributes["".concat(prefixConstant, "FontSize")] ? "".concat(attributes["".concat(prefixConstant, "FontSize")]).concat(attributes["".concat(prefixConstant, "SizeUnit")]) : defaultFontSize ? "".concat(defaultFontSize).concat(attributes["".concat(prefixConstant, "SizeUnit")]) : "inherit",
-      fontWeight: attributes["".concat(prefixConstant, "FontWeight")],
-      textTransform: attributes["".concat(prefixConstant, "TextTransform")],
-      textDecoration: attributes["".concat(prefixConstant, "TextDecoration")],
-      letterSpacing: "".concat(attributes["".concat(prefixConstant, "LetterSpacing")]).concat(attributes["".concat(prefixConstant, "LetterSpacingUnit")], " "),
-      lineHeight: "".concat(attributes["".concat(prefixConstant, "LineHeight")]).concat(attributes["".concat(prefixConstant, "LineHeightUnit")], " ")
+      typoStylesDesktop: typoStylesDesktop,
+      typoStylesTab: typoStylesTab,
+      typoStylesMobile: typoStylesMobile
     };
   };
 
-  var titleStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40));
+  var _generateTypographySt = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40),
+      titleTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
+      titleTypoStylesTab = _generateTypographySt.typoStylesTab,
+      titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
 
-  var numberStyles = _objectSpread(_objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 64)), {}, {
-    // color: numberColor,
-    paddingLeft: "".concat(gapNumPrefix, "px"),
-    paddingRight: "".concat(gapNumSuffix, "px")
+  var _generateTypographySt2 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 40),
+      numberTypoStylesDesktop = _generateTypographySt2.typoStylesDesktop,
+      numberTypoStylesTab = _generateTypographySt2.typoStylesTab,
+      numberTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
+
+  var _generateTypographySt3 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]),
+      numPrefixTypoStylesDesktop = _generateTypographySt3.typoStylesDesktop,
+      numPrefixTypoStylesTab = _generateTypographySt3.typoStylesTab,
+      numPrefixTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
+
+  var _generateTypographySt4 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]),
+      numSuffixTypoStylesDesktop = _generateTypographySt4.typoStylesDesktop,
+      numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
+      numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
+
+  console.log("--------from Save: ", {
+    numberTypoStylesDesktop: numberTypoStylesDesktop,
+    numberTypoStylesTab: numberTypoStylesTab,
+    numberTypoStylesMobile: numberTypoStylesMobile,
+    titleTypoStylesDesktop: titleTypoStylesDesktop,
+    titleTypoStylesTab: titleTypoStylesTab,
+    titleTypoStylesMobile: titleTypoStylesMobile,
+    numPrefixTypoStylesDesktop: numPrefixTypoStylesDesktop,
+    numPrefixTypoStylesTab: numPrefixTypoStylesTab,
+    numPrefixTypoStylesMobile: numPrefixTypoStylesMobile,
+    numSuffixTypoStylesDesktop: numSuffixTypoStylesDesktop,
+    numSuffixTypoStylesTab: numSuffixTypoStylesTab,
+    numSuffixTypoStylesMobile: numSuffixTypoStylesMobile
   });
-
-  var numPrefixStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]));
-
-  var numSuffixStyles = _objectSpread({}, generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]));
-
-  var wrapperStyles = {// marginTop: `${marginTop || 0}${marginUnit}`,
-    // marginBottom: `${marginBottom || 0}${marginUnit}`,
-    // marginLeft: `${marginLeft || 0}${marginUnit}`,
-    // marginRight: `${marginRight || 0}${marginUnit}`,
-    // paddingTop: `${paddingTop || 0}${paddingUnit}`,
-    // paddingBottom: `${paddingBottom || 0}${paddingUnit}`,
-    // paddingRight: `${paddingRight || 0}${paddingUnit}`,
-    // paddingLeft: `${paddingLeft || 0}${paddingUnit}`,
-    // gap: `${gapNumTitle}px`,
-    // flexDirection: wrapperFlexDirection,
-    // backgroundImage:
-    // 	backgroundType === "image" && imageURL
-    // 		? `url("${imageURL}")`
-    // 		: backgroundType === "gradient"
-    // 		? gradientColor
-    // 		: "none",
-    // backgroundSize: backgroundSize,
-    // backgroundColor:
-    // 	(backgroundType === "fill" && backgroundColor) || "transparent",
-    // border: `${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"}`,
-    // borderRadius: `${borderRadius || 0}${radiusUnit}`,
-    // boxShadow: `${shadowColor || "#000000"} ${hOffset || 0}px ${
-    // 	vOffset || 0
-    // }px ${blur || 0}px ${spread || 0}px ${inset ? "inset" : ""}`,
-    // transition: wrapperTransitionTime
-    // 	? `${wrapperTransitionTime / 1000}s`
-    // 	: ".5s",
-  };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t\t\t\t\t\n\t\t\t\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\t\t\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\t\t\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\t\t\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\t\t\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\t\t\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\t\t\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\t\t\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\t\t\t\tgap: ").concat(gapNumTitle, "px;\n\t\t\t\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\t\t\t\tbackground-image:\n\t\t\t\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\t\t\t\tbackground-size: ").concat(backgroundSize, ";\n\t\t\t\t\tbackground-color:\n\t\t\t\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\t\t\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\t\t\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\t\t\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\t\t\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t\t\t\t}\n\n\t\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-number{\n\t\t\t\t\tcolor : ").concat(numberColor, ";\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-title{\n\t\t\t\t\tcolor : ").concat(titleColor, ";\n\t\t\t\t}\n\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-prefix{\n\t\t\t\t\tcolor : ").concat(numPrefixColor, ";\n\t\t\t\t}\n\t\t\t\n\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-suffix{\n\t\t\t\t\tcolor : ").concat(numSuffixColor, ";\n\t\t\t\t}\n\n\n\t\t\t\t@media all and (max-width: 1190px) {\n\t\t\t\t\th2 {\n\t\t\t\t\t\tcolor: blue !important;\n\t\t\t\t\t}\n\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-number{\n\t\t\t\t\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t\t\t\t\t}\n\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-title{\n\t\t\t\t\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-prefix{\n\t\t\t\t\t\tcolor : ").concat(TABnumPrefixColor || numPrefixColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-suffix{\n\t\t\t\t\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t\t\t\t\t}\n\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 700px) {\n\t\t\t\t\th2 {\n\t\t\t\t\t\tcolor: red !important;\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-number{\n\t\t\t\t\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-title{\n\t\t\t\t\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-prefix{\n\t\t\t\t\t\tcolor : ").concat(MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor, ";\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, " .eb-counter-suffix{\n\t\t\t\t\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t\t\t\t\t}\n\n\t\t\t\t}\n\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
+  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
+  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t} ");
+  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t}");
+  var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
+  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t}  ");
+  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t} ");
+  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
+  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
+  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
+  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
+  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t} ");
+  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t}\n\n\t");
+  var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
+  var tabAllStyles = "\n\t\t".concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(tabAllStyles, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(mobileAllStyles, "\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
-    style: wrapperStyles,
     "data-shadowColor": shadowColor || "#00000000",
     "data-hOffset": hOffset || 0,
     "data-vOffset": vOffset || 0,
@@ -3532,22 +3553,18 @@ var Save = function Save(props) {
   }, /*#__PURE__*/React.createElement("h4", {
     className: "eb-counter-number"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "eb-counter-prefix",
-    style: numPrefixStyles
+    className: "eb-counter-prefix"
   }, counterPrefix), /*#__PURE__*/React.createElement("span", {
     className: "eb-counter eb-counter-number",
     "data-duration": duration ? Math.floor(Math.abs(duration)) : 0,
     "data-startValue": startValue ? Math.floor(Math.abs(startValue)) : 0,
     "data-target": target ? Math.floor(Math.abs(target)) : 0,
     "data-separator": separator,
-    "data-isShowSeparator": isShowSeparator,
-    style: numberStyles
+    "data-isShowSeparator": isShowSeparator
   }, "0"), /*#__PURE__*/React.createElement("span", {
-    className: "eb-counter-suffix",
-    style: numSuffixStyles
+    className: "eb-counter-suffix"
   }, counterSuffix)), /*#__PURE__*/React.createElement(RichText.Content, {
     tagName: "h3",
-    style: titleStyles,
     className: "eb-counter-title",
     value: counterTitle
   })));

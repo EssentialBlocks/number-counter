@@ -100,231 +100,301 @@ const Save = (props) => {
 		defaultFontSize = false
 	) => {
 		const {
-			[`${prefixConstant}FontFamily`]: fontFamily,
+			[`${prefixConstant}FontFamily`]: fontFamily = fontFamily || "inherit",
 			[`${prefixConstant}FontWeight`]: fontWeight,
 			[`${prefixConstant}TextTransform`]: textTransform,
 			[`${prefixConstant}TextDecoration`]: textDecoration,
-			[`${prefixConstant}FontSize`]: fontSize,
+			[`${prefixConstant}FontSize`]: fontSize = fontSize ||
+				defaultFontSize ||
+				"inherit",
 			[`${prefixConstant}SizeUnit`]: sizeUnit,
 			[`${prefixConstant}LetterSpacing`]: letterSpacing,
 			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
 			[`${prefixConstant}LineHeight`]: lineHeight,
 			[`${prefixConstant}LineHeightUnit`]: lineHeightUnit,
 
-			[`TAB${prefixConstant}FontFamily`]: TABfontFamily,
-			[`TAB${prefixConstant}FontWeight`]: TABfontWeight,
-			[`TAB${prefixConstant}TextTransform`]: TABtextTransform,
-			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
-			[`TAB${prefixConstant}FontSize`]: TABfontSize,
-			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit,
-			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
-			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit,
-			[`TAB${prefixConstant}LineHeight`]: TABlineHeight,
-			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit,
+			[`TAB${prefixConstant}FontFamily`]: TABfontFamily = TABfontFamily ||
+				fontFamily,
+			[`TAB${prefixConstant}FontWeight`]: TABfontWeight = TABfontWeight ||
+				fontWeight,
+			[`TAB${prefixConstant}TextTransform`]: TABtextTransform = TABtextTransform ||
+				textTransform,
+			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration = TABtextDecoration ||
+				textDecoration,
+			[`TAB${prefixConstant}FontSize`]: TABfontSize = TABfontSize || fontSize,
+			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit = TABsizeUnit || sizeUnit,
+			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing = TABletterSpacing ||
+				letterSpacing,
+			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit = TABletterSpacingUnit ||
+				letterSpacingUnit,
+			[`TAB${prefixConstant}LineHeight`]: TABlineHeight = TABlineHeight ||
+				lineHeight,
+			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit = TABlineHeightUnit ||
+				lineHeightUnit,
 
-			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily,
-			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight,
-			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform,
-			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration,
-			[`MOB${prefixConstant}FontSize`]: MOBfontSize,
-			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit,
-			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing,
-			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit,
-			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight,
-			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit,
+			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily = MOBfontFamily ||
+				TABfontFamily ||
+				fontFamily,
+			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight = MOBfontWeight ||
+				TABfontWeight ||
+				fontWeight,
+			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform = MOBtextTransform ||
+				TABtextTransform ||
+				textTransform,
+			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration = MOBtextDecoration ||
+				TABtextDecoration ||
+				textDecoration,
+			[`MOB${prefixConstant}FontSize`]: MOBfontSize = MOBfontSize ||
+				TABfontSize ||
+				fontSize,
+			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit = MOBsizeUnit ||
+				TABsizeUnit ||
+				sizeUnit,
+			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing = MOBletterSpacing ||
+				TABletterSpacing ||
+				letterSpacing,
+			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit = MOBletterSpacingUnit ||
+				TABletterSpacingUnit ||
+				letterSpacingUnit,
+			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight = MOBlineHeight ||
+				TABlineHeight ||
+				lineHeight,
+			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
+				TABlineHeightUnit ||
+				lineHeightUnit,
 		} = attributes;
 
+		const typoStylesDesktop = `
+			font-family: ${fontFamily};
+			font-size: ${fontSize}${sizeUnit};
+			line-height: ${lineHeight}${lineHeightUnit};
+			font-weight: ${fontWeight};
+			text-decoration: ${textDecoration};
+			text-transform: ${textTransform};
+			letter-spacing: ${letterSpacing}${letterSpacingUnit};
+		`;
+
+		const typoStylesTab = `
+			font-family: ${TABfontFamily};
+			font-size: ${TABfontSize}${TABsizeUnit};
+			line-height: ${TABlineHeight}${TABlineHeightUnit};
+			font-weight: ${TABfontWeight};
+			text-decoration: ${TABtextDecoration};
+			text-transform: ${TABtextTransform};
+			letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};
+		`;
+
+		const typoStylesMobile = `
+			font-family: ${MOBfontFamily};
+			font-size: ${MOBfontSize}${MOBsizeUnit};
+			line-height: ${MOBlineHeight}${MOBlineHeightUnit};
+			font-weight: ${MOBfontWeight};
+			text-decoration: ${MOBtextDecoration};
+			text-transform: ${MOBtextTransform};
+			letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};
+		`;
+
 		return {
-			fontFamily: fontFamily ? fontFamily : "inherit",
-			// fontSize: defaultFontSize
-			// 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
-			// 			attributes[`${prefix}SizeUnit`]
-			// 	  }`
-			// 	: attributes[`${prefix}FontSize`]
-			// 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
-			// 	: "inherit",
-
-			fontSize: attributes[`${prefixConstant}FontSize`]
-				? `${attributes[`${prefixConstant}FontSize`]}${
-						attributes[`${prefixConstant}SizeUnit`]
-				  }`
-				: defaultFontSize
-				? `${defaultFontSize}${attributes[`${prefixConstant}SizeUnit`]}`
-				: "inherit",
-
-			fontWeight: attributes[`${prefixConstant}FontWeight`],
-			textTransform: attributes[`${prefixConstant}TextTransform`],
-			textDecoration: attributes[`${prefixConstant}TextDecoration`],
-			letterSpacing: `${attributes[`${prefixConstant}LetterSpacing`]}${
-				attributes[`${prefixConstant}LetterSpacingUnit`]
-			} `,
-			lineHeight: `${attributes[`${prefixConstant}LineHeight`]}${
-				attributes[`${prefixConstant}LineHeightUnit`]
-			} `,
+			typoStylesDesktop,
+			typoStylesTab,
+			typoStylesMobile,
 		};
 	};
 
-	const titleStyles = {
-		...generateTypographyStyles(title, 40),
+	const {
+		typoStylesDesktop: titleTypoStylesDesktop,
+		typoStylesTab: titleTypoStylesTab,
+		typoStylesMobile: titleTypoStylesMobile,
+	} = generateTypographyStyles(title, 40);
 
-		// color: titleColor,
-	};
-	const numberStyles = {
-		...generateTypographyStyles(number, 64),
+	const {
+		typoStylesDesktop: numberTypoStylesDesktop,
+		typoStylesTab: numberTypoStylesTab,
+		typoStylesMobile: numberTypoStylesMobile,
+	} = generateTypographyStyles(number, 40);
 
-		// color: numberColor,
-		paddingLeft: `${gapNumPrefix}px`,
-		paddingRight: `${gapNumSuffix}px`,
-	};
-	const numPrefixStyles = {
-		...generateTypographyStyles(numPrefix),
+	const {
+		typoStylesDesktop: numPrefixTypoStylesDesktop,
+		typoStylesTab: numPrefixTypoStylesTab,
+		typoStylesMobile: numPrefixTypoStylesMobile,
+	} = generateTypographyStyles(numPrefix);
 
-		// color: numPrefixColor,
-	};
-	const numSuffixStyles = {
-		...generateTypographyStyles(numSuffix),
+	const {
+		typoStylesDesktop: numSuffixTypoStylesDesktop,
+		typoStylesTab: numSuffixTypoStylesTab,
+		typoStylesMobile: numSuffixTypoStylesMobile,
+	} = generateTypographyStyles(numSuffix);
 
-		// color: numSuffixColor,
-	};
+	console.log("--------from Save: ", {
+		numberTypoStylesDesktop,
+		numberTypoStylesTab,
+		numberTypoStylesMobile,
+		titleTypoStylesDesktop,
+		titleTypoStylesTab,
+		titleTypoStylesMobile,
+		numPrefixTypoStylesDesktop,
+		numPrefixTypoStylesTab,
+		numPrefixTypoStylesMobile,
+		numSuffixTypoStylesDesktop,
+		numSuffixTypoStylesTab,
+		numSuffixTypoStylesMobile,
+	});
 
-	const wrapperStyles = {
-		// marginTop: `${marginTop || 0}${marginUnit}`,
-		// marginBottom: `${marginBottom || 0}${marginUnit}`,
-		// marginLeft: `${marginLeft || 0}${marginUnit}`,
-		// marginRight: `${marginRight || 0}${marginUnit}`,
-		// paddingTop: `${paddingTop || 0}${paddingUnit}`,
-		// paddingBottom: `${paddingBottom || 0}${paddingUnit}`,
-		// paddingRight: `${paddingRight || 0}${paddingUnit}`,
-		// paddingLeft: `${paddingLeft || 0}${paddingUnit}`,
-		// gap: `${gapNumTitle}px`,
-		// flexDirection: wrapperFlexDirection,
-		// backgroundImage:
-		// 	backgroundType === "image" && imageURL
-		// 		? `url("${imageURL}")`
-		// 		: backgroundType === "gradient"
-		// 		? gradientColor
-		// 		: "none",
-		// backgroundSize: backgroundSize,
-		// backgroundColor:
-		// 	(backgroundType === "fill" && backgroundColor) || "transparent",
-		// border: `${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"}`,
-		// borderRadius: `${borderRadius || 0}${radiusUnit}`,
-		// boxShadow: `${shadowColor || "#000000"} ${hOffset || 0}px ${
-		// 	vOffset || 0
-		// }px ${blur || 0}px ${spread || 0}px ${inset ? "inset" : ""}`,
-		// transition: wrapperTransitionTime
-		// 	? `${wrapperTransitionTime / 1000}s`
-		// 	: ".5s",
-	};
+	const wrapperStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
+		margin-top: ${marginTop || 0}${marginUnit};
+		margin-bottom: ${marginBottom || 0}${marginUnit};
+		margin-left: ${marginLeft || 0}${marginUnit};
+		margin-right: ${marginRight || 0}${marginUnit};
+		padding-top: ${paddingTop || 0}${paddingUnit};
+		padding-bottom: ${paddingBottom || 0}${paddingUnit};
+		padding-right: ${paddingRight || 0}${paddingUnit};
+		padding-left: ${paddingLeft || 0}${paddingUnit};
+		gap: ${gapNumTitle}px;
+		flex-direction: ${wrapperFlexDirection};
+		background-image:
+			${
+				backgroundType === "image" && imageURL
+					? `url("${imageURL}")`
+					: backgroundType === "gradient"
+					? gradientColor
+					: "none"
+			};
+		background-size: ${backgroundSize};
+		background-color:
+			${(backgroundType === "fill" && backgroundColor) || "transparent"};
+		border: ${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"};
+		border-radius: ${borderRadius || 0}${radiusUnit};
+		box-shadow: ${shadowColor || "#000000"} ${hOffset || 0}px ${vOffset || 0}px ${
+		blur || 0
+	}px ${spread || 0}px ${inset ? "inset" : ""};
+		transition: ${
+			wrapperTransitionTime ? `${wrapperTransitionTime / 1000}s` : ".5s"
+		};
+	}
+	`;
+
+	const numberStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		${numberTypoStylesDesktop}
+		color : ${numberColor};
+		padding-left: ${gapNumPrefix}px;
+		padding-right: ${gapNumSuffix}px;
+	}
+	`;
+
+	const numberStylesTab = `   
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		${numberTypoStylesTab}
+		color : ${TABnumberColor || numberColor};
+	} `;
+
+	const numberStylesMobile = `
+	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		${numberTypoStylesMobile}
+		color : ${MOBnumberColor || TABnumberColor || numberColor};
+	}`;
+
+	const titleStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		${titleTypoStylesDesktop}
+		color : ${titleColor};
+	}
+	`;
+
+	const titleStylesTab = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		${titleTypoStylesTab}
+		color : ${TABtitleColor || titleColor};
+	}  `;
+
+	const titleStylesMobile = `  	
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		${titleTypoStylesMobile}
+		color : ${MOBtitleColor || TABtitleColor || titleColor};
+	} `;
+
+	const numPrefixStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		${numPrefixStylesDesktop}
+		color : ${numPrefixColor};
+	}
+	`;
+
+	const numPrefixStylesTab = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		${numPrefixTypoStylesTab}
+		color : ${TABnumPrefixColor || numPrefixColor};
+	}  `;
+
+	const numPrefixStylesMobile = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		${numPrefixTypoStylesMobile}
+		color : ${MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor};
+	}  `;
+
+	const numSuffixStylesDesktop = `
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		${numSuffixStylesDesktop}
+		color : ${numSuffixColor};
+	}
+	`;
+
+	const numSuffixStylesTab = `   				
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		${numSuffixTypoStylesTab}
+		color : ${TABnumSuffixColor || numSuffixColor};
+	} `;
+
+	const numSuffixStylesMobile = `   	
+				
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		${numSuffixTypoStylesMobile}
+		color : ${MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor};
+	}
+
+	`;
+
+	const desktopAllStyles = `
+		${wrapperStylesDesktop}
+		${numberStylesDesktop}
+		${titleStylesDesktop}
+		${numPrefixStylesDesktop}
+		${numSuffixStylesDesktop}
+	`;
+
+	const tabAllStyles = `
+		${numberStylesTab}
+		${titleStylesTab}
+		${numPrefixStylesTab}
+		${numSuffixStylesTab}
+	`;
+
+	const mobileAllStyles = `
+		${numberStylesMobile}
+		${titleStylesMobile}
+		${numPrefixStylesMobile}
+		${numSuffixStylesMobile}
+	`;
 
 	return (
 		<>
 			<style>
 				{`
-				
-				.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-						
-					margin-top: ${marginTop || 0}${marginUnit};
-					margin-bottom: ${marginBottom || 0}${marginUnit};
-					margin-left: ${marginLeft || 0}${marginUnit};
-					margin-right: ${marginRight || 0}${marginUnit};
-					padding-top: ${paddingTop || 0}${paddingUnit};
-					padding-bottom: ${paddingBottom || 0}${paddingUnit};
-					padding-right: ${paddingRight || 0}${paddingUnit};
-					padding-left: ${paddingLeft || 0}${paddingUnit};
-					gap: ${gapNumTitle}px;
-					flex-direction: ${wrapperFlexDirection};
-					background-image:
-						${
-							backgroundType === "image" && imageURL
-								? `url("${imageURL}")`
-								: backgroundType === "gradient"
-								? gradientColor
-								: "none"
-						};
-					background-size: ${backgroundSize};
-					background-color:
-						${(backgroundType === "fill" && backgroundColor) || "transparent"};
-					border: ${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"};
-					border-radius: ${borderRadius || 0}${radiusUnit};
-					box-shadow: ${shadowColor || "#000000"} ${hOffset || 0}px ${vOffset || 0}px ${
-					blur || 0
-				}px ${spread || 0}px ${inset ? "inset" : ""};
-					transition: ${
-						wrapperTransitionTime ? `${wrapperTransitionTime / 1000}s` : ".5s"
-					};
+				${desktopAllStyles}
+
+				@media all and (max-width: 1030px) {				
+					${tabAllStyles}
 				}
 
-				
-				.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
-					color : ${numberColor};
+				@media all and (max-width: 680px) {
+					${mobileAllStyles}
 				}
-				
-				.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
-					color : ${titleColor};
-				}
-			
-				.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-					color : ${numPrefixColor};
-				}
-			
-				.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
-					color : ${numSuffixColor};
-				}
-
-
-				@media all and (max-width: 1190px) {
-					h2 {
-						color: blue !important;
-					}
-
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
-						color : ${TABnumberColor || numberColor};
-					}
-
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
-						color : ${TABtitleColor || titleColor};
-					}
-				
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-						color : ${TABnumPrefixColor || numPrefixColor};
-					}
-				
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
-						color : ${TABnumSuffixColor || numSuffixColor};
-					}
-
-				}
-
-				@media all and (max-width: 700px) {
-					h2 {
-						color: red !important;
-					}
-				
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
-						color : ${MOBnumberColor || TABnumberColor || numberColor};
-					}
-						
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
-						color : ${MOBtitleColor || TABtitleColor || titleColor};
-					}
-				
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-						color : ${MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor};
-					}
-				
-					.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
-						color : ${MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor};
-					}
-
-				}
-
 				`}
 			</style>
 
 			<div
 				className={`eb-counter-wrapper eb-counter-wrapper-${randomNumber}`}
-				style={wrapperStyles}
 				data-shadowColor={shadowColor || "#00000000"}
 				data-hOffset={hOffset || 0}
 				data-vOffset={vOffset || 0}
@@ -339,9 +409,7 @@ const Save = (props) => {
 				data-hoverInset={hoverInset ? "inset" : " "}
 			>
 				<h4 className="eb-counter-number">
-					<span className="eb-counter-prefix" style={numPrefixStyles}>
-						{counterPrefix}
-					</span>
+					<span className="eb-counter-prefix">{counterPrefix}</span>
 					<span
 						className="eb-counter eb-counter-number"
 						data-duration={duration ? Math.floor(Math.abs(duration)) : 0}
@@ -349,18 +417,14 @@ const Save = (props) => {
 						data-target={target ? Math.floor(Math.abs(target)) : 0}
 						data-separator={separator}
 						data-isShowSeparator={isShowSeparator}
-						style={numberStyles}
 					>
 						0
 					</span>
-					<span className="eb-counter-suffix" style={numSuffixStyles}>
-						{counterSuffix}
-					</span>
+					<span className="eb-counter-suffix">{counterSuffix}</span>
 				</h4>
 
 				<RichText.Content
 					tagName="h3"
-					style={titleStyles}
 					className="eb-counter-title"
 					value={counterTitle}
 				/>

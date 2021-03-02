@@ -21,6 +21,9 @@ const Edit = (props) => {
 	const { isSelected, attributes, setAttributes } = props;
 	console.log("--------edit:", props);
 	const {
+		// responsive control attributes ⬇
+		resOption,
+
 		// to make unique className ⬇
 		randomNumber,
 
@@ -280,8 +283,6 @@ const Edit = (props) => {
 			letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};
 		`;
 
-		// console.log({ typoStylesDesktop, typoStylesTab, typoStylesMobile });
-
 		return {
 			typoStylesDesktop,
 			typoStylesTab,
@@ -443,6 +444,28 @@ const Edit = (props) => {
 
 	`;
 
+	const desktopAllStyles = `
+		${wrapperStylesDesktop}
+		${numberStylesDesktop}
+		${titleStylesDesktop}
+		${numPrefixStylesDesktop}
+		${numSuffixStylesDesktop}
+	`;
+
+	const tabAllStyles = `
+		${numberStylesTab}
+		${titleStylesTab}
+		${numPrefixStylesTab}
+		${numSuffixStylesTab}
+	`;
+
+	const mobileAllStyles = `
+		${numberStylesMobile}
+		${titleStylesMobile}
+		${numPrefixStylesMobile}
+		${numSuffixStylesMobile}
+	`;
+
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
@@ -451,28 +474,18 @@ const Edit = (props) => {
 		<>
 			<style>
 				{`
-		
-				${wrapperStylesDesktop}
-				${numberStylesDesktop}
-				${titleStylesDesktop}
-				${numPrefixStylesDesktop}
-				${numSuffixStylesDesktop}
-				
+				${desktopAllStyles}
+
+				${resOption === "tab" && tabAllStyles}
+				${resOption === "mobile" && mobileAllStyles}
 
 				@media all and (max-width: 1030px) {				
-					${numberStylesTab}
-					${titleStylesTab}
-					${numPrefixStylesTab}
-					${numSuffixStylesTab}
+					${tabAllStyles}
 				}
 
 				@media all and (max-width: 680px) {
-					${numberStylesMobile}
-					${titleStylesMobile}
-					${numPrefixStylesMobile}
-					${numSuffixStylesMobile}
+					${mobileAllStyles}
 				}
-
 				`}
 			</style>
 			<div

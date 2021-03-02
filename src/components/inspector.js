@@ -507,7 +507,11 @@ const Inspector = (props) => {
 					)}
 				</ResPanelBody>
 
-				<PanelBody title={__("Spacing")} initialOpen={false}>
+				<ResPanelBody
+					title={__("Spacing")}
+					initialOpen={false}
+					resRequiredProps={resRequiredProps}
+				>
 					<RangeControl
 						label={__("Number & Title Gap")}
 						value={gapNumTitle}
@@ -529,7 +533,7 @@ const Inspector = (props) => {
 						min={0}
 						max={100}
 					/>
-				</PanelBody>
+				</ResPanelBody>
 
 				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
 					<UnitControl
