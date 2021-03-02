@@ -476,8 +476,8 @@ const Edit = (props) => {
 				{`
 				${desktopAllStyles}
 
-				${resOption === "tab" && tabAllStyles}
-				${resOption === "mobile" && mobileAllStyles}
+				${resOption === "tab" ? tabAllStyles : " "}
+				${resOption === "mobile" ? mobileAllStyles : " "}
 
 				@media all and (max-width: 1030px) {				
 					${tabAllStyles}

@@ -2381,7 +2381,7 @@ var Edit = function Edit(props) {
   return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t").concat(resOption === "tab" && tabAllStyles, "\n\t\t\t\t").concat(resOption === "mobile" && mobileAllStyles, "\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(tabAllStyles, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(mobileAllStyles, "\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? mobileAllStyles : " ", "\n\n\t\t\t\t@media all and (max-width: 1030px) {\t\t\t\t\n\t\t\t\t\t").concat(tabAllStyles, "\n\t\t\t\t}\n\n\t\t\t\t@media all and (max-width: 680px) {\n\t\t\t\t\t").concat(mobileAllStyles, "\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     onMouseEnter: function onMouseEnter() {
       return setAttributes({
@@ -2929,7 +2929,7 @@ var Inspector = function Inspector(props) {
     title: __("Spacing"),
     initialOpen: false,
     resRequiredProps: resRequiredProps
-  }, /*#__PURE__*/React.createElement(RangeControl, {
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(RangeControl, {
     label: __("Number & Title Gap"),
     value: gapNumTitle,
     onChange: function onChange(gapNumTitle) {
@@ -2959,7 +2959,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(PanelBody, {
+  }))), /*#__PURE__*/React.createElement(PanelBody, {
     title: __("Margin & Padding"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {

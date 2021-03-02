@@ -512,27 +512,31 @@ const Inspector = (props) => {
 					initialOpen={false}
 					resRequiredProps={resRequiredProps}
 				>
-					<RangeControl
-						label={__("Number & Title Gap")}
-						value={gapNumTitle}
-						onChange={(gapNumTitle) => setAttributes({ gapNumTitle })}
-						min={0}
-						max={100}
-					/>
-					<RangeControl
-						label={__("Number & Prefix Gap")}
-						value={gapNumPrefix}
-						onChange={(gapNumPrefix) => setAttributes({ gapNumPrefix })}
-						min={0}
-						max={100}
-					/>
-					<RangeControl
-						label={__("Number & Suffix Gap")}
-						value={gapNumSuffix}
-						onChange={(gapNumSuffix) => setAttributes({ gapNumSuffix })}
-						min={0}
-						max={100}
-					/>
+					{resOption == "desktop" && (
+						<>
+							<RangeControl
+								label={__("Number & Title Gap")}
+								value={gapNumTitle}
+								onChange={(gapNumTitle) => setAttributes({ gapNumTitle })}
+								min={0}
+								max={100}
+							/>
+							<RangeControl
+								label={__("Number & Prefix Gap")}
+								value={gapNumPrefix}
+								onChange={(gapNumPrefix) => setAttributes({ gapNumPrefix })}
+								min={0}
+								max={100}
+							/>
+							<RangeControl
+								label={__("Number & Suffix Gap")}
+								value={gapNumSuffix}
+								onChange={(gapNumSuffix) => setAttributes({ gapNumSuffix })}
+								min={0}
+								max={100}
+							/>
+						</>
+					)}
 				</ResPanelBody>
 
 				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
