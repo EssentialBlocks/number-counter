@@ -186,88 +186,148 @@ const Edit = (props) => {
 		defaultFontSize = false
 	) => {
 		const {
-			[`${prefixConstant}FontFamily`]: fontFamily,
+			[`${prefixConstant}FontFamily`]: fontFamily = fontFamily || "inherit",
 			[`${prefixConstant}FontWeight`]: fontWeight,
 			[`${prefixConstant}TextTransform`]: textTransform,
 			[`${prefixConstant}TextDecoration`]: textDecoration,
-			[`${prefixConstant}FontSize`]: fontSize,
+			[`${prefixConstant}FontSize`]: fontSize = fontSize ||
+				defaultFontSize ||
+				"inherit",
 			[`${prefixConstant}SizeUnit`]: sizeUnit,
 			[`${prefixConstant}LetterSpacing`]: letterSpacing,
 			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
 			[`${prefixConstant}LineHeight`]: lineHeight,
 			[`${prefixConstant}LineHeightUnit`]: lineHeightUnit,
 
-			[`TAB${prefixConstant}FontFamily`]: TABfontFamily,
-			[`TAB${prefixConstant}FontWeight`]: TABfontWeight,
-			[`TAB${prefixConstant}TextTransform`]: TABtextTransform,
-			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
-			[`TAB${prefixConstant}FontSize`]: TABfontSize,
-			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit,
-			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
-			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit,
-			[`TAB${prefixConstant}LineHeight`]: TABlineHeight,
-			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit,
+			[`TAB${prefixConstant}FontFamily`]: TABfontFamily = TABfontFamily ||
+				fontFamily,
+			[`TAB${prefixConstant}FontWeight`]: TABfontWeight = TABfontWeight ||
+				fontWeight,
+			[`TAB${prefixConstant}TextTransform`]: TABtextTransform = TABtextTransform ||
+				textTransform,
+			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration = TABtextDecoration ||
+				textDecoration,
+			[`TAB${prefixConstant}FontSize`]: TABfontSize = TABfontSize || fontSize,
+			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit = TABsizeUnit || sizeUnit,
+			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing = TABletterSpacing ||
+				letterSpacing,
+			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit = TABletterSpacingUnit ||
+				letterSpacingUnit,
+			[`TAB${prefixConstant}LineHeight`]: TABlineHeight = TABlineHeight ||
+				lineHeight,
+			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit = TABlineHeightUnit ||
+				lineHeightUnit,
 
-			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily,
-			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight,
-			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform,
-			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration,
-			[`MOB${prefixConstant}FontSize`]: MOBfontSize,
-			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit,
-			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing,
-			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit,
-			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight,
-			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit,
+			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily = MOBfontFamily ||
+				TABfontFamily ||
+				fontFamily,
+			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight = MOBfontWeight ||
+				TABfontWeight ||
+				fontWeight,
+			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform = MOBtextTransform ||
+				TABtextTransform ||
+				textTransform,
+			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration = MOBtextDecoration ||
+				TABtextDecoration ||
+				textDecoration,
+			[`MOB${prefixConstant}FontSize`]: MOBfontSize = MOBfontSize ||
+				TABfontSize ||
+				fontSize,
+			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit = MOBsizeUnit ||
+				TABsizeUnit ||
+				sizeUnit,
+			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing = MOBletterSpacing ||
+				TABletterSpacing ||
+				letterSpacing,
+			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit = MOBletterSpacingUnit ||
+				TABletterSpacingUnit ||
+				letterSpacingUnit,
+			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight = MOBlineHeight ||
+				TABlineHeight ||
+				lineHeight,
+			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
+				TABlineHeightUnit ||
+				lineHeightUnit,
 		} = attributes;
 
 		const typoStylesDesktop = `
-			font-family: ${fontFamily ? fontFamily : "inherit"};
-			
-
+			font-family: ${fontFamily};
+			font-size: ${fontSize}${sizeUnit};
+			line-height: ${lineHeight}${lineHeightUnit};
+			font-weight: ${fontWeight};
+			text-decoration: ${textDecoration};
+			text-transform: ${textTransform};
+			letter-spacing: ${letterSpacing}${letterSpacingUnit};
 		`;
 
+		const typoStylesTab = `
+			font-family: ${TABfontFamily};
+			font-size: ${TABfontSize}${TABsizeUnit};
+			line-height: ${TABlineHeight}${TABlineHeightUnit};
+			font-weight: ${TABfontWeight};
+			text-decoration: ${TABtextDecoration};
+			text-transform: ${TABtextTransform};
+			letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};
+		`;
+
+		const typoStylesMobile = `
+			font-family: ${MOBfontFamily};
+			font-size: ${MOBfontSize}${MOBsizeUnit};
+			line-height: ${MOBlineHeight}${MOBlineHeightUnit};
+			font-weight: ${MOBfontWeight};
+			text-decoration: ${MOBtextDecoration};
+			text-transform: ${MOBtextTransform};
+			letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};
+		`;
+
+		// console.log({ typoStylesDesktop, typoStylesTab, typoStylesMobile });
+
 		return {
-			fontFamily: fontFamily ? fontFamily : "inherit",
-			// fontSize: defaultFontSize
-			// 	? `${attributes[`${prefix}FontSize`] || defaultFontSize}${
-			// 			attributes[`${prefix}SizeUnit`]
-			// 	  }`
-			// 	: attributes[`${prefix}FontSize`]
-			// 	? `${attributes[`${prefix}FontSize`]}${attributes[`${prefix}SizeUnit`]}`
-			// 	: "inherit",
-
-			fontSize: attributes[`${prefixConstant}FontSize`]
-				? `${attributes[`${prefixConstant}FontSize`]}${
-						attributes[`${prefixConstant}SizeUnit`]
-				  }`
-				: defaultFontSize
-				? `${defaultFontSize}${attributes[`${prefixConstant}SizeUnit`]}`
-				: "inherit",
-
-			fontWeight: attributes[`${prefixConstant}FontWeight`],
-			textTransform: attributes[`${prefixConstant}TextTransform`],
-			textDecoration: attributes[`${prefixConstant}TextDecoration`],
-			letterSpacing: `${attributes[`${prefixConstant}LetterSpacing`]}${
-				attributes[`${prefixConstant}LetterSpacingUnit`]
-			} `,
-			lineHeight: `${attributes[`${prefixConstant}LineHeight`]}${
-				attributes[`${prefixConstant}LineHeightUnit`]
-			} `,
+			typoStylesDesktop,
+			typoStylesTab,
+			typoStylesMobile,
 		};
 	};
 
-	const titleStyles = {
-		...generateTypographyStyles(title, 40),
-	};
-	const numberStyles = {
-		...generateTypographyStyles(number, 64),
-	};
-	const numPrefixStyles = {
-		...generateTypographyStyles(numPrefix),
-	};
-	const numSuffixStyles = {
-		...generateTypographyStyles(numSuffix),
-	};
+	const {
+		typoStylesDesktop: titleTypoStylesDesktop,
+		typoStylesTab: titleTypoStylesTab,
+		typoStylesMobile: titleTypoStylesMobile,
+	} = generateTypographyStyles(title, 40);
+
+	const {
+		typoStylesDesktop: numberTypoStylesDesktop,
+		typoStylesTab: numberTypoStylesTab,
+		typoStylesMobile: numberTypoStylesMobile,
+	} = generateTypographyStyles(number, 40);
+
+	const {
+		typoStylesDesktop: numPrefixTypoStylesDesktop,
+		typoStylesTab: numPrefixTypoStylesTab,
+		typoStylesMobile: numPrefixTypoStylesMobile,
+	} = generateTypographyStyles(numPrefix);
+
+	const {
+		typoStylesDesktop: numSuffixTypoStylesDesktop,
+		typoStylesTab: numSuffixTypoStylesTab,
+		typoStylesMobile: numSuffixTypoStylesMobile,
+	} = generateTypographyStyles(numSuffix);
+
+	console.log({
+		numberTypoStylesDesktop,
+		numberTypoStylesTab,
+		numberTypoStylesMobile,
+		titleTypoStylesDesktop,
+		titleTypoStylesTab,
+		titleTypoStylesMobile,
+		numPrefixTypoStylesDesktop,
+		numPrefixTypoStylesTab,
+		numPrefixTypoStylesMobile,
+		numSuffixTypoStylesDesktop,
+		numSuffixTypoStylesTab,
+		numSuffixTypoStylesMobile,
+	});
+
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
 		margin-top: ${marginTop || 0}${marginUnit};
@@ -304,66 +364,79 @@ const Edit = (props) => {
 
 	const numberStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		${numberTypoStylesDesktop}
 		color : ${numberColor};
 		padding-left: ${gapNumPrefix}px;
 		padding-right: ${gapNumSuffix}px;
 	}
 	`;
 
+	const numberStylesTab = `   
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		${numberTypoStylesTab}
+		color : ${TABnumberColor || numberColor};
+	} `;
+
+	const numberStylesMobile = ` .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+		${numberTypoStylesMobile}
+		color : ${MOBnumberColor || TABnumberColor || numberColor};
+	}`;
+
 	const titleStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		${titleTypoStylesDesktop}
 		color : ${titleColor};
 	}
 	`;
 
+	const titleStylesTab = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		${titleTypoStylesTab}
+		color : ${TABtitleColor || titleColor};
+	}  `;
+
+	const titleStylesMobile = `  	
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
+		${titleTypoStylesMobile}
+		color : ${MOBtitleColor || TABtitleColor || titleColor};
+	} `;
+
 	const numPrefixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		${numPrefixStylesDesktop}
 		color : ${numPrefixColor};
 	}
 	`;
 
+	const numPrefixStylesTab = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		${numPrefixTypoStylesTab}
+		color : ${TABnumPrefixColor || numPrefixColor};
+	}  `;
+
+	const numPrefixStylesMobile = `  
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
+		${numPrefixTypoStylesMobile}
+		color : ${MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor};
+	}  `;
+
 	const numSuffixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		${numSuffixStylesDesktop}
 		color : ${numSuffixColor};
 	}
 	`;
 
-	const numberStylesTab = `   .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
-		color : ${TABnumberColor || numberColor};
-	} `;
-
-	const titleStylesTab = `  
-	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
-		color : ${TABtitleColor || titleColor};
-	}  `;
-
-	const numPrefixStylesTab = `  
-	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-		color : ${TABnumPrefixColor || numPrefixColor};
-	}  `;
-
 	const numSuffixStylesTab = `   				
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		${numSuffixTypoStylesTab}
 		color : ${TABnumSuffixColor || numSuffixColor};
 	} `;
-
-	const numberStylesMobile = ` .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
-		color : ${MOBnumberColor || TABnumberColor || numberColor};
-	}`;
-
-	const titleStylesMobile = `  	
-	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
-		color : ${MOBtitleColor || TABtitleColor || titleColor};
-	} `;
-
-	const numPrefixStylesMobile = `  
-	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
-		color : ${MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor};
-	}  `;
 
 	const numSuffixStylesMobile = `   	
 				
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
+		${numSuffixTypoStylesMobile}
 		color : ${MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor};
 	}
 
@@ -399,7 +472,6 @@ const Edit = (props) => {
 					${numSuffixStylesMobile}
 				}
 
-
 				`}
 			</style>
 			<div
@@ -408,23 +480,14 @@ const Edit = (props) => {
 				onMouseLeave={() => setAttributes({ isHover: false })}
 			>
 				<h4 className="eb-counter-number">
-					<span className="eb-counter-prefix" style={numPrefixStyles}>
-						{counterPrefix}
-					</span>
-					<span
-						ref={counterRef}
-						className="eb-counter eb-counter-number"
-						style={numberStyles}
-					>
+					<span className="eb-counter-prefix">{counterPrefix}</span>
+					<span ref={counterRef} className="eb-counter eb-counter-number">
 						0
 					</span>
-					<span className="eb-counter-suffix" style={numSuffixStyles}>
-						{counterSuffix}
-					</span>
+					<span className="eb-counter-suffix">{counterSuffix}</span>
 				</h4>
 				<RichText
 					tagName="h3"
-					style={titleStyles}
 					className="eb-counter-title"
 					value={counterTitle}
 					formattingControl={["bold", "italic"]}
