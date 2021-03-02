@@ -69,19 +69,33 @@ const Inspector = (props) => {
 		numberColor,
 		numPrefixColor,
 		numSuffixColor,
-		TABtitleColor,
-		TABnumberColor,
-		TABnumPrefixColor,
-		TABnumSuffixColor,
-		MOBtitleColor,
-		MOBnumberColor,
-		MOBnumPrefixColor,
-		MOBnumSuffixColor,
+
+		TABtitleColor = TABtitleColor || titleColor,
+		TABnumberColor = TABnumberColor || numberColor,
+		TABnumPrefixColor = TABnumPrefixColor || numPrefixColor,
+		TABnumSuffixColor = TABnumSuffixColor || numSuffixColor,
+
+		MOBtitleColor = MOBtitleColor || TABtitleColor || titleColor,
+		MOBnumberColor = MOBnumberColor || TABnumberColor || numberColor,
+		MOBnumPrefixColor = MOBnumPrefixColor ||
+			TABnumPrefixColor ||
+			numPrefixColor,
+		MOBnumSuffixColor = MOBnumSuffixColor ||
+			TABnumSuffixColor ||
+			numSuffixColor,
 
 		// spacing attributes ⬇
 		gapNumTitle,
 		gapNumPrefix,
 		gapNumSuffix,
+
+		TABgapNumTitle = TABgapNumTitle || gapNumTitle,
+		TABgapNumPrefix = TABgapNumPrefix || gapNumPrefix,
+		TABgapNumSuffix = TABgapNumSuffix || gapNumSuffix,
+
+		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle || gapNumTitle,
+		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix,
+		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix,
 
 		// margin padding attributes ⬇
 		marginUnit,
@@ -95,6 +109,28 @@ const Inspector = (props) => {
 		paddingBottom,
 		paddingLeft,
 
+		TABmarginUnit = TABmarginUnit || marginUnit,
+		TABmarginTop = TABmarginTop || marginTop,
+		TABmarginRight = TABmarginRight || marginRight,
+		TABmarginBottom = TABmarginBottom || marginBottom,
+		TABmarginLeft = TABmarginLeft || marginLeft,
+		TABpaddingUnit = TABpaddingUnit || paddingUnit,
+		TABpaddingTop = TABpaddingTop || paddingTop,
+		TABpaddingRight = TABpaddingRight || paddingRight,
+		TABpaddingBottom = TABpaddingBottom || paddingBottom,
+		TABpaddingLeft = TABpaddingLeft || paddingLeft,
+
+		MOBmarginUnit = MOBmarginUnit || TABmarginUnit || marginUnit,
+		MOBmarginTop = MOBmarginTop || TABmarginTop || marginTop,
+		MOBmarginRight = MOBmarginRight || TABmarginRight || marginRight,
+		MOBmarginBottom = MOBmarginBottom || TABmarginBottom || marginBottom,
+		MOBmarginLeft = MOBmarginLeft || TABmarginLeft || marginLeft,
+		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit || paddingUnit,
+		MOBpaddingTop = MOBpaddingTop || TABpaddingTop || paddingTop,
+		MOBpaddingRight = MOBpaddingRight || TABpaddingRight || paddingRight,
+		MOBpaddingBottom = MOBpaddingBottom || TABpaddingBottom || paddingBottom,
+		MOBpaddingLeft = MOBpaddingLeft || TABpaddingLeft || paddingLeft,
+
 		// background attributes ⬇
 		backgroundType,
 		backgroundColor,
@@ -102,6 +138,26 @@ const Inspector = (props) => {
 		imageURL,
 		imageID,
 		backgroundSize,
+
+		// TABbackgroundType = TABbackgroundType || backgroundType,
+		// TABbackgroundColor = TABbackgroundColor || backgroundColor,
+		// TABgradientColor = TABgradientColor || gradientColor,
+		// TABbackgroundSize = TABbackgroundSize || backgroundSize,
+		// TABimageURL = TABimageURL || imageURL,
+		// TABimageID = TABimageID || imageID,
+
+		// MOBbackgroundType = MOBbackgroundType ||
+		// 	TABbackgroundType ||
+		// 	backgroundType,
+		// MOBbackgroundColor = MOBbackgroundColor ||
+		// 	TABbackgroundColor ||
+		// 	backgroundColor,
+		// MOBgradientColor = MOBgradientColor || TABgradientColor || gradientColor,
+		// MOBbackgroundSize = MOBbackgroundSize ||
+		// 	TABbackgroundSize ||
+		// 	backgroundSize,
+		// MOBimageURL = MOBimageURL || TABimageURL || imageURL,
+		// MOBimageID = MOBimageID || TABimageID || imageID,
 
 		// border attributes ⬇
 		borderWidth,
@@ -284,8 +340,8 @@ const Inspector = (props) => {
 			MOBlineHeightUnit,
 		};
 	};
-	const typoAttrr = generateTypographyAttributes(title);
-	console.log("------------title typo attributes", { typoAttrr });
+	const titleTypoAttrr = generateTypographyAttributes(title);
+	console.log("------------title typo attributes", { titleTypoAttrr });
 
 	useEffect(() => {
 		const bodyClasses = document.body.className;
@@ -452,24 +508,24 @@ const Inspector = (props) => {
 						<>
 							<ColorControl
 								label={__("Number")}
-								color={TABnumberColor || numberColor}
+								color={TABnumberColor}
 								onChange={(TABnumberColor) => setAttributes({ TABnumberColor })}
 							/>
 							<ColorControl
 								label={__("Title")}
-								color={TABtitleColor || titleColor}
+								color={TABtitleColor}
 								onChange={(TABtitleColor) => setAttributes({ TABtitleColor })}
 							/>
 							<ColorControl
 								label={__("Number Prefix")}
-								color={TABnumPrefixColor || numPrefixColor}
+								color={TABnumPrefixColor}
 								onChange={(TABnumPrefixColor) =>
 									setAttributes({ TABnumPrefixColor })
 								}
 							/>
 							<ColorControl
 								label={__("Number Suffix")}
-								color={TABnumSuffixColor || numSuffixColor}
+								color={TABnumSuffixColor}
 								onChange={(TABnumSuffixColor) =>
 									setAttributes({ TABnumSuffixColor })
 								}
@@ -481,24 +537,24 @@ const Inspector = (props) => {
 						<>
 							<ColorControl
 								label={__("Number")}
-								color={MOBnumberColor || TABnumberColor || numberColor}
+								color={MOBnumberColor}
 								onChange={(MOBnumberColor) => setAttributes({ MOBnumberColor })}
 							/>
 							<ColorControl
 								label={__("Title")}
-								color={MOBtitleColor || TABtitleColor || titleColor}
+								color={MOBtitleColor}
 								onChange={(MOBtitleColor) => setAttributes({ MOBtitleColor })}
 							/>
 							<ColorControl
 								label={__("Number Prefix")}
-								color={MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor}
+								color={MOBnumPrefixColor}
 								onChange={(MOBnumPrefixColor) =>
 									setAttributes({ MOBnumPrefixColor })
 								}
 							/>
 							<ColorControl
 								label={__("Number Suffix")}
-								color={MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor}
+								color={MOBnumSuffixColor}
 								onChange={(MOBnumSuffixColor) =>
 									setAttributes({ MOBnumSuffixColor })
 								}
@@ -537,53 +593,213 @@ const Inspector = (props) => {
 							/>
 						</>
 					)}
+					{resOption == "tab" && (
+						<>
+							<RangeControl
+								label={__("Number & Title Gap")}
+								value={TABgapNumTitle}
+								onChange={(TABgapNumTitle) => setAttributes({ TABgapNumTitle })}
+								min={0}
+								max={100}
+							/>
+							<RangeControl
+								label={__("Number & Prefix Gap")}
+								value={TABgapNumPrefix}
+								onChange={(TABgapNumPrefix) =>
+									setAttributes({ TABgapNumPrefix })
+								}
+								min={0}
+								max={100}
+							/>
+							<RangeControl
+								label={__("Number & Suffix Gap")}
+								value={TABgapNumSuffix}
+								onChange={(TABgapNumSuffix) =>
+									setAttributes({ TABgapNumSuffix })
+								}
+								min={0}
+								max={100}
+							/>
+						</>
+					)}
+					{resOption == "mobile" && (
+						<>
+							<RangeControl
+								label={__("Number & Title Gap")}
+								value={MOBgapNumTitle}
+								onChange={(MOBgapNumTitle) => setAttributes({ MOBgapNumTitle })}
+								min={0}
+								max={100}
+							/>
+							<RangeControl
+								label={__("Number & Prefix Gap")}
+								value={MOBgapNumPrefix}
+								onChange={(MOBgapNumPrefix) =>
+									setAttributes({ MOBgapNumPrefix })
+								}
+								min={0}
+								max={100}
+							/>
+							<RangeControl
+								label={__("Number & Suffix Gap")}
+								value={MOBgapNumSuffix}
+								onChange={(MOBgapNumSuffix) =>
+									setAttributes({ MOBgapNumSuffix })
+								}
+								min={0}
+								max={100}
+							/>
+						</>
+					)}
 				</ResPanelBody>
 
-				<PanelBody title={__("Margin & Padding")} initialOpen={false}>
-					<UnitControl
-						selectedUnit={marginUnit}
-						unitTypes={FONT_SIZE_UNITS}
-						onClick={(marginUnit) => setAttributes({ marginUnit })}
-					/>
+				<ResPanelBody
+					title={__("Margin & Padding")}
+					initialOpen={false}
+					resRequiredProps={resRequiredProps}
+				>
+					{resOption == "desktop" && (
+						<>
+							<UnitControl
+								selectedUnit={marginUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(marginUnit) => setAttributes({ marginUnit })}
+							/>
 
-					<DimensionsControl
-						label={__("Margin")}
-						top={marginTop}
-						right={marginRight}
-						bottom={marginBottom}
-						left={marginLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								marginTop: top,
-								marginRight: right,
-								marginBottom: bottom,
-								marginLeft: left,
-							})
-						}
-					/>
+							<DimensionsControl
+								label={__("Margin")}
+								top={marginTop}
+								right={marginRight}
+								bottom={marginBottom}
+								left={marginLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										marginTop: top,
+										marginRight: right,
+										marginBottom: bottom,
+										marginLeft: left,
+									})
+								}
+							/>
 
-					<UnitControl
-						selectedUnit={paddingUnit}
-						unitTypes={FONT_SIZE_UNITS}
-						onClick={(paddingUnit) => setAttributes({ paddingUnit })}
-					/>
+							<UnitControl
+								selectedUnit={paddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(paddingUnit) => setAttributes({ paddingUnit })}
+							/>
 
-					<DimensionsControl
-						label={__("Padding")}
-						top={paddingTop}
-						right={paddingRight}
-						bottom={paddingBottom}
-						left={paddingLeft}
-						onChange={({ top, right, bottom, left }) =>
-							setAttributes({
-								paddingTop: top,
-								paddingRight: right,
-								paddingBottom: bottom,
-								paddingLeft: left,
-							})
-						}
-					/>
-				</PanelBody>
+							<DimensionsControl
+								label={__("Padding")}
+								top={paddingTop}
+								right={paddingRight}
+								bottom={paddingBottom}
+								left={paddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										paddingTop: top,
+										paddingRight: right,
+										paddingBottom: bottom,
+										paddingLeft: left,
+									})
+								}
+							/>
+						</>
+					)}
+					{resOption == "tab" && (
+						<>
+							<UnitControl
+								selectedUnit={TABmarginUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(TABmarginUnit) => setAttributes({ TABmarginUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Margin")}
+								top={TABmarginTop}
+								right={TABmarginRight}
+								bottom={TABmarginBottom}
+								left={TABmarginLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										TABmarginTop: top,
+										TABmarginRight: right,
+										TABmarginBottom: bottom,
+										TABmarginLeft: left,
+									})
+								}
+							/>
+
+							<UnitControl
+								selectedUnit={TABpaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(TABpaddingUnit) => setAttributes({ TABpaddingUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Padding")}
+								top={TABpaddingTop}
+								right={TABpaddingRight}
+								bottom={TABpaddingBottom}
+								left={TABpaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										TABpaddingTop: top,
+										TABpaddingRight: right,
+										TABpaddingBottom: bottom,
+										TABpaddingLeft: left,
+									})
+								}
+							/>
+						</>
+					)}
+					{resOption == "mobile" && (
+						<>
+							<UnitControl
+								selectedUnit={MOBmarginUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(MOBmarginUnit) => setAttributes({ MOBmarginUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Margin")}
+								top={MOBmarginTop}
+								right={MOBmarginRight}
+								bottom={MOBmarginBottom}
+								left={MOBmarginLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										MOBmarginTop: top,
+										MOBmarginRight: right,
+										MOBmarginBottom: bottom,
+										MOBmarginLeft: left,
+									})
+								}
+							/>
+
+							<UnitControl
+								selectedUnit={MOBpaddingUnit}
+								unitTypes={FONT_SIZE_UNITS}
+								onClick={(MOBpaddingUnit) => setAttributes({ MOBpaddingUnit })}
+							/>
+
+							<DimensionsControl
+								label={__("Padding")}
+								top={MOBpaddingTop}
+								right={MOBpaddingRight}
+								bottom={MOBpaddingBottom}
+								left={MOBpaddingLeft}
+								onChange={({ top, right, bottom, left }) =>
+									setAttributes({
+										MOBpaddingTop: top,
+										MOBpaddingRight: right,
+										MOBpaddingBottom: bottom,
+										MOBpaddingLeft: left,
+									})
+								}
+							/>
+						</>
+					)}
+				</ResPanelBody>
 
 				<PanelBody title={__("Background")} initialOpen={false}>
 					<BaseControl label={__("Background Type")}>

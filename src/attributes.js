@@ -241,6 +241,26 @@ export default {
 		default: 0,
 	},
 
+	TABgapNumTitle: {
+		type: "number",
+	},
+	TABgapNumPrefix: {
+		type: "number",
+	},
+	TABgapNumSuffix: {
+		type: "number",
+	},
+
+	MOBgapNumTitle: {
+		type: "number",
+	},
+	MOBgapNumPrefix: {
+		type: "number",
+	},
+	MOBgapNumSuffix: {
+		type: "number",
+	},
+
 	// margin padding attributes ⬇
 	marginUnit: {
 		type: "string",
@@ -283,6 +303,68 @@ export default {
 		default: "10",
 	},
 
+	TABmarginUnit: {
+		type: "string",
+	},
+	TABmarginTop: {
+		type: "string",
+	},
+	TABmarginRight: {
+		type: "string",
+	},
+	TABmarginBottom: {
+		type: "string",
+	},
+	TABmarginLeft: {
+		type: "string",
+	},
+	TABpaddingUnit: {
+		type: "string",
+	},
+	TABpaddingTop: {
+		type: "string",
+	},
+	TABpaddingRight: {
+		type: "string",
+	},
+	TABpaddingBottom: {
+		type: "string",
+	},
+	TABpaddingLeft: {
+		type: "string",
+	},
+
+	MOBmarginUnit: {
+		type: "string",
+	},
+	MOBmarginTop: {
+		type: "string",
+	},
+	MOBmarginRight: {
+		type: "string",
+	},
+	MOBmarginBottom: {
+		type: "string",
+	},
+	MOBmarginLeft: {
+		type: "string",
+	},
+	MOBpaddingUnit: {
+		type: "string",
+	},
+	MOBpaddingTop: {
+		type: "string",
+	},
+	MOBpaddingRight: {
+		type: "string",
+	},
+	MOBpaddingBottom: {
+		type: "string",
+	},
+	MOBpaddingLeft: {
+		type: "string",
+	},
+
 	// background attributes ⬇
 	backgroundType: {
 		type: "string",
@@ -304,6 +386,44 @@ export default {
 		type: "string",
 	},
 	imageID: {
+		type: "string",
+	},
+
+	TABbackgroundType: {
+		type: "string",
+	},
+	TABbackgroundColor: {
+		type: "string",
+	},
+	TABgradientColor: {
+		type: "string",
+	},
+	TABbackgroundSize: {
+		type: "string",
+	},
+	TABimageURL: {
+		type: "string",
+	},
+	TABimageID: {
+		type: "string",
+	},
+
+	MOBbackgroundType: {
+		type: "string",
+	},
+	MOBbackgroundColor: {
+		type: "string",
+	},
+	MOBgradientColor: {
+		type: "string",
+	},
+	MOBbackgroundSize: {
+		type: "string",
+	},
+	MOBimageURL: {
+		type: "string",
+	},
+	MOBimageID: {
 		type: "string",
 	},
 

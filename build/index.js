@@ -1553,6 +1553,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     type: "number",
     "default": 0
   },
+  TABgapNumTitle: {
+    type: "number"
+  },
+  TABgapNumPrefix: {
+    type: "number"
+  },
+  TABgapNumSuffix: {
+    type: "number"
+  },
+  MOBgapNumTitle: {
+    type: "number"
+  },
+  MOBgapNumPrefix: {
+    type: "number"
+  },
+  MOBgapNumSuffix: {
+    type: "number"
+  },
   // margin padding attributes ⬇
   marginUnit: {
     type: "string",
@@ -1594,6 +1612,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     type: "string",
     "default": "10"
   },
+  TABmarginUnit: {
+    type: "string"
+  },
+  TABmarginTop: {
+    type: "string"
+  },
+  TABmarginRight: {
+    type: "string"
+  },
+  TABmarginBottom: {
+    type: "string"
+  },
+  TABmarginLeft: {
+    type: "string"
+  },
+  TABpaddingUnit: {
+    type: "string"
+  },
+  TABpaddingTop: {
+    type: "string"
+  },
+  TABpaddingRight: {
+    type: "string"
+  },
+  TABpaddingBottom: {
+    type: "string"
+  },
+  TABpaddingLeft: {
+    type: "string"
+  },
+  MOBmarginUnit: {
+    type: "string"
+  },
+  MOBmarginTop: {
+    type: "string"
+  },
+  MOBmarginRight: {
+    type: "string"
+  },
+  MOBmarginBottom: {
+    type: "string"
+  },
+  MOBmarginLeft: {
+    type: "string"
+  },
+  MOBpaddingUnit: {
+    type: "string"
+  },
+  MOBpaddingTop: {
+    type: "string"
+  },
+  MOBpaddingRight: {
+    type: "string"
+  },
+  MOBpaddingBottom: {
+    type: "string"
+  },
+  MOBpaddingLeft: {
+    type: "string"
+  },
   // background attributes ⬇
   backgroundType: {
     type: "string",
@@ -1615,6 +1693,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     type: "string"
   },
   imageID: {
+    type: "string"
+  },
+  TABbackgroundType: {
+    type: "string"
+  },
+  TABbackgroundColor: {
+    type: "string"
+  },
+  TABgradientColor: {
+    type: "string"
+  },
+  TABbackgroundSize: {
+    type: "string"
+  },
+  TABimageURL: {
+    type: "string"
+  },
+  TABimageID: {
+    type: "string"
+  },
+  MOBbackgroundType: {
+    type: "string"
+  },
+  MOBbackgroundColor: {
+    type: "string"
+  },
+  MOBgradientColor: {
+    type: "string"
+  },
+  MOBbackgroundSize: {
+    type: "string"
+  },
+  MOBimageURL: {
+    type: "string"
+  },
+  MOBimageID: {
     type: "string"
   },
   // border attributes ⬇
@@ -2154,17 +2268,37 @@ var Edit = function Edit(props) {
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      TABtitleColor = attributes.TABtitleColor,
-      TABnumberColor = attributes.TABnumberColor,
-      TABnumPrefixColor = attributes.TABnumPrefixColor,
-      TABnumSuffixColor = attributes.TABnumSuffixColor,
-      MOBtitleColor = attributes.MOBtitleColor,
-      MOBnumberColor = attributes.MOBnumberColor,
-      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
-      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
+      _attributes$TABtitleC = attributes.TABtitleColor,
+      TABtitleColor = _attributes$TABtitleC === void 0 ? TABtitleColor || titleColor : _attributes$TABtitleC,
+      _attributes$TABnumber = attributes.TABnumberColor,
+      TABnumberColor = _attributes$TABnumber === void 0 ? TABnumberColor || numberColor : _attributes$TABnumber,
+      _attributes$TABnumPre = attributes.TABnumPrefixColor,
+      TABnumPrefixColor = _attributes$TABnumPre === void 0 ? TABnumPrefixColor || numPrefixColor : _attributes$TABnumPre,
+      _attributes$TABnumSuf = attributes.TABnumSuffixColor,
+      TABnumSuffixColor = _attributes$TABnumSuf === void 0 ? TABnumSuffixColor || numSuffixColor : _attributes$TABnumSuf,
+      _attributes$MOBtitleC = attributes.MOBtitleColor,
+      MOBtitleColor = _attributes$MOBtitleC === void 0 ? MOBtitleColor || TABtitleColor || titleColor : _attributes$MOBtitleC,
+      _attributes$MOBnumber = attributes.MOBnumberColor,
+      MOBnumberColor = _attributes$MOBnumber === void 0 ? MOBnumberColor || TABnumberColor || numberColor : _attributes$MOBnumber,
+      _attributes$MOBnumPre = attributes.MOBnumPrefixColor,
+      MOBnumPrefixColor = _attributes$MOBnumPre === void 0 ? MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor : _attributes$MOBnumPre,
+      _attributes$MOBnumSuf = attributes.MOBnumSuffixColor,
+      MOBnumSuffixColor = _attributes$MOBnumSuf === void 0 ? MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor : _attributes$MOBnumSuf,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
+      _attributes$TABgapNum = attributes.TABgapNumTitle,
+      TABgapNumTitle = _attributes$TABgapNum === void 0 ? TABgapNumTitle || gapNumTitle : _attributes$TABgapNum,
+      _attributes$TABgapNum2 = attributes.TABgapNumPrefix,
+      TABgapNumPrefix = _attributes$TABgapNum2 === void 0 ? TABgapNumPrefix || gapNumPrefix : _attributes$TABgapNum2,
+      _attributes$TABgapNum3 = attributes.TABgapNumSuffix,
+      TABgapNumSuffix = _attributes$TABgapNum3 === void 0 ? TABgapNumSuffix || gapNumSuffix : _attributes$TABgapNum3,
+      _attributes$MOBgapNum = attributes.MOBgapNumTitle,
+      MOBgapNumTitle = _attributes$MOBgapNum === void 0 ? MOBgapNumTitle || TABgapNumTitle || gapNumTitle : _attributes$MOBgapNum,
+      _attributes$MOBgapNum2 = attributes.MOBgapNumPrefix,
+      MOBgapNumPrefix = _attributes$MOBgapNum2 === void 0 ? MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix : _attributes$MOBgapNum2,
+      _attributes$MOBgapNum3 = attributes.MOBgapNumSuffix,
+      MOBgapNumSuffix = _attributes$MOBgapNum3 === void 0 ? MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix : _attributes$MOBgapNum3,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
       marginRight = attributes.marginRight,
@@ -2175,6 +2309,46 @@ var Edit = function Edit(props) {
       paddingRight = attributes.paddingRight,
       paddingBottom = attributes.paddingBottom,
       paddingLeft = attributes.paddingLeft,
+      _attributes$TABmargin = attributes.TABmarginUnit,
+      TABmarginUnit = _attributes$TABmargin === void 0 ? TABmarginUnit || marginUnit : _attributes$TABmargin,
+      _attributes$TABmargin2 = attributes.TABmarginTop,
+      TABmarginTop = _attributes$TABmargin2 === void 0 ? TABmarginTop || marginTop : _attributes$TABmargin2,
+      _attributes$TABmargin3 = attributes.TABmarginRight,
+      TABmarginRight = _attributes$TABmargin3 === void 0 ? TABmarginRight || marginRight : _attributes$TABmargin3,
+      _attributes$TABmargin4 = attributes.TABmarginBottom,
+      TABmarginBottom = _attributes$TABmargin4 === void 0 ? TABmarginBottom || marginBottom : _attributes$TABmargin4,
+      _attributes$TABmargin5 = attributes.TABmarginLeft,
+      TABmarginLeft = _attributes$TABmargin5 === void 0 ? TABmarginLeft || marginLeft : _attributes$TABmargin5,
+      _attributes$TABpaddin = attributes.TABpaddingUnit,
+      TABpaddingUnit = _attributes$TABpaddin === void 0 ? TABpaddingUnit || paddingUnit : _attributes$TABpaddin,
+      _attributes$TABpaddin2 = attributes.TABpaddingTop,
+      TABpaddingTop = _attributes$TABpaddin2 === void 0 ? TABpaddingTop || paddingTop : _attributes$TABpaddin2,
+      _attributes$TABpaddin3 = attributes.TABpaddingRight,
+      TABpaddingRight = _attributes$TABpaddin3 === void 0 ? TABpaddingRight || paddingRight : _attributes$TABpaddin3,
+      _attributes$TABpaddin4 = attributes.TABpaddingBottom,
+      TABpaddingBottom = _attributes$TABpaddin4 === void 0 ? TABpaddingBottom || paddingBottom : _attributes$TABpaddin4,
+      _attributes$TABpaddin5 = attributes.TABpaddingLeft,
+      TABpaddingLeft = _attributes$TABpaddin5 === void 0 ? TABpaddingLeft || paddingLeft : _attributes$TABpaddin5,
+      _attributes$MOBmargin = attributes.MOBmarginUnit,
+      MOBmarginUnit = _attributes$MOBmargin === void 0 ? MOBmarginUnit || TABmarginUnit || marginUnit : _attributes$MOBmargin,
+      _attributes$MOBmargin2 = attributes.MOBmarginTop,
+      MOBmarginTop = _attributes$MOBmargin2 === void 0 ? MOBmarginTop || TABmarginTop || marginTop : _attributes$MOBmargin2,
+      _attributes$MOBmargin3 = attributes.MOBmarginRight,
+      MOBmarginRight = _attributes$MOBmargin3 === void 0 ? MOBmarginRight || TABmarginRight || marginRight : _attributes$MOBmargin3,
+      _attributes$MOBmargin4 = attributes.MOBmarginBottom,
+      MOBmarginBottom = _attributes$MOBmargin4 === void 0 ? MOBmarginBottom || TABmarginBottom || marginBottom : _attributes$MOBmargin4,
+      _attributes$MOBmargin5 = attributes.MOBmarginLeft,
+      MOBmarginLeft = _attributes$MOBmargin5 === void 0 ? MOBmarginLeft || TABmarginLeft || marginLeft : _attributes$MOBmargin5,
+      _attributes$MOBpaddin = attributes.MOBpaddingUnit,
+      MOBpaddingUnit = _attributes$MOBpaddin === void 0 ? MOBpaddingUnit || TABpaddingUnit || paddingUnit : _attributes$MOBpaddin,
+      _attributes$MOBpaddin2 = attributes.MOBpaddingTop,
+      MOBpaddingTop = _attributes$MOBpaddin2 === void 0 ? MOBpaddingTop || TABpaddingTop || paddingTop : _attributes$MOBpaddin2,
+      _attributes$MOBpaddin3 = attributes.MOBpaddingRight,
+      MOBpaddingRight = _attributes$MOBpaddin3 === void 0 ? MOBpaddingRight || TABpaddingRight || paddingRight : _attributes$MOBpaddin3,
+      _attributes$MOBpaddin4 = attributes.MOBpaddingBottom,
+      MOBpaddingBottom = _attributes$MOBpaddin4 === void 0 ? MOBpaddingBottom || TABpaddingBottom || paddingBottom : _attributes$MOBpaddin4,
+      _attributes$MOBpaddin5 = attributes.MOBpaddingLeft,
+      MOBpaddingLeft = _attributes$MOBpaddin5 === void 0 ? MOBpaddingLeft || TABpaddingLeft || paddingLeft : _attributes$MOBpaddin5,
       backgroundType = attributes.backgroundType,
       imageURL = attributes.imageURL,
       gradientColor = attributes.gradientColor,
@@ -2237,6 +2411,9 @@ var Edit = function Edit(props) {
 
     if (!bodyClasses.includes("eb-res-option-")) {
       document.body.classList.add("eb-res-option-desktop");
+      setAttributes({
+        resOption: "desktop"
+      });
     } else if (bodyClasses.includes("eb-res-option-desktop")) {
       setAttributes({
         resOption: "desktop"
@@ -2364,17 +2541,17 @@ var Edit = function Edit(props) {
   });
   var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
-  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor || numberColor, ";\n\t} ");
-  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor || TABnumberColor || numberColor, ";\n\t}");
+  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t} ");
+  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
-  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor || titleColor, ";\n\t}  ");
-  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor || TABtitleColor || titleColor, ";\n\t} ");
+  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor, ";\n\t}  ");
+  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor, ";\n\t} ");
   var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
-  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
-  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor, ";\n\t}  ");
+  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor, ";\n\t}  ");
+  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor, ";\n\t}  ");
   var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
-  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor || numSuffixColor, ";\n\t} ");
-  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor, ";\n\t}\n\n\t");
+  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor, ";\n\t} ");
+  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor, ";\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
   var tabAllStyles = "\n\t\t".concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
   var mobileAllStyles = "\n\t\t".concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
@@ -2525,17 +2702,37 @@ var Inspector = function Inspector(props) {
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      TABtitleColor = attributes.TABtitleColor,
-      TABnumberColor = attributes.TABnumberColor,
-      TABnumPrefixColor = attributes.TABnumPrefixColor,
-      TABnumSuffixColor = attributes.TABnumSuffixColor,
-      MOBtitleColor = attributes.MOBtitleColor,
-      MOBnumberColor = attributes.MOBnumberColor,
-      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
-      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
+      _attributes$TABtitleC = attributes.TABtitleColor,
+      TABtitleColor = _attributes$TABtitleC === void 0 ? TABtitleColor || titleColor : _attributes$TABtitleC,
+      _attributes$TABnumber = attributes.TABnumberColor,
+      TABnumberColor = _attributes$TABnumber === void 0 ? TABnumberColor || numberColor : _attributes$TABnumber,
+      _attributes$TABnumPre = attributes.TABnumPrefixColor,
+      TABnumPrefixColor = _attributes$TABnumPre === void 0 ? TABnumPrefixColor || numPrefixColor : _attributes$TABnumPre,
+      _attributes$TABnumSuf = attributes.TABnumSuffixColor,
+      TABnumSuffixColor = _attributes$TABnumSuf === void 0 ? TABnumSuffixColor || numSuffixColor : _attributes$TABnumSuf,
+      _attributes$MOBtitleC = attributes.MOBtitleColor,
+      MOBtitleColor = _attributes$MOBtitleC === void 0 ? MOBtitleColor || TABtitleColor || titleColor : _attributes$MOBtitleC,
+      _attributes$MOBnumber = attributes.MOBnumberColor,
+      MOBnumberColor = _attributes$MOBnumber === void 0 ? MOBnumberColor || TABnumberColor || numberColor : _attributes$MOBnumber,
+      _attributes$MOBnumPre = attributes.MOBnumPrefixColor,
+      MOBnumPrefixColor = _attributes$MOBnumPre === void 0 ? MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor : _attributes$MOBnumPre,
+      _attributes$MOBnumSuf = attributes.MOBnumSuffixColor,
+      MOBnumSuffixColor = _attributes$MOBnumSuf === void 0 ? MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor : _attributes$MOBnumSuf,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
+      _attributes$TABgapNum = attributes.TABgapNumTitle,
+      TABgapNumTitle = _attributes$TABgapNum === void 0 ? TABgapNumTitle || gapNumTitle : _attributes$TABgapNum,
+      _attributes$TABgapNum2 = attributes.TABgapNumPrefix,
+      TABgapNumPrefix = _attributes$TABgapNum2 === void 0 ? TABgapNumPrefix || gapNumPrefix : _attributes$TABgapNum2,
+      _attributes$TABgapNum3 = attributes.TABgapNumSuffix,
+      TABgapNumSuffix = _attributes$TABgapNum3 === void 0 ? TABgapNumSuffix || gapNumSuffix : _attributes$TABgapNum3,
+      _attributes$MOBgapNum = attributes.MOBgapNumTitle,
+      MOBgapNumTitle = _attributes$MOBgapNum === void 0 ? MOBgapNumTitle || TABgapNumTitle || gapNumTitle : _attributes$MOBgapNum,
+      _attributes$MOBgapNum2 = attributes.MOBgapNumPrefix,
+      MOBgapNumPrefix = _attributes$MOBgapNum2 === void 0 ? MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix : _attributes$MOBgapNum2,
+      _attributes$MOBgapNum3 = attributes.MOBgapNumSuffix,
+      MOBgapNumSuffix = _attributes$MOBgapNum3 === void 0 ? MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix : _attributes$MOBgapNum3,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
       marginRight = attributes.marginRight,
@@ -2546,6 +2743,46 @@ var Inspector = function Inspector(props) {
       paddingRight = attributes.paddingRight,
       paddingBottom = attributes.paddingBottom,
       paddingLeft = attributes.paddingLeft,
+      _attributes$TABmargin = attributes.TABmarginUnit,
+      TABmarginUnit = _attributes$TABmargin === void 0 ? TABmarginUnit || marginUnit : _attributes$TABmargin,
+      _attributes$TABmargin2 = attributes.TABmarginTop,
+      TABmarginTop = _attributes$TABmargin2 === void 0 ? TABmarginTop || marginTop : _attributes$TABmargin2,
+      _attributes$TABmargin3 = attributes.TABmarginRight,
+      TABmarginRight = _attributes$TABmargin3 === void 0 ? TABmarginRight || marginRight : _attributes$TABmargin3,
+      _attributes$TABmargin4 = attributes.TABmarginBottom,
+      TABmarginBottom = _attributes$TABmargin4 === void 0 ? TABmarginBottom || marginBottom : _attributes$TABmargin4,
+      _attributes$TABmargin5 = attributes.TABmarginLeft,
+      TABmarginLeft = _attributes$TABmargin5 === void 0 ? TABmarginLeft || marginLeft : _attributes$TABmargin5,
+      _attributes$TABpaddin = attributes.TABpaddingUnit,
+      TABpaddingUnit = _attributes$TABpaddin === void 0 ? TABpaddingUnit || paddingUnit : _attributes$TABpaddin,
+      _attributes$TABpaddin2 = attributes.TABpaddingTop,
+      TABpaddingTop = _attributes$TABpaddin2 === void 0 ? TABpaddingTop || paddingTop : _attributes$TABpaddin2,
+      _attributes$TABpaddin3 = attributes.TABpaddingRight,
+      TABpaddingRight = _attributes$TABpaddin3 === void 0 ? TABpaddingRight || paddingRight : _attributes$TABpaddin3,
+      _attributes$TABpaddin4 = attributes.TABpaddingBottom,
+      TABpaddingBottom = _attributes$TABpaddin4 === void 0 ? TABpaddingBottom || paddingBottom : _attributes$TABpaddin4,
+      _attributes$TABpaddin5 = attributes.TABpaddingLeft,
+      TABpaddingLeft = _attributes$TABpaddin5 === void 0 ? TABpaddingLeft || paddingLeft : _attributes$TABpaddin5,
+      _attributes$MOBmargin = attributes.MOBmarginUnit,
+      MOBmarginUnit = _attributes$MOBmargin === void 0 ? MOBmarginUnit || TABmarginUnit || marginUnit : _attributes$MOBmargin,
+      _attributes$MOBmargin2 = attributes.MOBmarginTop,
+      MOBmarginTop = _attributes$MOBmargin2 === void 0 ? MOBmarginTop || TABmarginTop || marginTop : _attributes$MOBmargin2,
+      _attributes$MOBmargin3 = attributes.MOBmarginRight,
+      MOBmarginRight = _attributes$MOBmargin3 === void 0 ? MOBmarginRight || TABmarginRight || marginRight : _attributes$MOBmargin3,
+      _attributes$MOBmargin4 = attributes.MOBmarginBottom,
+      MOBmarginBottom = _attributes$MOBmargin4 === void 0 ? MOBmarginBottom || TABmarginBottom || marginBottom : _attributes$MOBmargin4,
+      _attributes$MOBmargin5 = attributes.MOBmarginLeft,
+      MOBmarginLeft = _attributes$MOBmargin5 === void 0 ? MOBmarginLeft || TABmarginLeft || marginLeft : _attributes$MOBmargin5,
+      _attributes$MOBpaddin = attributes.MOBpaddingUnit,
+      MOBpaddingUnit = _attributes$MOBpaddin === void 0 ? MOBpaddingUnit || TABpaddingUnit || paddingUnit : _attributes$MOBpaddin,
+      _attributes$MOBpaddin2 = attributes.MOBpaddingTop,
+      MOBpaddingTop = _attributes$MOBpaddin2 === void 0 ? MOBpaddingTop || TABpaddingTop || paddingTop : _attributes$MOBpaddin2,
+      _attributes$MOBpaddin3 = attributes.MOBpaddingRight,
+      MOBpaddingRight = _attributes$MOBpaddin3 === void 0 ? MOBpaddingRight || TABpaddingRight || paddingRight : _attributes$MOBpaddin3,
+      _attributes$MOBpaddin4 = attributes.MOBpaddingBottom,
+      MOBpaddingBottom = _attributes$MOBpaddin4 === void 0 ? MOBpaddingBottom || TABpaddingBottom || paddingBottom : _attributes$MOBpaddin4,
+      _attributes$MOBpaddin5 = attributes.MOBpaddingLeft,
+      MOBpaddingLeft = _attributes$MOBpaddin5 === void 0 ? MOBpaddingLeft || TABpaddingLeft || paddingLeft : _attributes$MOBpaddin5,
       backgroundType = attributes.backgroundType,
       backgroundColor = attributes.backgroundColor,
       gradientColor = attributes.gradientColor,
@@ -2691,9 +2928,9 @@ var Inspector = function Inspector(props) {
     };
   };
 
-  var typoAttrr = generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"]);
+  var titleTypoAttrr = generateTypographyAttributes(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_10__["title"]);
   console.log("------------title typo attributes", {
-    typoAttrr: typoAttrr
+    titleTypoAttrr: titleTypoAttrr
   });
   useEffect(function () {
     var bodyClasses = document.body.className;
@@ -2863,7 +3100,7 @@ var Inspector = function Inspector(props) {
     }
   })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number"),
-    color: TABnumberColor || numberColor,
+    color: TABnumberColor,
     onChange: function onChange(TABnumberColor) {
       return setAttributes({
         TABnumberColor: TABnumberColor
@@ -2871,7 +3108,7 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Title"),
-    color: TABtitleColor || titleColor,
+    color: TABtitleColor,
     onChange: function onChange(TABtitleColor) {
       return setAttributes({
         TABtitleColor: TABtitleColor
@@ -2879,7 +3116,7 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number Prefix"),
-    color: TABnumPrefixColor || numPrefixColor,
+    color: TABnumPrefixColor,
     onChange: function onChange(TABnumPrefixColor) {
       return setAttributes({
         TABnumPrefixColor: TABnumPrefixColor
@@ -2887,7 +3124,7 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number Suffix"),
-    color: TABnumSuffixColor || numSuffixColor,
+    color: TABnumSuffixColor,
     onChange: function onChange(TABnumSuffixColor) {
       return setAttributes({
         TABnumSuffixColor: TABnumSuffixColor
@@ -2895,7 +3132,7 @@ var Inspector = function Inspector(props) {
     }
   })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number"),
-    color: MOBnumberColor || TABnumberColor || numberColor,
+    color: MOBnumberColor,
     onChange: function onChange(MOBnumberColor) {
       return setAttributes({
         MOBnumberColor: MOBnumberColor
@@ -2903,7 +3140,7 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Title"),
-    color: MOBtitleColor || TABtitleColor || titleColor,
+    color: MOBtitleColor,
     onChange: function onChange(MOBtitleColor) {
       return setAttributes({
         MOBtitleColor: MOBtitleColor
@@ -2911,7 +3148,7 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number Prefix"),
-    color: MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor,
+    color: MOBnumPrefixColor,
     onChange: function onChange(MOBnumPrefixColor) {
       return setAttributes({
         MOBnumPrefixColor: MOBnumPrefixColor
@@ -2919,7 +3156,7 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_0__["default"], {
     label: __("Number Suffix"),
-    color: MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor,
+    color: MOBnumSuffixColor,
     onChange: function onChange(MOBnumSuffixColor) {
       return setAttributes({
         MOBnumSuffixColor: MOBnumSuffixColor
@@ -2959,10 +3196,71 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  }))), /*#__PURE__*/React.createElement(PanelBody, {
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(RangeControl, {
+    label: __("Number & Title Gap"),
+    value: TABgapNumTitle,
+    onChange: function onChange(TABgapNumTitle) {
+      return setAttributes({
+        TABgapNumTitle: TABgapNumTitle
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(RangeControl, {
+    label: __("Number & Prefix Gap"),
+    value: TABgapNumPrefix,
+    onChange: function onChange(TABgapNumPrefix) {
+      return setAttributes({
+        TABgapNumPrefix: TABgapNumPrefix
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(RangeControl, {
+    label: __("Number & Suffix Gap"),
+    value: TABgapNumSuffix,
+    onChange: function onChange(TABgapNumSuffix) {
+      return setAttributes({
+        TABgapNumSuffix: TABgapNumSuffix
+      });
+    },
+    min: 0,
+    max: 100
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(RangeControl, {
+    label: __("Number & Title Gap"),
+    value: MOBgapNumTitle,
+    onChange: function onChange(MOBgapNumTitle) {
+      return setAttributes({
+        MOBgapNumTitle: MOBgapNumTitle
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(RangeControl, {
+    label: __("Number & Prefix Gap"),
+    value: MOBgapNumPrefix,
+    onChange: function onChange(MOBgapNumPrefix) {
+      return setAttributes({
+        MOBgapNumPrefix: MOBgapNumPrefix
+      });
+    },
+    min: 0,
+    max: 100
+  }), /*#__PURE__*/React.createElement(RangeControl, {
+    label: __("Number & Suffix Gap"),
+    value: MOBgapNumSuffix,
+    onChange: function onChange(MOBgapNumSuffix) {
+      return setAttributes({
+        MOBgapNumSuffix: MOBgapNumSuffix
+      });
+    },
+    min: 0,
+    max: 100
+  }))), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_8__["default"], {
     title: __("Margin & Padding"),
-    initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    initialOpen: false,
+    resRequiredProps: resRequiredProps
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
     selectedUnit: marginUnit,
     unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
     onClick: function onClick(marginUnit) {
@@ -3014,14 +3312,118 @@ var Inspector = function Inspector(props) {
         paddingLeft: left
       });
     }
-  })), /*#__PURE__*/React.createElement(PanelBody, {
+  })), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    selectedUnit: TABmarginUnit,
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
+    onClick: function onClick(TABmarginUnit) {
+      return setAttributes({
+        TABmarginUnit: TABmarginUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    label: __("Margin"),
+    top: TABmarginTop,
+    right: TABmarginRight,
+    bottom: TABmarginBottom,
+    left: TABmarginLeft,
+    onChange: function onChange(_ref3) {
+      var top = _ref3.top,
+          right = _ref3.right,
+          bottom = _ref3.bottom,
+          left = _ref3.left;
+      return setAttributes({
+        TABmarginTop: top,
+        TABmarginRight: right,
+        TABmarginBottom: bottom,
+        TABmarginLeft: left
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    selectedUnit: TABpaddingUnit,
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
+    onClick: function onClick(TABpaddingUnit) {
+      return setAttributes({
+        TABpaddingUnit: TABpaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    label: __("Padding"),
+    top: TABpaddingTop,
+    right: TABpaddingRight,
+    bottom: TABpaddingBottom,
+    left: TABpaddingLeft,
+    onChange: function onChange(_ref4) {
+      var top = _ref4.top,
+          right = _ref4.right,
+          bottom = _ref4.bottom,
+          left = _ref4.left;
+      return setAttributes({
+        TABpaddingTop: top,
+        TABpaddingRight: right,
+        TABpaddingBottom: bottom,
+        TABpaddingLeft: left
+      });
+    }
+  })), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    selectedUnit: MOBmarginUnit,
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
+    onClick: function onClick(MOBmarginUnit) {
+      return setAttributes({
+        MOBmarginUnit: MOBmarginUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    label: __("Margin"),
+    top: MOBmarginTop,
+    right: MOBmarginRight,
+    bottom: MOBmarginBottom,
+    left: MOBmarginLeft,
+    onChange: function onChange(_ref5) {
+      var top = _ref5.top,
+          right = _ref5.right,
+          bottom = _ref5.bottom,
+          left = _ref5.left;
+      return setAttributes({
+        MOBmarginTop: top,
+        MOBmarginRight: right,
+        MOBmarginBottom: bottom,
+        MOBmarginLeft: left
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    selectedUnit: MOBpaddingUnit,
+    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_9__["FONT_SIZE_UNITS"],
+    onClick: function onClick(MOBpaddingUnit) {
+      return setAttributes({
+        MOBpaddingUnit: MOBpaddingUnit
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_util_dimensions_control__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    label: __("Padding"),
+    top: MOBpaddingTop,
+    right: MOBpaddingRight,
+    bottom: MOBpaddingBottom,
+    left: MOBpaddingLeft,
+    onChange: function onChange(_ref6) {
+      var top = _ref6.top,
+          right = _ref6.right,
+          bottom = _ref6.bottom,
+          left = _ref6.left;
+      return setAttributes({
+        MOBpaddingTop: top,
+        MOBpaddingRight: right,
+        MOBpaddingBottom: bottom,
+        MOBpaddingLeft: left
+      });
+    }
+  }))), /*#__PURE__*/React.createElement(PanelBody, {
     title: __("Background"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(BaseControl, {
     label: __("Background Type")
-  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_TYPES"].map(function (_ref3) {
-    var value = _ref3.value,
-        label = _ref3.label;
+  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_TYPES"].map(function (_ref7) {
+    var value = _ref7.value,
+        label = _ref7.label;
     return /*#__PURE__*/React.createElement(Button, {
       isPrimary: backgroundType === value,
       isSecondary: backgroundType !== value,
@@ -3060,8 +3462,8 @@ var Inspector = function Inspector(props) {
     },
     type: "image",
     value: imageID,
-    render: function render(_ref4) {
-      var open = _ref4.open;
+    render: function render(_ref8) {
+      var open = _ref8.open;
       return !imageURL && /*#__PURE__*/React.createElement(Button, {
         className: "eb-wrapper-upload-button",
         label: __("Upload Image"),
@@ -3078,9 +3480,9 @@ var Inspector = function Inspector(props) {
     }
   }), /*#__PURE__*/React.createElement(BaseControl, {
     label: __("Background Size")
-  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_SIZES"].map(function (_ref5) {
-    var value = _ref5.value,
-        label = _ref5.label;
+  }, /*#__PURE__*/React.createElement(ButtonGroup, null, _constants__WEBPACK_IMPORTED_MODULE_9__["BACKGROUND_SIZES"].map(function (_ref9) {
+    var value = _ref9.value,
+        label = _ref9.label;
     return /*#__PURE__*/React.createElement(Button, {
       isPrimary: backgroundSize === value,
       isSecondary: backgroundSize !== value,
