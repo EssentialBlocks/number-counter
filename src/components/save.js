@@ -462,7 +462,7 @@ const Save = (props) => {
 		${titleStylesDesktop}
 		${numPrefixStylesDesktop}
 		${numSuffixStylesDesktop}
-	`.replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
+	`.replaceAll(/\s+/g, " ");
 
 	const tabAllStyles = `
 		${wrapperStylesTab}
@@ -470,7 +470,7 @@ const Save = (props) => {
 		${titleStylesTab}
 		${numPrefixStylesTab}
 		${numSuffixStylesTab}
-	`.replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
+	`.replaceAll(/\s+/g, " ");
 
 	const mobileAllStyles = `
 		${wrapperStylesMobile}
@@ -478,7 +478,7 @@ const Save = (props) => {
 		${titleStylesMobile}
 		${numPrefixStylesMobile}
 		${numSuffixStylesMobile}
-	`.replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
+	`.replaceAll(/\s+/g, " ");
 
 	return (
 		<>
