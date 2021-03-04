@@ -149,52 +149,82 @@ const Save = (props) => {
 			[`${prefixConstant}LineHeight`]: lineHeight,
 			[`${prefixConstant}LineHeightUnit`]: lineHeightUnit,
 
-			[`TAB${prefixConstant}FontFamily`]: TABfontFamily = TABfontFamily ||
-				fontFamily,
-			[`TAB${prefixConstant}FontWeight`]: TABfontWeight = TABfontWeight ||
-				fontWeight,
-			[`TAB${prefixConstant}TextTransform`]: TABtextTransform = TABtextTransform ||
-				textTransform,
-			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration = TABtextDecoration ||
-				textDecoration,
-			[`TAB${prefixConstant}FontSize`]: TABfontSize = TABfontSize || fontSize,
+			// [`TAB${prefixConstant}FontFamily`]: TABfontFamily = TABfontFamily ||
+			// 	fontFamily,
+			// [`TAB${prefixConstant}FontWeight`]: TABfontWeight = TABfontWeight ||
+			// 	fontWeight,
+			// [`TAB${prefixConstant}TextTransform`]: TABtextTransform = TABtextTransform ||
+			// 	textTransform,
+			// [`TAB${prefixConstant}TextDecoration`]: TABtextDecoration = TABtextDecoration ||
+			// 	textDecoration,
+			// [`TAB${prefixConstant}FontSize`]: TABfontSize = TABfontSize || fontSize,
+			// [`TAB${prefixConstant}SizeUnit`]: TABsizeUnit = TABsizeUnit || sizeUnit,
+			// [`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing = TABletterSpacing ||
+			// 	letterSpacing,
+			// [`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit = TABletterSpacingUnit ||
+			// 	letterSpacingUnit,
+			// [`TAB${prefixConstant}LineHeight`]: TABlineHeight = TABlineHeight ||
+			// 	lineHeight,
+			// [`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit = TABlineHeightUnit ||
+			// 	lineHeightUnit,
+
+			// [`MOB${prefixConstant}FontFamily`]: MOBfontFamily = MOBfontFamily ||
+			// 	TABfontFamily ||
+			// 	fontFamily,
+			// [`MOB${prefixConstant}FontWeight`]: MOBfontWeight = MOBfontWeight ||
+			// 	TABfontWeight ||
+			// 	fontWeight,
+			// [`MOB${prefixConstant}TextTransform`]: MOBtextTransform = MOBtextTransform ||
+			// 	TABtextTransform ||
+			// 	textTransform,
+			// [`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration = MOBtextDecoration ||
+			// 	TABtextDecoration ||
+			// 	textDecoration,
+			// [`MOB${prefixConstant}FontSize`]: MOBfontSize = MOBfontSize ||
+			// 	TABfontSize ||
+			// 	fontSize,
+			// [`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit = MOBsizeUnit ||
+			// 	TABsizeUnit ||
+			// 	sizeUnit,
+			// [`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing = MOBletterSpacing ||
+			// 	TABletterSpacing ||
+			// 	letterSpacing,
+			// [`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit = MOBletterSpacingUnit ||
+			// 	TABletterSpacingUnit ||
+			// 	letterSpacingUnit,
+			// [`MOB${prefixConstant}LineHeight`]: MOBlineHeight = MOBlineHeight ||
+			// 	TABlineHeight ||
+			// 	lineHeight,
+			// [`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
+			// 	TABlineHeightUnit ||
+			// 	lineHeightUnit,
+
+			[`TAB${prefixConstant}FontFamily`]: TABfontFamily,
+			[`TAB${prefixConstant}FontWeight`]: TABfontWeight,
+			[`TAB${prefixConstant}TextTransform`]: TABtextTransform,
+			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
+			[`TAB${prefixConstant}FontSize`]: TABfontSize,
 			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit = TABsizeUnit || sizeUnit,
-			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing = TABletterSpacing ||
-				letterSpacing,
 			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit = TABletterSpacingUnit ||
 				letterSpacingUnit,
-			[`TAB${prefixConstant}LineHeight`]: TABlineHeight = TABlineHeight ||
-				lineHeight,
+			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
+			[`TAB${prefixConstant}LineHeight`]: TABlineHeight,
 			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit = TABlineHeightUnit ||
 				lineHeightUnit,
 
-			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily = MOBfontFamily ||
-				TABfontFamily ||
-				fontFamily,
-			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight = MOBfontWeight ||
-				TABfontWeight ||
-				fontWeight,
-			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform = MOBtextTransform ||
-				TABtextTransform ||
-				textTransform,
-			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration = MOBtextDecoration ||
-				TABtextDecoration ||
-				textDecoration,
-			[`MOB${prefixConstant}FontSize`]: MOBfontSize = MOBfontSize ||
-				TABfontSize ||
-				fontSize,
+			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily,
+			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight,
+			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform,
+			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration,
+			[`MOB${prefixConstant}FontSize`]: MOBfontSize,
 			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit = MOBsizeUnit ||
 				TABsizeUnit ||
 				sizeUnit,
-			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing = MOBletterSpacing ||
-				TABletterSpacing ||
-				letterSpacing,
+			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing,
 			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit = MOBletterSpacingUnit ||
 				TABletterSpacingUnit ||
 				letterSpacingUnit,
-			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight = MOBlineHeight ||
-				TABlineHeight ||
-				lineHeight,
+			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight,
 			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
 				TABlineHeightUnit ||
 				lineHeightUnit,
@@ -211,23 +241,32 @@ const Save = (props) => {
 		`;
 
 		const typoStylesTab = `
-			font-family: ${TABfontFamily};
-			font-size: ${TABfontSize}${TABsizeUnit};
-			line-height: ${TABlineHeight}${TABlineHeightUnit};
-			font-weight: ${TABfontWeight};
-			text-decoration: ${TABtextDecoration};
-			text-transform: ${TABtextTransform};
-			letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};
+			${TABfontFamily ? `font-family: ${TABfontFamily};` : " "}
+			${TABfontSize ? `font-size: ${TABfontSize}${TABsizeUnit};` : " "}
+			
+			${TABlineHeight ? `line-height: ${TABlineHeight}${TABlineHeightUnit};` : " "}
+			${TABfontWeight ? `font-weight: ${TABfontWeight};` : " "}
+			${TABtextDecoration ? `text-decoration: ${TABtextDecoration};` : " "}
+			${TABtextTransform ? `text-transform: ${TABtextTransform};` : " "}
+			${
+				TABletterSpacing
+					? `letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};`
+					: " "
+			}
 		`;
 
 		const typoStylesMobile = `
-			font-family: ${MOBfontFamily};
-			font-size: ${MOBfontSize}${MOBsizeUnit};
-			line-height: ${MOBlineHeight}${MOBlineHeightUnit};
-			font-weight: ${MOBfontWeight};
-			text-decoration: ${MOBtextDecoration};
-			text-transform: ${MOBtextTransform};
-			letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};
+			${MOBfontFamily ? `font-family: ${MOBfontFamily};` : " "}
+			${MOBfontSize ? `font-size: ${MOBfontSize}${MOBsizeUnit};` : " "}
+			${MOBlineHeight ? `line-height: ${MOBlineHeight}${MOBlineHeightUnit};` : " "}
+			${MOBfontWeight ? `font-weight: ${MOBfontWeight};` : " "}
+			${MOBtextDecoration ? `text-decoration: ${MOBtextDecoration};` : " "}
+			${MOBtextTransform ? `text-transform: ${MOBtextTransform};` : " "}
+			${
+				MOBletterSpacing
+					? `letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};`
+					: " "
+			}
 		`;
 
 		return {
