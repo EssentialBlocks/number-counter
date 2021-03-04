@@ -39,32 +39,28 @@ const Save = (props) => {
 		numPrefixColor,
 		numSuffixColor,
 
-		TABtitleColor = TABtitleColor || titleColor,
-		TABnumberColor = TABnumberColor || numberColor,
-		TABnumPrefixColor = TABnumPrefixColor || numPrefixColor,
-		TABnumSuffixColor = TABnumSuffixColor || numSuffixColor,
+		TABtitleColor,
+		TABnumberColor,
+		TABnumPrefixColor,
+		TABnumSuffixColor,
 
-		MOBtitleColor = MOBtitleColor || TABtitleColor || titleColor,
-		MOBnumberColor = MOBnumberColor || TABnumberColor || numberColor,
-		MOBnumPrefixColor = MOBnumPrefixColor ||
-			TABnumPrefixColor ||
-			numPrefixColor,
-		MOBnumSuffixColor = MOBnumSuffixColor ||
-			TABnumSuffixColor ||
-			numSuffixColor,
+		MOBtitleColor,
+		MOBnumberColor,
+		MOBnumPrefixColor,
+		MOBnumSuffixColor,
 
 		// spacing attributes ⬇
 		gapNumTitle,
 		gapNumPrefix,
 		gapNumSuffix,
 
-		TABgapNumTitle = TABgapNumTitle || gapNumTitle,
-		TABgapNumPrefix = TABgapNumPrefix || gapNumPrefix,
-		TABgapNumSuffix = TABgapNumSuffix || gapNumSuffix,
+		TABgapNumTitle,
+		TABgapNumPrefix,
+		TABgapNumSuffix,
 
-		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle || gapNumTitle,
-		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix,
-		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix,
+		MOBgapNumTitle,
+		MOBgapNumPrefix,
+		MOBgapNumSuffix,
 
 		// margin padding attributes ⬇
 		marginUnit,
@@ -79,26 +75,32 @@ const Save = (props) => {
 		paddingLeft,
 
 		TABmarginUnit = TABmarginUnit || marginUnit,
-		TABmarginTop = TABmarginTop || marginTop,
-		TABmarginRight = TABmarginRight || marginRight,
-		TABmarginBottom = TABmarginBottom || marginBottom,
-		TABmarginLeft = TABmarginLeft || marginLeft,
+
+		TABmarginTop,
+		TABmarginRight,
+		TABmarginBottom,
+		TABmarginLeft,
+
 		TABpaddingUnit = TABpaddingUnit || paddingUnit,
-		TABpaddingTop = TABpaddingTop || paddingTop,
-		TABpaddingRight = TABpaddingRight || paddingRight,
-		TABpaddingBottom = TABpaddingBottom || paddingBottom,
-		TABpaddingLeft = TABpaddingLeft || paddingLeft,
+
+		TABpaddingTop,
+		TABpaddingRight,
+		TABpaddingBottom,
+		TABpaddingLeft,
 
 		MOBmarginUnit = MOBmarginUnit || TABmarginUnit || marginUnit,
-		MOBmarginTop = MOBmarginTop || TABmarginTop || marginTop,
-		MOBmarginRight = MOBmarginRight || TABmarginRight || marginRight,
-		MOBmarginBottom = MOBmarginBottom || TABmarginBottom || marginBottom,
-		MOBmarginLeft = MOBmarginLeft || TABmarginLeft || marginLeft,
+
+		MOBmarginTop,
+		MOBmarginRight,
+		MOBmarginBottom,
+		MOBmarginLeft,
+
 		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit || paddingUnit,
-		MOBpaddingTop = MOBpaddingTop || TABpaddingTop || paddingTop,
-		MOBpaddingRight = MOBpaddingRight || TABpaddingRight || paddingRight,
-		MOBpaddingBottom = MOBpaddingBottom || TABpaddingBottom || paddingBottom,
-		MOBpaddingLeft = MOBpaddingLeft || TABpaddingLeft || paddingLeft,
+
+		MOBpaddingTop,
+		MOBpaddingRight,
+		MOBpaddingBottom,
+		MOBpaddingLeft,
 
 		// background attributes ⬇
 		backgroundType,
@@ -140,9 +142,7 @@ const Save = (props) => {
 			[`${prefixConstant}FontWeight`]: fontWeight,
 			[`${prefixConstant}TextTransform`]: textTransform,
 			[`${prefixConstant}TextDecoration`]: textDecoration,
-			[`${prefixConstant}FontSize`]: fontSize = fontSize ||
-				defaultFontSize ||
-				"inherit",
+			[`${prefixConstant}FontSize`]: fontSize = fontSize || defaultFontSize,
 			[`${prefixConstant}SizeUnit`]: sizeUnit,
 			[`${prefixConstant}LetterSpacing`]: letterSpacing,
 			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
@@ -232,7 +232,7 @@ const Save = (props) => {
 
 		const typoStylesDesktop = `
 			font-family: ${fontFamily};
-			font-size: ${fontSize}${sizeUnit};
+			${fontSize ? `font-size: ${fontSize}${sizeUnit};` : " "}
 			line-height: ${lineHeight}${lineHeightUnit};
 			font-weight: ${fontWeight};
 			text-decoration: ${textDecoration};
@@ -243,7 +243,6 @@ const Save = (props) => {
 		const typoStylesTab = `
 			${TABfontFamily ? `font-family: ${TABfontFamily};` : " "}
 			${TABfontSize ? `font-size: ${TABfontSize}${TABsizeUnit};` : " "}
-			
 			${TABlineHeight ? `line-height: ${TABlineHeight}${TABlineHeightUnit};` : " "}
 			${TABfontWeight ? `font-weight: ${TABfontWeight};` : " "}
 			${TABtextDecoration ? `text-decoration: ${TABtextDecoration};` : " "}
@@ -336,29 +335,39 @@ const Save = (props) => {
 
 	const wrapperStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${TABmarginTop || 0}${TABmarginUnit};
-		margin-bottom: ${TABmarginBottom || 0}${TABmarginUnit};
-		margin-left: ${TABmarginLeft || 0}${TABmarginUnit};
-		margin-right: ${TABmarginRight || 0}${TABmarginUnit};
-		padding-top: ${TABpaddingTop || 0}${TABpaddingUnit};
-		padding-bottom: ${TABpaddingBottom || 0}${TABpaddingUnit};
-		padding-right: ${TABpaddingRight || 0}${TABpaddingUnit};
-		padding-left: ${TABpaddingLeft || 0}${TABpaddingUnit};
-		gap: ${TABgapNumTitle}px;	
+		${TABmarginTop ? `margin-top: ${TABmarginTop}${TABmarginUnit};` : " "}
+		${TABmarginBottom ? `margin-bottom: ${TABmarginBottom}${TABmarginUnit};` : " "}
+		${TABmarginLeft ? `margin-left: ${TABmarginLeft}${TABmarginUnit};` : " "}
+		${TABmarginRight ? `margin-right: ${TABmarginRight}${TABmarginUnit};` : " "}
+		${TABpaddingTop ? `padding-top: ${TABpaddingTop}${TABpaddingUnit};` : " "}
+		${
+			TABpaddingBottom
+				? `padding-bottom: ${TABpaddingBottom}${TABpaddingUnit};`
+				: " "
+		}
+		${TABpaddingRight ? `padding-right: ${TABpaddingRight}${TABpaddingUnit};` : " "}
+		${TABpaddingLeft ? `padding-left: ${TABpaddingLeft}${TABpaddingUnit};` : " "}
+		
+		${TABgapNumTitle ? `gap: ${TABgapNumTitle}px;` : " "}	
 	}
 	`;
 
 	const wrapperStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${MOBmarginTop || 0}${MOBmarginUnit};
-		margin-bottom: ${MOBmarginBottom || 0}${MOBmarginUnit};
-		margin-left: ${MOBmarginLeft || 0}${MOBmarginUnit};
-		margin-right: ${MOBmarginRight || 0}${MOBmarginUnit};
-		padding-top: ${MOBpaddingTop || 0}${MOBpaddingUnit};
-		padding-bottom: ${MOBpaddingBottom || 0}${MOBpaddingUnit};
-		padding-right: ${MOBpaddingRight || 0}${MOBpaddingUnit};
-		padding-left: ${MOBpaddingLeft || 0}${MOBpaddingUnit};
-		gap: ${MOBgapNumTitle}px;
+		${MOBmarginTop ? `margin-top: ${MOBmarginTop}${MOBmarginUnit};` : " "}
+		${MOBmarginBottom ? `margin-bottom: ${MOBmarginBottom}${MOBmarginUnit};` : " "}
+		${MOBmarginLeft ? `margin-left: ${MOBmarginLeft}${MOBmarginUnit};` : " "}
+		${MOBmarginRight ? `margin-right: ${MOBmarginRight}${MOBmarginUnit};` : " "}
+		${MOBpaddingTop ? `padding-top: ${MOBpaddingTop}${MOBpaddingUnit};` : " "}
+		${
+			MOBpaddingBottom
+				? `padding-bottom: ${MOBpaddingBottom}${MOBpaddingUnit};`
+				: " "
+		}
+		${MOBpaddingRight ? `padding-right: ${MOBpaddingRight}${MOBpaddingUnit};` : " "}
+		${MOBpaddingLeft ? `padding-left: ${MOBpaddingLeft}${MOBpaddingUnit};` : " "}
+		
+		${MOBgapNumTitle ? `gap: ${MOBgapNumTitle}px;` : " "}
 	}
 	`;
 
@@ -374,17 +383,17 @@ const Save = (props) => {
 	const numberStylesTab = `   
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesTab}
-		color : ${TABnumberColor};
-		padding-left: ${TABgapNumPrefix}px;
-		padding-right: ${TABgapNumSuffix}px;
+		${TABnumberColor ? `color : ${TABnumberColor};` : " "}
+		${TABgapNumPrefix ? `padding-left: ${TABgapNumPrefix}px;` : " "}
+		${TABgapNumSuffix ? `padding-right: ${TABgapNumSuffix}px;` : " "}
 	} `;
 
 	const numberStylesMobile = `
 	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
-		color : ${MOBnumberColor};
-		padding-left: ${MOBgapNumPrefix}px;
-		padding-right: ${MOBgapNumSuffix}px;
+		${MOBnumberColor ? `color : ${MOBnumberColor};` : " "}
+		${MOBgapNumPrefix ? `padding-left: ${MOBgapNumPrefix}px;` : " "}
+		${MOBgapNumSuffix ? `padding-right: ${MOBgapNumSuffix}px;` : " "}
 	}`;
 
 	const titleStylesDesktop = `
@@ -397,13 +406,13 @@ const Save = (props) => {
 	const titleStylesTab = `  
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesTab}
-		color : ${TABtitleColor};
+		${TABtitleColor ? `color : ${TABtitleColor};` : " "}
 	}  `;
 
 	const titleStylesMobile = `  	
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesMobile}
-		color : ${MOBtitleColor};
+		${MOBtitleColor ? `color : ${MOBtitleColor};` : " "}
 	} `;
 
 	const numPrefixStylesDesktop = `
@@ -416,13 +425,13 @@ const Save = (props) => {
 	const numPrefixStylesTab = `  
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
-		color : ${TABnumPrefixColor};
+		${TABnumPrefixColor ? `color : ${TABnumPrefixColor};` : " "}
 	}  `;
 
 	const numPrefixStylesMobile = `  
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
-		color : ${MOBnumPrefixColor};
+		${MOBnumPrefixColor ? `color : ${MOBnumPrefixColor};` : " "}
 	}  `;
 
 	const numSuffixStylesDesktop = `
@@ -435,14 +444,14 @@ const Save = (props) => {
 	const numSuffixStylesTab = `   				
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
-		color : ${TABnumSuffixColor};
+		${TABnumSuffixColor ? `color : ${TABnumSuffixColor};` : " "}
 	} `;
 
 	const numSuffixStylesMobile = `   	
 				
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
-		color : ${MOBnumSuffixColor};
+		${MOBnumSuffixColor ? `color : ${MOBnumSuffixColor};` : " "}
 	}
 
 	`;

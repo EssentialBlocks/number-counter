@@ -3767,37 +3767,23 @@ var Save = function Save(props) {
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
       numSuffixColor = attributes.numSuffixColor,
-      _attributes$TABtitleC = attributes.TABtitleColor,
-      TABtitleColor = _attributes$TABtitleC === void 0 ? TABtitleColor || titleColor : _attributes$TABtitleC,
-      _attributes$TABnumber = attributes.TABnumberColor,
-      TABnumberColor = _attributes$TABnumber === void 0 ? TABnumberColor || numberColor : _attributes$TABnumber,
-      _attributes$TABnumPre = attributes.TABnumPrefixColor,
-      TABnumPrefixColor = _attributes$TABnumPre === void 0 ? TABnumPrefixColor || numPrefixColor : _attributes$TABnumPre,
-      _attributes$TABnumSuf = attributes.TABnumSuffixColor,
-      TABnumSuffixColor = _attributes$TABnumSuf === void 0 ? TABnumSuffixColor || numSuffixColor : _attributes$TABnumSuf,
-      _attributes$MOBtitleC = attributes.MOBtitleColor,
-      MOBtitleColor = _attributes$MOBtitleC === void 0 ? MOBtitleColor || TABtitleColor || titleColor : _attributes$MOBtitleC,
-      _attributes$MOBnumber = attributes.MOBnumberColor,
-      MOBnumberColor = _attributes$MOBnumber === void 0 ? MOBnumberColor || TABnumberColor || numberColor : _attributes$MOBnumber,
-      _attributes$MOBnumPre = attributes.MOBnumPrefixColor,
-      MOBnumPrefixColor = _attributes$MOBnumPre === void 0 ? MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor : _attributes$MOBnumPre,
-      _attributes$MOBnumSuf = attributes.MOBnumSuffixColor,
-      MOBnumSuffixColor = _attributes$MOBnumSuf === void 0 ? MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor : _attributes$MOBnumSuf,
+      TABtitleColor = attributes.TABtitleColor,
+      TABnumberColor = attributes.TABnumberColor,
+      TABnumPrefixColor = attributes.TABnumPrefixColor,
+      TABnumSuffixColor = attributes.TABnumSuffixColor,
+      MOBtitleColor = attributes.MOBtitleColor,
+      MOBnumberColor = attributes.MOBnumberColor,
+      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
+      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
       gapNumTitle = attributes.gapNumTitle,
       gapNumPrefix = attributes.gapNumPrefix,
       gapNumSuffix = attributes.gapNumSuffix,
-      _attributes$TABgapNum = attributes.TABgapNumTitle,
-      TABgapNumTitle = _attributes$TABgapNum === void 0 ? TABgapNumTitle || gapNumTitle : _attributes$TABgapNum,
-      _attributes$TABgapNum2 = attributes.TABgapNumPrefix,
-      TABgapNumPrefix = _attributes$TABgapNum2 === void 0 ? TABgapNumPrefix || gapNumPrefix : _attributes$TABgapNum2,
-      _attributes$TABgapNum3 = attributes.TABgapNumSuffix,
-      TABgapNumSuffix = _attributes$TABgapNum3 === void 0 ? TABgapNumSuffix || gapNumSuffix : _attributes$TABgapNum3,
-      _attributes$MOBgapNum = attributes.MOBgapNumTitle,
-      MOBgapNumTitle = _attributes$MOBgapNum === void 0 ? MOBgapNumTitle || TABgapNumTitle || gapNumTitle : _attributes$MOBgapNum,
-      _attributes$MOBgapNum2 = attributes.MOBgapNumPrefix,
-      MOBgapNumPrefix = _attributes$MOBgapNum2 === void 0 ? MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix : _attributes$MOBgapNum2,
-      _attributes$MOBgapNum3 = attributes.MOBgapNumSuffix,
-      MOBgapNumSuffix = _attributes$MOBgapNum3 === void 0 ? MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix : _attributes$MOBgapNum3,
+      TABgapNumTitle = attributes.TABgapNumTitle,
+      TABgapNumPrefix = attributes.TABgapNumPrefix,
+      TABgapNumSuffix = attributes.TABgapNumSuffix,
+      MOBgapNumTitle = attributes.MOBgapNumTitle,
+      MOBgapNumPrefix = attributes.MOBgapNumPrefix,
+      MOBgapNumSuffix = attributes.MOBgapNumSuffix,
       marginUnit = attributes.marginUnit,
       marginTop = attributes.marginTop,
       marginRight = attributes.marginRight,
@@ -3810,44 +3796,28 @@ var Save = function Save(props) {
       paddingLeft = attributes.paddingLeft,
       _attributes$TABmargin = attributes.TABmarginUnit,
       TABmarginUnit = _attributes$TABmargin === void 0 ? TABmarginUnit || marginUnit : _attributes$TABmargin,
-      _attributes$TABmargin2 = attributes.TABmarginTop,
-      TABmarginTop = _attributes$TABmargin2 === void 0 ? TABmarginTop || marginTop : _attributes$TABmargin2,
-      _attributes$TABmargin3 = attributes.TABmarginRight,
-      TABmarginRight = _attributes$TABmargin3 === void 0 ? TABmarginRight || marginRight : _attributes$TABmargin3,
-      _attributes$TABmargin4 = attributes.TABmarginBottom,
-      TABmarginBottom = _attributes$TABmargin4 === void 0 ? TABmarginBottom || marginBottom : _attributes$TABmargin4,
-      _attributes$TABmargin5 = attributes.TABmarginLeft,
-      TABmarginLeft = _attributes$TABmargin5 === void 0 ? TABmarginLeft || marginLeft : _attributes$TABmargin5,
+      TABmarginTop = attributes.TABmarginTop,
+      TABmarginRight = attributes.TABmarginRight,
+      TABmarginBottom = attributes.TABmarginBottom,
+      TABmarginLeft = attributes.TABmarginLeft,
       _attributes$TABpaddin = attributes.TABpaddingUnit,
       TABpaddingUnit = _attributes$TABpaddin === void 0 ? TABpaddingUnit || paddingUnit : _attributes$TABpaddin,
-      _attributes$TABpaddin2 = attributes.TABpaddingTop,
-      TABpaddingTop = _attributes$TABpaddin2 === void 0 ? TABpaddingTop || paddingTop : _attributes$TABpaddin2,
-      _attributes$TABpaddin3 = attributes.TABpaddingRight,
-      TABpaddingRight = _attributes$TABpaddin3 === void 0 ? TABpaddingRight || paddingRight : _attributes$TABpaddin3,
-      _attributes$TABpaddin4 = attributes.TABpaddingBottom,
-      TABpaddingBottom = _attributes$TABpaddin4 === void 0 ? TABpaddingBottom || paddingBottom : _attributes$TABpaddin4,
-      _attributes$TABpaddin5 = attributes.TABpaddingLeft,
-      TABpaddingLeft = _attributes$TABpaddin5 === void 0 ? TABpaddingLeft || paddingLeft : _attributes$TABpaddin5,
+      TABpaddingTop = attributes.TABpaddingTop,
+      TABpaddingRight = attributes.TABpaddingRight,
+      TABpaddingBottom = attributes.TABpaddingBottom,
+      TABpaddingLeft = attributes.TABpaddingLeft,
       _attributes$MOBmargin = attributes.MOBmarginUnit,
       MOBmarginUnit = _attributes$MOBmargin === void 0 ? MOBmarginUnit || TABmarginUnit || marginUnit : _attributes$MOBmargin,
-      _attributes$MOBmargin2 = attributes.MOBmarginTop,
-      MOBmarginTop = _attributes$MOBmargin2 === void 0 ? MOBmarginTop || TABmarginTop || marginTop : _attributes$MOBmargin2,
-      _attributes$MOBmargin3 = attributes.MOBmarginRight,
-      MOBmarginRight = _attributes$MOBmargin3 === void 0 ? MOBmarginRight || TABmarginRight || marginRight : _attributes$MOBmargin3,
-      _attributes$MOBmargin4 = attributes.MOBmarginBottom,
-      MOBmarginBottom = _attributes$MOBmargin4 === void 0 ? MOBmarginBottom || TABmarginBottom || marginBottom : _attributes$MOBmargin4,
-      _attributes$MOBmargin5 = attributes.MOBmarginLeft,
-      MOBmarginLeft = _attributes$MOBmargin5 === void 0 ? MOBmarginLeft || TABmarginLeft || marginLeft : _attributes$MOBmargin5,
+      MOBmarginTop = attributes.MOBmarginTop,
+      MOBmarginRight = attributes.MOBmarginRight,
+      MOBmarginBottom = attributes.MOBmarginBottom,
+      MOBmarginLeft = attributes.MOBmarginLeft,
       _attributes$MOBpaddin = attributes.MOBpaddingUnit,
       MOBpaddingUnit = _attributes$MOBpaddin === void 0 ? MOBpaddingUnit || TABpaddingUnit || paddingUnit : _attributes$MOBpaddin,
-      _attributes$MOBpaddin2 = attributes.MOBpaddingTop,
-      MOBpaddingTop = _attributes$MOBpaddin2 === void 0 ? MOBpaddingTop || TABpaddingTop || paddingTop : _attributes$MOBpaddin2,
-      _attributes$MOBpaddin3 = attributes.MOBpaddingRight,
-      MOBpaddingRight = _attributes$MOBpaddin3 === void 0 ? MOBpaddingRight || TABpaddingRight || paddingRight : _attributes$MOBpaddin3,
-      _attributes$MOBpaddin4 = attributes.MOBpaddingBottom,
-      MOBpaddingBottom = _attributes$MOBpaddin4 === void 0 ? MOBpaddingBottom || TABpaddingBottom || paddingBottom : _attributes$MOBpaddin4,
-      _attributes$MOBpaddin5 = attributes.MOBpaddingLeft,
-      MOBpaddingLeft = _attributes$MOBpaddin5 === void 0 ? MOBpaddingLeft || TABpaddingLeft || paddingLeft : _attributes$MOBpaddin5,
+      MOBpaddingTop = attributes.MOBpaddingTop,
+      MOBpaddingRight = attributes.MOBpaddingRight,
+      MOBpaddingBottom = attributes.MOBpaddingBottom,
+      MOBpaddingLeft = attributes.MOBpaddingLeft,
       backgroundType = attributes.backgroundType,
       imageURL = attributes.imageURL,
       gradientColor = attributes.gradientColor,
@@ -3880,7 +3850,7 @@ var Save = function Save(props) {
         textTransform = attributes["".concat(prefixConstant, "TextTransform")],
         textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
         _attributes$2 = attributes["".concat(prefixConstant, "FontSize")],
-        fontSize = _attributes$2 === void 0 ? fontSize || defaultFontSize || "inherit" : _attributes$2,
+        fontSize = _attributes$2 === void 0 ? fontSize || defaultFontSize : _attributes$2,
         sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
         letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
         letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
@@ -3912,8 +3882,8 @@ var Save = function Save(props) {
         MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
         _attributes$8 = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
         MOBlineHeightUnit = _attributes$8 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _attributes$8;
-    var typoStylesDesktop = "\n\t\t\tfont-family: ".concat(fontFamily, ";\n\t\t\tfont-size: ").concat(fontSize).concat(sizeUnit, ";\n\t\t\tline-height: ").concat(lineHeight).concat(lineHeightUnit, ";\n\t\t\tfont-weight: ").concat(fontWeight, ";\n\t\t\ttext-decoration: ").concat(textDecoration, ";\n\t\t\ttext-transform: ").concat(textTransform, ";\n\t\t\tletter-spacing: ").concat(letterSpacing).concat(letterSpacingUnit, ";\n\t\t");
-    var typoStylesTab = "\n\t\t\t".concat(TABfontFamily ? "font-family: ".concat(TABfontFamily, ";") : " ", "\n\t\t\t").concat(TABfontSize ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t\n\t\t\t").concat(TABlineHeight ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(TABfontWeight ? "font-weight: ".concat(TABfontWeight, ";") : " ", "\n\t\t\t").concat(TABtextDecoration ? "text-decoration: ".concat(TABtextDecoration, ";") : " ", "\n\t\t\t").concat(TABtextTransform ? "text-transform: ".concat(TABtextTransform, ";") : " ", "\n\t\t\t").concat(TABletterSpacing ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
+    var typoStylesDesktop = "\n\t\t\tfont-family: ".concat(fontFamily, ";\n\t\t\t").concat(fontSize ? "font-size: ".concat(fontSize).concat(sizeUnit, ";") : " ", "\n\t\t\tline-height: ").concat(lineHeight).concat(lineHeightUnit, ";\n\t\t\tfont-weight: ").concat(fontWeight, ";\n\t\t\ttext-decoration: ").concat(textDecoration, ";\n\t\t\ttext-transform: ").concat(textTransform, ";\n\t\t\tletter-spacing: ").concat(letterSpacing).concat(letterSpacingUnit, ";\n\t\t");
+    var typoStylesTab = "\n\t\t\t".concat(TABfontFamily ? "font-family: ".concat(TABfontFamily, ";") : " ", "\n\t\t\t").concat(TABfontSize ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t").concat(TABlineHeight ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(TABfontWeight ? "font-weight: ".concat(TABfontWeight, ";") : " ", "\n\t\t\t").concat(TABtextDecoration ? "text-decoration: ".concat(TABtextDecoration, ";") : " ", "\n\t\t\t").concat(TABtextTransform ? "text-transform: ".concat(TABtextTransform, ";") : " ", "\n\t\t\t").concat(TABletterSpacing ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
     var typoStylesMobile = "\n\t\t\t".concat(MOBfontFamily ? "font-family: ".concat(MOBfontFamily, ";") : " ", "\n\t\t\t").concat(MOBfontSize ? "font-size: ".concat(MOBfontSize).concat(MOBsizeUnit, ";") : " ", "\n\t\t\t").concat(MOBlineHeight ? "line-height: ".concat(MOBlineHeight).concat(MOBlineHeightUnit, ";") : " ", "\n\t\t\t").concat(MOBfontWeight ? "font-weight: ".concat(MOBfontWeight, ";") : " ", "\n\t\t\t").concat(MOBtextDecoration ? "text-decoration: ".concat(MOBtextDecoration, ";") : " ", "\n\t\t\t").concat(MOBtextTransform ? "text-transform: ".concat(MOBtextTransform, ";") : " ", "\n\t\t\t").concat(MOBletterSpacing ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
     return {
       typoStylesDesktop: typoStylesDesktop,
@@ -3943,20 +3913,20 @@ var Save = function Save(props) {
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
   var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
-  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop || 0).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom || 0).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft || 0).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight || 0).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop || 0).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom || 0).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight || 0).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft || 0).concat(TABpaddingUnit, ";\n\t\tgap: ").concat(TABgapNumTitle, "px;\t\n\t}\n\t");
-  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop || 0).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom || 0).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft || 0).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight || 0).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft || 0).concat(MOBpaddingUnit, ";\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
+  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(TABmarginTop ? "margin-top: ".concat(TABmarginTop).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginBottom ? "margin-bottom: ".concat(TABmarginBottom).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginLeft ? "margin-left: ".concat(TABmarginLeft).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginRight ? "margin-right: ".concat(TABmarginRight).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABpaddingTop ? "padding-top: ".concat(TABpaddingTop).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingBottom ? "padding-bottom: ".concat(TABpaddingBottom).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingRight ? "padding-right: ".concat(TABpaddingRight).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingLeft ? "padding-left: ".concat(TABpaddingLeft).concat(TABpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(TABgapNumTitle ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\n\t}\n\t");
+  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(MOBmarginTop).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(MOBmarginBottom).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(MOBmarginLeft).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(MOBmarginRight).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(MOBpaddingTop).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(MOBpaddingBottom).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(MOBpaddingRight).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(MOBpaddingLeft).concat(MOBpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(MOBgapNumTitle ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
-  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t\tpadding-left: ").concat(TABgapNumPrefix, "px;\n\t\tpadding-right: ").concat(TABgapNumSuffix, "px;\n\t} ");
-  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t\tpadding-left: ").concat(MOBgapNumPrefix, "px;\n\t\tpadding-right: ").concat(MOBgapNumSuffix, "px;\n\t}");
+  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(TABnumberColor ? "color : ".concat(TABnumberColor, ";") : " ", "\n\t\t").concat(TABgapNumPrefix ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(TABgapNumSuffix ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
+  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(MOBnumberColor ? "color : ".concat(MOBnumberColor, ";") : " ", "\n\t\t").concat(MOBgapNumPrefix ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(MOBgapNumSuffix ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
-  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor, ";\n\t}  ");
-  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor, ";\n\t} ");
+  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\t").concat(TABtitleColor ? "color : ".concat(TABtitleColor, ";") : " ", "\n\t}  ");
+  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\t").concat(MOBtitleColor ? "color : ".concat(MOBtitleColor, ";") : " ", "\n\t} ");
   var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
-  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor, ";\n\t}  ");
-  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor, ";\n\t}  ");
+  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\t").concat(TABnumPrefixColor ? "color : ".concat(TABnumPrefixColor, ";") : " ", "\n\t}  ");
+  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\t").concat(MOBnumPrefixColor ? "color : ".concat(MOBnumPrefixColor, ";") : " ", "\n\t}  ");
   var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
-  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor, ";\n\t} ");
-  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor, ";\n\t}\n\n\t");
+  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\t").concat(TABnumSuffixColor ? "color : ".concat(TABnumSuffixColor, ";") : " ", "\n\t} ");
+  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\t").concat(MOBnumSuffixColor ? "color : ".concat(MOBnumSuffixColor, ";") : " ", "\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t").replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
   var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t").replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
   var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t").replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
