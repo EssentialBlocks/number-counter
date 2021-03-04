@@ -453,7 +453,7 @@ const Save = (props) => {
 		${titleStylesDesktop}
 		${numPrefixStylesDesktop}
 		${numSuffixStylesDesktop}
-	`;
+	`.replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
 
 	const tabAllStyles = `
 		${wrapperStylesTab}
@@ -461,7 +461,7 @@ const Save = (props) => {
 		${titleStylesTab}
 		${numPrefixStylesTab}
 		${numSuffixStylesTab}
-	`;
+	`.replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
 
 	const mobileAllStyles = `
 		${wrapperStylesMobile}
@@ -469,22 +469,12 @@ const Save = (props) => {
 		${titleStylesMobile}
 		${numPrefixStylesMobile}
 		${numSuffixStylesMobile}
-	`;
+	`.replaceAll(/\s+(?!(all|and|\(max|\min|\d{1,4}px\)))/g, " ");
 
 	return (
 		<>
 			<style>
-				{`
-				${desktopAllStyles}
-
-				@media all and (max-width: 1030px) {				
-					${tabAllStyles}
-				}
-
-				@media all and (max-width: 680px) {
-					${mobileAllStyles}
-				}
-				`}
+				{`${desktopAllStyles}@media all and (max-width: 1030px){${tabAllStyles}}@media all and (max-width: 680px){${mobileAllStyles}}`}
 			</style>
 
 			<div
