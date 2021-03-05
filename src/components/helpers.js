@@ -125,9 +125,10 @@ export const generateRandomNumber = () =>
 
 export const minifyCssStrings = (cssString) =>
 	cssString
-		.replace(/(?<=\:)(.+)(?=\;)/g, function (match, g1, offset, string) {
+		.replace(/(?<=\:).+(?=\;)/g, function (match) {
 			// console.log({ match, g1, offset, string });
-			return g1.trim().replaceAll(" ", "__c_h_a_n_g_e__");
+			// return g1.trim().replaceAll(" ", "__c_h_a_n_g_e__");
+			return match.trim().replace(/\s+/g, "__c_h_a_n_g_e__");
 		})
 		.replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
 		.replace(/\s+/g, " ")
