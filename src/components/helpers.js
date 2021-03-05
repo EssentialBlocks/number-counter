@@ -122,3 +122,13 @@ export const textInsideForEdit = (value, isShowSeparator, separator) =>
 
 export const generateRandomNumber = () =>
 	Math.floor(Math.random() * 1000000000);
+
+export const minifyCssStrings = (cssString) =>
+	cssString
+		.replace(/(?<=\:)(.+)(?=\;)/g, function (match, g1, offset, string) {
+			// console.log({ match, g1, offset, string });
+			return g1.trim().replaceAll(" ", "__c_h_a_n_g_e__");
+		})
+		.replace(/\s+(?!(\.eb-))/g, "")
+		.replace(/\s+/g, " ")
+		.replace(/__c_h_a_n_g_e__/g, " ");

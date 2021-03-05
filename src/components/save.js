@@ -15,6 +15,8 @@ import {
 	numSuffix,
 } from "./constants/typographyPrefixConstants";
 
+import { minifyCssStrings } from "./helpers";
+
 const Save = (props) => {
 	const { attributes } = props;
 	console.log("--------save:", props);
@@ -380,7 +382,7 @@ const Save = (props) => {
 	}
 	`;
 
-	const numberStylesTab = `   
+	const numberStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesTab}
 		${TABnumberColor ? `color : ${TABnumberColor};` : " "}
@@ -389,7 +391,7 @@ const Save = (props) => {
 	} `;
 
 	const numberStylesMobile = `
-	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
 		${MOBnumberColor ? `color : ${MOBnumberColor};` : " "}
 		${MOBgapNumPrefix ? `padding-left: ${MOBgapNumPrefix}px;` : " "}
@@ -403,13 +405,13 @@ const Save = (props) => {
 	}
 	`;
 
-	const titleStylesTab = `  
+	const titleStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesTab}
 		${TABtitleColor ? `color : ${TABtitleColor};` : " "}
 	}  `;
 
-	const titleStylesMobile = `  	
+	const titleStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesMobile}
 		${MOBtitleColor ? `color : ${MOBtitleColor};` : " "}
@@ -422,13 +424,13 @@ const Save = (props) => {
 	}
 	`;
 
-	const numPrefixStylesTab = `  
+	const numPrefixStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
 		${TABnumPrefixColor ? `color : ${TABnumPrefixColor};` : " "}
 	}  `;
 
-	const numPrefixStylesMobile = `  
+	const numPrefixStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
 		${MOBnumPrefixColor ? `color : ${MOBnumPrefixColor};` : " "}
@@ -441,14 +443,13 @@ const Save = (props) => {
 	}
 	`;
 
-	const numSuffixStylesTab = `   				
+	const numSuffixStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
 		${TABnumSuffixColor ? `color : ${TABnumSuffixColor};` : " "}
 	} `;
 
-	const numSuffixStylesMobile = `   	
-				
+	const numSuffixStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
 		${MOBnumSuffixColor ? `color : ${MOBnumSuffixColor};` : " "}
@@ -462,7 +463,7 @@ const Save = (props) => {
 		${titleStylesDesktop}
 		${numPrefixStylesDesktop}
 		${numSuffixStylesDesktop}
-	`.replaceAll(/\s+/g, " ");
+	`;
 
 	const tabAllStyles = `
 		${wrapperStylesTab}
@@ -470,7 +471,7 @@ const Save = (props) => {
 		${titleStylesTab}
 		${numPrefixStylesTab}
 		${numSuffixStylesTab}
-	`.replaceAll(/\s+/g, " ");
+	`;
 
 	const mobileAllStyles = `
 		${wrapperStylesMobile}
@@ -478,12 +479,18 @@ const Save = (props) => {
 		${titleStylesMobile}
 		${numPrefixStylesMobile}
 		${numSuffixStylesMobile}
-	`.replaceAll(/\s+/g, " ");
+	`;
 
 	return (
 		<>
 			<style>
-				{`${desktopAllStyles}@media all and (max-width: 1030px){${tabAllStyles}}@media all and (max-width: 680px){${mobileAllStyles}}`}
+				{`${minifyCssStrings(
+					desktopAllStyles
+				)}@media all and (max-width: 1030px){${minifyCssStrings(
+					tabAllStyles
+				)}}@media all and (max-width: 680px){${minifyCssStrings(
+					mobileAllStyles
+				)}}`}
 			</style>
 
 			<div

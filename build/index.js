@@ -2588,7 +2588,7 @@ var Edit = function Edit(props) {
 /*!***********************************!*\
   !*** ./src/components/helpers.js ***!
   \***********************************/
-/*! exports provided: generateTypographyAttributes, textInsideForEdit, generateRandomNumber */
+/*! exports provided: generateTypographyAttributes, textInsideForEdit, generateRandomNumber, minifyCssStrings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2596,6 +2596,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minifyCssStrings", function() { return minifyCssStrings; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2616,6 +2617,12 @@ var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separ
 };
 var generateRandomNumber = function generateRandomNumber() {
   return Math.floor(Math.random() * 1000000000);
+};
+var minifyCssStrings = function minifyCssStrings(cssString) {
+  return cssString.replace(/(?<=\:)(.+)(?=\;)/g, function (match, g1, offset, string) {
+    // console.log({ match, g1, offset, string });
+    return g1.trim().replaceAll(" ", "__c_h_a_n_g_e__");
+  }).replace(/\s+(?!(\.eb-))/g, "").replace(/\s+/g, " ").replace(/__c_h_a_n_g_e__/g, " ");
 };
 
 /***/ }),
@@ -3740,6 +3747,7 @@ var Inspector = function Inspector(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/components/constants/typographyPrefixConstants.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./src/components/helpers.js");
 /**
  * WordPress dependencies
  */
@@ -3747,6 +3755,7 @@ var RichText = wp.blockEditor.RichText;
 /**
  * Internal dependencies
  */
+
 
 
 
@@ -3916,21 +3925,21 @@ var Save = function Save(props) {
   var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(TABmarginTop ? "margin-top: ".concat(TABmarginTop).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginBottom ? "margin-bottom: ".concat(TABmarginBottom).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginLeft ? "margin-left: ".concat(TABmarginLeft).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginRight ? "margin-right: ".concat(TABmarginRight).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABpaddingTop ? "padding-top: ".concat(TABpaddingTop).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingBottom ? "padding-bottom: ".concat(TABpaddingBottom).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingRight ? "padding-right: ".concat(TABpaddingRight).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingLeft ? "padding-left: ".concat(TABpaddingLeft).concat(TABpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(TABgapNumTitle ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\n\t}\n\t");
   var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(MOBmarginTop).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(MOBmarginBottom).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(MOBmarginLeft).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(MOBmarginRight).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(MOBpaddingTop).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(MOBpaddingBottom).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(MOBpaddingRight).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(MOBpaddingLeft).concat(MOBpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(MOBgapNumTitle ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
-  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(TABnumberColor ? "color : ".concat(TABnumberColor, ";") : " ", "\n\t\t").concat(TABgapNumPrefix ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(TABgapNumSuffix ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
-  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(MOBnumberColor ? "color : ".concat(MOBnumberColor, ";") : " ", "\n\t\t").concat(MOBgapNumPrefix ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(MOBgapNumSuffix ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
+  var numberStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(TABnumberColor ? "color : ".concat(TABnumberColor, ";") : " ", "\n\t\t").concat(TABgapNumPrefix ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(TABgapNumSuffix ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
+  var numberStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(MOBnumberColor ? "color : ".concat(MOBnumberColor, ";") : " ", "\n\t\t").concat(MOBgapNumPrefix ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(MOBgapNumSuffix ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
-  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\t").concat(TABtitleColor ? "color : ".concat(TABtitleColor, ";") : " ", "\n\t}  ");
-  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\t").concat(MOBtitleColor ? "color : ".concat(MOBtitleColor, ";") : " ", "\n\t} ");
+  var titleStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\t").concat(TABtitleColor ? "color : ".concat(TABtitleColor, ";") : " ", "\n\t}  ");
+  var titleStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\t").concat(MOBtitleColor ? "color : ".concat(MOBtitleColor, ";") : " ", "\n\t} ");
   var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
-  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\t").concat(TABnumPrefixColor ? "color : ".concat(TABnumPrefixColor, ";") : " ", "\n\t}  ");
-  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\t").concat(MOBnumPrefixColor ? "color : ".concat(MOBnumPrefixColor, ";") : " ", "\n\t}  ");
+  var numPrefixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\t").concat(TABnumPrefixColor ? "color : ".concat(TABnumPrefixColor, ";") : " ", "\n\t}  ");
+  var numPrefixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\t").concat(MOBnumPrefixColor ? "color : ".concat(MOBnumPrefixColor, ";") : " ", "\n\t}  ");
   var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
-  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\t").concat(TABnumSuffixColor ? "color : ".concat(TABnumSuffixColor, ";") : " ", "\n\t} ");
-  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\t").concat(MOBnumSuffixColor ? "color : ".concat(MOBnumSuffixColor, ";") : " ", "\n\t}\n\n\t");
-  var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t").replaceAll(/\s+/g, " ");
-  var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t").replaceAll(/\s+/g, " ");
-  var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t").replaceAll(/\s+/g, " ");
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "".concat(desktopAllStyles, "@media all and (max-width: 1030px){").concat(tabAllStyles, "}@media all and (max-width: 680px){").concat(mobileAllStyles, "}")), /*#__PURE__*/React.createElement("div", {
+  var numSuffixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\t").concat(TABnumSuffixColor ? "color : ".concat(TABnumSuffixColor, ";") : " ", "\n\t} ");
+  var numSuffixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\t").concat(MOBnumSuffixColor ? "color : ".concat(MOBnumSuffixColor, ";") : " ", "\n\t}\n\n\t");
+  var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
+  var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(desktopAllStyles), "@media all and (max-width: 1030px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(tabAllStyles), "}@media all and (max-width: 680px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(mobileAllStyles), "}")), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     "data-shadowColor": shadowColor || "#00000000",
     "data-hOffset": hOffset || 0,
