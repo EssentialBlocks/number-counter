@@ -129,6 +129,6 @@ export const minifyCssStrings = (cssString) =>
 			// console.log({ match, g1, offset, string });
 			return g1.trim().replaceAll(" ", "__c_h_a_n_g_e__");
 		})
-		.replace(/\s+(?!(\.eb-))/g, "")
+		.replace(/\s+(?!([\w\d\.\-\#]+\{))/g, "")
 		.replace(/\s+/g, " ")
 		.replace(/__c_h_a_n_g_e__/g, " ");
