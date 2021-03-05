@@ -4655,15 +4655,15 @@ DimensionsControl.propTypes = {
 /*!*****************************************************!*\
   !*** ./util/gradient-color-controller/constants.js ***!
   \*****************************************************/
-/*! exports provided: GRADIENT_TYPES, RADIAL_TYPES, FOCUS_COLOR */
+/*! exports provided: GRADIENT_TYPE, RADIAL_TYPES, FOCUS_COLOR */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GRADIENT_TYPES", function() { return GRADIENT_TYPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GRADIENT_TYPE", function() { return GRADIENT_TYPE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RADIAL_TYPES", function() { return RADIAL_TYPES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FOCUS_COLOR", function() { return FOCUS_COLOR; });
-var GRADIENT_TYPES = [{
+var GRADIENT_TYPE = [{
   label: "Linear",
   value: "linear"
 }, {
@@ -4681,10 +4681,10 @@ var FOCUS_COLOR = "#007cba";
 
 /***/ }),
 
-/***/ "./util/gradient-color-controller/helpers.js":
-/*!***************************************************!*\
-  !*** ./util/gradient-color-controller/helpers.js ***!
-  \***************************************************/
+/***/ "./util/gradient-color-controller/helper.js":
+/*!**************************************************!*\
+  !*** ./util/gradient-color-controller/helper.js ***!
+  \**************************************************/
 /*! exports provided: parseGradientColor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4703,23 +4703,19 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-// parseGradientColor function parses the gradientColor Strings
-var parseGradientColor = function parseGradientColor(_gradientColor) {
-  console.log({
-    _gradientColor: _gradientColor
-  });
-  var gradientColor = _gradientColor || "linear-gradient(45deg,#8200ff,#ff0071)";
+// Parses the gradient color string
+var parseGradientColor = function parseGradientColor(gradientColor) {
   var angle = 45,
-      color1Position = 0,
-      color2Position = 100,
-      radialShape,
+      colorOnePosition = 0,
+      colorTwoPosition = 100,
+      radialShape = "ellipse",
       radialX = 50,
       radialY = 50;
 
   var _gradientColor$match = gradientColor.match(/\#[a-f\d]{6}|rgba?\([\d\,\.]{3,16}\)/gi),
       _gradientColor$match2 = _slicedToArray(_gradientColor$match, 2),
-      color1 = _gradientColor$match2[0],
-      color2 = _gradientColor$match2[1];
+      colorOne = _gradientColor$match2[0],
+      colorTwo = _gradientColor$match2[1];
 
   var _gradientColor$match3 = gradientColor.match(/\w{6}(?=-)/i),
       _gradientColor$match4 = _slicedToArray(_gradientColor$match3, 1),
@@ -4727,24 +4723,28 @@ var parseGradientColor = function parseGradientColor(_gradientColor) {
 
   if (gradientType == "linear") {
     angle = gradientColor.match(/\d{1,3}(?=deg)/i)[0];
-    var colorsPositions = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
-    color1Position = colorsPositions[0];
-    color2Position = colorsPositions[1];
+
+    var _ref = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
+
+    var _ref2 = _slicedToArray(_ref, 2);
+
+    colorOnePosition = _ref2[0];
+    colorTwoPosition = _ref2[1];
   } else {
     radialShape = gradientColor.match(/\w+(?= at)/i)[0];
     radialX = gradientColor.match(/(?<=at )\d{1,3}/i)[0];
     radialY = gradientColor.match(/(?<=% )\d{1,3}/i)[0];
-    color1Position = gradientColor.match(/\d{1,3}(?=% ,)/gi)[0];
-    color2Position = gradientColor.match(/\d{1,3}(?=%\))/gi)[0];
+    colorOnePosition = gradientColor.match(/\d{1,3}(?=% ,)/gi)[0];
+    colorTwoPosition = gradientColor.match(/\d{1,3}(?=%\))/gi)[0];
   }
 
   return {
     gradientType: gradientType,
     angle: parseInt(angle),
-    color1: color1,
-    color2: color2,
-    color1Position: parseInt(color1Position),
-    color2Position: parseInt(color2Position),
+    colorOne: colorOne,
+    colorTwo: colorTwo,
+    colorOnePosition: parseInt(colorOnePosition),
+    colorTwoPosition: parseInt(colorTwoPosition),
     radialShape: radialShape,
     radialX: parseInt(radialX),
     radialY: parseInt(radialY)
@@ -4769,7 +4769,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
 /* harmony import */ var _toggle_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../toggle-button */ "./util/toggle-button/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./util/gradient-color-controller/constants.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./util/gradient-color-controller/helpers.js");
+/* harmony import */ var _helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helper */ "./util/gradient-color-controller/helper.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4804,62 +4804,74 @@ var GradientColorControl = function GradientColorControl(_ref) {
   var gradientColor = _ref.gradientColor,
       onChange = _ref.onChange;
 
-  var _parseGradientColor = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["parseGradientColor"])(gradientColor),
-      bgGradientType = _parseGradientColor.gradientType,
-      firstColor = _parseGradientColor.color1,
-      grColorOnePosition = _parseGradientColor.color1Position,
-      secondColor = _parseGradientColor.color2,
-      grColorTwoPosition = _parseGradientColor.color2Position,
-      gradientAngle = _parseGradientColor.angle,
-      grRadialShape = _parseGradientColor.radialShape,
-      grRadialX = _parseGradientColor.radialX,
-      grRadialY = _parseGradientColor.radialY;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(bgGradientType),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("linear"),
       _useState2 = _slicedToArray(_useState, 2),
       gradientType = _useState2[0],
       setGradientType = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(firstColor || "transparent"),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("transparent"),
       _useState4 = _slicedToArray(_useState3, 2),
       colorOne = _useState4[0],
       setColorOne = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(grColorOnePosition || 0),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
       _useState6 = _slicedToArray(_useState5, 2),
       colorOnePosition = _useState6[0],
       setColorOnePosition = _useState6[1];
 
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(secondColor || "transparent"),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("transparent"),
       _useState8 = _slicedToArray(_useState7, 2),
       colorTwo = _useState8[0],
       setColorTwo = _useState8[1];
 
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(grColorTwoPosition || 100),
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(100),
       _useState10 = _slicedToArray(_useState9, 2),
       colorTwoPosition = _useState10[0],
       setColorTwoPosition = _useState10[1];
 
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(gradientAngle || 0),
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
       _useState12 = _slicedToArray(_useState11, 2),
       angle = _useState12[0],
       setAngle = _useState12[1];
 
-  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(grRadialShape || "ellipse"),
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("ellipse"),
       _useState14 = _slicedToArray(_useState13, 2),
       radialShape = _useState14[0],
       setRadialShape = _useState14[1];
 
-  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(grRadialX || 50),
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(50),
       _useState16 = _slicedToArray(_useState15, 2),
       radialX = _useState16[0],
       setRadialX = _useState16[1];
 
-  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(grRadialY || 50),
+  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(50),
       _useState18 = _slicedToArray(_useState17, 2),
       radialY = _useState18[0],
       setRadialY = _useState18[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var _parseGradientColor = Object(_helper__WEBPACK_IMPORTED_MODULE_5__["parseGradientColor"])(gradientColor),
+        gradientType = _parseGradientColor.gradientType,
+        angle = _parseGradientColor.angle,
+        colorOne = _parseGradientColor.colorOne,
+        colorTwo = _parseGradientColor.colorTwo,
+        colorOnePosition = _parseGradientColor.colorOnePosition,
+        colorTwoPosition = _parseGradientColor.colorTwoPosition,
+        radialShape = _parseGradientColor.radialShape,
+        radialX = _parseGradientColor.radialX,
+        radialY = _parseGradientColor.radialY;
+
+    console.log("------------parseGradientColor function ta fire hoiche");
+    setGradientType(gradientType);
+    setAngle(angle);
+    setColorOne(colorOne);
+    setColorTwo(colorTwo);
+    setColorOnePosition(colorOnePosition);
+    setColorTwoPosition(colorTwoPosition);
+    setRadialShape(radialShape);
+    setRadialX(radialX);
+    setRadialY(radialY);
+  }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     onChange(gradientType === "linear" ? getLinearGradient() : getRadialGradient());
   }, [gradientType, colorOne, colorOnePosition, colorTwo, colorTwoPosition, angle, radialShape, radialX, radialY]);
@@ -4882,8 +4894,8 @@ var GradientColorControl = function GradientColorControl(_ref) {
     label: __("Gradient Type"),
     className: "eb-gradient-toggle-label"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_toggle_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    options: _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPES"],
-    defaultSelect: gradientType === "linear" ? _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPES"][1],
+    defaultSelected: gradientType === "ellipse" ? _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPE"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPE"][1],
+    options: _constants__WEBPACK_IMPORTED_MODULE_4__["GRADIENT_TYPE"],
     onChange: function onChange(gradientType) {
       return setGradientType(gradientType);
     },
@@ -4892,8 +4904,8 @@ var GradientColorControl = function GradientColorControl(_ref) {
     label: __("Radial Type"),
     className: "eb-gradient-toggle-label"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_toggle_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    defaultSelected: radialShape === "linear" ? _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][1],
     options: _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"],
-    defaultSelect: radialShape === "ellipse" ? _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][0] : _constants__WEBPACK_IMPORTED_MODULE_4__["RADIAL_TYPES"][1],
     onChange: function onChange(radialShape) {
       return setRadialShape(radialShape);
     },
@@ -4954,10 +4966,8 @@ var GradientColorControl = function GradientColorControl(_ref) {
 };
 
 GradientColorControl.propTypes = {
-  onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  colorOne: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  colorTwo: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  angle: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number
+  gradientColor: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (GradientColorControl);
 

@@ -11,35 +11,45 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ColorControl from "../color-control";
 import ToggleButton from "../toggle-button";
-import { GRADIENT_TYPES, RADIAL_TYPES, FOCUS_COLOR } from "./constants";
-import { parseGradientColor } from "./helpers";
+import { GRADIENT_TYPE, RADIAL_TYPES, FOCUS_COLOR } from "./constants";
+import { parseGradientColor } from "./helper";
 
 const GradientColorControl = ({ gradientColor, onChange }) => {
-	const {
-		gradientType: bgGradientType,
-		color1: firstColor,
-		color1Position: grColorOnePosition,
-		color2: secondColor,
-		color2Position: grColorTwoPosition,
-		angle: gradientAngle,
-		radialShape: grRadialShape,
-		radialX: grRadialX,
-		radialY: grRadialY,
-	} = parseGradientColor(gradientColor);
+	const [gradientType, setGradientType] = useState("linear");
+	const [colorOne, setColorOne] = useState("transparent");
+	const [colorOnePosition, setColorOnePosition] = useState(0);
+	const [colorTwo, setColorTwo] = useState("transparent");
+	const [colorTwoPosition, setColorTwoPosition] = useState(100);
+	const [angle, setAngle] = useState(0);
+	const [radialShape, setRadialShape] = useState("ellipse");
+	const [radialX, setRadialX] = useState(50);
+	const [radialY, setRadialY] = useState(50);
 
-	const [gradientType, setGradientType] = useState(bgGradientType);
-	const [colorOne, setColorOne] = useState(firstColor || "transparent");
-	const [colorOnePosition, setColorOnePosition] = useState(
-		grColorOnePosition || 0
-	);
-	const [colorTwo, setColorTwo] = useState(secondColor || "transparent");
-	const [colorTwoPosition, setColorTwoPosition] = useState(
-		grColorTwoPosition || 100
-	);
-	const [angle, setAngle] = useState(gradientAngle || 0);
-	const [radialShape, setRadialShape] = useState(grRadialShape || "ellipse");
-	const [radialX, setRadialX] = useState(grRadialX || 50);
-	const [radialY, setRadialY] = useState(grRadialY || 50);
+	useEffect(() => {
+		let {
+			gradientType,
+			angle,
+			colorOne,
+			colorTwo,
+			colorOnePosition,
+			colorTwoPosition,
+			radialShape,
+			radialX,
+			radialY,
+		} = parseGradientColor(gradientColor);
+
+		console.log("------------parseGradientColor function ta fire hoiche");
+
+		setGradientType(gradientType);
+		setAngle(angle);
+		setColorOne(colorOne);
+		setColorTwo(colorTwo);
+		setColorOnePosition(colorOnePosition);
+		setColorTwoPosition(colorTwoPosition);
+		setRadialShape(radialShape);
+		setRadialX(radialX);
+		setRadialY(radialY);
+	}, []);
 
 	useEffect(() => {
 		onChange(
@@ -73,10 +83,10 @@ const GradientColorControl = ({ gradientColor, onChange }) => {
 				className="eb-gradient-toggle-label"
 			>
 				<ToggleButton
-					options={GRADIENT_TYPES}
-					defaultSelect={
-						gradientType === "linear" ? GRADIENT_TYPES[0] : GRADIENT_TYPES[1]
+					defaultSelected={
+						gradientType === "ellipse" ? GRADIENT_TYPE[0] : GRADIENT_TYPE[1]
 					}
+					options={GRADIENT_TYPE}
 					onChange={(gradientType) => setGradientType(gradientType)}
 					focusColor={FOCUS_COLOR}
 				/>
@@ -88,10 +98,10 @@ const GradientColorControl = ({ gradientColor, onChange }) => {
 					className="eb-gradient-toggle-label"
 				>
 					<ToggleButton
-						options={RADIAL_TYPES}
-						defaultSelect={
-							radialShape === "ellipse" ? RADIAL_TYPES[0] : RADIAL_TYPES[1]
+						defaultSelected={
+							radialShape === "linear" ? RADIAL_TYPES[0] : RADIAL_TYPES[1]
 						}
+						options={RADIAL_TYPES}
 						onChange={(radialShape) => setRadialShape(radialShape)}
 						focusColor={FOCUS_COLOR}
 					/>
@@ -160,10 +170,8 @@ const GradientColorControl = ({ gradientColor, onChange }) => {
 };
 
 GradientColorControl.propTypes = {
+	gradientColor: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	colorOne: PropTypes.string,
-	colorTwo: PropTypes.string,
-	angle: PropTypes.number,
 };
 
 export default GradientColorControl;
