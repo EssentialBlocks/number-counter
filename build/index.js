@@ -2407,6 +2407,16 @@ var Edit = function Edit(props) {
     return CounterAnimation();
   }, [target, duration, startValue, separator, isShowSeparator]);
   useEffect(function () {
+    var genRandomNumber = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateRandomNumber"])();
+    var anotherSameClassElements = document.querySelectorAll(".eb-counter-wrapper-".concat(randomNumber));
+
+    if (!randomNumber || anotherSameClassElements[1]) {
+      setAttributes({
+        randomNumber: genRandomNumber
+      });
+    }
+  }, []);
+  useEffect(function () {
     var bodyClasses = document.body.className;
 
     if (!bodyClasses.includes("eb-res-option-")) {
@@ -2431,14 +2441,6 @@ var Edit = function Edit(props) {
     console.log("-----edit er moddhe theke useEffect on [] log holo", {
       bodyClasses: bodyClasses
     });
-    var genRandomNumber = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateRandomNumber"])();
-    var anotherSameClassElements = document.querySelectorAll(".eb-counter-wrapper-".concat(randomNumber));
-
-    if (!randomNumber || anotherSameClassElements[1]) {
-      setAttributes({
-        randomNumber: genRandomNumber
-      });
-    }
   }, []); // function to generate typography styles for an element based on it's prefix
 
   var generateTypographyStyles = function generateTypographyStyles(prefixConstant) {

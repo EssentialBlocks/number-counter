@@ -187,6 +187,18 @@ const Edit = (props) => {
 	]);
 
 	useEffect(() => {
+		const genRandomNumber = generateRandomNumber();
+		const anotherSameClassElements = document.querySelectorAll(
+			`.eb-counter-wrapper-${randomNumber}`
+		);
+		if (!randomNumber || anotherSameClassElements[1]) {
+			setAttributes({
+				randomNumber: genRandomNumber,
+			});
+		}
+	}, []);
+
+	useEffect(() => {
 		const bodyClasses = document.body.className;
 		if (!bodyClasses.includes("eb-res-option-")) {
 			document.body.classList.add("eb-res-option-desktop");
@@ -209,17 +221,6 @@ const Edit = (props) => {
 		console.log("-----edit er moddhe theke useEffect on [] log holo", {
 			bodyClasses,
 		});
-
-		const genRandomNumber = generateRandomNumber();
-		const anotherSameClassElements = document.querySelectorAll(
-			`.eb-counter-wrapper-${randomNumber}`
-		);
-
-		if (!randomNumber || anotherSameClassElements[1]) {
-			setAttributes({
-				randomNumber: genRandomNumber,
-			});
-		}
 	}, []);
 
 	// function to generate typography styles for an element based on it's prefix
