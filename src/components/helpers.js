@@ -127,9 +127,10 @@ export const minifyCssStrings = (cssString) =>
 	cssString
 		.replace(/(?<=\:).+(?=\;)/g, function (match) {
 			// console.log({ match, g1, offset, string });
-			// return g1.trim().replaceAll(" ", "__c_h_a_n_g_e__");
-			return match.trim().replace(/\s+/g, "__c_h_a_n_g_e__");
+			// return g1.trim().replaceAll(" ", "__s_p_a_c_e__");
+			return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
 		})
-		.replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
+		// .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
+		.replace(/\s+(?![\w\d\.\-\#]+\{)/g, "")
 		.replace(/\s+/g, " ")
-		.replace(/__c_h_a_n_g_e__/g, " ");
+		.replace(/__s_p_a_c_e__/g, " ");
