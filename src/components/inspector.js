@@ -232,6 +232,26 @@ const Inspector = (props) => {
 		// suffixLineHeight,
 	} = attributes;
 
+	useEffect(() => {
+		const bodyClasses = document.body.className;
+		console.log("----log from inspector useEffect with empty []", {
+			bodyClasses,
+		});
+		if (bodyClasses.includes("eb-res-option-desktop")) {
+			setAttributes({
+				resOption: "desktop",
+			});
+		} else if (bodyClasses.includes("eb-res-option-tab")) {
+			setAttributes({
+				resOption: "tab",
+			});
+		} else if (bodyClasses.includes("eb-res-option-mobile")) {
+			setAttributes({
+				resOption: "mobile",
+			});
+		}
+	}, []);
+
 	const handleSeparatorChange = (separastorSelectLabel) => {
 		switch (separastorSelectLabel) {
 			case "Default":
@@ -342,26 +362,6 @@ const Inspector = (props) => {
 	};
 	const titleTypoAttrr = generateTypographyAttributes(title);
 	console.log("------------title typo attributes", { titleTypoAttrr });
-
-	useEffect(() => {
-		const bodyClasses = document.body.className;
-		console.log("----log from inspector useEffect with empty []", {
-			bodyClasses,
-		});
-		if (bodyClasses.includes("eb-res-option-desktop")) {
-			setAttributes({
-				resOption: "desktop",
-			});
-		} else if (bodyClasses.includes("eb-res-option-tab")) {
-			setAttributes({
-				resOption: "tab",
-			});
-		} else if (bodyClasses.includes("eb-res-option-mobile")) {
-			setAttributes({
-				resOption: "mobile",
-			});
-		}
-	}, []);
 
 	return (
 		<InspectorControls key="controls">

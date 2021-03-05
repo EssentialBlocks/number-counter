@@ -2803,6 +2803,26 @@ var Inspector = function Inspector(props) {
       hoverSpread = attributes.hoverSpread,
       hoverInset = attributes.hoverInset,
       wrapperTransitionTime = attributes.wrapperTransitionTime;
+  useEffect(function () {
+    var bodyClasses = document.body.className;
+    console.log("----log from inspector useEffect with empty []", {
+      bodyClasses: bodyClasses
+    });
+
+    if (bodyClasses.includes("eb-res-option-desktop")) {
+      setAttributes({
+        resOption: "desktop"
+      });
+    } else if (bodyClasses.includes("eb-res-option-tab")) {
+      setAttributes({
+        resOption: "tab"
+      });
+    } else if (bodyClasses.includes("eb-res-option-mobile")) {
+      setAttributes({
+        resOption: "mobile"
+      });
+    }
+  }, []);
 
   var handleSeparatorChange = function handleSeparatorChange(separastorSelectLabel) {
     switch (separastorSelectLabel) {
@@ -2927,26 +2947,6 @@ var Inspector = function Inspector(props) {
   console.log("------------title typo attributes", {
     titleTypoAttrr: titleTypoAttrr
   });
-  useEffect(function () {
-    var bodyClasses = document.body.className;
-    console.log("----log from inspector useEffect with empty []", {
-      bodyClasses: bodyClasses
-    });
-
-    if (bodyClasses.includes("eb-res-option-desktop")) {
-      setAttributes({
-        resOption: "desktop"
-      });
-    } else if (bodyClasses.includes("eb-res-option-tab")) {
-      setAttributes({
-        resOption: "tab"
-      });
-    } else if (bodyClasses.includes("eb-res-option-mobile")) {
-      setAttributes({
-        resOption: "mobile"
-      });
-    }
-  }, []);
   return /*#__PURE__*/React.createElement(InspectorControls, {
     key: "controls"
   }, /*#__PURE__*/React.createElement("span", {
