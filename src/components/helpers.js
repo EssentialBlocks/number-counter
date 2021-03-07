@@ -135,3 +135,6 @@ export const minifyCssStrings = (cssString) =>
 		.replace(/\s+(?![\w\d\.\-\#]+\{)/g, "")
 		.replace(/\s+/g, " ")
 		.replace(/__s_p_a_c_e__/g, " ");
+
+// check if css string is empty or not
+export const isCssExists = (cssString) => /.+(?=\:)/.test(cssString);

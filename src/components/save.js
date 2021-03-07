@@ -15,7 +15,7 @@ import {
 	numSuffix,
 } from "./constants/typographyPrefixConstants";
 
-import { minifyCssStrings } from "./helpers";
+import { minifyCssStrings, isCssExists } from "./helpers";
 
 const Save = (props) => {
 	const { attributes } = props;
@@ -466,19 +466,19 @@ const Save = (props) => {
 	`;
 
 	const tabAllStyles = `
-		${wrapperStylesTab}
-		${numberStylesTab}
-		${titleStylesTab}
-		${numPrefixStylesTab}
-		${numSuffixStylesTab}
+		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
+		${isCssExists(numberStylesTab) ? numberStylesTab : " "}
+		${isCssExists(titleStylesTab) ? titleStylesTab : " "}
+		${isCssExists(numPrefixStylesTab) ? numPrefixStylesTab : " "}
+		${isCssExists(numSuffixStylesTab) ? numSuffixStylesTab : " "}
 	`;
 
 	const mobileAllStyles = `
-		${wrapperStylesMobile}
-		${numberStylesMobile}
-		${titleStylesMobile}
-		${numPrefixStylesMobile}
-		${numSuffixStylesMobile}
+		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
+		${isCssExists(numberStylesMobile) ? numberStylesMobile : " "}
+		${isCssExists(titleStylesMobile) ? titleStylesMobile : " "}
+		${isCssExists(numPrefixStylesMobile) ? numPrefixStylesMobile : " "}
+		${isCssExists(numSuffixStylesMobile) ? numSuffixStylesMobile : " "}
 	`;
 
 	return (

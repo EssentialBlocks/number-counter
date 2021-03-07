@@ -2590,7 +2590,7 @@ var Edit = function Edit(props) {
 /*!***********************************!*\
   !*** ./src/components/helpers.js ***!
   \***********************************/
-/*! exports provided: generateTypographyAttributes, textInsideForEdit, generateRandomNumber, minifyCssStrings */
+/*! exports provided: generateTypographyAttributes, textInsideForEdit, generateRandomNumber, minifyCssStrings, isCssExists */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2599,6 +2599,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minifyCssStrings", function() { return minifyCssStrings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2616,17 +2617,22 @@ var generateTypographyAttributes = function generateTypographyAttributes(prefixA
 
 var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
   return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
-};
+}; // generateRandomNumber function is for generating a random number
+
 var generateRandomNumber = function generateRandomNumber() {
   return Math.floor(Math.random() * 1000000000);
-};
+}; // minifyCssStrings is for minifying the css which is in the style tag as a string
+
 var minifyCssStrings = function minifyCssStrings(cssString) {
   return cssString.replace(/(?<=\:).+(?=\;)/g, function (match) {
     // console.log({ match, g1, offset, string });
-    // return g1.trim().replaceAll(" ", "__s_p_a_c_e__");
     return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
   }) // .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
   .replace(/\s+(?![\w\d\.\-\#]+\{)/g, "").replace(/\s+/g, " ").replace(/__s_p_a_c_e__/g, " ");
+}; // check if css string is empty or not
+
+var isCssExists = function isCssExists(cssString) {
+  return /.+(?=\:)/.test(cssString);
 };
 
 /***/ }),
@@ -3941,8 +3947,8 @@ var Save = function Save(props) {
   var numSuffixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\t").concat(TABnumSuffixColor ? "color : ".concat(TABnumSuffixColor, ";") : " ", "\n\t} ");
   var numSuffixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\t").concat(MOBnumSuffixColor ? "color : ".concat(MOBnumSuffixColor, ";") : " ", "\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
-  var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
-  var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
+  var tabAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numberStylesTab) ? numberStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(titleStylesTab) ? titleStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numPrefixStylesTab) ? numPrefixStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numSuffixStylesTab) ? numSuffixStylesTab : " ", "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t");
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(desktopAllStyles), "@media all and (max-width: 1030px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(tabAllStyles), "}@media all and (max-width: 680px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(mobileAllStyles), "}")), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
     "data-shadowColor": shadowColor || "#00000000",
