@@ -120,14 +120,15 @@ export const textInsideForEdit = (value, isShowSeparator, separator) =>
 		? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator)
 		: value.toString();
 
+// generateRandomNumber function is for generating a random number
 export const generateRandomNumber = () =>
 	Math.floor(Math.random() * 1000000000);
 
+// minifyCssStrings is for minifying the css which is in the style tag as a string
 export const minifyCssStrings = (cssString) =>
 	cssString
 		.replace(/(?<=\:).+(?=\;)/g, function (match) {
 			// console.log({ match, g1, offset, string });
-			// return g1.trim().replaceAll(" ", "__s_p_a_c_e__");
 			return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
 		})
 		// .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
