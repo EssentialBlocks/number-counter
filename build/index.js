@@ -2443,7 +2443,7 @@ var Edit = function Edit(props) {
     });
   }, []); // function to generate typography styles for an element based on it's prefix
 
-  var generateTypographyStyles = function generateTypographyStyles(prefixConstant) {
+  var generateTypographyStylesForEdit = function generateTypographyStylesForEdit(prefixConstant) {
     var defaultFontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     var _attributes$ = attributes["".concat(prefixConstant, "FontFamily")],
         fontFamily = _attributes$ === void 0 ? fontFamily || "inherit" : _attributes$,
@@ -2451,7 +2451,7 @@ var Edit = function Edit(props) {
         textTransform = attributes["".concat(prefixConstant, "TextTransform")],
         textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
         _attributes$2 = attributes["".concat(prefixConstant, "FontSize")],
-        fontSize = _attributes$2 === void 0 ? fontSize || defaultFontSize || "inherit" : _attributes$2,
+        fontSize = _attributes$2 === void 0 ? fontSize || defaultFontSize : _attributes$2,
         sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
         letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
         letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
@@ -2498,8 +2498,8 @@ var Edit = function Edit(props) {
         _attributes$22 = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
         MOBlineHeightUnit = _attributes$22 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit || lineHeightUnit : _attributes$22;
     var typoStylesDesktop = "\n\t\t\tfont-family: ".concat(fontFamily, ";\n\t\t\tfont-size: ").concat(fontSize).concat(sizeUnit, ";\n\t\t\tline-height: ").concat(lineHeight).concat(lineHeightUnit, ";\n\t\t\tfont-weight: ").concat(fontWeight, ";\n\t\t\ttext-decoration: ").concat(textDecoration, ";\n\t\t\ttext-transform: ").concat(textTransform, ";\n\t\t\tletter-spacing: ").concat(letterSpacing).concat(letterSpacingUnit, ";\n\t\t");
-    var typoStylesTab = "\n\t\t\tfont-family: ".concat(TABfontFamily, ";\n\t\t\tfont-size: ").concat(TABfontSize).concat(TABsizeUnit, ";\n\t\t\tline-height: ").concat(TABlineHeight).concat(TABlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(TABfontWeight, ";\n\t\t\ttext-decoration: ").concat(TABtextDecoration, ";\n\t\t\ttext-transform: ").concat(TABtextTransform, ";\n\t\t\tletter-spacing: ").concat(TABletterSpacing).concat(TABletterSpacingUnit, ";\n\t\t");
-    var typoStylesMobile = "\n\t\t\tfont-family: ".concat(MOBfontFamily, ";\n\t\t\tfont-size: ").concat(MOBfontSize).concat(MOBsizeUnit, ";\n\t\t\tline-height: ").concat(MOBlineHeight).concat(MOBlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(MOBfontWeight, ";\n\t\t\ttext-decoration: ").concat(MOBtextDecoration, ";\n\t\t\ttext-transform: ").concat(MOBtextTransform, ";\n\t\t\tletter-spacing: ").concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";\n\t\t");
+    var typoStylesTab = "\n\t\t\tfont-family: ".concat(TABfontFamily, ";\n\t\t\tfont-size: ").concat(TABfontSize).concat(TABsizeUnit, ";\n\t\t\tline-height: ").concat(TABlineHeight).concat(TABlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(TABfontWeight, ";\n\t\t\ttext-decoration: ").concat(TABtextDecoration, ";\n\t\t\ttext-transform: ").concat(TABtextTransform, ";\n\t\t\t").concat(TABletterSpacing ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
+    var typoStylesMobile = "\n\t\t\tfont-family: ".concat(MOBfontFamily, ";\n\t\t\tfont-size: ").concat(MOBfontSize).concat(MOBsizeUnit, ";\n\t\t\tline-height: ").concat(MOBlineHeight).concat(MOBlineHeightUnit, ";\n\t\t\tfont-weight: ").concat(MOBfontWeight, ";\n\t\t\ttext-decoration: ").concat(MOBtextDecoration, ";\n\t\t\ttext-transform: ").concat(MOBtextTransform, ";\n\t\t\t").concat(MOBletterSpacing ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
     return {
       typoStylesDesktop: typoStylesDesktop,
       typoStylesTab: typoStylesTab,
@@ -2507,41 +2507,41 @@ var Edit = function Edit(props) {
     };
   };
 
-  var _generateTypographySt = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["title"], 40),
+  var _generateTypographySt = generateTypographyStylesForEdit(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["title"], 40),
       titleTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
       titleTypoStylesTab = _generateTypographySt.typoStylesTab,
       titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
 
-  var _generateTypographySt2 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["number"], 40),
+  var _generateTypographySt2 = generateTypographyStylesForEdit(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["number"], 40),
       numberTypoStylesDesktop = _generateTypographySt2.typoStylesDesktop,
       numberTypoStylesTab = _generateTypographySt2.typoStylesTab,
       numberTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
 
-  var _generateTypographySt3 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numPrefix"]),
+  var _generateTypographySt3 = generateTypographyStylesForEdit(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numPrefix"]),
       numPrefixTypoStylesDesktop = _generateTypographySt3.typoStylesDesktop,
       numPrefixTypoStylesTab = _generateTypographySt3.typoStylesTab,
       numPrefixTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
 
-  var _generateTypographySt4 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numSuffix"]),
+  var _generateTypographySt4 = generateTypographyStylesForEdit(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_1__["numSuffix"]),
       numSuffixTypoStylesDesktop = _generateTypographySt4.typoStylesDesktop,
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
   var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
-  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop || 0).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom || 0).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft || 0).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight || 0).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop || 0).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom || 0).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight || 0).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft || 0).concat(TABpaddingUnit, ";\n\t\tgap: ").concat(TABgapNumTitle, "px;\t\n\t}\n\t");
-  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop || 0).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom || 0).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft || 0).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight || 0).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft || 0).concat(MOBpaddingUnit, ";\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
+  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop || 0).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom || 0).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft || 0).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight || 0).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop || 0).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom || 0).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight || 0).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft || 0).concat(TABpaddingUnit, ";\n\t\t\n\t\tgap: ").concat(TABgapNumTitle, "px;\n\t}\n\t");
+  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop || 0).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom || 0).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft || 0).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight || 0).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft || 0).concat(MOBpaddingUnit, ";\n\t\t\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
-  var numberStylesTab = "   \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t\tpadding-left: ").concat(TABgapNumPrefix, "px;\n\t\tpadding-right: ").concat(TABgapNumSuffix, "px;\n\t} ");
-  var numberStylesMobile = "\n\t .eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t\tpadding-left: ").concat(MOBgapNumPrefix, "px;\n\t\tpadding-right: ").concat(MOBgapNumSuffix, "px;\n\t}");
+  var numberStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t\tpadding-left: ").concat(TABgapNumPrefix, "px;\n\t\tpadding-right: ").concat(TABgapNumSuffix, "px;\n\t} ");
+  var numberStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t\tpadding-left: ").concat(MOBgapNumPrefix, "px;\n\t\tpadding-right: ").concat(MOBgapNumSuffix, "px;\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
-  var titleStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor, ";\n\t}  ");
-  var titleStylesMobile = "  \t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor, ";\n\t} ");
+  var titleStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\tcolor : ").concat(TABtitleColor, ";\n\t}  ");
+  var titleStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\tcolor : ").concat(MOBtitleColor, ";\n\t} ");
   var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\tcolor : ").concat(numPrefixColor, ";\n\t}\n\t");
-  var numPrefixStylesTab = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor, ";\n\t}  ");
-  var numPrefixStylesMobile = "  \n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor, ";\n\t}  ");
+  var numPrefixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumPrefixColor, ";\n\t}  ");
+  var numPrefixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumPrefixColor, ";\n\t}  ");
   var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\tcolor : ").concat(numSuffixColor, ";\n\t}\n\t");
-  var numSuffixStylesTab = "   \t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor, ";\n\t} ");
-  var numSuffixStylesMobile = "   \t\n\t\t\t\t\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor, ";\n\t}\n\n\t");
+  var numSuffixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\tcolor : ").concat(TABnumSuffixColor, ";\n\t} ");
+  var numSuffixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumSuffixColor, ";\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(wrapperStylesDesktop, "\n\t\t").concat(numberStylesDesktop, "\n\t\t").concat(titleStylesDesktop, "\n\t\t").concat(numPrefixStylesDesktop, "\n\t\t").concat(numSuffixStylesDesktop, "\n\t");
   var tabAllStyles = "\n\t\t".concat(wrapperStylesTab, "\n\t\t").concat(numberStylesTab, "\n\t\t").concat(titleStylesTab, "\n\t\t").concat(numPrefixStylesTab, "\n\t\t").concat(numSuffixStylesTab, "\n\t");
   var mobileAllStyles = "\n\t\t".concat(wrapperStylesMobile, "\n\t\t").concat(numberStylesMobile, "\n\t\t").concat(titleStylesMobile, "\n\t\t").concat(numPrefixStylesMobile, "\n\t\t").concat(numSuffixStylesMobile, "\n\t");
@@ -3861,7 +3861,7 @@ var Save = function Save(props) {
       hoverInset = attributes.hoverInset,
       wrapperTransitionTime = attributes.wrapperTransitionTime; // function to generate typography styles for an element based on it's prefix
 
-  var generateTypographyStyles = function generateTypographyStyles(prefixConstant) {
+  var generateTypographyStylesForSave = function generateTypographyStylesForSave(prefixConstant) {
     var defaultFontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     var _attributes$ = attributes["".concat(prefixConstant, "FontFamily")],
         fontFamily = _attributes$ === void 0 ? fontFamily || "inherit" : _attributes$,
@@ -3911,22 +3911,22 @@ var Save = function Save(props) {
     };
   };
 
-  var _generateTypographySt = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40),
+  var _generateTypographySt = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["title"], 40),
       titleTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
       titleTypoStylesTab = _generateTypographySt.typoStylesTab,
       titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
 
-  var _generateTypographySt2 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 40),
+  var _generateTypographySt2 = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["number"], 40),
       numberTypoStylesDesktop = _generateTypographySt2.typoStylesDesktop,
       numberTypoStylesTab = _generateTypographySt2.typoStylesTab,
       numberTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
 
-  var _generateTypographySt3 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]),
+  var _generateTypographySt3 = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numPrefix"]),
       numPrefixTypoStylesDesktop = _generateTypographySt3.typoStylesDesktop,
       numPrefixTypoStylesTab = _generateTypographySt3.typoStylesTab,
       numPrefixTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
 
-  var _generateTypographySt4 = generateTypographyStyles(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]),
+  var _generateTypographySt4 = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__["numSuffix"]),
       numSuffixTypoStylesDesktop = _generateTypographySt4.typoStylesDesktop,
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;

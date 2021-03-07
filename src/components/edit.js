@@ -224,7 +224,7 @@ const Edit = (props) => {
 	}, []);
 
 	// function to generate typography styles for an element based on it's prefix
-	const generateTypographyStyles = (
+	const generateTypographyStylesForEdit = (
 		prefixConstant,
 		defaultFontSize = false
 	) => {
@@ -233,9 +233,7 @@ const Edit = (props) => {
 			[`${prefixConstant}FontWeight`]: fontWeight,
 			[`${prefixConstant}TextTransform`]: textTransform,
 			[`${prefixConstant}TextDecoration`]: textDecoration,
-			[`${prefixConstant}FontSize`]: fontSize = fontSize ||
-				defaultFontSize ||
-				"inherit",
+			[`${prefixConstant}FontSize`]: fontSize = fontSize || defaultFontSize,
 			[`${prefixConstant}SizeUnit`]: sizeUnit,
 			[`${prefixConstant}LetterSpacing`]: letterSpacing,
 			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
@@ -291,6 +289,36 @@ const Edit = (props) => {
 			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
 				TABlineHeightUnit ||
 				lineHeightUnit,
+
+			// [`TAB${prefixConstant}FontFamily`]: TABfontFamily,
+			// [`TAB${prefixConstant}FontWeight`]: TABfontWeight,
+			// [`TAB${prefixConstant}TextTransform`]: TABtextTransform,
+			// [`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
+			// [`TAB${prefixConstant}FontSize`]: TABfontSize,
+			// [`TAB${prefixConstant}SizeUnit`]: TABsizeUnit = TABsizeUnit || sizeUnit,
+			// [`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit = TABletterSpacingUnit ||
+			// 	letterSpacingUnit,
+			// [`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
+			// [`TAB${prefixConstant}LineHeight`]: TABlineHeight,
+			// [`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit = TABlineHeightUnit ||
+			// 	lineHeightUnit,
+
+			// [`MOB${prefixConstant}FontFamily`]: MOBfontFamily,
+			// [`MOB${prefixConstant}FontWeight`]: MOBfontWeight,
+			// [`MOB${prefixConstant}TextTransform`]: MOBtextTransform,
+			// [`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration,
+			// [`MOB${prefixConstant}FontSize`]: MOBfontSize,
+			// [`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit = MOBsizeUnit ||
+			// 	TABsizeUnit ||
+			// 	sizeUnit,
+			// [`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing,
+			// [`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit = MOBletterSpacingUnit ||
+			// 	TABletterSpacingUnit ||
+			// 	letterSpacingUnit,
+			// [`MOB${prefixConstant}LineHeight`]: MOBlineHeight,
+			// [`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
+			// 	TABlineHeightUnit ||
+			// 	lineHeightUnit,
 		} = attributes;
 
 		const typoStylesDesktop = `
@@ -310,7 +338,11 @@ const Edit = (props) => {
 			font-weight: ${TABfontWeight};
 			text-decoration: ${TABtextDecoration};
 			text-transform: ${TABtextTransform};
-			letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};
+			${
+				TABletterSpacing
+					? `letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};`
+					: " "
+			}
 		`;
 
 		const typoStylesMobile = `
@@ -320,7 +352,11 @@ const Edit = (props) => {
 			font-weight: ${MOBfontWeight};
 			text-decoration: ${MOBtextDecoration};
 			text-transform: ${MOBtextTransform};
-			letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};
+			${
+				MOBletterSpacing
+					? `letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};`
+					: " "
+			}
 		`;
 
 		return {
@@ -334,25 +370,25 @@ const Edit = (props) => {
 		typoStylesDesktop: titleTypoStylesDesktop,
 		typoStylesTab: titleTypoStylesTab,
 		typoStylesMobile: titleTypoStylesMobile,
-	} = generateTypographyStyles(title, 40);
+	} = generateTypographyStylesForEdit(title, 40);
 
 	const {
 		typoStylesDesktop: numberTypoStylesDesktop,
 		typoStylesTab: numberTypoStylesTab,
 		typoStylesMobile: numberTypoStylesMobile,
-	} = generateTypographyStyles(number, 40);
+	} = generateTypographyStylesForEdit(number, 40);
 
 	const {
 		typoStylesDesktop: numPrefixTypoStylesDesktop,
 		typoStylesTab: numPrefixTypoStylesTab,
 		typoStylesMobile: numPrefixTypoStylesMobile,
-	} = generateTypographyStyles(numPrefix);
+	} = generateTypographyStylesForEdit(numPrefix);
 
 	const {
 		typoStylesDesktop: numSuffixTypoStylesDesktop,
 		typoStylesTab: numSuffixTypoStylesTab,
 		typoStylesMobile: numSuffixTypoStylesMobile,
-	} = generateTypographyStyles(numSuffix);
+	} = generateTypographyStylesForEdit(numSuffix);
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
@@ -398,7 +434,8 @@ const Edit = (props) => {
 		padding-bottom: ${TABpaddingBottom || 0}${TABpaddingUnit};
 		padding-right: ${TABpaddingRight || 0}${TABpaddingUnit};
 		padding-left: ${TABpaddingLeft || 0}${TABpaddingUnit};
-		gap: ${TABgapNumTitle}px;	
+		
+		gap: ${TABgapNumTitle}px;
 	}
 	`;
 
@@ -412,6 +449,7 @@ const Edit = (props) => {
 		padding-bottom: ${MOBpaddingBottom || 0}${MOBpaddingUnit};
 		padding-right: ${MOBpaddingRight || 0}${MOBpaddingUnit};
 		padding-left: ${MOBpaddingLeft || 0}${MOBpaddingUnit};
+		
 		gap: ${MOBgapNumTitle}px;
 	}
 	`;
@@ -425,7 +463,7 @@ const Edit = (props) => {
 	}
 	`;
 
-	const numberStylesTab = `   
+	const numberStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesTab}
 		color : ${TABnumberColor};
@@ -434,7 +472,7 @@ const Edit = (props) => {
 	} `;
 
 	const numberStylesMobile = `
-	 .eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
 		color : ${MOBnumberColor};
 		padding-left: ${MOBgapNumPrefix}px;
@@ -448,13 +486,13 @@ const Edit = (props) => {
 	}
 	`;
 
-	const titleStylesTab = `  
+	const titleStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesTab}
 		color : ${TABtitleColor};
 	}  `;
 
-	const titleStylesMobile = `  	
+	const titleStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesMobile}
 		color : ${MOBtitleColor};
@@ -467,13 +505,13 @@ const Edit = (props) => {
 	}
 	`;
 
-	const numPrefixStylesTab = `  
+	const numPrefixStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
 		color : ${TABnumPrefixColor};
 	}  `;
 
-	const numPrefixStylesMobile = `  
+	const numPrefixStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
 		color : ${MOBnumPrefixColor};
@@ -486,14 +524,13 @@ const Edit = (props) => {
 	}
 	`;
 
-	const numSuffixStylesTab = `   				
+	const numSuffixStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
 		color : ${TABnumSuffixColor};
 	} `;
 
-	const numSuffixStylesMobile = `   	
-				
+	const numSuffixStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
 		color : ${MOBnumSuffixColor};

@@ -135,7 +135,7 @@ const Save = (props) => {
 	} = attributes;
 
 	// function to generate typography styles for an element based on it's prefix
-	const generateTypographyStyles = (
+	const generateTypographyStylesForSave = (
 		prefixConstant,
 		defaultFontSize = false
 	) => {
@@ -281,25 +281,25 @@ const Save = (props) => {
 		typoStylesDesktop: titleTypoStylesDesktop,
 		typoStylesTab: titleTypoStylesTab,
 		typoStylesMobile: titleTypoStylesMobile,
-	} = generateTypographyStyles(title, 40);
+	} = generateTypographyStylesForSave(title, 40);
 
 	const {
 		typoStylesDesktop: numberTypoStylesDesktop,
 		typoStylesTab: numberTypoStylesTab,
 		typoStylesMobile: numberTypoStylesMobile,
-	} = generateTypographyStyles(number, 40);
+	} = generateTypographyStylesForSave(number, 40);
 
 	const {
 		typoStylesDesktop: numPrefixTypoStylesDesktop,
 		typoStylesTab: numPrefixTypoStylesTab,
 		typoStylesMobile: numPrefixTypoStylesMobile,
-	} = generateTypographyStyles(numPrefix);
+	} = generateTypographyStylesForSave(numPrefix);
 
 	const {
 		typoStylesDesktop: numSuffixTypoStylesDesktop,
 		typoStylesTab: numSuffixTypoStylesTab,
 		typoStylesMobile: numSuffixTypoStylesMobile,
-	} = generateTypographyStyles(numSuffix);
+	} = generateTypographyStylesForSave(numSuffix);
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
