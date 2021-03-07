@@ -303,16 +303,16 @@ const Save = (props) => {
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${marginTop || 0}${marginUnit};
-		margin-bottom: ${marginBottom || 0}${marginUnit};
-		margin-left: ${marginLeft || 0}${marginUnit};
-		margin-right: ${marginRight || 0}${marginUnit};
-		padding-top: ${paddingTop || 0}${paddingUnit};
-		padding-bottom: ${paddingBottom || 0}${paddingUnit};
-		padding-right: ${paddingRight || 0}${paddingUnit};
-		padding-left: ${paddingLeft || 0}${paddingUnit};
-		gap: ${gapNumTitle}px;
-		flex-direction: ${wrapperFlexDirection};
+		${marginTop ? `margin-top: ${marginTop}${marginUnit};` : " "}
+		${marginBottom ? `margin-bottom: ${marginBottom}${marginUnit};` : " "}
+		${marginLeft ? `margin-left: ${marginLeft}${marginUnit};` : " "}
+		${marginRight ? `margin-right: ${marginRight}${marginUnit};` : " "}
+		${paddingTop ? `padding-top: ${paddingTop}${paddingUnit};` : " "}
+		${paddingBottom ? `padding-bottom: ${paddingBottom}${paddingUnit};` : " "}
+		${paddingRight ? `padding-right: ${paddingRight}${paddingUnit};` : " "}
+		${paddingLeft ? `padding-left: ${paddingLeft}${paddingUnit};` : " "}
+		${gapNumTitle ? `gap: ${gapNumTitle}px;` : " "}
+		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
 		background-image:
 			${
 				backgroundType === "image" && imageURL
@@ -377,8 +377,8 @@ const Save = (props) => {
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesDesktop}
 		color : ${numberColor};
-		padding-left: ${gapNumPrefix}px;
-		padding-right: ${gapNumSuffix}px;
+		${gapNumPrefix ? `padding-left: ${gapNumPrefix}px;` : " "}
+		${gapNumSuffix ? `padding-right: ${gapNumSuffix}px;` : " "}
 	}
 	`;
 

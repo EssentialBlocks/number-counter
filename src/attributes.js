@@ -176,7 +176,6 @@ export default {
 	},
 	wrapperFlexDirection: {
 		type: "string",
-		default: "column",
 	},
 	layoutLabel: {
 		type: "string",
@@ -230,15 +229,12 @@ export default {
 	// spacing attributes ⬇
 	gapNumTitle: {
 		type: "number",
-		default: 10,
 	},
 	gapNumPrefix: {
 		type: "number",
-		default: 0,
 	},
 	gapNumSuffix: {
 		type: "number",
-		default: 0,
 	},
 
 	TABgapNumTitle: {
@@ -268,19 +264,15 @@ export default {
 	},
 	marginTop: {
 		type: "string",
-		default: "0",
 	},
 	marginRight: {
 		type: "string",
-		default: "0",
 	},
 	marginBottom: {
 		type: "string",
-		default: "0",
 	},
 	marginLeft: {
 		type: "string",
-		default: "0",
 	},
 	paddingUnit: {
 		type: "string",
@@ -500,165 +492,4 @@ export default {
 		type: "string",
 		default: "500",
 	},
-
-	// // Typography Attributes  ⬇
-	// // title typography attributes  ⬇
-	// titleFontFamily: {
-	// 	type: "string",
-	// },
-	// titleSizeUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// titleFontSize: {
-	// 	type: "number",
-	// },
-	// titleFontWeight: {
-	// 	type: "string",
-	// 	default: "400",
-	// },
-	// titleTextTransform: {
-	// 	type: "string",
-	// 	default: "none",
-	// },
-	// titleTextDecoration: {
-	// 	type: "string",
-	// 	default: "initial",
-	// },
-	// titleLetterSpacingUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// titleLetterSpacing: {
-	// 	type: "number",
-	// 	default: 0,
-	// },
-	// titleLineHeightUnit: {
-	// 	type: "string",
-	// 	default: "em",
-	// },
-	// titleLineHeight: {
-	// 	type: "number",
-	// 	default: 1,
-	// },
-
-	// // number typography attributes  ⬇
-	// numberFontFamily: {
-	// 	type: "string",
-	// },
-	// numberSizeUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// numberFontSize: {
-	// 	type: "number",
-	// },
-	// numberFontWeight: {
-	// 	type: "string",
-	// 	default: "400",
-	// },
-	// numberTextTransform: {
-	// 	type: "string",
-	// 	default: "none",
-	// },
-	// numberTextDecoration: {
-	// 	type: "string",
-	// 	default: "initial",
-	// },
-	// numberLetterSpacingUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// numberLetterSpacing: {
-	// 	type: "number",
-	// 	default: 0,
-	// },
-	// numberLineHeightUnit: {
-	// 	type: "string",
-	// 	default: "em",
-	// },
-	// numberLineHeight: {
-	// 	type: "number",
-	// 	default: 1,
-	// },
-
-	// // prefix typography attributes  ⬇
-	// prefixFontFamily: {
-	// 	type: "string",
-	// },
-	// prefixSizeUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// prefixFontSize: {
-	// 	type: "number",
-	// },
-	// prefixFontWeight: {
-	// 	type: "string",
-	// 	default: "400",
-	// },
-	// prefixTextTransform: {
-	// 	type: "string",
-	// 	default: "none",
-	// },
-	// prefixTextDecoration: {
-	// 	type: "string",
-	// 	default: "initial",
-	// },
-	// prefixLetterSpacingUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// prefixLetterSpacing: {
-	// 	type: "number",
-	// 	default: 0,
-	// },
-	// prefixLineHeightUnit: {
-	// 	type: "string",
-	// 	default: "em",
-	// },
-	// prefixLineHeight: {
-	// 	type: "number",
-	// 	default: 1,
-	// },
-
-	// // suffix typography attributes  ⬇
-	// suffixFontFamily: {
-	// 	type: "string",
-	// },
-	// suffixSizeUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// suffixFontSize: {
-	// 	type: "number",
-	// },
-	// suffixFontWeight: {
-	// 	type: "string",
-	// 	default: "400",
-	// },
-	// suffixTextTransform: {
-	// 	type: "string",
-	// 	default: "none",
-	// },
-	// suffixTextDecoration: {
-	// 	type: "string",
-	// 	default: "initial",
-	// },
-	// suffixLetterSpacingUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
-	// suffixLetterSpacing: {
-	// 	type: "number",
-	// 	default: 0,
-	// },
-	// suffixLineHeightUnit: {
-	// 	type: "string",
-	// 	default: "em",
-	// },
-	// suffixLineHeight: {
-	// 	type: "number",
-	// 	default: 1,
-	// },
 };

@@ -73,15 +73,15 @@ const Edit = (props) => {
 
 		// margin padding attributes ⬇
 		marginUnit,
-		marginTop,
-		marginRight,
-		marginBottom,
-		marginLeft,
+		marginTop = marginTop || 0,
+		marginRight = marginRight || 0,
+		marginBottom = marginBottom || 0,
+		marginLeft = marginLeft || 0,
 		paddingUnit,
-		paddingTop,
-		paddingRight,
-		paddingBottom,
-		paddingLeft,
+		paddingTop = paddingTop || 0,
+		paddingRight = paddingRight || 0,
+		paddingBottom = paddingBottom || 0,
+		paddingLeft = paddingLeft || 0,
 
 		TABmarginUnit = TABmarginUnit || marginUnit,
 		TABmarginTop = TABmarginTop || marginTop,
@@ -113,25 +113,25 @@ const Edit = (props) => {
 		backgroundColor,
 
 		// border attributes ⬇
-		borderWidth,
+		borderWidth = borderWidth || 0,
 		borderStyle,
-		borderColor,
-		borderRadius,
+		borderColor = borderColor || "#00000000",
+		borderRadius = borderRadius || 0,
 		radiusUnit,
 
 		// shadow attributes  ⬇
-		shadowColor,
-		hOffset,
-		vOffset,
-		blur,
-		spread,
+		shadowColor = shadowColor || "#00000000",
+		hOffset = hOffset || 0,
+		vOffset = vOffset || 0,
+		blur = blur || 0,
+		spread = spread || 0,
 		inset,
 		isHover,
-		hoverShadowColor,
-		hoverHOffset,
-		hoverVOffset,
-		hoverBlur,
-		hoverSpread,
+		hoverShadowColor = hoverShadowColor || shadowColor,
+		hoverHOffset = hoverHOffset || hOffset,
+		hoverVOffset = hoverVOffset || vOffset,
+		hoverBlur = hoverBlur || blur,
+		hoverSpread = hoverSpread || spread,
 		hoverInset,
 		wrapperTransitionTime,
 	} = attributes;
@@ -392,14 +392,14 @@ const Edit = (props) => {
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${marginTop || 0}${marginUnit};
-		margin-bottom: ${marginBottom || 0}${marginUnit};
-		margin-left: ${marginLeft || 0}${marginUnit};
-		margin-right: ${marginRight || 0}${marginUnit};
-		padding-top: ${paddingTop || 0}${paddingUnit};
-		padding-bottom: ${paddingBottom || 0}${paddingUnit};
-		padding-right: ${paddingRight || 0}${paddingUnit};
-		padding-left: ${paddingLeft || 0}${paddingUnit};
+		margin-top: ${marginTop}${marginUnit};
+		margin-bottom: ${marginBottom}${marginUnit};
+		margin-left: ${marginLeft}${marginUnit};
+		margin-right: ${marginRight}${marginUnit};
+		padding-top: ${paddingTop}${paddingUnit};
+		padding-bottom: ${paddingBottom}${paddingUnit};
+		padding-right: ${paddingRight}${paddingUnit};
+		padding-left: ${paddingLeft}${paddingUnit};
 		gap: ${gapNumTitle}px;
 		flex-direction: ${wrapperFlexDirection};
 		background-image:
@@ -413,27 +413,34 @@ const Edit = (props) => {
 		background-size: ${backgroundSize};
 		background-color:
 			${(backgroundType === "fill" && backgroundColor) || "transparent"};
-		border: ${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"};
-		border-radius: ${borderRadius || 0}${radiusUnit};
-		box-shadow: ${shadowColor || "#000000"} ${hOffset || 0}px ${vOffset || 0}px ${
-		blur || 0
-	}px ${spread || 0}px ${inset ? "inset" : ""};
+		border: ${borderWidth}px ${borderStyle} ${borderColor};
+		border-radius: ${borderRadius}${radiusUnit};
+		box-shadow: ${shadowColor} ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${
+		inset ? "inset" : ""
+	};
 		transition: ${
 			wrapperTransitionTime ? `${wrapperTransitionTime / 1000}s` : ".5s"
 		};
+	}
+
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}:hover{
+		box-shadow: ${hoverShadowColor} ${hoverHOffset}px ${hoverVOffset}px ${hoverBlur}px ${hoverSpread}px ${
+		hoverInset ? "inset" : " "
+	};
+
 	}
 	`;
 
 	const wrapperStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${TABmarginTop || 0}${TABmarginUnit};
-		margin-bottom: ${TABmarginBottom || 0}${TABmarginUnit};
-		margin-left: ${TABmarginLeft || 0}${TABmarginUnit};
-		margin-right: ${TABmarginRight || 0}${TABmarginUnit};
-		padding-top: ${TABpaddingTop || 0}${TABpaddingUnit};
-		padding-bottom: ${TABpaddingBottom || 0}${TABpaddingUnit};
-		padding-right: ${TABpaddingRight || 0}${TABpaddingUnit};
-		padding-left: ${TABpaddingLeft || 0}${TABpaddingUnit};
+		margin-top: ${TABmarginTop}${TABmarginUnit};
+		margin-bottom: ${TABmarginBottom}${TABmarginUnit};
+		margin-left: ${TABmarginLeft}${TABmarginUnit};
+		margin-right: ${TABmarginRight}${TABmarginUnit};
+		padding-top: ${TABpaddingTop}${TABpaddingUnit};
+		padding-bottom: ${TABpaddingBottom}${TABpaddingUnit};
+		padding-right: ${TABpaddingRight}${TABpaddingUnit};
+		padding-left: ${TABpaddingLeft}${TABpaddingUnit};
 		
 		gap: ${TABgapNumTitle}px;
 	}
@@ -441,15 +448,15 @@ const Edit = (props) => {
 
 	const wrapperStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${MOBmarginTop || 0}${MOBmarginUnit};
-		margin-bottom: ${MOBmarginBottom || 0}${MOBmarginUnit};
-		margin-left: ${MOBmarginLeft || 0}${MOBmarginUnit};
-		margin-right: ${MOBmarginRight || 0}${MOBmarginUnit};
-		padding-top: ${MOBpaddingTop || 0}${MOBpaddingUnit};
-		padding-bottom: ${MOBpaddingBottom || 0}${MOBpaddingUnit};
-		padding-right: ${MOBpaddingRight || 0}${MOBpaddingUnit};
-		padding-left: ${MOBpaddingLeft || 0}${MOBpaddingUnit};
-		
+		margin-top: ${MOBmarginTop}${MOBmarginUnit};
+		margin-bottom: ${MOBmarginBottom}${MOBmarginUnit};
+		margin-left: ${MOBmarginLeft}${MOBmarginUnit};
+		margin-right: ${MOBmarginRight}${MOBmarginUnit};
+		padding-top: ${MOBpaddingTop}${MOBpaddingUnit};
+		padding-bottom: ${MOBpaddingBottom}${MOBpaddingUnit};
+		padding-right: ${MOBpaddingRight}${MOBpaddingUnit};
+		padding-left: ${MOBpaddingLeft}${MOBpaddingUnit};
+
 		gap: ${MOBgapNumTitle}px;
 	}
 	`;

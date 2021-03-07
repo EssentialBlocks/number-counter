@@ -136,5 +136,6 @@ export const minifyCssStrings = (cssString) =>
 		.replace(/\s+/g, " ")
 		.replace(/__s_p_a_c_e__/g, " ");
 
-// check if css string is empty or not
-export const isCssExists = (cssString) => /.+(?=\:)/.test(cssString);
+// check if css string is empty or not. important: there has to be a space before css values
+export const isCssExists = (cssString) =>
+	/.+(?=\:(?!hover)(?!focus))/.test(cssString);

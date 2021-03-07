@@ -1492,8 +1492,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "default": "Default"
   },
   wrapperFlexDirection: {
-    type: "string",
-    "default": "column"
+    type: "string"
   },
   layoutLabel: {
     type: "string",
@@ -1542,16 +1541,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   // spacing attributes ⬇
   gapNumTitle: {
-    type: "number",
-    "default": 10
+    type: "number"
   },
   gapNumPrefix: {
-    type: "number",
-    "default": 0
+    type: "number"
   },
   gapNumSuffix: {
-    type: "number",
-    "default": 0
+    type: "number"
   },
   TABgapNumTitle: {
     type: "number"
@@ -1577,20 +1573,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "default": "px"
   },
   marginTop: {
-    type: "string",
-    "default": "0"
+    type: "string"
   },
   marginRight: {
-    type: "string",
-    "default": "0"
+    type: "string"
   },
   marginBottom: {
-    type: "string",
-    "default": "0"
+    type: "string"
   },
   marginLeft: {
-    type: "string",
-    "default": "0"
+    type: "string"
   },
   paddingUnit: {
     type: "string",
@@ -1802,164 +1794,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   wrapperTransitionTime: {
     type: "string",
     "default": "500"
-  } // // Typography Attributes  ⬇
-  // // title typography attributes  ⬇
-  // titleFontFamily: {
-  // 	type: "string",
-  // },
-  // titleSizeUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // titleFontSize: {
-  // 	type: "number",
-  // },
-  // titleFontWeight: {
-  // 	type: "string",
-  // 	default: "400",
-  // },
-  // titleTextTransform: {
-  // 	type: "string",
-  // 	default: "none",
-  // },
-  // titleTextDecoration: {
-  // 	type: "string",
-  // 	default: "initial",
-  // },
-  // titleLetterSpacingUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // titleLetterSpacing: {
-  // 	type: "number",
-  // 	default: 0,
-  // },
-  // titleLineHeightUnit: {
-  // 	type: "string",
-  // 	default: "em",
-  // },
-  // titleLineHeight: {
-  // 	type: "number",
-  // 	default: 1,
-  // },
-  // // number typography attributes  ⬇
-  // numberFontFamily: {
-  // 	type: "string",
-  // },
-  // numberSizeUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // numberFontSize: {
-  // 	type: "number",
-  // },
-  // numberFontWeight: {
-  // 	type: "string",
-  // 	default: "400",
-  // },
-  // numberTextTransform: {
-  // 	type: "string",
-  // 	default: "none",
-  // },
-  // numberTextDecoration: {
-  // 	type: "string",
-  // 	default: "initial",
-  // },
-  // numberLetterSpacingUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // numberLetterSpacing: {
-  // 	type: "number",
-  // 	default: 0,
-  // },
-  // numberLineHeightUnit: {
-  // 	type: "string",
-  // 	default: "em",
-  // },
-  // numberLineHeight: {
-  // 	type: "number",
-  // 	default: 1,
-  // },
-  // // prefix typography attributes  ⬇
-  // prefixFontFamily: {
-  // 	type: "string",
-  // },
-  // prefixSizeUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // prefixFontSize: {
-  // 	type: "number",
-  // },
-  // prefixFontWeight: {
-  // 	type: "string",
-  // 	default: "400",
-  // },
-  // prefixTextTransform: {
-  // 	type: "string",
-  // 	default: "none",
-  // },
-  // prefixTextDecoration: {
-  // 	type: "string",
-  // 	default: "initial",
-  // },
-  // prefixLetterSpacingUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // prefixLetterSpacing: {
-  // 	type: "number",
-  // 	default: 0,
-  // },
-  // prefixLineHeightUnit: {
-  // 	type: "string",
-  // 	default: "em",
-  // },
-  // prefixLineHeight: {
-  // 	type: "number",
-  // 	default: 1,
-  // },
-  // // suffix typography attributes  ⬇
-  // suffixFontFamily: {
-  // 	type: "string",
-  // },
-  // suffixSizeUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // suffixFontSize: {
-  // 	type: "number",
-  // },
-  // suffixFontWeight: {
-  // 	type: "string",
-  // 	default: "400",
-  // },
-  // suffixTextTransform: {
-  // 	type: "string",
-  // 	default: "none",
-  // },
-  // suffixTextDecoration: {
-  // 	type: "string",
-  // 	default: "initial",
-  // },
-  // suffixLetterSpacingUnit: {
-  // 	type: "string",
-  // 	default: "px",
-  // },
-  // suffixLetterSpacing: {
-  // 	type: "number",
-  // 	default: 0,
-  // },
-  // suffixLineHeightUnit: {
-  // 	type: "string",
-  // 	default: "em",
-  // },
-  // suffixLineHeight: {
-  // 	type: "number",
-  // 	default: 1,
-  // },
-
+  }
 }));
 
 /***/ }),
@@ -2300,15 +2135,23 @@ var Edit = function Edit(props) {
       _attributes$MOBgapNum3 = attributes.MOBgapNumSuffix,
       MOBgapNumSuffix = _attributes$MOBgapNum3 === void 0 ? MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix : _attributes$MOBgapNum3,
       marginUnit = attributes.marginUnit,
-      marginTop = attributes.marginTop,
-      marginRight = attributes.marginRight,
-      marginBottom = attributes.marginBottom,
-      marginLeft = attributes.marginLeft,
+      _attributes$marginTop = attributes.marginTop,
+      marginTop = _attributes$marginTop === void 0 ? marginTop || 0 : _attributes$marginTop,
+      _attributes$marginRig = attributes.marginRight,
+      marginRight = _attributes$marginRig === void 0 ? marginRight || 0 : _attributes$marginRig,
+      _attributes$marginBot = attributes.marginBottom,
+      marginBottom = _attributes$marginBot === void 0 ? marginBottom || 0 : _attributes$marginBot,
+      _attributes$marginLef = attributes.marginLeft,
+      marginLeft = _attributes$marginLef === void 0 ? marginLeft || 0 : _attributes$marginLef,
       paddingUnit = attributes.paddingUnit,
-      paddingTop = attributes.paddingTop,
-      paddingRight = attributes.paddingRight,
-      paddingBottom = attributes.paddingBottom,
-      paddingLeft = attributes.paddingLeft,
+      _attributes$paddingTo = attributes.paddingTop,
+      paddingTop = _attributes$paddingTo === void 0 ? paddingTop || 0 : _attributes$paddingTo,
+      _attributes$paddingRi = attributes.paddingRight,
+      paddingRight = _attributes$paddingRi === void 0 ? paddingRight || 0 : _attributes$paddingRi,
+      _attributes$paddingBo = attributes.paddingBottom,
+      paddingBottom = _attributes$paddingBo === void 0 ? paddingBottom || 0 : _attributes$paddingBo,
+      _attributes$paddingLe = attributes.paddingLeft,
+      paddingLeft = _attributes$paddingLe === void 0 ? paddingLeft || 0 : _attributes$paddingLe,
       _attributes$TABmargin = attributes.TABmarginUnit,
       TABmarginUnit = _attributes$TABmargin === void 0 ? TABmarginUnit || marginUnit : _attributes$TABmargin,
       _attributes$TABmargin2 = attributes.TABmarginTop,
@@ -2354,23 +2197,36 @@ var Edit = function Edit(props) {
       gradientColor = attributes.gradientColor,
       backgroundSize = attributes.backgroundSize,
       backgroundColor = attributes.backgroundColor,
-      borderWidth = attributes.borderWidth,
+      _attributes$borderWid = attributes.borderWidth,
+      borderWidth = _attributes$borderWid === void 0 ? borderWidth || 0 : _attributes$borderWid,
       borderStyle = attributes.borderStyle,
-      borderColor = attributes.borderColor,
-      borderRadius = attributes.borderRadius,
+      _attributes$borderCol = attributes.borderColor,
+      borderColor = _attributes$borderCol === void 0 ? borderColor || "#00000000" : _attributes$borderCol,
+      _attributes$borderRad = attributes.borderRadius,
+      borderRadius = _attributes$borderRad === void 0 ? borderRadius || 0 : _attributes$borderRad,
       radiusUnit = attributes.radiusUnit,
-      shadowColor = attributes.shadowColor,
-      hOffset = attributes.hOffset,
-      vOffset = attributes.vOffset,
-      blur = attributes.blur,
-      spread = attributes.spread,
+      _attributes$shadowCol = attributes.shadowColor,
+      shadowColor = _attributes$shadowCol === void 0 ? shadowColor || "#00000000" : _attributes$shadowCol,
+      _attributes$hOffset = attributes.hOffset,
+      hOffset = _attributes$hOffset === void 0 ? hOffset || 0 : _attributes$hOffset,
+      _attributes$vOffset = attributes.vOffset,
+      vOffset = _attributes$vOffset === void 0 ? vOffset || 0 : _attributes$vOffset,
+      _attributes$blur = attributes.blur,
+      blur = _attributes$blur === void 0 ? blur || 0 : _attributes$blur,
+      _attributes$spread = attributes.spread,
+      spread = _attributes$spread === void 0 ? spread || 0 : _attributes$spread,
       inset = attributes.inset,
       isHover = attributes.isHover,
-      hoverShadowColor = attributes.hoverShadowColor,
-      hoverHOffset = attributes.hoverHOffset,
-      hoverVOffset = attributes.hoverVOffset,
-      hoverBlur = attributes.hoverBlur,
-      hoverSpread = attributes.hoverSpread,
+      _attributes$hoverShad = attributes.hoverShadowColor,
+      hoverShadowColor = _attributes$hoverShad === void 0 ? hoverShadowColor || shadowColor : _attributes$hoverShad,
+      _attributes$hoverHOff = attributes.hoverHOffset,
+      hoverHOffset = _attributes$hoverHOff === void 0 ? hoverHOffset || hOffset : _attributes$hoverHOff,
+      _attributes$hoverVOff = attributes.hoverVOffset,
+      hoverVOffset = _attributes$hoverVOff === void 0 ? hoverVOffset || vOffset : _attributes$hoverVOff,
+      _attributes$hoverBlur = attributes.hoverBlur,
+      hoverBlur = _attributes$hoverBlur === void 0 ? hoverBlur || blur : _attributes$hoverBlur,
+      _attributes$hoverSpre = attributes.hoverSpread,
+      hoverSpread = _attributes$hoverSpre === void 0 ? hoverSpread || spread : _attributes$hoverSpre,
       hoverInset = attributes.hoverInset,
       wrapperTransitionTime = attributes.wrapperTransitionTime;
   var counterRef = useRef(null);
@@ -2527,9 +2383,9 @@ var Edit = function Edit(props) {
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
-  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop || 0).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom || 0).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft || 0).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight || 0).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop || 0).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom || 0).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight || 0).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft || 0).concat(TABpaddingUnit, ";\n\t\t\n\t\tgap: ").concat(TABgapNumTitle, "px;\n\t}\n\t");
-  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop || 0).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom || 0).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft || 0).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight || 0).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight || 0).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft || 0).concat(MOBpaddingUnit, ";\n\t\t\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
+  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth, "px ").concat(borderStyle, " ").concat(borderColor, ";\n\t\tborder-radius: ").concat(borderRadius).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\n\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, ":hover{\n\t\tbox-shadow: ").concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(hoverInset ? "inset" : " ", ";\n\n\t}\n\t");
+  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(TABmarginTop).concat(TABmarginUnit, ";\n\t\tmargin-bottom: ").concat(TABmarginBottom).concat(TABmarginUnit, ";\n\t\tmargin-left: ").concat(TABmarginLeft).concat(TABmarginUnit, ";\n\t\tmargin-right: ").concat(TABmarginRight).concat(TABmarginUnit, ";\n\t\tpadding-top: ").concat(TABpaddingTop).concat(TABpaddingUnit, ";\n\t\tpadding-bottom: ").concat(TABpaddingBottom).concat(TABpaddingUnit, ";\n\t\tpadding-right: ").concat(TABpaddingRight).concat(TABpaddingUnit, ";\n\t\tpadding-left: ").concat(TABpaddingLeft).concat(TABpaddingUnit, ";\n\t\t\n\t\tgap: ").concat(TABgapNumTitle, "px;\n\t}\n\t");
+  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(MOBmarginTop).concat(MOBmarginUnit, ";\n\t\tmargin-bottom: ").concat(MOBmarginBottom).concat(MOBmarginUnit, ";\n\t\tmargin-left: ").concat(MOBmarginLeft).concat(MOBmarginUnit, ";\n\t\tmargin-right: ").concat(MOBmarginRight).concat(MOBmarginUnit, ";\n\t\tpadding-top: ").concat(MOBpaddingTop).concat(MOBpaddingUnit, ";\n\t\tpadding-bottom: ").concat(MOBpaddingBottom).concat(MOBpaddingUnit, ";\n\t\tpadding-right: ").concat(MOBpaddingRight).concat(MOBpaddingUnit, ";\n\t\tpadding-left: ").concat(MOBpaddingLeft).concat(MOBpaddingUnit, ";\n\n\t\tgap: ").concat(MOBgapNumTitle, "px;\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
   var numberStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\tcolor : ").concat(TABnumberColor, ";\n\t\tpadding-left: ").concat(TABgapNumPrefix, "px;\n\t\tpadding-right: ").concat(TABgapNumSuffix, "px;\n\t} ");
   var numberStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\tcolor : ").concat(MOBnumberColor, ";\n\t\tpadding-left: ").concat(MOBgapNumPrefix, "px;\n\t\tpadding-right: ").concat(MOBgapNumSuffix, "px;\n\t}");
@@ -2629,10 +2485,10 @@ var minifyCssStrings = function minifyCssStrings(cssString) {
     return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
   }) // .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
   .replace(/\s+(?![\w\d\.\-\#]+\{)/g, "").replace(/\s+/g, " ").replace(/__s_p_a_c_e__/g, " ");
-}; // check if css string is empty or not
+}; // check if css string is empty or not. important: there has to be a space before css values
 
 var isCssExists = function isCssExists(cssString) {
-  return /.+(?=\:)/.test(cssString);
+  return /.+(?=\:(?!hover)(?!focus))/.test(cssString);
 };
 
 /***/ }),
@@ -3931,10 +3787,10 @@ var Save = function Save(props) {
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\tmargin-top: ").concat(marginTop || 0).concat(marginUnit, ";\n\t\tmargin-bottom: ").concat(marginBottom || 0).concat(marginUnit, ";\n\t\tmargin-left: ").concat(marginLeft || 0).concat(marginUnit, ";\n\t\tmargin-right: ").concat(marginRight || 0).concat(marginUnit, ";\n\t\tpadding-top: ").concat(paddingTop || 0).concat(paddingUnit, ";\n\t\tpadding-bottom: ").concat(paddingBottom || 0).concat(paddingUnit, ";\n\t\tpadding-right: ").concat(paddingRight || 0).concat(paddingUnit, ";\n\t\tpadding-left: ").concat(paddingLeft || 0).concat(paddingUnit, ";\n\t\tgap: ").concat(gapNumTitle, "px;\n\t\tflex-direction: ").concat(wrapperFlexDirection, ";\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(marginTop ? "margin-top: ".concat(marginTop).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginBottom ? "margin-bottom: ".concat(marginBottom).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginLeft ? "margin-left: ".concat(marginLeft).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginRight ? "margin-right: ".concat(marginRight).concat(marginUnit, ";") : " ", "\n\t\t").concat(paddingTop ? "padding-top: ".concat(paddingTop).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingBottom ? "padding-bottom: ".concat(paddingBottom).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingRight ? "padding-right: ".concat(paddingRight).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingLeft ? "padding-left: ".concat(paddingLeft).concat(paddingUnit, ";") : " ", "\n\t\t").concat(gapNumTitle ? "gap: ".concat(gapNumTitle, "px;") : " ", "\n\t\t").concat(wrapperFlexDirection ? "flex-direction: ".concat(wrapperFlexDirection, ";") : " ", "\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
   var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(TABmarginTop ? "margin-top: ".concat(TABmarginTop).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginBottom ? "margin-bottom: ".concat(TABmarginBottom).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginLeft ? "margin-left: ".concat(TABmarginLeft).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginRight ? "margin-right: ".concat(TABmarginRight).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABpaddingTop ? "padding-top: ".concat(TABpaddingTop).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingBottom ? "padding-bottom: ".concat(TABpaddingBottom).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingRight ? "padding-right: ".concat(TABpaddingRight).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingLeft ? "padding-left: ".concat(TABpaddingLeft).concat(TABpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(TABgapNumTitle ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\n\t}\n\t");
   var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(MOBmarginTop).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(MOBmarginBottom).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(MOBmarginLeft).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(MOBmarginRight).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(MOBpaddingTop).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(MOBpaddingBottom).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(MOBpaddingRight).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(MOBpaddingLeft).concat(MOBpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(MOBgapNumTitle ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t");
-  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\tpadding-left: ").concat(gapNumPrefix, "px;\n\t\tpadding-right: ").concat(gapNumSuffix, "px;\n\t}\n\t");
+  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\t").concat(gapNumPrefix ? "padding-left: ".concat(gapNumPrefix, "px;") : " ", "\n\t\t").concat(gapNumSuffix ? "padding-right: ".concat(gapNumSuffix, "px;") : " ", "\n\t}\n\t");
   var numberStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(TABnumberColor ? "color : ".concat(TABnumberColor, ";") : " ", "\n\t\t").concat(TABgapNumPrefix ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(TABgapNumSuffix ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
   var numberStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(MOBnumberColor ? "color : ".concat(MOBnumberColor, ";") : " ", "\n\t\t").concat(MOBgapNumPrefix ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(MOBgapNumSuffix ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
   var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\tcolor : ").concat(titleColor, ";\n\t}\n\t");
