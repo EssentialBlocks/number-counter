@@ -120,17 +120,19 @@ const Save = (props) => {
 
 		// shadow attributes  ⬇
 		shadowColor,
-		hOffset,
-		vOffset,
-		blur,
-		spread,
+		hOffset = hOffset || 0,
+		vOffset = vOffset || 0,
+		blur = blur || 0,
+		spread = spread || 0,
 		inset,
-		hoverShadowColor,
-		hoverHOffset,
-		hoverVOffset,
-		hoverBlur,
-		hoverSpread,
-		hoverInset,
+		hoverShadowColor = hoverShadowColor || shadowColor,
+		hoverHOffset = hoverHOffset || hOffset,
+		hoverVOffset = hoverVOffset || vOffset,
+		hoverBlur = hoverBlur || blur,
+		hoverSpread = hoverSpread || spread,
+		hoverInset = hoverInset || inset,
+
+		// transition attributes ⬇
 		wrapperTransitionTime,
 	} = attributes;
 
@@ -313,6 +315,13 @@ const Save = (props) => {
 		${paddingLeft ? `padding-left: ${paddingLeft}${paddingUnit};` : " "}
 		${gapNumTitle ? `gap: ${gapNumTitle}px;` : " "}
 		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
+		${
+			shadowColor
+				? `box-shadow: ${shadowColor} ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${
+						inset ? "inset" : ""
+				  };`
+				: " "
+		}
 		background-image:
 			${
 				backgroundType === "image" && imageURL
@@ -326,12 +335,20 @@ const Save = (props) => {
 			${(backgroundType === "fill" && backgroundColor) || "transparent"};
 		border: ${borderWidth || 0}px ${borderStyle} ${borderColor || "#000000"};
 		border-radius: ${borderRadius || 0}${radiusUnit};
-		box-shadow: ${shadowColor || "#000000"} ${hOffset || 0}px ${vOffset || 0}px ${
-		blur || 0
-	}px ${spread || 0}px ${inset ? "inset" : ""};
+		
 		transition: ${
 			wrapperTransitionTime ? `${wrapperTransitionTime / 1000}s` : ".5s"
 		};
+	}
+
+	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}:hover{
+		${
+			hoverShadowColor
+				? `box-shadow: ${hoverShadowColor} ${hoverHOffset}px ${hoverVOffset}px ${hoverBlur}px ${hoverSpread}px ${
+						hoverInset ? "inset" : " "
+				  };`
+				: " "
+		}
 	}
 	`;
 
@@ -495,18 +512,18 @@ const Save = (props) => {
 
 			<div
 				className={`eb-counter-wrapper eb-counter-wrapper-${randomNumber}`}
-				data-shadowColor={shadowColor || "#00000000"}
-				data-hOffset={hOffset || 0}
-				data-vOffset={vOffset || 0}
-				data-blur={blur || 0}
-				data-spread={spread || 0}
-				data-inset={inset ? "inset" : " "}
-				data-hoverShadowColor={hoverShadowColor || "#00000000"}
-				data-hoverHOffset={hoverHOffset || 0}
-				data-hoverVOffset={hoverVOffset || 0}
-				data-hoverBlur={hoverBlur || 0}
-				data-hoverSpread={hoverSpread || 0}
-				data-hoverInset={hoverInset ? "inset" : " "}
+				// data-shadowColor={shadowColor || "#00000000"}
+				// data-hOffset={hOffset || 0}
+				// data-vOffset={vOffset || 0}
+				// data-blur={blur || 0}
+				// data-spread={spread || 0}
+				// data-inset={inset ? "inset" : " "}
+				// data-hoverShadowColor={hoverShadowColor || "#00000000"}
+				// data-hoverHOffset={hoverHOffset || 0}
+				// data-hoverVOffset={hoverVOffset || 0}
+				// data-hoverBlur={hoverBlur || 0}
+				// data-hoverSpread={hoverSpread || 0}
+				// data-hoverInset={hoverInset ? "inset" : " "}
 			>
 				<h4 className="eb-counter-number">
 					<span className="eb-counter-prefix">{counterPrefix}</span>

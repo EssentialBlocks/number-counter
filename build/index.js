@@ -2087,7 +2087,11 @@ var Edit = function Edit(props) {
   var isSelected = props.isSelected,
       attributes = props.attributes,
       setAttributes = props.setAttributes;
-  console.log("--------edit:", props);
+  var wpDataMeta = wp.data.select("core/editor").getEditedPostAttribute("meta");
+  console.log("--------edit:", {
+    props: props,
+    wpDataMeta: wpDataMeta
+  }, wp.data);
   var resOption = attributes.resOption,
       randomNumber = attributes.randomNumber,
       target = attributes.target,
@@ -2098,7 +2102,8 @@ var Edit = function Edit(props) {
       startValue = attributes.startValue,
       isShowSeparator = attributes.isShowSeparator,
       separator = attributes.separator,
-      wrapperFlexDirection = attributes.wrapperFlexDirection,
+      _attributes$wrapperFl = attributes.wrapperFlexDirection,
+      wrapperFlexDirection = _attributes$wrapperFl === void 0 ? wrapperFlexDirection || "column" : _attributes$wrapperFl,
       titleColor = attributes.titleColor,
       numberColor = attributes.numberColor,
       numPrefixColor = attributes.numPrefixColor,
@@ -2119,9 +2124,12 @@ var Edit = function Edit(props) {
       MOBnumPrefixColor = _attributes$MOBnumPre === void 0 ? MOBnumPrefixColor || TABnumPrefixColor || numPrefixColor : _attributes$MOBnumPre,
       _attributes$MOBnumSuf = attributes.MOBnumSuffixColor,
       MOBnumSuffixColor = _attributes$MOBnumSuf === void 0 ? MOBnumSuffixColor || TABnumSuffixColor || numSuffixColor : _attributes$MOBnumSuf,
-      gapNumTitle = attributes.gapNumTitle,
-      gapNumPrefix = attributes.gapNumPrefix,
-      gapNumSuffix = attributes.gapNumSuffix,
+      _attributes$gapNumTit = attributes.gapNumTitle,
+      gapNumTitle = _attributes$gapNumTit === void 0 ? gapNumTitle || 0 : _attributes$gapNumTit,
+      _attributes$gapNumPre = attributes.gapNumPrefix,
+      gapNumPrefix = _attributes$gapNumPre === void 0 ? gapNumPrefix || 0 : _attributes$gapNumPre,
+      _attributes$gapNumSuf = attributes.gapNumSuffix,
+      gapNumSuffix = _attributes$gapNumSuf === void 0 ? gapNumSuffix || 0 : _attributes$gapNumSuf,
       _attributes$TABgapNum = attributes.TABgapNumTitle,
       TABgapNumTitle = _attributes$TABgapNum === void 0 ? TABgapNumTitle || gapNumTitle : _attributes$TABgapNum,
       _attributes$TABgapNum2 = attributes.TABgapNumPrefix,
@@ -2662,7 +2670,8 @@ var Inspector = function Inspector(props) {
       blur = attributes.blur,
       spread = attributes.spread,
       inset = attributes.inset,
-      hoverShadowColor = attributes.hoverShadowColor,
+      _attributes$hoverShad = attributes.hoverShadowColor,
+      hoverShadowColor = _attributes$hoverShad === void 0 ? hoverShadowColor || shadowColor : _attributes$hoverShad,
       hoverHOffset = attributes.hoverHOffset,
       hoverVOffset = attributes.hoverVOffset,
       hoverBlur = attributes.hoverBlur,
@@ -3704,17 +3713,27 @@ var Save = function Save(props) {
       borderRadius = attributes.borderRadius,
       radiusUnit = attributes.radiusUnit,
       shadowColor = attributes.shadowColor,
-      hOffset = attributes.hOffset,
-      vOffset = attributes.vOffset,
-      blur = attributes.blur,
-      spread = attributes.spread,
+      _attributes$hOffset = attributes.hOffset,
+      hOffset = _attributes$hOffset === void 0 ? hOffset || 0 : _attributes$hOffset,
+      _attributes$vOffset = attributes.vOffset,
+      vOffset = _attributes$vOffset === void 0 ? vOffset || 0 : _attributes$vOffset,
+      _attributes$blur = attributes.blur,
+      blur = _attributes$blur === void 0 ? blur || 0 : _attributes$blur,
+      _attributes$spread = attributes.spread,
+      spread = _attributes$spread === void 0 ? spread || 0 : _attributes$spread,
       inset = attributes.inset,
-      hoverShadowColor = attributes.hoverShadowColor,
-      hoverHOffset = attributes.hoverHOffset,
-      hoverVOffset = attributes.hoverVOffset,
-      hoverBlur = attributes.hoverBlur,
-      hoverSpread = attributes.hoverSpread,
-      hoverInset = attributes.hoverInset,
+      _attributes$hoverShad = attributes.hoverShadowColor,
+      hoverShadowColor = _attributes$hoverShad === void 0 ? hoverShadowColor || shadowColor : _attributes$hoverShad,
+      _attributes$hoverHOff = attributes.hoverHOffset,
+      hoverHOffset = _attributes$hoverHOff === void 0 ? hoverHOffset || hOffset : _attributes$hoverHOff,
+      _attributes$hoverVOff = attributes.hoverVOffset,
+      hoverVOffset = _attributes$hoverVOff === void 0 ? hoverVOffset || vOffset : _attributes$hoverVOff,
+      _attributes$hoverBlur = attributes.hoverBlur,
+      hoverBlur = _attributes$hoverBlur === void 0 ? hoverBlur || blur : _attributes$hoverBlur,
+      _attributes$hoverSpre = attributes.hoverSpread,
+      hoverSpread = _attributes$hoverSpre === void 0 ? hoverSpread || spread : _attributes$hoverSpre,
+      _attributes$hoverInse = attributes.hoverInset,
+      hoverInset = _attributes$hoverInse === void 0 ? hoverInset || inset : _attributes$hoverInse,
       wrapperTransitionTime = attributes.wrapperTransitionTime; // function to generate typography styles for an element based on it's prefix
 
   var generateTypographyStylesForSave = function generateTypographyStylesForSave(prefixConstant) {
@@ -3787,7 +3806,7 @@ var Save = function Save(props) {
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(marginTop ? "margin-top: ".concat(marginTop).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginBottom ? "margin-bottom: ".concat(marginBottom).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginLeft ? "margin-left: ".concat(marginLeft).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginRight ? "margin-right: ".concat(marginRight).concat(marginUnit, ";") : " ", "\n\t\t").concat(paddingTop ? "padding-top: ".concat(paddingTop).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingBottom ? "padding-bottom: ".concat(paddingBottom).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingRight ? "padding-right: ".concat(paddingRight).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingLeft ? "padding-left: ".concat(paddingLeft).concat(paddingUnit, ";") : " ", "\n\t\t").concat(gapNumTitle ? "gap: ".concat(gapNumTitle, "px;") : " ", "\n\t\t").concat(wrapperFlexDirection ? "flex-direction: ".concat(wrapperFlexDirection, ";") : " ", "\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\tbox-shadow: ").concat(shadowColor || "#000000", " ").concat(hOffset || 0, "px ").concat(vOffset || 0, "px ").concat(blur || 0, "px ").concat(spread || 0, "px ").concat(inset ? "inset" : "", ";\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\t");
+  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(marginTop ? "margin-top: ".concat(marginTop).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginBottom ? "margin-bottom: ".concat(marginBottom).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginLeft ? "margin-left: ".concat(marginLeft).concat(marginUnit, ";") : " ", "\n\t\t").concat(marginRight ? "margin-right: ".concat(marginRight).concat(marginUnit, ";") : " ", "\n\t\t").concat(paddingTop ? "padding-top: ".concat(paddingTop).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingBottom ? "padding-bottom: ".concat(paddingBottom).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingRight ? "padding-right: ".concat(paddingRight).concat(paddingUnit, ";") : " ", "\n\t\t").concat(paddingLeft ? "padding-left: ".concat(paddingLeft).concat(paddingUnit, ";") : " ", "\n\t\t").concat(gapNumTitle ? "gap: ".concat(gapNumTitle, "px;") : " ", "\n\t\t").concat(wrapperFlexDirection ? "flex-direction: ".concat(wrapperFlexDirection, ";") : " ", "\n\t\t").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\t\tbackground-size: ").concat(backgroundSize, ";\n\t\tbackground-color:\n\t\t\t").concat(backgroundType === "fill" && backgroundColor || "transparent", ";\n\t\tborder: ").concat(borderWidth || 0, "px ").concat(borderStyle, " ").concat(borderColor || "#000000", ";\n\t\tborder-radius: ").concat(borderRadius || 0).concat(radiusUnit, ";\n\t\t\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\n\t.eb-counter-wrapper.eb-counter-wrapper-").concat(randomNumber, ":hover{\n\t\t").concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(hoverInset ? "inset" : " ", ";") : " ", "\n\t}\n\t");
   var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(TABmarginTop ? "margin-top: ".concat(TABmarginTop).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginBottom ? "margin-bottom: ".concat(TABmarginBottom).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginLeft ? "margin-left: ".concat(TABmarginLeft).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABmarginRight ? "margin-right: ".concat(TABmarginRight).concat(TABmarginUnit, ";") : " ", "\n\t\t").concat(TABpaddingTop ? "padding-top: ".concat(TABpaddingTop).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingBottom ? "padding-bottom: ".concat(TABpaddingBottom).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingRight ? "padding-right: ".concat(TABpaddingRight).concat(TABpaddingUnit, ";") : " ", "\n\t\t").concat(TABpaddingLeft ? "padding-left: ".concat(TABpaddingLeft).concat(TABpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(TABgapNumTitle ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\n\t}\n\t");
   var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, "{\n\t\t").concat(MOBmarginTop ? "margin-top: ".concat(MOBmarginTop).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginBottom ? "margin-bottom: ".concat(MOBmarginBottom).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginLeft ? "margin-left: ".concat(MOBmarginLeft).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBmarginRight ? "margin-right: ".concat(MOBmarginRight).concat(MOBmarginUnit, ";") : " ", "\n\t\t").concat(MOBpaddingTop ? "padding-top: ".concat(MOBpaddingTop).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingBottom ? "padding-bottom: ".concat(MOBpaddingBottom).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingRight ? "padding-right: ".concat(MOBpaddingRight).concat(MOBpaddingUnit, ";") : " ", "\n\t\t").concat(MOBpaddingLeft ? "padding-left: ".concat(MOBpaddingLeft).concat(MOBpaddingUnit, ";") : " ", "\n\t\t\n\t\t").concat(MOBgapNumTitle ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t");
   var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(randomNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\tcolor : ").concat(numberColor, ";\n\t\t").concat(gapNumPrefix ? "padding-left: ".concat(gapNumPrefix, "px;") : " ", "\n\t\t").concat(gapNumSuffix ? "padding-right: ".concat(gapNumSuffix, "px;") : " ", "\n\t}\n\t");
@@ -3806,19 +3825,19 @@ var Save = function Save(props) {
   var tabAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numberStylesTab) ? numberStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(titleStylesTab) ? titleStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numPrefixStylesTab) ? numPrefixStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numSuffixStylesTab) ? numSuffixStylesTab : " ", "\n\t");
   var mobileAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t");
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(desktopAllStyles), "@media all and (max-width: 1030px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(tabAllStyles), "}@media all and (max-width: 680px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["minifyCssStrings"])(mobileAllStyles), "}")), /*#__PURE__*/React.createElement("div", {
-    className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber),
-    "data-shadowColor": shadowColor || "#00000000",
-    "data-hOffset": hOffset || 0,
-    "data-vOffset": vOffset || 0,
-    "data-blur": blur || 0,
-    "data-spread": spread || 0,
-    "data-inset": inset ? "inset" : " ",
-    "data-hoverShadowColor": hoverShadowColor || "#00000000",
-    "data-hoverHOffset": hoverHOffset || 0,
-    "data-hoverVOffset": hoverVOffset || 0,
-    "data-hoverBlur": hoverBlur || 0,
-    "data-hoverSpread": hoverSpread || 0,
-    "data-hoverInset": hoverInset ? "inset" : " "
+    className: "eb-counter-wrapper eb-counter-wrapper-".concat(randomNumber) // data-shadowColor={shadowColor || "#00000000"}
+    // data-hOffset={hOffset || 0}
+    // data-vOffset={vOffset || 0}
+    // data-blur={blur || 0}
+    // data-spread={spread || 0}
+    // data-inset={inset ? "inset" : " "}
+    // data-hoverShadowColor={hoverShadowColor || "#00000000"}
+    // data-hoverHOffset={hoverHOffset || 0}
+    // data-hoverVOffset={hoverVOffset || 0}
+    // data-hoverBlur={hoverBlur || 0}
+    // data-hoverSpread={hoverSpread || 0}
+    // data-hoverInset={hoverInset ? "inset" : " "}
+
   }, /*#__PURE__*/React.createElement("h4", {
     className: "eb-counter-number"
   }, /*#__PURE__*/React.createElement("span", {

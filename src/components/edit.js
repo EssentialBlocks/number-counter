@@ -19,7 +19,12 @@ import { generateRandomNumber, textInsideForEdit } from "./helpers";
 
 const Edit = (props) => {
 	const { isSelected, attributes, setAttributes } = props;
-	console.log("--------edit:", props);
+
+	const wpDataMeta = wp.data
+		.select("core/editor")
+		.getEditedPostAttribute("meta");
+
+	console.log("--------edit:", { props, wpDataMeta }, wp.data);
 	const {
 		// responsive control attributes ⬇
 		resOption,
@@ -36,7 +41,7 @@ const Edit = (props) => {
 		startValue,
 		isShowSeparator,
 		separator,
-		wrapperFlexDirection,
+		wrapperFlexDirection = wrapperFlexDirection || "column",
 
 		// counter color attributes ⬇
 		titleColor,
@@ -59,9 +64,9 @@ const Edit = (props) => {
 			numSuffixColor,
 
 		// spacing attributes ⬇
-		gapNumTitle,
-		gapNumPrefix,
-		gapNumSuffix,
+		gapNumTitle = gapNumTitle || 0,
+		gapNumPrefix = gapNumPrefix || 0,
+		gapNumSuffix = gapNumSuffix || 0,
 
 		TABgapNumTitle = TABgapNumTitle || gapNumTitle,
 		TABgapNumPrefix = TABgapNumPrefix || gapNumPrefix,

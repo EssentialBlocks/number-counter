@@ -174,7 +174,7 @@ const Inspector = (props) => {
 		blur,
 		spread,
 		inset,
-		hoverShadowColor,
+		hoverShadowColor = hoverShadowColor || shadowColor,
 		hoverHOffset,
 		hoverVOffset,
 		hoverBlur,
