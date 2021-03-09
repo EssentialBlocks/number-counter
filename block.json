@@ -1,9 +1,15 @@
 {
-	"name": "block/counter-up-block",
+	"apiVersion": 2,
+	"name": "create-block/counter-up-block",
 	"title": "Counter Up",
 	"category": "widgets",
-	"description": " Gutenberg ",
-	"textdomain": "counter-block",
+	"icon": "smiley",
+	"description": "Put spotlight on your statistics using animated Counter-Up for Gutenberg",
+	"textdomain": "counter-up",
+	"supports": {
+		"html": false
+	},
 	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css"
 }
