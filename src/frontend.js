@@ -155,4 +155,64 @@ window.addEventListener("DOMContentLoaded", function () {
 
 		window.addEventListener("scroll", debounce(handleAnimationOnScroll));
 	});
+
+	//
+	//
+	// codes to mimmik tab/mobile css in editor panel of gutenberg
+	//
+	//
+
+	const editorMain = document.getElementById("editor");
+
+	const handleSidebarClick = (e) => {
+		const TargetClassName = e.target.className;
+		if (!/eb\-res\-btn/i.test(TargetClassName)) return;
+		console.log(
+			`----cssStrings from frontend.js,  eb-res-btn click kora hoiche`
+		);
+
+		const allCounterWrapper = document.querySelectorAll(`.eb-counter-wrapper`);
+
+		allCounterWrapper.forEach((item) => {
+			const styleTagForItem = item.previousElementSibling;
+			const cssStrings = styleTagForItem.textContent;
+
+			const minCss = cssStrings.replace(/\s+/g, " ");
+			const cssMimmikPlaceRegex = /(?<=edit_mimmikcss_start\s\*\/).+(?=\/\*\sedit_mimmikcss_end)/i;
+
+			let newCssStrings = " ";
+
+			if (/eb\-res\-btn\-tab/i.test(TargetClassName)) {
+				const tabCssMacth = minCss.match(
+					/(?<=tab_css_start\s\*\/).+(?=\/\*\stab_css_end)/i
+				);
+				const tabCssStrings = (tabCssMacth || [" "])[0];
+
+				console.log({ tabCssStrings });
+
+				newCssStrings = minCss.replace(cssMimmikPlaceRegex, tabCssStrings);
+			} else if (/eb\-res\-btn\-mobile/i.test(TargetClassName)) {
+				const mobCssMacth = minCss.match(
+					/(?<=mobile_css_start\s\*\/).+(?=\/\*\smobile_css_end)/i
+				);
+				const mobCssStrings = (mobCssMacth || [" "])[0];
+
+				console.log({ mobCssStrings });
+
+				newCssStrings = minCss.replace(cssMimmikPlaceRegex, mobCssStrings);
+			} else {
+				newCssStrings = minCss.replace(cssMimmikPlaceRegex, " ");
+			}
+
+			console.log({
+				cssStrings,
+				minCss,
+				newCssStrings,
+			});
+
+			styleTagForItem.textContent = newCssStrings;
+		});
+	};
+
+	editorMain.addEventListener("click", handleSidebarClick);
 });

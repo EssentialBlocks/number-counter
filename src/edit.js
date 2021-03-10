@@ -562,19 +562,23 @@ const Edit = (props) => {
 	`;
 
 	const tabAllStyles = `
+		/* Tab_Css_Start */
 		${wrapperStylesTab}
 		${numberStylesTab}
 		${titleStylesTab}
 		${numPrefixStylesTab}
 		${numSuffixStylesTab}
+		/* Tab_Css_End */
 	`;
 
 	const mobileAllStyles = `
+		/* Mobile_Css_Start */
 		${wrapperStylesMobile}
 		${numberStylesMobile}
 		${titleStylesMobile}
 		${numPrefixStylesMobile}
 		${numSuffixStylesMobile}
+		/* Mobile_Css_End */
 	`;
 
 	return [
@@ -587,8 +591,9 @@ const Edit = (props) => {
 				{`
 				${desktopAllStyles}
 
-				${resOption === "tab" ? tabAllStyles : " "}
-				${resOption === "mobile" ? mobileAllStyles : " "}
+				/* edit_mimmikCss_Start */
+
+				/* edit_mimmikCss_End */
 
 				@media all and (max-width: 1030px) {				
 					${tabAllStyles}
