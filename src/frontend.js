@@ -165,6 +165,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	var editorMain = document.getElementById("editor");
 
+	if (!editorMain) return;
+
+	console.log('document.getElementById("editor") aaache');
+
 	function handleSidebarClick(e) {
 		var TargetClassName = e.target.className;
 		if (!/eb\-res\-btn/i.test(TargetClassName)) return;
