@@ -36,3 +36,10 @@ in save.js shadow attributes fallen back to a value when undefined and made hove
 
 in frontend.js all shadow hover data commented as they're no longer needed.
 
+-------------------
+2021-03-11 12-57
+
+runned 
+    git submodule update --init
+    git submodule update --init --recursive
+    git submodule update --recursive --remote
