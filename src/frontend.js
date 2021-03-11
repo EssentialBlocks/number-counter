@@ -149,7 +149,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			var styleTagForItem = item.previousElementSibling;
 			var cssStrings = styleTagForItem.textContent;
 			var minCss = cssStrings.replace(/\s+/g, " ");
-			var cssMimmikPlaceRegex = /(?<=edit_mimmikcss_start\s\*\/).+(?=\/\*\sedit_mimmikcss_end)/i;
+			var cssMimmikPlaceRegex = /(?<=edit_mimmikcss_start\s*\*\/).+(?=\/\*\s*edit_mimmikcss_end)/i;
 			var newCssStrings = " ";
 
 			if (/eb\-res\-btn\-tab/i.test(TargetClassName)) {

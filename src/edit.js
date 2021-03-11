@@ -591,12 +591,16 @@ const Edit = (props) => {
 				{`
 				${desktopAllStyles}
 
-				/* edit_mimmikCss_Start */
+				/*
+					edit_mimmikcss_start
+				*/
 
 				${resOption === "tab" ? tabAllStyles : " "}
 				${resOption === "mobile" ? mobileAllStyles : " "}
-				
-				/* edit_mimmikCss_End */
+
+				/*
+					edit_mimmikcss_end
+				*/
 
 				@media all and (max-width: 1030px) {				
 					${tabAllStyles}
