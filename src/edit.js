@@ -593,6 +593,9 @@ const Edit = (props) => {
 
 				/* edit_mimmikCss_Start */
 
+				${resOption === "tab" ? tabAllStyles : " "}
+				${resOption === "mobile" ? mobileAllStyles : " "}
+				
 				/* edit_mimmikCss_End */
 
 				@media all and (max-width: 1030px) {				
