@@ -1,0 +1,18 @@
+[submodule "util/color-control"]
+	path = util/color-control
+	url = https://github.com/EssentialBlocks/color-control
+[submodule "util/dimensions-control"]
+	path = util/dimensions-control
+	url = https://github.com/EssentialBlocks/dimensions-control
+[submodule "util/gradient-color-controller"]
+	path = util/gradient-color-controller
+	url = https://github.com/EssentialBlocks/gradient-color-controller
+[submodule "util/image-avatar"]
+	path = util/image-avatar
+	url = https://github.com/EssentialBlocks/image-avatar
+[submodule "util/toggle-button"]
+	path = util/toggle-button
+	url = https://github.com/EssentialBlocks/toggle-button.git
+[submodule "util/unit-control"]
+	path = util/unit-control
+	url = https://github.com/EssentialBlocks/unit-control
