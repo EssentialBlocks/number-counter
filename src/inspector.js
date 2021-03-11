@@ -71,19 +71,15 @@ const Inspector = (props) => {
 		numPrefixColor,
 		numSuffixColor,
 
-		TABtitleColor = TABtitleColor || titleColor,
-		TABnumberColor = TABnumberColor || numberColor,
-		TABnumPrefixColor = TABnumPrefixColor || numPrefixColor,
-		TABnumSuffixColor = TABnumSuffixColor || numSuffixColor,
+		TABtitleColor,
+		TABnumberColor,
+		TABnumPrefixColor,
+		TABnumSuffixColor,
 
-		MOBtitleColor = MOBtitleColor || TABtitleColor || titleColor,
-		MOBnumberColor = MOBnumberColor || TABnumberColor || numberColor,
-		MOBnumPrefixColor = MOBnumPrefixColor ||
-			TABnumPrefixColor ||
-			numPrefixColor,
-		MOBnumSuffixColor = MOBnumSuffixColor ||
-			TABnumSuffixColor ||
-			numSuffixColor,
+		MOBtitleColor,
+		MOBnumberColor,
+		MOBnumPrefixColor,
+		MOBnumSuffixColor,
 
 		// spacing attributes ⬇
 		gapNumTitle,
