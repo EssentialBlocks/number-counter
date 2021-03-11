@@ -185,19 +185,19 @@ export default {
 	// color attributes ⬇
 	titleColor: {
 		type: "string",
-		default: "#566162",
+		// default: "#566162",
 	},
 	numberColor: {
 		type: "string",
-		default: "#3074ff",
+		// default: "#3074ff",
 	},
 	numPrefixColor: {
 		type: "string",
-		default: "#3074ff",
+		// default: "#3074ff",
 	},
 	numSuffixColor: {
 		type: "string",
-		default: "#3074ff",
+		// default: "#3074ff",
 	},
 
 	TABtitleColor: {
@@ -364,7 +364,7 @@ export default {
 	},
 	backgroundColor: {
 		type: "string",
-		default: "transparent",
+		// default: "transparent",
 	},
 	gradientColor: {
 		type: "string",
@@ -422,7 +422,7 @@ export default {
 	// border attributes ⬇
 	borderColor: {
 		type: "string",
-		default: "#000000",
+		// default: "#000000",
 	},
 	borderStyle: {
 		type: "string",
