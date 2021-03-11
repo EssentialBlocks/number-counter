@@ -280,15 +280,19 @@ export default {
 	},
 	paddingTop: {
 		type: "number",
+		default: 30,
 	},
 	paddingRight: {
 		type: "number",
+		default: 10,
 	},
 	paddingBottom: {
 		type: "number",
+		default: 30,
 	},
 	paddingLeft: {
 		type: "number",
+		default: 10,
 	},
 
 	TABmarginUnit: {
