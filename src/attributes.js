@@ -263,36 +263,32 @@ export default {
 		default: "px",
 	},
 	marginTop: {
-		type: "string",
+		type: "number",
 	},
 	marginRight: {
-		type: "string",
+		type: "number",
 	},
 	marginBottom: {
-		type: "string",
+		type: "number",
 	},
 	marginLeft: {
-		type: "string",
+		type: "number",
 	},
 	paddingUnit: {
 		type: "string",
 		default: "px",
 	},
 	paddingTop: {
-		type: "string",
-		default: "50",
+		type: "number",
 	},
 	paddingRight: {
-		type: "string",
-		default: "10",
+		type: "number",
 	},
 	paddingBottom: {
-		type: "string",
-		default: "50",
+		type: "number",
 	},
 	paddingLeft: {
-		type: "string",
-		default: "10",
+		type: "number",
 	},
 
 	TABmarginUnit: {
