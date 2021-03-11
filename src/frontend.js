@@ -154,7 +154,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 			if (/eb\-res\-btn\-tab/i.test(TargetClassName)) {
 				var tabCssMacth = minCss.match(
-					/(?<=tab_css_start\s\*\/).+(?=\/\*\stab_css_end)/i
+					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*1030px\s*\)\s*\{).+(?=\}\s*\@media\s+all)/i
 				);
 				var tabCssStrings = (tabCssMacth || [" "])[0];
 				console.log({
@@ -163,7 +163,7 @@ window.addEventListener("DOMContentLoaded", function () {
 				newCssStrings = minCss.replace(cssMimmikPlaceRegex, tabCssStrings);
 			} else if (/eb\-res\-btn\-mobile/i.test(TargetClassName)) {
 				var mobCssMacth = minCss.match(
-					/(?<=mobile_css_start\s\*\/).+(?=\/\*\smobile_css_end)/i
+					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*680px\s*\)\s*\{).+(?=(\}\s*)$)/i
 				);
 				var mobCssStrings = (mobCssMacth || [" "])[0];
 				console.log({

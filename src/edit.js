@@ -562,23 +562,19 @@ const Edit = (props) => {
 	`;
 
 	const tabAllStyles = `
-		/* Tab_Css_Start */
 		${wrapperStylesTab}
 		${numberStylesTab}
 		${titleStylesTab}
 		${numPrefixStylesTab}
 		${numSuffixStylesTab}
-		/* Tab_Css_End */
 	`;
 
 	const mobileAllStyles = `
-		/* Mobile_Css_Start */
 		${wrapperStylesMobile}
 		${numberStylesMobile}
 		${titleStylesMobile}
 		${numPrefixStylesMobile}
 		${numSuffixStylesMobile}
-		/* Mobile_Css_End */
 	`;
 
 	return [
