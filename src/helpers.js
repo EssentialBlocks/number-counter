@@ -125,16 +125,22 @@ export const generateRandomNumber = () =>
 	Math.floor(Math.random() * 1000000000);
 
 // minifyCssStrings is for minifying the css which is in the style tag as a string
-export const minifyCssStrings = (cssString) =>
-	cssString
-		.replace(/(?<=\:).+(?=\;)/g, function (match) {
-			// console.log({ match, g1, offset, string });
-			return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
-		})
-		// .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
-		.replace(/\s+(?![\w\d\.\-\#]+\{)/g, "")
-		.replace(/\s+/g, " ")
-		.replace(/__s_p_a_c_e__/g, " ");
+export const minifyCssStrings = (cssString) => {
+	console.log({ cssString });
+
+	return (
+		cssString
+			.replace(/\s+/g, " ")
+			.replace(/(?<=\:).+(?=\;)/g, function (match) {
+				// console.log({ match, g1, offset, string });
+				return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
+			})
+			// .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
+			.replace(/\s+(?![\w\d\.\-\#]+\{)/g, "")
+			.replace(/\s+/g, " ")
+			.replace(/__s_p_a_c_e__/g, " ")
+	);
+};
 
 // check if css string is empty or not. important: there has to be a space before css values
 export const isCssExists = (cssString) =>

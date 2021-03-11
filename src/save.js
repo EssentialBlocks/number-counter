@@ -390,7 +390,7 @@ const Save = (props) => {
 	const numberStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesDesktop}
-		color : ${numberColor};
+		${numberColor ? ` color : ${numberColor};` : " "}
 		${gapNumPrefix ? `padding-left: ${gapNumPrefix}px;` : " "}
 		${gapNumSuffix ? `padding-right: ${gapNumSuffix}px;` : " "}
 	}
@@ -415,7 +415,7 @@ const Save = (props) => {
 	const titleStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesDesktop}
-		color : ${titleColor};
+		${titleColor ? ` color : ${titleColor};` : " "}
 	}
 	`;
 
@@ -434,7 +434,7 @@ const Save = (props) => {
 	const numPrefixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesDesktop}
-		color : ${numPrefixColor};
+		${numPrefixColor ? ` color : ${numPrefixColor};` : " "}
 	}
 	`;
 
@@ -453,7 +453,7 @@ const Save = (props) => {
 	const numSuffixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesDesktop}
-		color : ${numSuffixColor};
+		${numSuffixColor ? ` color : ${numSuffixColor};` : " "}
 	}
 	`;
 

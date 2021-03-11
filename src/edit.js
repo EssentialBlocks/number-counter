@@ -331,7 +331,7 @@ const Edit = (props) => {
 
 		const typoStylesDesktop = `
 			font-family: ${fontFamily};
-			font-size: ${fontSize}${sizeUnit};
+			${fontSize ? `font-size: ${fontSize}${sizeUnit};` : "inherit"}
 			line-height: ${lineHeight}${lineHeightUnit};
 			font-weight: ${fontWeight};
 			text-decoration: ${textDecoration};
@@ -468,7 +468,7 @@ const Edit = (props) => {
 	const numberStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesDesktop}
-		color : ${numberColor};
+		${numberColor ? `color : ${numberColor};` : " "}
 		padding-left: ${gapNumPrefix}px;
 		padding-right: ${gapNumSuffix}px;
 	}
@@ -477,7 +477,7 @@ const Edit = (props) => {
 	const numberStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesTab}
-		color : ${TABnumberColor};
+		${TABnumberColor ? `color : ${TABnumberColor};` : " "}
 		padding-left: ${TABgapNumPrefix}px;
 		padding-right: ${TABgapNumSuffix}px;
 	} `;
@@ -485,7 +485,7 @@ const Edit = (props) => {
 	const numberStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-number{
 		${numberTypoStylesMobile}
-		color : ${MOBnumberColor};
+		${MOBnumberColor ? `color : ${MOBnumberColor};` : " "}
 		padding-left: ${MOBgapNumPrefix}px;
 		padding-right: ${MOBgapNumSuffix}px;
 	}`;
@@ -493,58 +493,58 @@ const Edit = (props) => {
 	const titleStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesDesktop}
-		color : ${titleColor};
+		${titleColor ? `color : ${titleColor};` : " "}
 	}
 	`;
 
 	const titleStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesTab}
-		color : ${TABtitleColor};
+		${TABtitleColor ? `color : ${TABtitleColor};` : " "}
 	}  `;
 
 	const titleStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-title{
 		${titleTypoStylesMobile}
-		color : ${MOBtitleColor};
+		${MOBtitleColor ? `color : ${MOBtitleColor};` : " "}
 	} `;
 
 	const numPrefixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesDesktop}
-		color : ${numPrefixColor};
+		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
 	}
 	`;
 
 	const numPrefixStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
-		color : ${TABnumPrefixColor};
+		${TABnumPrefixColor ? `color : ${TABnumPrefixColor};` : " "}
 	}  `;
 
 	const numPrefixStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
-		color : ${MOBnumPrefixColor};
+		${MOBnumPrefixColor ? `color : ${MOBnumPrefixColor};` : " "}
 	}  `;
 
 	const numSuffixStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesDesktop}
-		color : ${numSuffixColor};
+		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
 	}
 	`;
 
 	const numSuffixStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
-		color : ${TABnumSuffixColor};
+		${TABnumSuffixColor ? `color : ${TABnumSuffixColor};` : " "}
 	} `;
 
 	const numSuffixStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
-		color : ${MOBnumSuffixColor};
+		${MOBnumSuffixColor ? `color : ${MOBnumSuffixColor};` : " "}
 	}
 
 	`;
