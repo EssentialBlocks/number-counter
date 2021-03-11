@@ -66,15 +66,16 @@ const Save = (props) => {
 
 		// margin padding attributes ⬇
 		marginUnit,
-		marginTop,
-		marginRight,
-		marginBottom,
-		marginLeft,
+		marginTop = marginTop || 0,
+		marginRight = marginRight || 0,
+		marginBottom = marginBottom || 0,
+		marginLeft = marginLeft || 0,
+
 		paddingUnit,
-		paddingTop,
-		paddingRight,
-		paddingBottom,
-		paddingLeft,
+		paddingTop = paddingTop || 0,
+		paddingRight = paddingRight || 0,
+		paddingBottom = paddingBottom || 0,
+		paddingLeft = paddingLeft || 0,
 
 		TABmarginUnit = TABmarginUnit || marginUnit,
 
@@ -305,14 +306,14 @@ const Save = (props) => {
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		${marginTop ? `margin-top: ${marginTop}${marginUnit};` : " "}
-		${marginBottom ? `margin-bottom: ${marginBottom}${marginUnit};` : " "}
-		${marginLeft ? `margin-left: ${marginLeft}${marginUnit};` : " "}
-		${marginRight ? `margin-right: ${marginRight}${marginUnit};` : " "}
-		${paddingTop ? `padding-top: ${paddingTop}${paddingUnit};` : " "}
-		${paddingBottom ? `padding-bottom: ${paddingBottom}${paddingUnit};` : " "}
-		${paddingRight ? `padding-right: ${paddingRight}${paddingUnit};` : " "}
-		${paddingLeft ? `padding-left: ${paddingLeft}${paddingUnit};` : " "}
+		margin-top: ${marginTop}${marginUnit};
+		margin-bottom: ${marginBottom}${marginUnit};
+		margin-left: ${marginLeft}${marginUnit};
+		margin-right: ${marginRight}${marginUnit};
+		padding-top: ${paddingTop}${paddingUnit};
+		padding-bottom: ${paddingBottom}${paddingUnit};
+		padding-right: ${paddingRight}${paddingUnit};
+		padding-left: ${paddingLeft}${paddingUnit};
 		${gapNumTitle ? `gap: ${gapNumTitle}px;` : " "}
 		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
 		${
