@@ -400,14 +400,10 @@ const Edit = (props) => {
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${marginTop}${marginUnit};
-		margin-bottom: ${marginBottom}${marginUnit};
-		margin-left: ${marginLeft}${marginUnit};
-		margin-right: ${marginRight}${marginUnit};
-		padding-top: ${paddingTop}${paddingUnit};
-		padding-bottom: ${paddingBottom}${paddingUnit};
-		padding-right: ${paddingRight}${paddingUnit};
-		padding-left: ${paddingLeft}${paddingUnit};
+		
+		margin: ${marginTop}${marginUnit} ${marginRight}${marginUnit} ${marginBottom}${marginUnit} ${marginLeft}${marginUnit};
+		padding: ${paddingTop}${paddingUnit} ${paddingRight}${paddingUnit} ${paddingBottom}${paddingUnit} ${paddingLeft}${paddingUnit};
+
 		gap: ${gapNumTitle}px;
 		flex-direction: ${wrapperFlexDirection};
 		background-image:
