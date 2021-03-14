@@ -516,22 +516,37 @@
 .eb-resButtons {
 	display: flex;
 	justify-content: space-between;
-	background-color: #aaa;
-	padding: 10px 5px;
+	padding: 5px 0;
 	margin-bottom: 10px;
 	gap: 5px;
 }
 
 button.eb-res-btn {
-	background: #fff;
-	border: 1px solid #fff;
+	background: #6c40f733;
+	border: 1px solid #6c40f733;
+	border-radius: 3px;
 	padding: 5px 0;
 	flex: 1;
+	color: #6c40f7;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+button.eb-res-btn:hover,
+button.eb-res-btn.active {
+	box-shadow: #6c40f799 0px 0px 5px 0px;
 }
 
 button.eb-res-btn.active {
-	background: #ccc;
-	border: 1px solid #ccc;
+	background: #6c40f7;
+	border: 1px solid #6c40f7;
+	color: #fff;
+}
+
+button.eb-res-btn:focus {
+	outline: none;
 }
 
 .edit-post-visual-editor.editor-styles-wrapper {
