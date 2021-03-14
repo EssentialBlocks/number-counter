@@ -1,11 +1,11 @@
 {
 	"apiVersion": 2,
-	"name": "create-block/counter-up-block",
-	"title": "Counter Up",
+	"name": "create-block/counter",
+	"title": "Counter",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Put spotlight on your statistics using animated Counter-Up for Gutenberg",
-	"textdomain": "counter-up",
+	"description": "Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!",
+	"textdomain": "counter",
 	"supports": {
 		"html": false
 	},

@@ -11,20 +11,20 @@ import save from "./save";
 import attributes from "./attributes";
 import icon from "./icon";
 
-registerBlockType("create-block/counter-up-block", {
+registerBlockType("create-block/counter", {
 	apiVersion: 2,
-	title: __("Counter Up", "block"),
+	title: __("Counter", "block"),
 	description: __(
-		"Put spotlight on your statistics using animated Counter-Up for Gutenberg ",
+		`Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!`,
 		"block"
 	),
 	category: "widgets",
 	icon,
 	attributes,
 	keywords: [
-		__("EB counter up", "essential-blocks"),
-		__("counter up", "essential-blocks"),
+		__("EB counter", "essential-blocks"),
 		__("counter", "essential-blocks"),
+		__("counter up", "essential-blocks"),
 	],
 	edit: Edit,
 	save,
