@@ -18,7 +18,11 @@ import {
 	numSuffix,
 } from "./constants/typographyPrefixConstants";
 
-import { generateRandomNumber, textInsideForEdit } from "./helpers";
+import {
+	generateRandomNumber,
+	textInsideForEdit,
+	softMinifyCssStrings,
+} from "./helpers";
 
 const Edit = (props) => {
 	const { isSelected, attributes, setAttributes } = props;
@@ -75,43 +79,84 @@ const Edit = (props) => {
 		TABgapNumPrefix = TABgapNumPrefix || gapNumPrefix,
 		TABgapNumSuffix = TABgapNumSuffix || gapNumSuffix,
 
-		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle || gapNumTitle,
-		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix,
-		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix,
+		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle,
+		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix,
+		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix,
 
 		// margin padding attributes ⬇
 		marginUnit,
+
 		marginTop = marginTop || 0,
 		marginRight = marginRight || 0,
 		marginBottom = marginBottom || 0,
 		marginLeft = marginLeft || 0,
+
 		paddingUnit,
+
 		paddingTop = paddingTop || 0,
 		paddingRight = paddingRight || 0,
 		paddingBottom = paddingBottom || 0,
 		paddingLeft = paddingLeft || 0,
 
 		TABmarginUnit = TABmarginUnit || marginUnit,
-		TABmarginTop = TABmarginTop || marginTop,
-		TABmarginRight = TABmarginRight || marginRight,
-		TABmarginBottom = TABmarginBottom || marginBottom,
-		TABmarginLeft = TABmarginLeft || marginLeft,
+
+		TABmarginTop = TABmarginTop === 0
+			? TABmarginTop
+			: TABmarginTop || marginTop,
+		TABmarginRight = TABmarginRight === 0
+			? TABmarginRight
+			: TABmarginRight || marginRight,
+		TABmarginBottom = TABmarginBottom === 0
+			? TABmarginBottom
+			: TABmarginBottom || marginBottom,
+		TABmarginLeft = TABmarginLeft === 0
+			? TABmarginLeft
+			: TABmarginLeft || marginLeft,
+
 		TABpaddingUnit = TABpaddingUnit || paddingUnit,
-		TABpaddingTop = TABpaddingTop || paddingTop,
-		TABpaddingRight = TABpaddingRight || paddingRight,
-		TABpaddingBottom = TABpaddingBottom || paddingBottom,
-		TABpaddingLeft = TABpaddingLeft || paddingLeft,
+
+		TABpaddingTop = TABpaddingTop === 0
+			? TABpaddingTop
+			: TABpaddingTop || paddingTop,
+		TABpaddingRight = TABpaddingRight === 0
+			? TABpaddingRight
+			: TABpaddingRight || paddingRight,
+		TABpaddingBottom = TABpaddingBottom === 0
+			? TABpaddingBottom
+			: TABpaddingBottom || paddingBottom,
+		TABpaddingLeft = TABpaddingLeft === 0
+			? TABpaddingLeft
+			: TABpaddingLeft || paddingLeft,
 
 		MOBmarginUnit = MOBmarginUnit || TABmarginUnit || marginUnit,
-		MOBmarginTop = MOBmarginTop || TABmarginTop || marginTop,
-		MOBmarginRight = MOBmarginRight || TABmarginRight || marginRight,
-		MOBmarginBottom = MOBmarginBottom || TABmarginBottom || marginBottom,
-		MOBmarginLeft = MOBmarginLeft || TABmarginLeft || marginLeft,
+
+		MOBmarginTop = MOBmarginTop === 0
+			? MOBmarginTop
+			: MOBmarginTop || TABmarginTop,
+		MOBmarginRight = MOBmarginRight === 0
+			? MOBmarginRight
+			: MOBmarginRight || TABmarginRight,
+		MOBmarginBottom = MOBmarginBottom === 0
+			? MOBmarginBottom
+			: MOBmarginBottom || TABmarginBottom,
+		MOBmarginLeft = MOBmarginLeft === 0
+			? MOBmarginLeft
+			: MOBmarginLeft || TABmarginLeft,
+
 		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit || paddingUnit,
-		MOBpaddingTop = MOBpaddingTop || TABpaddingTop || paddingTop,
-		MOBpaddingRight = MOBpaddingRight || TABpaddingRight || paddingRight,
-		MOBpaddingBottom = MOBpaddingBottom || TABpaddingBottom || paddingBottom,
-		MOBpaddingLeft = MOBpaddingLeft || TABpaddingLeft || paddingLeft,
+
+		MOBpaddingTop = MOBpaddingTop === 0
+			? MOBpaddingTop
+			: MOBpaddingTop || TABpaddingTop,
+		MOBpaddingRight = MOBpaddingRight === 0
+			? MOBpaddingRight
+			: MOBpaddingRight || TABpaddingRight,
+		MOBpaddingBottom = MOBpaddingBottom === 0
+			? MOBpaddingBottom
+			: MOBpaddingBottom || TABpaddingBottom,
+		MOBpaddingLeft = MOBpaddingLeft === 0
+			? MOBpaddingLeft
+			: MOBpaddingLeft || TABpaddingLeft,
 
 		// background attributes ⬇
 		backgroundType,
@@ -435,31 +480,35 @@ const Edit = (props) => {
 	}
 	`;
 
+	// margin-top: ${TABmarginTop}${TABmarginUnit};
+	// margin-bottom: ${TABmarginBottom}${TABmarginUnit};
+	// margin-left: ${TABmarginLeft}${TABmarginUnit};
+	// margin-right: ${TABmarginRight}${TABmarginUnit};
+	// padding-top: ${TABpaddingTop}${TABpaddingUnit};
+	// padding-bottom: ${TABpaddingBottom}${TABpaddingUnit};
+	// padding-right: ${TABpaddingRight}${TABpaddingUnit};
+	// padding-left: ${TABpaddingLeft}${TABpaddingUnit};
 	const wrapperStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${TABmarginTop}${TABmarginUnit};
-		margin-bottom: ${TABmarginBottom}${TABmarginUnit};
-		margin-left: ${TABmarginLeft}${TABmarginUnit};
-		margin-right: ${TABmarginRight}${TABmarginUnit};
-		padding-top: ${TABpaddingTop}${TABpaddingUnit};
-		padding-bottom: ${TABpaddingBottom}${TABpaddingUnit};
-		padding-right: ${TABpaddingRight}${TABpaddingUnit};
-		padding-left: ${TABpaddingLeft}${TABpaddingUnit};
-		
+		margin: ${TABmarginTop}${TABmarginUnit} ${TABmarginRight}${TABmarginUnit} ${TABmarginBottom}${TABmarginUnit} ${TABmarginLeft}${TABmarginUnit};
+		padding: ${TABpaddingTop}${TABpaddingUnit} ${TABpaddingRight}${TABpaddingUnit} ${TABpaddingBottom}${TABpaddingUnit} ${TABpaddingLeft}${TABpaddingUnit};
+
 		gap: ${TABgapNumTitle}px;
 	}
 	`;
 
+	// margin-top: ${MOBmarginTop}${MOBmarginUnit};
+	// margin-bottom: ${MOBmarginBottom}${MOBmarginUnit};
+	// margin-left: ${MOBmarginLeft}${MOBmarginUnit};
+	// margin-right: ${MOBmarginRight}${MOBmarginUnit};
+	// padding-top: ${MOBpaddingTop}${MOBpaddingUnit};
+	// padding-bottom: ${MOBpaddingBottom}${MOBpaddingUnit};
+	// padding-right: ${MOBpaddingRight}${MOBpaddingUnit};
+	// padding-left: ${MOBpaddingLeft}${MOBpaddingUnit};
 	const wrapperStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${randomNumber}{
-		margin-top: ${MOBmarginTop}${MOBmarginUnit};
-		margin-bottom: ${MOBmarginBottom}${MOBmarginUnit};
-		margin-left: ${MOBmarginLeft}${MOBmarginUnit};
-		margin-right: ${MOBmarginRight}${MOBmarginUnit};
-		padding-top: ${MOBpaddingTop}${MOBpaddingUnit};
-		padding-bottom: ${MOBpaddingBottom}${MOBpaddingUnit};
-		padding-right: ${MOBpaddingRight}${MOBpaddingUnit};
-		padding-left: ${MOBpaddingLeft}${MOBpaddingUnit};
+		margin: ${MOBmarginTop}${MOBmarginUnit} ${MOBmarginRight}${MOBmarginUnit} ${MOBmarginBottom}${MOBmarginUnit} ${MOBmarginLeft}${MOBmarginUnit};
+		padding: ${MOBpaddingTop}${MOBpaddingUnit} ${MOBpaddingRight}${MOBpaddingUnit} ${MOBpaddingBottom}${MOBpaddingUnit} ${MOBpaddingLeft}${MOBpaddingUnit};
 
 		gap: ${MOBgapNumTitle}px;
 	}
@@ -581,25 +630,25 @@ const Edit = (props) => {
 		<>
 			<style>
 				{`
-				${desktopAllStyles}
+				${softMinifyCssStrings(desktopAllStyles)}
 
 				/*
 					edit_mimmikcss_start
 				*/
 
-				${resOption === "tab" ? tabAllStyles : " "}
-				${resOption === "mobile" ? mobileAllStyles : " "}
+				${resOption === "tab" ? softMinifyCssStrings(tabAllStyles) : " "}
+				${resOption === "mobile" ? softMinifyCssStrings(mobileAllStyles) : " "}
 
 				/*
 					edit_mimmikcss_end
 				*/
 
 				@media all and (max-width: 1030px) {				
-					${tabAllStyles}
+					${softMinifyCssStrings(tabAllStyles)}
 				}
 
 				@media all and (max-width: 680px) {
-					${mobileAllStyles}
+					${softMinifyCssStrings(mobileAllStyles)}
 				}
 				`}
 			</style>

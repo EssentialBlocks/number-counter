@@ -229,12 +229,15 @@ export default {
 	// spacing attributes ⬇
 	gapNumTitle: {
 		type: "number",
+		default: 20,
 	},
 	gapNumPrefix: {
 		type: "number",
+		default: 0,
 	},
 	gapNumSuffix: {
 		type: "number",
+		default: 0,
 	},
 
 	TABgapNumTitle: {
@@ -262,6 +265,7 @@ export default {
 		type: "string",
 		default: "px",
 	},
+
 	marginTop: {
 		type: "number",
 	},
@@ -274,10 +278,12 @@ export default {
 	marginLeft: {
 		type: "number",
 	},
+
 	paddingUnit: {
 		type: "string",
 		default: "px",
 	},
+
 	paddingTop: {
 		type: "number",
 		default: 30,
@@ -298,63 +304,69 @@ export default {
 	TABmarginUnit: {
 		type: "string",
 	},
+
 	TABmarginTop: {
-		type: "string",
+		type: "number",
 	},
 	TABmarginRight: {
-		type: "string",
+		type: "number",
 	},
 	TABmarginBottom: {
-		type: "string",
+		type: "number",
 	},
 	TABmarginLeft: {
-		type: "string",
+		type: "number",
 	},
+
 	TABpaddingUnit: {
 		type: "string",
 	},
+
 	TABpaddingTop: {
-		type: "string",
+		type: "number",
 	},
 	TABpaddingRight: {
-		type: "string",
+		type: "number",
 	},
 	TABpaddingBottom: {
-		type: "string",
+		type: "number",
 	},
 	TABpaddingLeft: {
-		type: "string",
+		type: "number",
 	},
 
 	MOBmarginUnit: {
 		type: "string",
 	},
+
 	MOBmarginTop: {
-		type: "string",
+		type: "number",
 	},
 	MOBmarginRight: {
-		type: "string",
+		type: "number",
 	},
 	MOBmarginBottom: {
-		type: "string",
+		type: "number",
 	},
 	MOBmarginLeft: {
-		type: "string",
+		type: "number",
 	},
+
 	MOBpaddingUnit: {
 		type: "string",
 	},
+
 	MOBpaddingTop: {
-		type: "string",
+		type: "number",
 	},
 	MOBpaddingRight: {
-		type: "string",
+		type: "number",
 	},
 	MOBpaddingBottom: {
-		type: "string",
+		type: "number",
 	},
 	MOBpaddingLeft: {
-		type: "string",
+		type: "number",
 	},
 
 	// background attributes ⬇

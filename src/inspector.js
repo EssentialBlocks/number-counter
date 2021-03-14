@@ -49,7 +49,7 @@ import {
 } from "./constants/typographyPrefixConstants";
 
 const Inspector = (props) => {
-	console.log("--------inspector:", props);
+	console.log("--------inspector:", { props });
 	const { attributes, setAttributes } = props;
 	const {
 		// responsive control attributes ⬇
@@ -82,51 +82,104 @@ const Inspector = (props) => {
 		MOBnumSuffixColor,
 
 		// spacing attributes ⬇
-		gapNumTitle,
-		gapNumPrefix,
-		gapNumSuffix,
+		gapNumTitle = gapNumTitle || 0,
+		gapNumPrefix = gapNumPrefix || 0,
+		gapNumSuffix = gapNumSuffix || 0,
 
-		TABgapNumTitle = TABgapNumTitle || gapNumTitle,
-		TABgapNumPrefix = TABgapNumPrefix || gapNumPrefix,
-		TABgapNumSuffix = TABgapNumSuffix || gapNumSuffix,
+		TABgapNumTitle = TABgapNumTitle === 0
+			? TABgapNumTitle
+			: TABgapNumTitle || gapNumTitle,
+		TABgapNumPrefix = TABgapNumPrefix === 0
+			? TABgapNumPrefix
+			: TABgapNumPrefix || gapNumPrefix,
+		TABgapNumSuffix = TABgapNumSuffix === 0
+			? TABgapNumSuffix
+			: TABgapNumSuffix || gapNumSuffix,
 
-		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle || gapNumTitle,
-		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix || gapNumPrefix,
-		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix || gapNumSuffix,
+		MOBgapNumTitle = MOBgapNumTitle === 0
+			? MOBgapNumTitle
+			: MOBgapNumTitle || TABgapNumTitle,
+		MOBgapNumPrefix = MOBgapNumPrefix === 0
+			? MOBgapNumPrefix
+			: MOBgapNumPrefix || TABgapNumPrefix,
+		MOBgapNumSuffix = MOBgapNumSuffix === 0
+			? MOBgapNumSuffix
+			: MOBgapNumSuffix || TABgapNumSuffix,
 
 		// margin padding attributes ⬇
 		marginUnit,
-		marginTop,
-		marginRight,
-		marginBottom,
-		marginLeft,
+
+		marginTop = marginTop || 0,
+		marginRight = marginRight || 0,
+		marginBottom = marginBottom || 0,
+		marginLeft = marginLeft || 0,
+
 		paddingUnit,
-		paddingTop,
-		paddingRight,
-		paddingBottom,
-		paddingLeft,
+
+		paddingTop = paddingTop || 0,
+		paddingRight = paddingRight || 0,
+		paddingBottom = paddingBottom || 0,
+		paddingLeft = paddingLeft || 0,
 
 		TABmarginUnit = TABmarginUnit || marginUnit,
-		TABmarginTop = TABmarginTop || marginTop,
-		TABmarginRight = TABmarginRight || marginRight,
-		TABmarginBottom = TABmarginBottom || marginBottom,
-		TABmarginLeft = TABmarginLeft || marginLeft,
+
+		TABmarginTop = TABmarginTop === 0
+			? TABmarginTop
+			: TABmarginTop || marginTop,
+		TABmarginRight = TABmarginRight === 0
+			? TABmarginRight
+			: TABmarginRight || marginRight,
+		TABmarginBottom = TABmarginBottom === 0
+			? TABmarginBottom
+			: TABmarginBottom || marginBottom,
+		TABmarginLeft = TABmarginLeft === 0
+			? TABmarginLeft
+			: TABmarginLeft || marginLeft,
+
 		TABpaddingUnit = TABpaddingUnit || paddingUnit,
-		TABpaddingTop = TABpaddingTop || paddingTop,
-		TABpaddingRight = TABpaddingRight || paddingRight,
-		TABpaddingBottom = TABpaddingBottom || paddingBottom,
-		TABpaddingLeft = TABpaddingLeft || paddingLeft,
+
+		TABpaddingTop = TABpaddingTop === 0
+			? TABpaddingTop
+			: TABpaddingTop || paddingTop,
+		TABpaddingRight = TABpaddingRight === 0
+			? TABpaddingRight
+			: TABpaddingRight || paddingRight,
+		TABpaddingBottom = TABpaddingBottom === 0
+			? TABpaddingBottom
+			: TABpaddingBottom || paddingBottom,
+		TABpaddingLeft = TABpaddingLeft === 0
+			? TABpaddingLeft
+			: TABpaddingLeft || paddingLeft,
 
 		MOBmarginUnit = MOBmarginUnit || TABmarginUnit || marginUnit,
-		MOBmarginTop = MOBmarginTop || TABmarginTop || marginTop,
-		MOBmarginRight = MOBmarginRight || TABmarginRight || marginRight,
-		MOBmarginBottom = MOBmarginBottom || TABmarginBottom || marginBottom,
-		MOBmarginLeft = MOBmarginLeft || TABmarginLeft || marginLeft,
+
+		MOBmarginTop = MOBmarginTop === 0
+			? MOBmarginTop
+			: MOBmarginTop || TABmarginTop,
+		MOBmarginRight = MOBmarginRight === 0
+			? MOBmarginRight
+			: MOBmarginRight || TABmarginRight,
+		MOBmarginBottom = MOBmarginBottom === 0
+			? MOBmarginBottom
+			: MOBmarginBottom || TABmarginBottom,
+		MOBmarginLeft = MOBmarginLeft === 0
+			? MOBmarginLeft
+			: MOBmarginLeft || TABmarginLeft,
+
 		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit || paddingUnit,
-		MOBpaddingTop = MOBpaddingTop || TABpaddingTop || paddingTop,
-		MOBpaddingRight = MOBpaddingRight || TABpaddingRight || paddingRight,
-		MOBpaddingBottom = MOBpaddingBottom || TABpaddingBottom || paddingBottom,
-		MOBpaddingLeft = MOBpaddingLeft || TABpaddingLeft || paddingLeft,
+
+		MOBpaddingTop = MOBpaddingTop === 0
+			? MOBpaddingTop
+			: MOBpaddingTop || TABpaddingTop,
+		MOBpaddingRight = MOBpaddingRight === 0
+			? MOBpaddingRight
+			: MOBpaddingRight || TABpaddingRight,
+		MOBpaddingBottom = MOBpaddingBottom === 0
+			? MOBpaddingBottom
+			: MOBpaddingBottom || TABpaddingBottom,
+		MOBpaddingLeft = MOBpaddingLeft === 0
+			? MOBpaddingLeft
+			: MOBpaddingLeft || TABpaddingLeft,
 
 		// background attributes ⬇
 		backgroundType,

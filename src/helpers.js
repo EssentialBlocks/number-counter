@@ -124,8 +124,8 @@ export const textInsideForEdit = (value, isShowSeparator, separator) =>
 export const generateRandomNumber = () =>
 	Math.floor(Math.random() * 1000000000);
 
-// minifyCssStrings is for minifying the css which is in the style tag as a string
-export const minifyCssStrings = (cssString) => {
+// hardMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
+export const hardMinifyCssStrings = (cssString) => {
 	console.log({ cssString });
 
 	return (
@@ -141,6 +141,10 @@ export const minifyCssStrings = (cssString) => {
 			.replace(/__s_p_a_c_e__/g, " ")
 	);
 };
+
+// softMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
+export const softMinifyCssStrings = (cssString) =>
+	cssString.replace(/\s+/g, " ");
 
 // check if css string is empty or not. important: there has to be a space before css values
 export const isCssExists = (cssString) =>
