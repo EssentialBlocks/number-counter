@@ -1,6 +1,5 @@
 {
-	"apiVersion": 2,
-	"name": "create-block/counter",
+	"name": "essential-blocks-separate/counter",
 	"title": "Counter",
 	"category": "widgets",
 	"icon": "smiley",

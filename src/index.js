@@ -11,7 +11,7 @@ import save from "./save";
 import attributes from "./attributes";
 import icon from "./icon";
 
-registerBlockType("create-block/counter", {
+registerBlockType("essential-blocks-separate/counter", {
 	apiVersion: 2,
 	title: __("Counter", "block"),
 	description: __(

@@ -33,22 +33,22 @@ function create_block_counter_block_init()
 	$script_asset_path = "$dir/build/index.asset.php";
 	if (!file_exists($script_asset_path)) {
 		throw new Error(
-			'You need to run `npm start` or `npm run build` for the "create-block/counter" block first.'
+			'You need to run `npm start` or `npm run build` for the "essential-blocks-separate/counter" block first.'
 		);
 	}
 	$index_js     = 'build/index.js';
 	$script_asset = require($script_asset_path);
 	wp_register_script(
-		'create-block-counter-block-editor',
+		'essential-blocks-separate-counter-block-editor',
 		plugins_url($index_js, __FILE__),
 		$script_asset['dependencies'],
 		$script_asset['version']
 	);
-	wp_set_script_translations('create-block-counter-block-editor', 'counter');
+	wp_set_script_translations('essential-blocks-separate-counter-block-editor', 'counter');
 
 	$editor_css = 'build/index.css';
 	wp_register_style(
-		'create-block-counter-block-editor',
+		'essential-blocks-separate-counter-block-editor',
 		plugins_url($editor_css, __FILE__),
 		array(),
 		filemtime("$dir/$editor_css")
@@ -56,7 +56,7 @@ function create_block_counter_block_init()
 
 	$style_css = 'build/style-index.css';
 	wp_register_style(
-		'create-block-counter-block',
+		'essential-blocks-separate-counter-block',
 		plugins_url($style_css, __FILE__),
 		array(),
 		filemtime("$dir/$style_css")
@@ -71,11 +71,11 @@ function create_block_counter_block_init()
 	);
 
 	register_block_type(
-		'create-block/counter',
+		'essential-blocks-separate/counter',
 		array(
-			'editor_script' => 'create-block-counter-block-editor',
-			'editor_style'  => 'create-block-counter-block-editor',
-			'style'         => 'create-block-counter-block',
+			'editor_script' => 'essential-blocks-separate-counter-block-editor',
+			'editor_style'  => 'essential-blocks-separate-counter-block-editor',
+			'style'         => 'essential-blocks-separate-counter-block',
 			'frontend_js'   => 'essential-blocks-counter-frontend',
 		)
 	);
