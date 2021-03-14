@@ -42,44 +42,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		var startValue = +counter.getAttribute("data-startValue");
 		var isShowSeparator = counter.getAttribute("data-isShowSeparator");
 		var separator = counter.getAttribute("data-separator");
-		var cWrapper = counter.closest(".eb-counter-wrapper");
-		// var shadowColor = cWrapper.getAttribute("data-shadowColor");
-		// var hOffset = cWrapper.getAttribute("data-hOffset");
-		// var vOffset = cWrapper.getAttribute("data-vOffset");
-		// var blur = cWrapper.getAttribute("data-blur");
-		// var spread = cWrapper.getAttribute("data-spread");
-		// var inset = cWrapper.getAttribute("data-inset");
-		// var hoverShadowColor = cWrapper.getAttribute("data-hoverShadowColor");
-		// var hoverHOffset = cWrapper.getAttribute("data-hoverHOffset");
-		// var hoverVOffset = cWrapper.getAttribute("data-hoverVOffset");
-		// var hoverBlur = cWrapper.getAttribute("data-hoverBlur");
-		// var hoverSpread = cWrapper.getAttribute("data-hoverSpread");
-		// var hoverInset = cWrapper.getAttribute("data-hoverInset");
-		// cWrapper.style.boxShadow = ""
-		// 	.concat(shadowColor, " ")
-		// 	.concat(hOffset, "px ")
-		// 	.concat(vOffset, "px ")
-		// 	.concat(blur, "px ")
-		// 	.concat(spread, "px ")
-		// 	.concat(inset);
-		// cWrapper.addEventListener("mouseenter", function (e) {
-		// 	return (e.target.style.boxShadow = ""
-		// 		.concat(hoverShadowColor, " ")
-		// 		.concat(hoverHOffset, "px ")
-		// 		.concat(hoverVOffset, "px ")
-		// 		.concat(hoverBlur, "px ")
-		// 		.concat(hoverSpread, "px ")
-		// 		.concat(hoverInset));
-		// });
-		// cWrapper.addEventListener("mouseleave", function (e) {
-		// 	return (e.target.style.boxShadow = ""
-		// 		.concat(shadowColor, " ")
-		// 		.concat(hOffset, "px ")
-		// 		.concat(vOffset, "px ")
-		// 		.concat(blur, "px ")
-		// 		.concat(spread, "px ")
-		// 		.concat(inset));
-		// });
+
 		var x = startValue < target ? startValue : 0;
 		var increaseBy = ((target - x) / duration) * 53;
 
@@ -174,11 +137,6 @@ window.addEventListener("DOMContentLoaded", function () {
 				newCssStrings = minCss.replace(cssMimmikPlaceRegex, " ");
 			}
 
-			console.log({
-				cssStrings: cssStrings,
-				minCss: minCss,
-				newCssStrings: newCssStrings,
-			});
 			styleTagForItem.textContent = newCssStrings;
 		});
 	}
