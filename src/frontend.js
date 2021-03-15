@@ -104,10 +104,13 @@ window.addEventListener("DOMContentLoaded", function () {
 	function handleSidebarClick(e) {
 		var TargetClassName = e.target.className;
 		if (!/eb\-res\-btn/i.test(TargetClassName)) return;
-		console.log(
-			"----cssStrings from frontend.js,  eb-res-btn click kora hoiche"
+		console.log("---- from frontend.js,  eb-res-btn click kora hoiche");
+		var allCounterWrapper = document.querySelectorAll(
+			".eb-counter-main-parrent-wrapper:not(.is-selected) .eb-counter-wrapper"
 		);
-		var allCounterWrapper = document.querySelectorAll(".eb-counter-wrapper");
+
+		if (allCounterWrapper.length < 1) return;
+
 		allCounterWrapper.forEach(function (item) {
 			var styleTagForItem = item.previousElementSibling;
 			var cssStrings = styleTagForItem.textContent;

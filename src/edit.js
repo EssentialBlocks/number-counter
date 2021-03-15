@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
-import { RichText } from "@wordpress/block-editor";
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 import { useEffect, useRef } from "@wordpress/element";
 
 import "./editor.scss";
@@ -26,6 +26,10 @@ import {
 
 const Edit = (props) => {
 	const { isSelected, attributes, setAttributes } = props;
+
+	const blockProps = useBlockProps({
+		className: "eb-counter-main-parrent-wrapper",
+	});
 
 	const wpDataMeta = wp.data
 		.select("core/editor")
@@ -627,7 +631,7 @@ const Edit = (props) => {
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
 		),
 
-		<>
+		<div {...blockProps}>
 			<style>
 				{`
 				${softMinifyCssStrings(desktopAllStyles)}
@@ -672,7 +676,7 @@ const Edit = (props) => {
 					onChange={(counterTitle) => setAttributes({ counterTitle })}
 				/>
 			</div>
-		</>,
+		</div>,
 	];
 };
 
