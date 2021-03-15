@@ -23,7 +23,6 @@ export default function Icon() {
 			<path
 				fill="url(#COUNTER_SVGID_1_)"
 				d="M60.7 61.1H5.3c-2.9 0-5.3-2.4-5.3-5.3V14.2c0-2.9 2.4-5.3 5.3-5.3h55.4c2.9 0 5.3 2.4 5.3 5.3v41.6c0 2.9-2.4 5.3-5.3 5.3zM5.3 11.8c-1.3 0-2.4 1.1-2.4 2.4v41.6c0 1.3 1.1 2.4 2.4 2.4h55.4c1.3 0 2.4-1.1 2.4-2.4V14.2c0-1.3-1.1-2.4-2.4-2.4H5.3z"
-				className="st0"
 			></path>
 			<linearGradient
 				id="COUNTER_SVGID_2_"
@@ -41,7 +40,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="16.6"
 				r="1.3"
-				className="st1"
 			></circle>
 			<linearGradient
 				id="COUNTER_SVGID_3_"
@@ -59,7 +57,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="22.6"
 				r="1.3"
-				className="st2"
 			></circle>
 			<linearGradient
 				id="COUNTER_SVGID_4_"
@@ -77,7 +74,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="28.5"
 				r="1.3"
-				className="st3"
 			></circle>
 			<linearGradient
 				id="COUNTER_SVGID_5_"
@@ -95,7 +91,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="34.5"
 				r="1.3"
-				className="st4"
 			></circle>
 			<linearGradient
 				id="COUNTER_SVGID_6_"
@@ -113,7 +108,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="40.4"
 				r="1.3"
-				className="st5"
 			></circle>
 			<linearGradient
 				id="COUNTER_SVGID_7_"
@@ -131,7 +125,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="46.4"
 				r="1.3"
-				className="st6"
 			></circle>
 			<linearGradient
 				id="COUNTER_SVGID_8_"
@@ -149,7 +142,6 @@ export default function Icon() {
 				cx="21.5"
 				cy="52.3"
 				r="1.3"
-				className="st7"
 			></circle>
 			<g>
 				<linearGradient
@@ -168,7 +160,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="16.6"
 					r="1.3"
-					className="st8"
 				></circle>
 				<linearGradient
 					id="COUNTER_SVGID_10_"
@@ -186,7 +177,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="22.6"
 					r="1.3"
-					className="st9"
 				></circle>
 				<linearGradient
 					id="COUNTER_SVGID_11_"
@@ -204,7 +194,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="28.5"
 					r="1.3"
-					className="st10"
 				></circle>
 				<linearGradient
 					id="COUNTER_SVGID_12_"
@@ -222,7 +211,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="34.5"
 					r="1.3"
-					className="st11"
 				></circle>
 				<linearGradient
 					id="COUNTER_SVGID_13_"
@@ -240,7 +228,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="40.4"
 					r="1.3"
-					className="st12"
 				></circle>
 				<linearGradient
 					id="COUNTER_SVGID_14_"
@@ -258,7 +245,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="46.4"
 					r="1.3"
-					className="st13"
 				></circle>
 				<linearGradient
 					id="COUNTER_SVGID_15_"
@@ -276,7 +262,6 @@ export default function Icon() {
 					cx="43.7"
 					cy="52.3"
 					r="1.3"
-					className="st14"
 				></circle>
 			</g>
 			<linearGradient
@@ -293,7 +278,6 @@ export default function Icon() {
 			<path
 				fill="url(#COUNTER_SVGID_16_)"
 				d="M55.9 28.7h-6v-1.8h8v1.7l-4.5 15.9h-2l4.5-15.8z"
-				className="st15"
 			></path>
 			<linearGradient
 				id="COUNTER_SVGID_17_"
@@ -309,7 +293,6 @@ export default function Icon() {
 			<path
 				fill="url(#COUNTER_SVGID_17_)"
 				d="M33.1 43.2h-1.2c-.2 0-.3-.2-.3-.3V28.7c0-.2.2-.3.3-.3h1.2c.2 0 .3.2.3.3v14.2c.1.2-.1.3-.3.3z"
-				className="st16"
 			></path>
 			<linearGradient
 				id="COUNTER_SVGID_18_"
@@ -325,7 +308,6 @@ export default function Icon() {
 			<path
 				fill="url(#COUNTER_SVGID_18_)"
 				d="M12.5 43.2h-1.2c-.2 0-.3-.2-.3-.3V28.7c0-.2.2-.3.3-.3h1.2c.2 0 .3.2.3.3v14.2c.1.2-.1.3-.3.3z"
-				className="st17"
 			></path>
 		</svg>
 	);
