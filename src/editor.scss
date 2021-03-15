@@ -560,6 +560,12 @@ button.eb-res-btn:focus {
 	width: 100%;
 }
 
+// making typography component width bigger
+.eb-typography-component-panel {
+	min-width: 220px;
+	min-height: 380px;
+}
+
 /* 
 * making the edit page respond to the responsive width
 */
@@ -569,9 +575,9 @@ button.eb-res-btn:focus {
 }
 
 body.eb-res-option-tab .editor-styles-wrapper {
-	width: 768px;
+	max-width: 768px;
 }
 
 body.eb-res-option-mobile .editor-styles-wrapper {
-	width: 480px;
+	max-width: 480px;
 }
