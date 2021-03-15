@@ -940,6 +940,12 @@ const Inspector = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__("Border")} initialOpen={false}>
+					<ColorControl
+						label={__("Border Color")}
+						color={borderColor}
+						onChange={(borderColor) => setAttributes({ borderColor })}
+					/>
+
 					<ResetControl
 						onReset={() => setAttributes({ borderWidth: undefined })}
 					>
@@ -975,12 +981,6 @@ const Inspector = (props) => {
 						value={borderStyle}
 						options={BORDER_STYLES}
 						onChange={(borderStyle) => setAttributes({ borderStyle })}
-					/>
-
-					<ColorControl
-						label={__("Border Color")}
-						color={borderColor}
-						onChange={(borderColor) => setAttributes({ borderColor })}
 					/>
 				</PanelBody>
 
