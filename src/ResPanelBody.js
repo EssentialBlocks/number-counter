@@ -42,7 +42,8 @@ function ResPanelBody(props) {
 						}`}
 						onClick={handleDesktopBtnClick}
 					>
-						Desktop
+						{/* 🖥️ */}
+						<span class="dashicons dashicons-desktop"></span>
 					</button>
 					<button
 						className={`eb-res-btn eb-res-btn-tab ${
@@ -50,7 +51,8 @@ function ResPanelBody(props) {
 						}`}
 						onClick={handleTabBtnClick}
 					>
-						Tab
+						{/* Tab */}
+						<span class="dashicons dashicons-tablet"></span>
 					</button>
 					<button
 						className={`eb-res-btn eb-res-btn-mobile ${
@@ -58,7 +60,8 @@ function ResPanelBody(props) {
 						}`}
 						onClick={handleMobileBtnClick}
 					>
-						Mobile
+						{/* 📱 */}
+						<span class="dashicons dashicons-smartphone"></span>
 					</button>
 				</div>
 				{children}
