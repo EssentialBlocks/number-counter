@@ -99,12 +99,12 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	if (!editorMain) return;
 
-	console.log('document.getElementById("editor") aaache');
+	// console.log('document.getElementById("editor") aaache');
 
 	function handleSidebarClick(e) {
 		var TargetClassName = e.target.className;
 		if (!/eb\-res\-btn/i.test(TargetClassName)) return;
-		console.log("---- from frontend.js,  eb-res-btn click kora hoiche");
+		// console.log("---- from frontend.js,  eb-res-btn click kora hoiche");
 		var allCounterWrapper = document.querySelectorAll(
 			".eb-counter-main-parrent-wrapper:not(.is-selected) .eb-counter-wrapper"
 		);
@@ -123,18 +123,18 @@ window.addEventListener("DOMContentLoaded", function () {
 					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*1030px\s*\)\s*\{).+(?=\}\s*\@media\s+all)/i
 				);
 				var tabCssStrings = (tabCssMacth || [" "])[0];
-				console.log({
-					tabCssStrings: tabCssStrings,
-				});
+				// console.log({
+				// 	tabCssStrings: tabCssStrings,
+				// });
 				newCssStrings = minCss.replace(cssMimmikPlaceRegex, tabCssStrings);
 			} else if (/eb\-res\-btn\-mobile/i.test(TargetClassName)) {
 				var mobCssMacth = minCss.match(
 					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*680px\s*\)\s*\{).+(?=(\}\s*)$)/i
 				);
 				var mobCssStrings = (mobCssMacth || [" "])[0];
-				console.log({
-					mobCssStrings: mobCssStrings,
-				});
+				// console.log({
+				// 	mobCssStrings: mobCssStrings,
+				// });
 				newCssStrings = minCss.replace(cssMimmikPlaceRegex, mobCssStrings);
 			} else {
 				newCssStrings = minCss.replace(cssMimmikPlaceRegex, " ");

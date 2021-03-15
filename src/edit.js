@@ -35,7 +35,7 @@ const Edit = (props) => {
 		.select("core/editor")
 		.getEditedPostAttribute("meta");
 
-	console.log("--------edit:", { props, wpDataMeta }, wp.data);
+	// console.log("--------edit:", { props, wpDataMeta }, wp.data);
 	const {
 		// responsive control attributes ⬇
 		resOption,
@@ -275,9 +275,9 @@ const Edit = (props) => {
 				resOption: "mobile",
 			});
 		}
-		console.log("-----edit er moddhe theke useEffect on [] log holo", {
-			bodyClasses,
-		});
+		// console.log("-----edit er moddhe theke useEffect on [] log holo", {
+		// 	bodyClasses,
+		// });
 	}, []);
 
 	// function to generate typography styles for an element based on it's prefix

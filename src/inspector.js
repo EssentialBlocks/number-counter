@@ -49,7 +49,7 @@ import {
 } from "./constants/typographyPrefixConstants";
 
 const Inspector = (props) => {
-	console.log("--------inspector:", { props });
+	// console.log("--------inspector:", { props });
 	const { attributes, setAttributes } = props;
 	const {
 		// responsive control attributes ⬇
@@ -284,9 +284,9 @@ const Inspector = (props) => {
 
 	useEffect(() => {
 		const bodyClasses = document.body.className;
-		console.log("----log from inspector useEffect with empty []", {
-			bodyClasses,
-		});
+		// console.log("----log from inspector useEffect with empty []", {
+		// 	bodyClasses,
+		// });
 		if (bodyClasses.includes("eb-res-option-desktop")) {
 			setAttributes({
 				resOption: "desktop",
@@ -332,9 +332,9 @@ const Inspector = (props) => {
 		setAttributes({ layoutLabel });
 	};
 
-	console.log("---from inspector outside without any useEffect: ", {
-		resOption,
-	});
+	// console.log("---from inspector outside without any useEffect: ", {
+	// 	resOption,
+	// });
 
 	const resRequiredProps = {
 		setAttributes,
@@ -411,7 +411,7 @@ const Inspector = (props) => {
 		};
 	};
 	const titleTypoAttrr = generateTypographyAttributes(title);
-	console.log("------------title typo attributes", { titleTypoAttrr });
+	// console.log("------------title typo attributes", { titleTypoAttrr });
 
 	return (
 		<InspectorControls key="controls">

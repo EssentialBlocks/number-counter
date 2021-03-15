@@ -1,7 +1,7 @@
 const { PanelBody } = wp.components;
 
 function ResPanelBody(props) {
-	console.log("----------ResPanelBody", { props });
+	// console.log("----------ResPanelBody", { props });
 	const { title, initialOpen, children, resRequiredProps } = props;
 	const { resOption, setAttributes } = resRequiredProps;
 

@@ -126,7 +126,7 @@ export const generateRandomNumber = () =>
 
 // hardMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
 export const hardMinifyCssStrings = (cssString) => {
-	console.log({ cssString });
+	// console.log({ cssString });
 
 	return (
 		cssString

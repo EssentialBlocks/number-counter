@@ -19,7 +19,7 @@ import { hardMinifyCssStrings, isCssExists } from "./helpers";
 
 const Save = (props) => {
 	const { attributes } = props;
-	console.log("--------save:", { props });
+	// console.log("--------save:", { props });
 	const {
 		// to make unique className ⬇
 		randomNumber,
