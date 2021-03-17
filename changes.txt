@@ -52,3 +52,5 @@ runned
 2) in 'useBlockProps' in edit.js -> changed blockWrapper div class to "eb-guten-block-main-parrent-wrapper" to use this class on every signle EB block for responsive uses
 
 3) used regex test in edit.js checking of the bodyClass Containing 'eb-res-option' 
+
+4) previous commit: css mimmiking on responsive buttons clicking responsible codes moved to edit.js from frontend.js 
