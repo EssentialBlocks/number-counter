@@ -28,7 +28,7 @@ const Edit = (props) => {
 	const { isSelected, attributes, setAttributes } = props;
 
 	const blockProps = useBlockProps({
-		className: "eb-counter-main-parrent-wrapper",
+		className: "eb-guten-block-main-parrent-wrapper",
 	});
 
 	const wpDataMeta = wp.data
@@ -243,6 +243,7 @@ const Edit = (props) => {
 		isShowSeparator,
 	]);
 
+	// this useEffect is for creating a unique id for each block's unique className by a random unique number
 	useEffect(() => {
 		const genRandomNumber = generateRandomNumber();
 		const anotherSameClassElements = document.querySelectorAll(
@@ -255,29 +256,21 @@ const Edit = (props) => {
 		}
 	}, []);
 
+	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
 		const bodyClasses = document.body.className;
-		if (!bodyClasses.includes("eb-res-option-")) {
+
+		if (!/eb\-res\-option\-/i.test(bodyClasses)) {
 			document.body.classList.add("eb-res-option-desktop");
 			setAttributes({
 				resOption: "desktop",
 			});
-		} else if (bodyClasses.includes("eb-res-option-desktop")) {
-			setAttributes({
-				resOption: "desktop",
-			});
-		} else if (bodyClasses.includes("eb-res-option-tab")) {
-			setAttributes({
-				resOption: "tab",
-			});
-		} else if (bodyClasses.includes("eb-res-option-mobile")) {
-			setAttributes({
-				resOption: "mobile",
-			});
+		} else {
+			const resOption = bodyClasses
+				.match(/eb-res-option-[^\s]+/g)[0]
+				.split("-")[3];
+			setAttributes({ resOption });
 		}
-		// console.log("-----edit er moddhe theke useEffect on [] log holo", {
-		// 	bodyClasses,
-		// });
 	}, []);
 
 	// function to generate typography styles for an element based on it's prefix

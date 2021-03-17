@@ -43,3 +43,12 @@ runned
     git submodule update --init
     git submodule update --init --recursive
     git submodule update --recursive --remote
+
+----------------
+2021-03-17 16-16
+
+1) changed body class parsing to 'regex' from 'multiple if statements' in useEffect of edit.js and inspector.js to set 'resOption' attribute to appropiate value
+
+2) in 'useBlockProps' in edit.js -> changed blockWrapper div class to "eb-guten-block-main-parrent-wrapper" to use this class on every signle EB block for responsive uses
+
+3) used regex test in edit.js checking of the bodyClass Containing 'eb-res-option' 

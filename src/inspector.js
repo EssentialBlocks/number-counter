@@ -282,25 +282,59 @@ const Inspector = (props) => {
 		// suffixLineHeight,
 	} = attributes;
 
+	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
 		const bodyClasses = document.body.className;
 		// console.log("----log from inspector useEffect with empty []", {
 		// 	bodyClasses,
 		// });
-		if (bodyClasses.includes("eb-res-option-desktop")) {
-			setAttributes({
-				resOption: "desktop",
-			});
-		} else if (bodyClasses.includes("eb-res-option-tab")) {
-			setAttributes({
-				resOption: "tab",
-			});
-		} else if (bodyClasses.includes("eb-res-option-mobile")) {
-			setAttributes({
-				resOption: "mobile",
-			});
-		}
+
+		const resOption = bodyClasses
+			.match(/eb-res-option-[^\s]+/g)[0]
+			.split("-")[3];
+		setAttributes({ resOption });
 	}, []);
+
+	// this useEffect is for mimmiking css for all the eb blocks on resOption changing
+	useEffect(() => {
+		const allCounterWrapper = document.querySelectorAll(
+			".eb-guten-block-main-parrent-wrapper:not(.is-selected) > style"
+		);
+
+		console.log("---inspector", { allCounterWrapper });
+		if (allCounterWrapper.length < 1) return;
+
+		allCounterWrapper.forEach((styleTag) => {
+			const cssStrings = styleTag.textContent;
+			const minCss = cssStrings.replace(/\s+/g, " ");
+			const regexCssMimmikSpace = /(?<=edit_mimmikcss_start\s*\*\/).+(?=\/\*\s*edit_mimmikcss_end)/i;
+			let newCssStrings = " ";
+
+			if (resOption === "tab") {
+				let tabCssMacth = minCss.match(
+					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*1030px\s*\)\s*\{).+(?=\}\s*\@media\s+all)/i
+				);
+				let tabCssStrings = (tabCssMacth || [" "])[0];
+				// console.log({
+				// 	tabCssStrings: tabCssStrings,
+				// });
+				newCssStrings = minCss.replace(regexCssMimmikSpace, tabCssStrings);
+			} else if (resOption === "mobile") {
+				let mobCssMacth = minCss.match(
+					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*680px\s*\)\s*\{).+(?=(\}\s*)$)/i
+				);
+				let mobCssStrings = (mobCssMacth || [" "])[0];
+				// console.log({
+				// 	mobCssStrings: mobCssStrings,
+				// });
+				newCssStrings = minCss.replace(regexCssMimmikSpace, mobCssStrings);
+			} else {
+				newCssStrings = minCss.replace(regexCssMimmikSpace, " ");
+			}
+
+			styleTag.textContent = newCssStrings;
+		});
+	}, [resOption]);
 
 	const handleSeparatorChange = (separastorSelectLabel) => {
 		switch (separastorSelectLabel) {
