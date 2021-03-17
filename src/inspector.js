@@ -289,10 +289,17 @@ const Inspector = (props) => {
 		// 	bodyClasses,
 		// });
 
-		const resOption = bodyClasses
-			.match(/eb-res-option-[^\s]+/g)[0]
-			.split("-")[3];
-		setAttributes({ resOption });
+		if (!/eb\-res\-option\-/i.test(bodyClasses)) {
+			document.body.classList.add("eb-res-option-desktop");
+			setAttributes({
+				resOption: "desktop",
+			});
+		} else {
+			const resOption = bodyClasses
+				.match(/eb-res-option-[^\s]+/g)[0]
+				.split("-")[3];
+			setAttributes({ resOption });
+		}
 	}, []);
 
 	// this useEffect is for mimmiking css for all the eb blocks on resOption changing

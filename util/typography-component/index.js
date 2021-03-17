@@ -119,6 +119,7 @@ function TypographyControllsDropdown({
 									label={__("Font Weight")}
 									value={fontWeight}
 									options={[
+										{ label: __("Default"), value: "" },
 										{ label: __("100"), value: "100" },
 										{ label: __("200"), value: "200" },
 										{ label: __("300"), value: "300" },
@@ -140,6 +141,7 @@ function TypographyControllsDropdown({
 									label={__("Text Transform")}
 									value={textTransform}
 									options={[
+										{ label: __("Default"), value: "" },
 										{ label: __("None"), value: "none" },
 										{ label: __("Lowercase"), value: "lowercase" },
 										{ label: __("Capitalize"), value: "capitalize" },
@@ -156,7 +158,8 @@ function TypographyControllsDropdown({
 									label={__("Text Decoration")}
 									value={textDecoration}
 									options={[
-										{ label: __("Initial"), value: "initial" },
+										{ label: __("Default"), value: "" },
+										{ label: __("None"), value: "initial" },
 										{ label: __("Overline"), value: "overline" },
 										{ label: __("Line Through"), value: "line-through" },
 										{ label: __("Underline"), value: "underline" },
@@ -285,6 +288,7 @@ function TypographyControllsDropdown({
 									label={__("Font Weight")}
 									value={TABfontWeight}
 									options={[
+										{ label: __("Default"), value: "" },
 										{ label: __("100"), value: "100" },
 										{ label: __("200"), value: "200" },
 										{ label: __("300"), value: "300" },
@@ -306,6 +310,7 @@ function TypographyControllsDropdown({
 									label={__("Text Transform")}
 									value={TABtextTransform}
 									options={[
+										{ label: __("Default"), value: "" },
 										{ label: __("None"), value: "none" },
 										{ label: __("Lowercase"), value: "lowercase" },
 										{ label: __("Capitalize"), value: "capitalize" },
@@ -322,7 +327,8 @@ function TypographyControllsDropdown({
 									label={__("Text Decoration")}
 									value={TABtextDecoration}
 									options={[
-										{ label: __("Initial"), value: "initial" },
+										{ label: __("Default"), value: "" },
+										{ label: __("None"), value: "initial" },
 										{ label: __("Overline"), value: "overline" },
 										{ label: __("Line Through"), value: "line-through" },
 										{ label: __("Underline"), value: "underline" },
@@ -451,6 +457,7 @@ function TypographyControllsDropdown({
 									label={__("Font Weight")}
 									value={MOBfontWeight}
 									options={[
+										{ label: __("Default"), value: "" },
 										{ label: __("100"), value: "100" },
 										{ label: __("200"), value: "200" },
 										{ label: __("300"), value: "300" },
@@ -472,6 +479,7 @@ function TypographyControllsDropdown({
 									label={__("Text Transform")}
 									value={MOBtextTransform}
 									options={[
+										{ label: __("Default"), value: "" },
 										{ label: __("None"), value: "none" },
 										{ label: __("Lowercase"), value: "lowercase" },
 										{ label: __("Capitalize"), value: "capitalize" },
@@ -488,7 +496,8 @@ function TypographyControllsDropdown({
 									label={__("Text Decoration")}
 									value={MOBtextDecoration}
 									options={[
-										{ label: __("Initial"), value: "initial" },
+										{ label: __("Default"), value: "" },
+										{ label: __("None"), value: "none" },
 										{ label: __("Overline"), value: "overline" },
 										{ label: __("Line Through"), value: "line-through" },
 										{ label: __("Underline"), value: "underline" },

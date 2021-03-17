@@ -12,32 +12,27 @@ export const generateTypographyAttributes = (prefixArray) => {
 			"type":"number"
 		},
 		"_prefix_FontWeight":{
-			"type":"string",
-			"default":"400"
+			"type":"string"
 		},
 		"_prefix_TextTransform":{
-			"type":"string",
-			"default":"none"
+			"type":"string"
 		},
 		"_prefix_TextDecoration":{
-			"type":"string",
-			"default":"initial"
+			"type":"string"
 		},
 		"_prefix_LetterSpacingUnit":{
 			"type":"string",
 			"default":"px"
 		},
 		"_prefix_LetterSpacing":{
-			"type":"number",
-			"default":0
+			"type":"number"
 		},
 		"_prefix_LineHeightUnit":{
 			"type":"string",
 			"default":"em"
 		},
 		"_prefix_LineHeight":{
-			"type":"number",
-			"default":1
+			"type":"number"
 		},
 		"TAB_prefix_FontFamily":{
 			"type":"string"
@@ -146,6 +141,9 @@ export const hardMinifyCssStrings = (cssString) => {
 export const softMinifyCssStrings = (cssString) =>
 	cssString.replace(/\s+/g, " ");
 
-// check if css string is empty or not. important: there has to be a space before css values
+// check if css string is empty or not.
 export const isCssExists = (cssString) =>
 	/.+(?=\:(?!hover)(?!focus))/.test(cssString);
+
+// check if range controller input numbers  has value
+export const hasVal = (val) => val || val === 0;

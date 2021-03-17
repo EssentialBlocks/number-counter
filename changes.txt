@@ -54,3 +54,20 @@ runned
 3) used regex test in edit.js checking of the bodyClass Containing 'eb-res-option' 
 
 4) previous commit: css mimmiking on responsive buttons clicking responsible codes moved to edit.js from frontend.js 
+
+----------------------
+2021-03-18 03-21
+
+1) edit.js and save.js styling pattern made same. 
+only difference is in edit.js all the mobile styles attributes fallen back to tab styles in case of undefined during destructuring from attributes prop. 
+this fallBack was done because when user will click mobile button the mimmikcss will not work properly otherwise. take this example, suppose user choose color red for desktop and color green for tab and no color for mobile. now user clicked on mobile button. now in mobile preview the tab color should be shown. If the mobile color not fallen back to tab color then tab color won't show for the mobile preview. because in that scenario there won't be any color in the mobile's media query. so, the color will be shown from desktop's color. which is not right, cause it should show tab's color.
+
+2) in rangeController values 0 made acceptable by using 'hasVal' function from helpers.js 
+
+3) many attributes default value removed to make less css codes
+
+4) in typography component many select-options first value made to 'default' rather than an actual typography style value like elementor's typography options to remove confusion 
+
+5) in inspector.js bodyClass checked if exists or not before setting resOption attributes to a value based of the className. It's useful in case of block breaking and 'attempt block recovery' situation. without this checking of bodyClass there will be an error if 'attempt block recovery' happens.  
+
+6) renamed 'randomNumber' attribute to 'uniqueIdNumber'

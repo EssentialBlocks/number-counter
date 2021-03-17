@@ -8,8 +8,8 @@ export default {
 		default: "desktop",
 	},
 
-	// randomNumber attribute for making unique className
-	randomNumber: {
+	// uniqueIdNumber attribute for making unique className
+	uniqueIdNumber: {
 		type: "number",
 	},
 
@@ -179,7 +179,6 @@ export default {
 	},
 	layoutLabel: {
 		type: "string",
-		default: "Default",
 	},
 
 	// color attributes ⬇
@@ -376,7 +375,6 @@ export default {
 	},
 	backgroundColor: {
 		type: "string",
-		// default: "transparent",
 	},
 	gradientColor: {
 		type: "string",
@@ -384,7 +382,6 @@ export default {
 	},
 	backgroundSize: {
 		type: "string",
-		default: "cover",
 	},
 	imageURL: {
 		type: "string",
@@ -434,7 +431,6 @@ export default {
 	// border attributes ⬇
 	borderColor: {
 		type: "string",
-		// default: "#000000",
 	},
 	borderStyle: {
 		type: "string",
@@ -442,11 +438,9 @@ export default {
 	},
 	borderWidth: {
 		type: "number",
-		default: 0,
 	},
 	borderRadius: {
 		type: "number",
-		default: 0,
 	},
 	radiusUnit: {
 		type: "string",
