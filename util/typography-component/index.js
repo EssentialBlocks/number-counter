@@ -74,10 +74,7 @@ function TypographyControllsDropdown({
 							</Button>
 						)}
 						renderContent={() => (
-							<div
-								className="eb-panel-control eb-typography-component-panel"
-								style={{ padding: "0.2rem" }}
-							>
+							<div className="eb-panel-control eb-typography-component-panel">
 								<FontPicker
 									label={__("Font Family")}
 									value={fontFamily}
