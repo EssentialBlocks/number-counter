@@ -1,4 +1,4 @@
-const { PanelBody } = wp.components;
+import { PanelBody } from "@wordpress/components";
 
 function ResPanelBody(props) {
 	// console.log("----------ResPanelBody", { props });

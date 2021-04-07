@@ -1,12 +1,12 @@
-const { __ } = wp.i18n;
+import { __ } from "@wordpress/i18n";
 
-const {
+import {
 	Button,
 	SelectControl,
 	BaseControl,
 	RangeControl,
 	Dropdown,
-} = wp.components;
+} from "@wordpress/components";
 
 import { TypographyIcon } from "../../util/icons";
 import FontPicker from "../../util/typography-control/FontPicker";
