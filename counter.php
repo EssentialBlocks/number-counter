@@ -24,6 +24,7 @@
 
 require_once __DIR__ . '/includes/font-loader.php';
 require_once __DIR__ . '/includes/post-meta.php';
+require_once __DIR__ . '/util/style-handler/style-handler.php';
 
 
 function create_block_counter_block_init()
