@@ -19,7 +19,6 @@ import {
 } from "./constants/typographyPrefixConstants";
 
 import {
-	generateRandomNumber,
 	textInsideForEdit,
 	softMinifyCssStrings,
 	hasVal,
@@ -27,24 +26,20 @@ import {
 } from "./helpers";
 
 const Edit = (props) => {
+	const BLOCK_PREFIX = "eb-counter";
+	const unique_id = BLOCK_PREFIX+ "-" + Math.random().toString(36).substr(2, 7);
+
 	const { isSelected, attributes, setAttributes } = props;
 
 	const blockProps = useBlockProps({
 		className: "eb-guten-block-main-parrent-wrapper",
 	});
 
-	const wpDataMeta = wp.data
-		.select("core/editor")
-		.getEditedPostAttribute("meta");
-
-	// console.log("--------edit:", { props, wpDataMeta }, wp.data);
-
 	const {
+		blockId,
+		blockMeta,
 		// responsive control attributes ⬇
 		resOption,
-
-		// to make unique className ⬇
-		uniqueIdNumber,
 
 		// counter settings attributes ⬇
 		target,
@@ -246,15 +241,40 @@ const Edit = (props) => {
 
 	// this useEffect is for creating a unique id for each block's unique className by a random unique number
 	useEffect(() => {
-		const genRandomNumber = generateRandomNumber();
-		const anotherSameClassElements = document.querySelectorAll(
-			`.eb-counter-wrapper-${uniqueIdNumber}`
-		);
-		if (!uniqueIdNumber || anotherSameClassElements[1]) {
-			setAttributes({
-				uniqueIdNumber: genRandomNumber,
-			});
+		// const genRandomNumber = generateRandomNumber();
+		// const anotherSameClassElements = document.querySelectorAll(
+		// 	`.${blockId}`
+		// );
+		// if (!uniqueIdNumber || anotherSameClassElements[1]) {
+		// 	setAttributes({
+		// 		uniqueIdNumber: genRandomNumber,
+		// 	});
+		// }
+
+		const current_block_id = attributes.blockId;
+
+		/**
+		 * Define and Generate Unique Block ID
+		*/
+		if ( !current_block_id) {
+			setAttributes({ blockId: unique_id });
 		}
+
+		/**
+		 * Assign New Unique ID when duplicate BlockId found
+		 * Mostly happens when User Duplicate a Block
+		*/
+		const all_blocks = wp.data.select("core/block-editor").getBlocks();
+        let blockIdCount = 0;
+        all_blocks.forEach((item) => {
+			if (item.attributes.blockId === current_block_id && item.attributes.blockRoot === 'essential_block' && item.name === 'block/notice-block' ) {
+				blockIdCount++;
+				if (blockIdCount > 1) {
+					setAttributes({ blockId: blockId });
+				}
+			}
+        });
+		
 	}, []);
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -411,7 +431,7 @@ const Edit = (props) => {
 	} = generateTypographyStylesForEdit(numSuffix);
 
 	const wrapperStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
+	.eb-counter-wrapper.${blockId}{
 		
 		margin: ${marginTop}${marginUnit} ${marginRight}${marginUnit} ${marginBottom}${marginUnit} ${marginLeft}${marginUnit};
 		padding: ${paddingTop}${paddingUnit} ${paddingRight}${paddingUnit} ${paddingBottom}${paddingUnit} ${paddingLeft}${paddingUnit};
@@ -446,7 +466,7 @@ const Edit = (props) => {
 		};
 	}
 
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}:hover{		
+	.eb-counter-wrapper.${blockId}:hover{		
 		${
 			hoverShadowColor
 				? `box-shadow: ${hoverShadowColor} ${hoverHOffset}px ${hoverVOffset}px ${hoverBlur}px ${hoverSpread}px ${
@@ -458,7 +478,7 @@ const Edit = (props) => {
 	`;
 
 	const wrapperStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
+	.eb-counter-wrapper.${blockId}{
 		margin: ${TABmarginTop}${TABmarginUnit} ${TABmarginRight}${TABmarginUnit} ${TABmarginBottom}${TABmarginUnit} ${TABmarginLeft}${TABmarginUnit};
 		padding: ${TABpaddingTop}${TABpaddingUnit} ${TABpaddingRight}${TABpaddingUnit} ${TABpaddingBottom}${TABpaddingUnit} ${TABpaddingLeft}${TABpaddingUnit};
 		
@@ -467,7 +487,7 @@ const Edit = (props) => {
 	`;
 
 	const wrapperStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
+	.eb-counter-wrapper.${blockId}{
 		margin: ${MOBmarginTop}${MOBmarginUnit} ${MOBmarginRight}${MOBmarginUnit} ${MOBmarginBottom}${MOBmarginUnit} ${MOBmarginLeft}${MOBmarginUnit};
 		padding: ${MOBpaddingTop}${MOBpaddingUnit} ${MOBpaddingRight}${MOBpaddingUnit} ${MOBpaddingBottom}${MOBpaddingUnit} ${MOBpaddingLeft}${MOBpaddingUnit};
 
@@ -480,7 +500,7 @@ const Edit = (props) => {
 	`;
 
 	const numberStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-number{
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesDesktop}
 		${numberColor ? ` color : ${numberColor};` : " "}
 		${hasVal(gapNumPrefix) ? `padding-left: ${gapNumPrefix}px;` : " "}
@@ -489,7 +509,7 @@ const Edit = (props) => {
 	`;
 
 	const numberStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-number{
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesTab}
 		${TABnumberColor ? `color : ${TABnumberColor};` : " "}
 		${hasVal(TABgapNumPrefix) ? `padding-left: ${TABgapNumPrefix}px;` : " "}
@@ -497,7 +517,7 @@ const Edit = (props) => {
 	} `;
 
 	const numberStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-number{
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesMobile}
 		${MOBnumberColor ? `color : ${MOBnumberColor};` : " "}
 		${hasVal(MOBgapNumPrefix) ? `padding-left: ${MOBgapNumPrefix}px;` : " "}
@@ -505,58 +525,58 @@ const Edit = (props) => {
 	}`;
 
 	const titleStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-title{
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesDesktop}
 		${titleColor ? `color : ${titleColor};` : " "}
 	}
 	`;
 
 	const titleStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-title{
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesTab}
 		${TABtitleColor ? `color : ${TABtitleColor};` : " "}
 	}  `;
 
 	const titleStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-title{
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesMobile}
 		${MOBtitleColor ? `color : ${MOBtitleColor};` : " "}
 	} `;
 
 	const numPrefixStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-prefix{
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesDesktop}
 		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
 	}
 	`;
 
 	const numPrefixStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-prefix{
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
 		${TABnumPrefixColor ? `color : ${TABnumPrefixColor};` : " "}
 	}  `;
 
 	const numPrefixStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-prefix{
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
 		${MOBnumPrefixColor ? `color : ${MOBnumPrefixColor};` : " "}
 	}  `;
 
 	const numSuffixStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-suffix{
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesDesktop}
 		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
 	}
 	`;
 
 	const numSuffixStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-suffix{
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
 		${TABnumSuffixColor ? `color : ${TABnumSuffixColor};` : " "}
 	} `;
 
 	const numSuffixStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-suffix{
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
 		${MOBnumSuffixColor ? `color : ${MOBnumSuffixColor};` : " "}
 	}
@@ -591,6 +611,24 @@ const Edit = (props) => {
 	// CSS/styling Codes Ends Here
 	//
 
+	// Set All Style in "blockMeta" Attribute
+	useEffect(() => {
+		const styleObject = {
+			["desktop"]: desktopAllStyles,
+			["tab"]: tabAllStyles,
+			["mobile"]: mobileAllStyles,
+		};
+		// console.log("Style Object", JSON.stringify(styleObject));
+		// console.log("Block Meta", JSON.stringify(blockMeta));
+		// console.log("Attribute", attributes);
+		// console.log("Block ID", blockId);
+		if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
+			console.log("Not Match");
+			setAttributes({ blockMeta: styleObject });
+		}
+	}, [attributes]);
+
+
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
@@ -622,7 +660,7 @@ const Edit = (props) => {
 				`}
 			</style>
 			<div
-				className={`eb-counter-wrapper eb-counter-wrapper-${uniqueIdNumber}`}
+				className={`eb-counter-wrapper ${blockId}`}
 			>
 				<h4 className="eb-counter-number">
 					<span className="eb-counter-prefix">{counterPrefix}</span>
