@@ -241,16 +241,6 @@ const Edit = (props) => {
 
 	// this useEffect is for creating a unique id for each block's unique className by a random unique number
 	useEffect(() => {
-		// const genRandomNumber = generateRandomNumber();
-		// const anotherSameClassElements = document.querySelectorAll(
-		// 	`.${blockId}`
-		// );
-		// if (!uniqueIdNumber || anotherSameClassElements[1]) {
-		// 	setAttributes({
-		// 		uniqueIdNumber: genRandomNumber,
-		// 	});
-		// }
-
 		const current_block_id = attributes.blockId;
 
 		/**
@@ -267,7 +257,7 @@ const Edit = (props) => {
 		const all_blocks = wp.data.select("core/block-editor").getBlocks();
         let blockIdCount = 0;
         all_blocks.forEach((item) => {
-			if (item.attributes.blockId === current_block_id && item.attributes.blockRoot === 'essential_block' && item.name === 'block/notice-block' ) {
+			if (item.attributes.blockId === current_block_id && item.attributes.blockRoot === 'essential_block' && item.name === 'essential-block/counter' ) {
 				blockIdCount++;
 				if (blockIdCount > 1) {
 					setAttributes({ blockId: blockId });
@@ -618,10 +608,6 @@ const Edit = (props) => {
 			["tab"]: tabAllStyles,
 			["mobile"]: mobileAllStyles,
 		};
-		// console.log("Style Object", JSON.stringify(styleObject));
-		// console.log("Block Meta", JSON.stringify(blockMeta));
-		// console.log("Attribute", attributes);
-		// console.log("Block ID", blockId);
 		if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
 			console.log("Not Match");
 			setAttributes({ blockMeta: styleObject });
