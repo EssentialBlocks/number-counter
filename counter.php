@@ -72,7 +72,7 @@ function create_block_counter_block_init()
 	);
 
 	register_block_type(
-		'essential-blocks-separate/counter',
+		'essential-block/counter',
 		array(
 			'editor_script' => 'essential-blocks-separate-counter-block-editor',
 			'editor_style'  => 'essential-blocks-separate-counter-block-editor',

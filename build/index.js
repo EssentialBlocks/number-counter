@@ -2161,15 +2161,6 @@ var Edit = function Edit(props) {
   }, [target, duration, startValue, separator, isShowSeparator]); // this useEffect is for creating a unique id for each block's unique className by a random unique number
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    // const genRandomNumber = generateRandomNumber();
-    // const anotherSameClassElements = document.querySelectorAll(
-    // 	`.${blockId}`
-    // );
-    // if (!uniqueIdNumber || anotherSameClassElements[1]) {
-    // 	setAttributes({
-    // 		uniqueIdNumber: genRandomNumber,
-    // 	});
-    // }
     var current_block_id = attributes.blockId;
     /**
      * Define and Generate Unique Block ID
@@ -2189,7 +2180,7 @@ var Edit = function Edit(props) {
     var all_blocks = wp.data.select("core/block-editor").getBlocks();
     var blockIdCount = 0;
     all_blocks.forEach(function (item) {
-      if (item.attributes.blockId === current_block_id && item.attributes.blockRoot === 'essential_block' && item.name === 'block/notice-block') {
+      if (item.attributes.blockId === current_block_id && item.attributes.blockRoot === 'essential_block' && item.name === 'essential-block/counter') {
         blockIdCount++;
 
         if (blockIdCount > 1) {
@@ -2313,18 +2304,14 @@ var Edit = function Edit(props) {
   var numSuffixStylesMobile = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\t").concat(MOBnumSuffixColor ? "color : ".concat(MOBnumSuffixColor, ";") : " ", "\n\t}\n\n\t");
   var desktopAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(titleStylesDesktop) ? titleStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numPrefixStylesDesktop) ? numPrefixStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numSuffixStylesDesktop) ? numSuffixStylesDesktop : " ", "\n\t");
   var tabAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numberStylesTab) ? numberStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(titleStylesTab) ? titleStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numPrefixStylesTab) ? numPrefixStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numSuffixStylesTab) ? numSuffixStylesTab : " ", "\n\t");
-  var mobileAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t"); //
-  // CSS/styling Codes Ends Here
-  //
+  var mobileAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t");
+  /* ----------CSS/styling Codes Ends Here ---------- */
   // Set All Style in "blockMeta" Attribute
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     var _styleObject;
 
-    var styleObject = (_styleObject = {}, _defineProperty(_styleObject, "desktop", desktopAllStyles), _defineProperty(_styleObject, "tab", tabAllStyles), _defineProperty(_styleObject, "mobile", mobileAllStyles), _styleObject); // console.log("Style Object", JSON.stringify(styleObject));
-    // console.log("Block Meta", JSON.stringify(blockMeta));
-    // console.log("Attribute", attributes);
-    // console.log("Block ID", blockId);
+    var styleObject = (_styleObject = {}, _defineProperty(_styleObject, "desktop", desktopAllStyles), _defineProperty(_styleObject, "tab", tabAllStyles), _defineProperty(_styleObject, "mobile", mobileAllStyles), _styleObject);
 
     if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
       console.log("Not Match");
@@ -2807,7 +2794,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("essential-blocks-separate/counter", {
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("essential-block/counter", {
   apiVersion: 2,
   title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Counter", "block"),
   description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!", "block"),
