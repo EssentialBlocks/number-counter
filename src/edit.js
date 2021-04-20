@@ -253,17 +253,32 @@ const Edit = (props) => {
 		/**
 		 * Assign New Unique ID when duplicate BlockId found
 		 * Mostly happens when User Duplicate a Block
-		*/
-		const all_blocks = wp.data.select("core/block-editor").getBlocks();
-        let blockIdCount = 0;
-        all_blocks.forEach((item) => {
-			if (item.attributes.blockId === current_block_id && item.attributes.blockRoot === 'essential_block' && item.name === 'essential-block/counter' ) {
-				blockIdCount++;
-				if (blockIdCount > 1) {
-					setAttributes({ blockId: blockId });
-				}
-			}
-        });
+		 */
+		 const all_blocks = wp.data.select("core/block-editor").getBlocks();
+
+		 console.log({ all_blocks });
+ 
+		 let duplicateFound = false;
+		 const fixDuplicateBlockId = (blocks) => {
+			 if (duplicateFound) return;
+			 for (const item of blocks) {
+				 const { innerBlocks } = item;
+				 if (item.attributes.blockId === blockId) {
+					 if (item.clientId !== clientId) {
+						 setAttributes({ blockId: unique_id });
+						 console.log("found a duplicate");
+						 duplicateFound = true;
+						 return;
+					 } else if (innerBlocks.length > 0) {
+						 fixDuplicateBlockId(innerBlocks);
+					 }
+				 } else if (innerBlocks.length > 0) {
+					 fixDuplicateBlockId(innerBlocks);
+				 }
+			 }
+		 };
+ 
+		 fixDuplicateBlockId(all_blocks);
 		
 	}, []);
 
