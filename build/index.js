@@ -2101,8 +2101,6 @@ var Edit = function Edit(props) {
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"])({
     className: "eb-guten-block-main-parrent-wrapper"
   });
-  var wpDataMeta = wp.data.select("core/editor").getEditedPostAttribute("meta"); // console.log("--------edit:", { props, wpDataMeta }, wp.data);
-
   var resOption = attributes.resOption,
       uniqueIdNumber = attributes.uniqueIdNumber,
       target = attributes.target,
@@ -2867,7 +2865,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("essential-blocks-separate/counter", {
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("counter-block/counter", {
   apiVersion: 2,
   title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Counter", "block"),
   description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!", "block"),
@@ -4042,8 +4040,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
 /**
  * WordPress dependencies
  */
@@ -4053,12 +4049,8 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
-
-
-
-var Save = function Save(props) {
-  var attributes = props.attributes; // console.log("--------save:", { props });
-
+var Save = function Save(_ref) {
+  var attributes = _ref.attributes;
   var uniqueIdNumber = attributes.uniqueIdNumber,
       target = attributes.target,
       duration = attributes.duration,
@@ -4067,215 +4059,8 @@ var Save = function Save(props) {
       counterPrefix = attributes.counterPrefix,
       startValue = attributes.startValue,
       isShowSeparator = attributes.isShowSeparator,
-      separator = attributes.separator,
-      wrapperFlexDirection = attributes.wrapperFlexDirection,
-      titleColor = attributes.titleColor,
-      numberColor = attributes.numberColor,
-      numPrefixColor = attributes.numPrefixColor,
-      numSuffixColor = attributes.numSuffixColor,
-      TABtitleColor = attributes.TABtitleColor,
-      TABnumberColor = attributes.TABnumberColor,
-      TABnumPrefixColor = attributes.TABnumPrefixColor,
-      TABnumSuffixColor = attributes.TABnumSuffixColor,
-      MOBtitleColor = attributes.MOBtitleColor,
-      MOBnumberColor = attributes.MOBnumberColor,
-      MOBnumPrefixColor = attributes.MOBnumPrefixColor,
-      MOBnumSuffixColor = attributes.MOBnumSuffixColor,
-      gapNumTitle = attributes.gapNumTitle,
-      gapNumPrefix = attributes.gapNumPrefix,
-      gapNumSuffix = attributes.gapNumSuffix,
-      TABgapNumTitle = attributes.TABgapNumTitle,
-      TABgapNumPrefix = attributes.TABgapNumPrefix,
-      TABgapNumSuffix = attributes.TABgapNumSuffix,
-      MOBgapNumTitle = attributes.MOBgapNumTitle,
-      MOBgapNumPrefix = attributes.MOBgapNumPrefix,
-      MOBgapNumSuffix = attributes.MOBgapNumSuffix,
-      marginUnit = attributes.marginUnit,
-      _attributes$marginTop = attributes.marginTop,
-      marginTop = _attributes$marginTop === void 0 ? marginTop || 0 : _attributes$marginTop,
-      _attributes$marginRig = attributes.marginRight,
-      marginRight = _attributes$marginRig === void 0 ? marginRight || 0 : _attributes$marginRig,
-      _attributes$marginBot = attributes.marginBottom,
-      marginBottom = _attributes$marginBot === void 0 ? marginBottom || 0 : _attributes$marginBot,
-      _attributes$marginLef = attributes.marginLeft,
-      marginLeft = _attributes$marginLef === void 0 ? marginLeft || 0 : _attributes$marginLef,
-      paddingUnit = attributes.paddingUnit,
-      _attributes$paddingTo = attributes.paddingTop,
-      paddingTop = _attributes$paddingTo === void 0 ? paddingTop || 0 : _attributes$paddingTo,
-      _attributes$paddingRi = attributes.paddingRight,
-      paddingRight = _attributes$paddingRi === void 0 ? paddingRight || 0 : _attributes$paddingRi,
-      _attributes$paddingBo = attributes.paddingBottom,
-      paddingBottom = _attributes$paddingBo === void 0 ? paddingBottom || 0 : _attributes$paddingBo,
-      _attributes$paddingLe = attributes.paddingLeft,
-      paddingLeft = _attributes$paddingLe === void 0 ? paddingLeft || 0 : _attributes$paddingLe,
-      _attributes$TABmargin = attributes.TABmarginUnit,
-      TABmarginUnit = _attributes$TABmargin === void 0 ? TABmarginUnit || marginUnit : _attributes$TABmargin,
-      _attributes$TABmargin2 = attributes.TABmarginTop,
-      TABmarginTop = _attributes$TABmargin2 === void 0 ? TABmarginTop === 0 ? TABmarginTop : TABmarginTop || marginTop : _attributes$TABmargin2,
-      _attributes$TABmargin3 = attributes.TABmarginRight,
-      TABmarginRight = _attributes$TABmargin3 === void 0 ? TABmarginRight === 0 ? TABmarginRight : TABmarginRight || marginRight : _attributes$TABmargin3,
-      _attributes$TABmargin4 = attributes.TABmarginBottom,
-      TABmarginBottom = _attributes$TABmargin4 === void 0 ? TABmarginBottom === 0 ? TABmarginBottom : TABmarginBottom || marginBottom : _attributes$TABmargin4,
-      _attributes$TABmargin5 = attributes.TABmarginLeft,
-      TABmarginLeft = _attributes$TABmargin5 === void 0 ? TABmarginLeft === 0 ? TABmarginLeft : TABmarginLeft || marginLeft : _attributes$TABmargin5,
-      _attributes$TABpaddin = attributes.TABpaddingUnit,
-      TABpaddingUnit = _attributes$TABpaddin === void 0 ? TABpaddingUnit || paddingUnit : _attributes$TABpaddin,
-      _attributes$TABpaddin2 = attributes.TABpaddingTop,
-      TABpaddingTop = _attributes$TABpaddin2 === void 0 ? TABpaddingTop === 0 ? TABpaddingTop : TABpaddingTop || paddingTop : _attributes$TABpaddin2,
-      _attributes$TABpaddin3 = attributes.TABpaddingRight,
-      TABpaddingRight = _attributes$TABpaddin3 === void 0 ? TABpaddingRight === 0 ? TABpaddingRight : TABpaddingRight || paddingRight : _attributes$TABpaddin3,
-      _attributes$TABpaddin4 = attributes.TABpaddingBottom,
-      TABpaddingBottom = _attributes$TABpaddin4 === void 0 ? TABpaddingBottom === 0 ? TABpaddingBottom : TABpaddingBottom || paddingBottom : _attributes$TABpaddin4,
-      _attributes$TABpaddin5 = attributes.TABpaddingLeft,
-      TABpaddingLeft = _attributes$TABpaddin5 === void 0 ? TABpaddingLeft === 0 ? TABpaddingLeft : TABpaddingLeft || paddingLeft : _attributes$TABpaddin5,
-      _attributes$MOBmargin = attributes.MOBmarginUnit,
-      MOBmarginUnit = _attributes$MOBmargin === void 0 ? MOBmarginUnit || TABmarginUnit : _attributes$MOBmargin,
-      _attributes$MOBmargin2 = attributes.MOBmarginTop,
-      MOBmarginTop = _attributes$MOBmargin2 === void 0 ? MOBmarginTop === 0 ? MOBmarginTop : MOBmarginTop || TABmarginTop : _attributes$MOBmargin2,
-      _attributes$MOBmargin3 = attributes.MOBmarginRight,
-      MOBmarginRight = _attributes$MOBmargin3 === void 0 ? MOBmarginRight === 0 ? MOBmarginRight : MOBmarginRight || TABmarginRight : _attributes$MOBmargin3,
-      _attributes$MOBmargin4 = attributes.MOBmarginBottom,
-      MOBmarginBottom = _attributes$MOBmargin4 === void 0 ? MOBmarginBottom === 0 ? MOBmarginBottom : MOBmarginBottom || TABmarginBottom : _attributes$MOBmargin4,
-      _attributes$MOBmargin5 = attributes.MOBmarginLeft,
-      MOBmarginLeft = _attributes$MOBmargin5 === void 0 ? MOBmarginLeft === 0 ? MOBmarginLeft : MOBmarginLeft || TABmarginLeft : _attributes$MOBmargin5,
-      _attributes$MOBpaddin = attributes.MOBpaddingUnit,
-      MOBpaddingUnit = _attributes$MOBpaddin === void 0 ? MOBpaddingUnit || TABpaddingUnit : _attributes$MOBpaddin,
-      _attributes$MOBpaddin2 = attributes.MOBpaddingTop,
-      MOBpaddingTop = _attributes$MOBpaddin2 === void 0 ? MOBpaddingTop === 0 ? MOBpaddingTop : MOBpaddingTop || TABpaddingTop : _attributes$MOBpaddin2,
-      _attributes$MOBpaddin3 = attributes.MOBpaddingRight,
-      MOBpaddingRight = _attributes$MOBpaddin3 === void 0 ? MOBpaddingRight === 0 ? MOBpaddingRight : MOBpaddingRight || TABpaddingRight : _attributes$MOBpaddin3,
-      _attributes$MOBpaddin4 = attributes.MOBpaddingBottom,
-      MOBpaddingBottom = _attributes$MOBpaddin4 === void 0 ? MOBpaddingBottom === 0 ? MOBpaddingBottom : MOBpaddingBottom || TABpaddingBottom : _attributes$MOBpaddin4,
-      _attributes$MOBpaddin5 = attributes.MOBpaddingLeft,
-      MOBpaddingLeft = _attributes$MOBpaddin5 === void 0 ? MOBpaddingLeft === 0 ? MOBpaddingLeft : MOBpaddingLeft || TABpaddingLeft : _attributes$MOBpaddin5,
-      backgroundType = attributes.backgroundType,
-      imageURL = attributes.imageURL,
-      gradientColor = attributes.gradientColor,
-      backgroundSize = attributes.backgroundSize,
-      backgroundColor = attributes.backgroundColor,
-      borderWidth = attributes.borderWidth,
-      borderStyle = attributes.borderStyle,
-      borderColor = attributes.borderColor,
-      borderRadius = attributes.borderRadius,
-      radiusUnit = attributes.radiusUnit,
-      shadowColor = attributes.shadowColor,
-      _attributes$hOffset = attributes.hOffset,
-      hOffset = _attributes$hOffset === void 0 ? hOffset || 0 : _attributes$hOffset,
-      _attributes$vOffset = attributes.vOffset,
-      vOffset = _attributes$vOffset === void 0 ? vOffset || 0 : _attributes$vOffset,
-      _attributes$blur = attributes.blur,
-      blur = _attributes$blur === void 0 ? blur || 0 : _attributes$blur,
-      _attributes$spread = attributes.spread,
-      spread = _attributes$spread === void 0 ? spread || 0 : _attributes$spread,
-      inset = attributes.inset,
-      _attributes$hoverShad = attributes.hoverShadowColor,
-      hoverShadowColor = _attributes$hoverShad === void 0 ? hoverShadowColor || shadowColor : _attributes$hoverShad,
-      _attributes$hoverHOff = attributes.hoverHOffset,
-      hoverHOffset = _attributes$hoverHOff === void 0 ? hoverHOffset || hOffset : _attributes$hoverHOff,
-      _attributes$hoverVOff = attributes.hoverVOffset,
-      hoverVOffset = _attributes$hoverVOff === void 0 ? hoverVOffset || vOffset : _attributes$hoverVOff,
-      _attributes$hoverBlur = attributes.hoverBlur,
-      hoverBlur = _attributes$hoverBlur === void 0 ? hoverBlur || blur : _attributes$hoverBlur,
-      _attributes$hoverSpre = attributes.hoverSpread,
-      hoverSpread = _attributes$hoverSpre === void 0 ? hoverSpread || spread : _attributes$hoverSpre,
-      _attributes$hoverInse = attributes.hoverInset,
-      hoverInset = _attributes$hoverInse === void 0 ? hoverInset || inset : _attributes$hoverInse,
-      wrapperTransitionTime = attributes.wrapperTransitionTime; //
-  // CSS/styling Codes Starts from Here
-  //
-  // function to generate typography styles for an element based on it's prefix
-
-  var generateTypographyStylesForSave = function generateTypographyStylesForSave(prefixConstant) {
-    var defaultFontSize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
-        fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
-        textTransform = attributes["".concat(prefixConstant, "TextTransform")],
-        textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
-        _attributes$ = attributes["".concat(prefixConstant, "FontSize")],
-        fontSize = _attributes$ === void 0 ? fontSize || defaultFontSize : _attributes$,
-        sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
-        letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
-        letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
-        lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
-        lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
-        TABfontFamily = attributes["TAB".concat(prefixConstant, "FontFamily")],
-        TABfontWeight = attributes["TAB".concat(prefixConstant, "FontWeight")],
-        TABtextTransform = attributes["TAB".concat(prefixConstant, "TextTransform")],
-        TABtextDecoration = attributes["TAB".concat(prefixConstant, "TextDecoration")],
-        TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
-        _attributes$2 = attributes["TAB".concat(prefixConstant, "SizeUnit")],
-        TABsizeUnit = _attributes$2 === void 0 ? TABsizeUnit || sizeUnit : _attributes$2,
-        _attributes$3 = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
-        TABletterSpacingUnit = _attributes$3 === void 0 ? TABletterSpacingUnit || letterSpacingUnit : _attributes$3,
-        TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
-        TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
-        _attributes$4 = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
-        TABlineHeightUnit = _attributes$4 === void 0 ? TABlineHeightUnit || lineHeightUnit : _attributes$4,
-        MOBfontFamily = attributes["MOB".concat(prefixConstant, "FontFamily")],
-        MOBfontWeight = attributes["MOB".concat(prefixConstant, "FontWeight")],
-        MOBtextTransform = attributes["MOB".concat(prefixConstant, "TextTransform")],
-        MOBtextDecoration = attributes["MOB".concat(prefixConstant, "TextDecoration")],
-        MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
-        _attributes$5 = attributes["MOB".concat(prefixConstant, "SizeUnit")],
-        MOBsizeUnit = _attributes$5 === void 0 ? MOBsizeUnit || TABsizeUnit : _attributes$5,
-        MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
-        _attributes$6 = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
-        MOBletterSpacingUnit = _attributes$6 === void 0 ? MOBletterSpacingUnit || TABletterSpacingUnit : _attributes$6,
-        MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")],
-        _attributes$7 = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
-        MOBlineHeightUnit = _attributes$7 === void 0 ? MOBlineHeightUnit || TABlineHeightUnit : _attributes$7;
-    var typoStylesDesktop = "\n\t\t\t".concat(fontFamily ? "font-family: ".concat(fontFamily, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(fontSize) ? "font-size: ".concat(fontSize).concat(sizeUnit, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(lineHeight) ? "line-height: ".concat(lineHeight).concat(lineHeightUnit, ";") : " ", "\n\t\t\t").concat(fontWeight ? "font-weight: ".concat(fontWeight, ";") : " ", "\n\t\t\t").concat(textDecoration ? "text-decoration: ".concat(textDecoration, ";") : " ", "\n\t\t\t").concat(textTransform ? "text-transform: ".concat(textTransform, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(letterSpacing) ? "letter-spacing: ".concat(letterSpacing).concat(letterSpacingUnit, ";") : " ", "\n\t\t");
-    var typoStylesTab = "\n\t\t\t".concat(TABfontFamily ? "font-family: ".concat(TABfontFamily, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(TABfontSize) ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(TABlineHeight) ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(TABfontWeight ? "font-weight: ".concat(TABfontWeight, ";") : " ", "\n\t\t\t").concat(TABtextDecoration ? "text-decoration: ".concat(TABtextDecoration, ";") : " ", "\n\t\t\t").concat(TABtextTransform ? "text-transform: ".concat(TABtextTransform, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(TABletterSpacing) ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
-    var typoStylesMobile = "\n\t\t\t".concat(MOBfontFamily ? "font-family: ".concat(MOBfontFamily, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(MOBfontSize) ? "font-size: ".concat(MOBfontSize).concat(MOBsizeUnit, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(MOBlineHeight) ? "line-height: ".concat(MOBlineHeight).concat(MOBlineHeightUnit, ";") : " ", "\n\t\t\t").concat(MOBfontWeight ? "font-weight: ".concat(MOBfontWeight, ";") : " ", "\n\t\t\t").concat(MOBtextDecoration ? "text-decoration: ".concat(MOBtextDecoration, ";") : " ", "\n\t\t\t").concat(MOBtextTransform ? "text-transform: ".concat(MOBtextTransform, ";") : " ", "\n\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(MOBletterSpacing) ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
-    return {
-      typoStylesDesktop: typoStylesDesktop,
-      typoStylesTab: typoStylesTab,
-      typoStylesMobile: typoStylesMobile
-    };
-  };
-
-  var _generateTypographySt = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_2__["title"], 40),
-      titleTypoStylesDesktop = _generateTypographySt.typoStylesDesktop,
-      titleTypoStylesTab = _generateTypographySt.typoStylesTab,
-      titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
-
-  var _generateTypographySt2 = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_2__["number"], 40),
-      numberTypoStylesDesktop = _generateTypographySt2.typoStylesDesktop,
-      numberTypoStylesTab = _generateTypographySt2.typoStylesTab,
-      numberTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
-
-  var _generateTypographySt3 = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_2__["numPrefix"]),
-      numPrefixTypoStylesDesktop = _generateTypographySt3.typoStylesDesktop,
-      numPrefixTypoStylesTab = _generateTypographySt3.typoStylesTab,
-      numPrefixTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
-
-  var _generateTypographySt4 = generateTypographyStylesForSave(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_2__["numSuffix"]),
-      numSuffixTypoStylesDesktop = _generateTypographySt4.typoStylesDesktop,
-      numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
-      numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
-
-  var wrapperStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, "{\n\t\t\n\t\tmargin: ").concat(marginTop).concat(marginUnit, " ").concat(marginRight).concat(marginUnit, " ").concat(marginBottom).concat(marginUnit, " ").concat(marginLeft).concat(marginUnit, ";\n\t\tpadding: ").concat(paddingTop).concat(paddingUnit, " ").concat(paddingRight).concat(paddingUnit, " ").concat(paddingBottom).concat(paddingUnit, " ").concat(paddingLeft).concat(paddingUnit, ";\n\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(gapNumTitle) ? "gap: ".concat(gapNumTitle, "px;") : " ", "\n\t\t").concat(wrapperFlexDirection ? "flex-direction: ".concat(wrapperFlexDirection, ";") : " ", "\n\t\t\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\n\t\t").concat(backgroundSize ? "background-size: ".concat(backgroundSize, ";") : " ", "\n\t\t").concat(backgroundColor ? "background-color: ".concat(backgroundColor, ";") : " ", "\t\n\t\t").concat(borderColor ? "border: ".concat(borderWidth, "px ").concat(borderStyle, " ").concat(borderColor, ";") : " ", "\n\t\t").concat(borderRadius ? "border-radius: ".concat(borderRadius).concat(radiusUnit, ";") : " ", "\n\n\t\t").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\n\t.eb-counter-wrapper.eb-counter-wrapper-").concat(uniqueIdNumber, ":hover{\t\t\n\t\t").concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(hoverInset ? "inset" : " ", ";") : " ", "\n\t}\n\t");
-  var wrapperStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, "{\n\t\tmargin: ").concat(TABmarginTop).concat(TABmarginUnit, " ").concat(TABmarginRight).concat(TABmarginUnit, " ").concat(TABmarginBottom).concat(TABmarginUnit, " ").concat(TABmarginLeft).concat(TABmarginUnit, ";\n\t\tpadding: ").concat(TABpaddingTop).concat(TABpaddingUnit, " ").concat(TABpaddingRight).concat(TABpaddingUnit, " ").concat(TABpaddingBottom).concat(TABpaddingUnit, " ").concat(TABpaddingLeft).concat(TABpaddingUnit, ";\n\t\t\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(TABgapNumTitle) ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\n\t}\n\t");
-  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, "{\n\t\tmargin: ").concat(MOBmarginTop).concat(MOBmarginUnit, " ").concat(MOBmarginRight).concat(MOBmarginUnit, " ").concat(MOBmarginBottom).concat(MOBmarginUnit, " ").concat(MOBmarginLeft).concat(MOBmarginUnit, ";\n\t\tpadding: ").concat(MOBpaddingTop).concat(MOBpaddingUnit, " ").concat(MOBpaddingRight).concat(MOBpaddingUnit, " ").concat(MOBpaddingBottom).concat(MOBpaddingUnit, " ").concat(MOBpaddingLeft).concat(MOBpaddingUnit, ";\n\n\t\t").concat(MOBgapNumTitle !== TABgapNumTitle && Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(MOBgapNumTitle) ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t");
-  var numberStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\t").concat(numberColor ? " color : ".concat(numberColor, ";") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(gapNumPrefix) ? "padding-left: ".concat(gapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(gapNumSuffix) ? "padding-right: ".concat(gapNumSuffix, "px;") : " ", "\n\t}\n\t");
-  var numberStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(TABnumberColor ? "color : ".concat(TABnumberColor, ";") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(TABgapNumPrefix) ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(TABgapNumSuffix) ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
-  var numberStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(MOBnumberColor ? "color : ".concat(MOBnumberColor, ";") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(MOBgapNumPrefix) ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hasVal"])(MOBgapNumSuffix) ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
-  var titleStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\t").concat(titleColor ? "color : ".concat(titleColor, ";") : " ", "\n\t}\n\t");
-  var titleStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t\t").concat(TABtitleColor ? "color : ".concat(TABtitleColor, ";") : " ", "\n\t}  ");
-  var titleStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t\t").concat(MOBtitleColor ? "color : ".concat(MOBtitleColor, ";") : " ", "\n\t} ");
-  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\t").concat(numPrefixColor ? "color : ".concat(numPrefixColor, ";") : " ", "\n\t}\n\t");
-  var numPrefixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t\t").concat(TABnumPrefixColor ? "color : ".concat(TABnumPrefixColor, ";") : " ", "\n\t}  ");
-  var numPrefixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t\t").concat(MOBnumPrefixColor ? "color : ".concat(MOBnumPrefixColor, ";") : " ", "\n\t}  ");
-  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\t").concat(numSuffixColor ? "color : ".concat(numSuffixColor, ";") : " ", "\n\t}\n\t");
-  var numSuffixStylesTab = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t\t").concat(TABnumSuffixColor ? "color : ".concat(TABnumSuffixColor, ";") : " ", "\n\t} ");
-  var numSuffixStylesMobile = "\n\t.eb-counter-wrapper.eb-counter-wrapper-".concat(uniqueIdNumber, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t\t").concat(MOBnumSuffixColor ? "color : ".concat(MOBnumSuffixColor, ";") : " ", "\n\t}\n\n\t");
-  var desktopAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(titleStylesDesktop) ? titleStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numPrefixStylesDesktop) ? numPrefixStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numSuffixStylesDesktop) ? numSuffixStylesDesktop : " ", "\n\t");
-  var tabAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numberStylesTab) ? numberStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(titleStylesTab) ? titleStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numPrefixStylesTab) ? numPrefixStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numSuffixStylesTab) ? numSuffixStylesTab : " ", "\n\t");
-  var mobileAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t"); //
-  // CSS/styling Codes Ends Here
-  //
-
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, "".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hardMinifyCssStrings"])(desktopAllStyles), "@media all and (max-width: 1030px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hardMinifyCssStrings"])(tabAllStyles), "}@media all and (max-width: 680px){").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["hardMinifyCssStrings"])(mobileAllStyles), "}")), /*#__PURE__*/React.createElement("div", {
+      separator = attributes.separator;
+  return /*#__PURE__*/React.createElement("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"].save(), /*#__PURE__*/React.createElement("div", {
     className: "eb-counter-wrapper eb-counter-wrapper-".concat(uniqueIdNumber)
   }, /*#__PURE__*/React.createElement("h4", {
     className: "eb-counter-number"

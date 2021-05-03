@@ -70,14 +70,18 @@ function create_block_counter_block_init()
 		true
 	);
 
-	register_block_type(
-		'essential-blocks-separate/counter',
-		array(
-			'editor_script' => 'essential-blocks-separate-counter-block-editor',
-			'editor_style'  => 'essential-blocks-separate-counter-block-editor',
-			'style'         => 'essential-blocks-separate-counter-block',
-			'frontend_js'   => 'essential-blocks-counter-frontend',
-		)
-	);
+
+
+	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/counter')) {
+		register_block_type(
+			'counter-block/counter',
+			array(
+				'editor_script' => 'essential-blocks-separate-counter-block-editor',
+				'editor_style'  => 'essential-blocks-separate-counter-block-editor',
+				'style'         => 'essential-blocks-separate-counter-block',
+				'frontend_js'   => 'essential-blocks-counter-frontend',
+			)
+		);
+	}
 }
 add_action('init', 'create_block_counter_block_init');

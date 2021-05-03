@@ -1,4 +1,5 @@
 {
+	"apiVersion": 2,
 	"name": "essential-blocks-separate/counter",
 	"title": "Counter",
 	"category": "widgets",

@@ -33,12 +33,6 @@ const Edit = (props) => {
 		className: "eb-guten-block-main-parrent-wrapper",
 	});
 
-	const wpDataMeta = wp.data
-		.select("core/editor")
-		.getEditedPostAttribute("meta");
-
-	// console.log("--------edit:", { props, wpDataMeta }, wp.data);
-
 	const {
 		// responsive control attributes ⬇
 		resOption,
