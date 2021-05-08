@@ -5,7 +5,7 @@ import { __ } from "@wordpress/i18n";
 import { InspectorControls, MediaUpload } from "@wordpress/block-editor";
 import { useEffect } from "@wordpress/element";
 
-const {
+import {
 	ButtonGroup,
 	Button,
 	PanelBody,
@@ -14,20 +14,20 @@ const {
 	SelectControl,
 	BaseControl,
 	RangeControl,
-} = wp.components;
+} from "@wordpress/components";
 
 /**
  * Internal dependencies
  */
 
 import ColorControl from "../util/color-control";
-import DimensionsControl from "../util/dimensions-control";
+import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
 import UnitControl from "../util/unit-control";
 import GradientColorController from "../util/gradient-color-controller";
-import ImageAvater from "../util/image-avatar/ImageAvater";
+import ImageAvatar from "../util/image-avatar";
 import ResetControl from "../util/reset-control";
 import ToggleButton from "../util/toggle-button";
-import TypographyControl from "../util/typography-component";
+import TypographyDropdown from "../util/typography-control-v2";
 import ResPanelBody from "./ResPanelBody";
 
 import {
@@ -42,11 +42,13 @@ import {
 } from "./constants";
 
 import {
-	title,
-	number,
-	numPrefix,
-	numSuffix,
+	typoPrefix_numPrefix,
+	typoPrefix_numSuffix,
+	typoPrefix_number,
+	typoPrefix_title,
 } from "./constants/typographyPrefixConstants";
+
+import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
 
 const Inspector = (props) => {
 	// console.log("--------inspector:", { props });
@@ -106,81 +108,6 @@ const Inspector = (props) => {
 			? MOBgapNumSuffix
 			: MOBgapNumSuffix || TABgapNumSuffix,
 
-		// margin padding attributes ⬇
-		marginUnit,
-
-		marginTop = marginTop || 0,
-		marginRight = marginRight || 0,
-		marginBottom = marginBottom || 0,
-		marginLeft = marginLeft || 0,
-
-		paddingUnit,
-
-		paddingTop = paddingTop || 0,
-		paddingRight = paddingRight || 0,
-		paddingBottom = paddingBottom || 0,
-		paddingLeft = paddingLeft || 0,
-
-		TABmarginUnit = TABmarginUnit || marginUnit,
-
-		TABmarginTop = TABmarginTop === 0
-			? TABmarginTop
-			: TABmarginTop || marginTop,
-		TABmarginRight = TABmarginRight === 0
-			? TABmarginRight
-			: TABmarginRight || marginRight,
-		TABmarginBottom = TABmarginBottom === 0
-			? TABmarginBottom
-			: TABmarginBottom || marginBottom,
-		TABmarginLeft = TABmarginLeft === 0
-			? TABmarginLeft
-			: TABmarginLeft || marginLeft,
-
-		TABpaddingUnit = TABpaddingUnit || paddingUnit,
-
-		TABpaddingTop = TABpaddingTop === 0
-			? TABpaddingTop
-			: TABpaddingTop || paddingTop,
-		TABpaddingRight = TABpaddingRight === 0
-			? TABpaddingRight
-			: TABpaddingRight || paddingRight,
-		TABpaddingBottom = TABpaddingBottom === 0
-			? TABpaddingBottom
-			: TABpaddingBottom || paddingBottom,
-		TABpaddingLeft = TABpaddingLeft === 0
-			? TABpaddingLeft
-			: TABpaddingLeft || paddingLeft,
-
-		MOBmarginUnit = MOBmarginUnit || TABmarginUnit || marginUnit,
-
-		MOBmarginTop = MOBmarginTop === 0
-			? MOBmarginTop
-			: MOBmarginTop || TABmarginTop,
-		MOBmarginRight = MOBmarginRight === 0
-			? MOBmarginRight
-			: MOBmarginRight || TABmarginRight,
-		MOBmarginBottom = MOBmarginBottom === 0
-			? MOBmarginBottom
-			: MOBmarginBottom || TABmarginBottom,
-		MOBmarginLeft = MOBmarginLeft === 0
-			? MOBmarginLeft
-			: MOBmarginLeft || TABmarginLeft,
-
-		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit || paddingUnit,
-
-		MOBpaddingTop = MOBpaddingTop === 0
-			? MOBpaddingTop
-			: MOBpaddingTop || TABpaddingTop,
-		MOBpaddingRight = MOBpaddingRight === 0
-			? MOBpaddingRight
-			: MOBpaddingRight || TABpaddingRight,
-		MOBpaddingBottom = MOBpaddingBottom === 0
-			? MOBpaddingBottom
-			: MOBpaddingBottom || TABpaddingBottom,
-		MOBpaddingLeft = MOBpaddingLeft === 0
-			? MOBpaddingLeft
-			: MOBpaddingLeft || TABpaddingLeft,
-
 		// background attributes ⬇
 		backgroundType,
 		backgroundColor,
@@ -188,26 +115,6 @@ const Inspector = (props) => {
 		imageURL,
 		imageID,
 		backgroundSize,
-
-		// TABbackgroundType = TABbackgroundType || backgroundType,
-		// TABbackgroundColor = TABbackgroundColor || backgroundColor,
-		// TABgradientColor = TABgradientColor || gradientColor,
-		// TABbackgroundSize = TABbackgroundSize || backgroundSize,
-		// TABimageURL = TABimageURL || imageURL,
-		// TABimageID = TABimageID || imageID,
-
-		// MOBbackgroundType = MOBbackgroundType ||
-		// 	TABbackgroundType ||
-		// 	backgroundType,
-		// MOBbackgroundColor = MOBbackgroundColor ||
-		// 	TABbackgroundColor ||
-		// 	backgroundColor,
-		// MOBgradientColor = MOBgradientColor || TABgradientColor || gradientColor,
-		// MOBbackgroundSize = MOBbackgroundSize ||
-		// 	TABbackgroundSize ||
-		// 	backgroundSize,
-		// MOBimageURL = MOBimageURL || TABimageURL || imageURL,
-		// MOBimageID = MOBimageID || TABimageID || imageID,
 
 		// border attributes ⬇
 		borderWidth,
@@ -224,62 +131,13 @@ const Inspector = (props) => {
 		blur,
 		spread,
 		inset,
-		hoverShadowColor = hoverShadowColor || shadowColor,
+		hoverShadowColor = shadowColor,
 		hoverHOffset,
 		hoverVOffset,
 		hoverBlur,
 		hoverSpread,
 		hoverInset,
 		wrapperTransitionTime,
-
-		// // Typography Attributes  ⬇
-		// // title typography attributes  ⬇
-		// titleFontFamily,
-		// titleSizeUnit,
-		// titleFontSize,
-		// titleFontWeight,
-		// titleTextTransform,
-		// titleTextDecoration,
-		// titleLetterSpacingUnit,
-		// titleLetterSpacing,
-		// titleLineHeightUnit,
-		// titleLineHeight,
-
-		// // number typography attributes  ⬇
-		// numberFontFamily,
-		// numberSizeUnit,
-		// numberFontSize,
-		// numberFontWeight,
-		// numberTextTransform,
-		// numberTextDecoration,
-		// numberLetterSpacingUnit,
-		// numberLetterSpacing,
-		// numberLineHeightUnit,
-		// numberLineHeight,
-
-		// // prefix typography attributes  ⬇
-		// prefixFontFamily,
-		// prefixSizeUnit,
-		// prefixFontSize,
-		// prefixFontWeight,
-		// prefixTextTransform,
-		// prefixTextDecoration,
-		// prefixLetterSpacingUnit,
-		// prefixLetterSpacing,
-		// prefixLineHeightUnit,
-		// prefixLineHeight,
-
-		// // suffix typography attributes ⬇
-		// suffixFontFamily,
-		// suffixSizeUnit,
-		// suffixFontSize,
-		// suffixFontWeight,
-		// suffixTextTransform,
-		// suffixTextDecoration,
-		// suffixLetterSpacingUnit,
-		// suffixLetterSpacing,
-		// suffixLineHeightUnit,
-		// suffixLineHeight,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
@@ -380,79 +238,8 @@ const Inspector = (props) => {
 	const resRequiredProps = {
 		setAttributes,
 		resOption,
+		attributes,
 	};
-
-	const generateTypographyAttributes = (prefixConstant) => {
-		const {
-			[`${prefixConstant}FontFamily`]: fontFamily,
-			[`${prefixConstant}FontWeight`]: fontWeight,
-			[`${prefixConstant}TextTransform`]: textTransform,
-			[`${prefixConstant}TextDecoration`]: textDecoration,
-			[`${prefixConstant}FontSize`]: fontSize,
-			[`${prefixConstant}SizeUnit`]: sizeUnit,
-			[`${prefixConstant}LetterSpacing`]: letterSpacing,
-			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
-			[`${prefixConstant}LineHeight`]: lineHeight,
-			[`${prefixConstant}LineHeightUnit`]: lineHeightUnit,
-
-			[`TAB${prefixConstant}FontFamily`]: TABfontFamily,
-			[`TAB${prefixConstant}FontWeight`]: TABfontWeight,
-			[`TAB${prefixConstant}TextTransform`]: TABtextTransform,
-			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
-			[`TAB${prefixConstant}FontSize`]: TABfontSize,
-			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit,
-			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
-			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit,
-			[`TAB${prefixConstant}LineHeight`]: TABlineHeight,
-			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit,
-
-			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily,
-			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight,
-			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform,
-			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration,
-			[`MOB${prefixConstant}FontSize`]: MOBfontSize,
-			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit,
-			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing,
-			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit,
-			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight,
-			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit,
-		} = attributes;
-
-		return {
-			fontFamily,
-			fontWeight,
-			textTransform,
-			textDecoration,
-			fontSize,
-			sizeUnit,
-			letterSpacing,
-			letterSpacingUnit,
-			lineHeight,
-			lineHeightUnit,
-			TABfontFamily,
-			TABfontWeight,
-			TABtextTransform,
-			TABtextDecoration,
-			TABfontSize,
-			TABsizeUnit,
-			TABletterSpacing,
-			TABletterSpacingUnit,
-			TABlineHeight,
-			TABlineHeightUnit,
-			MOBfontFamily,
-			MOBfontWeight,
-			MOBtextTransform,
-			MOBtextDecoration,
-			MOBfontSize,
-			MOBsizeUnit,
-			MOBletterSpacing,
-			MOBletterSpacingUnit,
-			MOBlineHeight,
-			MOBlineHeightUnit,
-		};
-	};
-	const titleTypoAttrr = generateTypographyAttributes(title);
-	// console.log("------------title typo attributes", { titleTypoAttrr });
 
 	return (
 		<InspectorControls key="controls">
@@ -530,40 +317,28 @@ const Inspector = (props) => {
 					)}
 				</PanelBody>
 
-				<ResPanelBody
-					title={__("Typography")}
-					initialOpen={false}
-					resRequiredProps={resRequiredProps}
-				>
-					<TypographyControl
+				<PanelBody title={__("Typography")} initialOpen={false}>
+					<TypographyDropdown
 						baseLabel="Title"
-						typographyPrefixConstant={title}
-						typographyAttributes={generateTypographyAttributes(title)}
-						resOption={resOption}
-						setAttributes={setAttributes}
+						typographyPrefixConstant={typoPrefix_title}
+						resRequiredProps={resRequiredProps}
 					/>
-					<TypographyControl
+					<TypographyDropdown
 						baseLabel="Number"
-						typographyPrefixConstant={number}
-						typographyAttributes={generateTypographyAttributes(number)}
-						resOption={resOption}
-						setAttributes={setAttributes}
+						typographyPrefixConstant={typoPrefix_number}
+						resRequiredProps={resRequiredProps}
 					/>
-					<TypographyControl
-						baseLabel="Prefix"
-						typographyPrefixConstant={numPrefix}
-						typographyAttributes={generateTypographyAttributes(numPrefix)}
-						resOption={resOption}
-						setAttributes={setAttributes}
+					<TypographyDropdown
+						baseLabel="Number prefix"
+						typographyPrefixConstant={typoPrefix_numPrefix}
+						resRequiredProps={resRequiredProps}
 					/>
-					<TypographyControl
-						baseLabel="Suffix"
-						typographyPrefixConstant={numSuffix}
-						typographyAttributes={generateTypographyAttributes(numSuffix)}
-						resOption={resOption}
-						setAttributes={setAttributes}
+					<TypographyDropdown
+						baseLabel="Number Suffix"
+						typographyPrefixConstant={typoPrefix_numSuffix}
+						resRequiredProps={resRequiredProps}
 					/>
-				</ResPanelBody>
+				</PanelBody>
 
 				<ResPanelBody
 					title={__("Colors")}
@@ -744,153 +519,18 @@ const Inspector = (props) => {
 					)}
 				</ResPanelBody>
 
-				<ResPanelBody
-					title={__("Margin & Padding")}
-					initialOpen={false}
-					resRequiredProps={resRequiredProps}
-				>
-					{resOption == "desktop" && (
-						<>
-							<UnitControl
-								selectedUnit={marginUnit}
-								unitTypes={FONT_SIZE_UNITS}
-								onClick={(marginUnit) => setAttributes({ marginUnit })}
-							/>
-
-							<DimensionsControl
-								label={__("Margin")}
-								top={marginTop}
-								right={marginRight}
-								bottom={marginBottom}
-								left={marginLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										marginTop: top,
-										marginRight: right,
-										marginBottom: bottom,
-										marginLeft: left,
-									})
-								}
-							/>
-
-							<UnitControl
-								selectedUnit={paddingUnit}
-								unitTypes={FONT_SIZE_UNITS}
-								onClick={(paddingUnit) => setAttributes({ paddingUnit })}
-							/>
-
-							<DimensionsControl
-								label={__("Padding")}
-								top={paddingTop}
-								right={paddingRight}
-								bottom={paddingBottom}
-								left={paddingLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										paddingTop: top,
-										paddingRight: right,
-										paddingBottom: bottom,
-										paddingLeft: left,
-									})
-								}
-							/>
-						</>
-					)}
-					{resOption == "tab" && (
-						<>
-							<UnitControl
-								selectedUnit={TABmarginUnit}
-								unitTypes={FONT_SIZE_UNITS}
-								onClick={(TABmarginUnit) => setAttributes({ TABmarginUnit })}
-							/>
-
-							<DimensionsControl
-								label={__("Margin")}
-								top={TABmarginTop}
-								right={TABmarginRight}
-								bottom={TABmarginBottom}
-								left={TABmarginLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										TABmarginTop: top,
-										TABmarginRight: right,
-										TABmarginBottom: bottom,
-										TABmarginLeft: left,
-									})
-								}
-							/>
-
-							<UnitControl
-								selectedUnit={TABpaddingUnit}
-								unitTypes={FONT_SIZE_UNITS}
-								onClick={(TABpaddingUnit) => setAttributes({ TABpaddingUnit })}
-							/>
-
-							<DimensionsControl
-								label={__("Padding")}
-								top={TABpaddingTop}
-								right={TABpaddingRight}
-								bottom={TABpaddingBottom}
-								left={TABpaddingLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										TABpaddingTop: top,
-										TABpaddingRight: right,
-										TABpaddingBottom: bottom,
-										TABpaddingLeft: left,
-									})
-								}
-							/>
-						</>
-					)}
-					{resOption == "mobile" && (
-						<>
-							<UnitControl
-								selectedUnit={MOBmarginUnit}
-								unitTypes={FONT_SIZE_UNITS}
-								onClick={(MOBmarginUnit) => setAttributes({ MOBmarginUnit })}
-							/>
-
-							<DimensionsControl
-								label={__("Margin")}
-								top={MOBmarginTop}
-								right={MOBmarginRight}
-								bottom={MOBmarginBottom}
-								left={MOBmarginLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										MOBmarginTop: top,
-										MOBmarginRight: right,
-										MOBmarginBottom: bottom,
-										MOBmarginLeft: left,
-									})
-								}
-							/>
-
-							<UnitControl
-								selectedUnit={MOBpaddingUnit}
-								unitTypes={FONT_SIZE_UNITS}
-								onClick={(MOBpaddingUnit) => setAttributes({ MOBpaddingUnit })}
-							/>
-
-							<DimensionsControl
-								label={__("Padding")}
-								top={MOBpaddingTop}
-								right={MOBpaddingRight}
-								bottom={MOBpaddingBottom}
-								left={MOBpaddingLeft}
-								onChange={({ top, right, bottom, left }) =>
-									setAttributes({
-										MOBpaddingTop: top,
-										MOBpaddingRight: right,
-										MOBpaddingBottom: bottom,
-										MOBpaddingLeft: left,
-									})
-								}
-							/>
-						</>
-					)}
-				</ResPanelBody>
+				<PanelBody title={__("Margin Padding")} initialOpen={false}>
+					<ResponsiveDimensionsControl
+						resRequiredProps={resRequiredProps}
+						controlName={wrapperMargin}
+						baseLabel="Margin"
+					/>
+					<ResponsiveDimensionsControl
+						resRequiredProps={resRequiredProps}
+						controlName={wrapperPadding}
+						baseLabel="Padding"
+					/>
+				</PanelBody>
 
 				<PanelBody title={__("Background")} initialOpen={false}>
 					<BaseControl label={__("Background Type")}>
@@ -953,7 +593,7 @@ const Inspector = (props) => {
 
 							{imageURL && (
 								<>
-									<ImageAvater
+									<ImageAvatar
 										imageUrl={imageURL}
 										onDeleteImage={() => setAttributes({ imageURL: null })}
 									/>

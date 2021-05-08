@@ -12,11 +12,12 @@ import "./editor.scss";
  */
 import Inspector from "./inspector";
 import {
-	title,
-	number,
-	numPrefix,
-	numSuffix,
+	typoPrefix_title,
+	typoPrefix_number,
+	typoPrefix_numPrefix,
+	typoPrefix_numSuffix,
 } from "./constants/typographyPrefixConstants";
+import { wrapperPadding, wrapperMargin } from "./constants/dimensionsConstants";
 
 import {
 	generateRandomNumber,
@@ -24,14 +25,12 @@ import {
 	softMinifyCssStrings,
 	hasVal,
 	isCssExists,
+	generateDimensionsControlStyles,
+	generateTypographyStyles,
 } from "./helpers";
 
 const Edit = (props) => {
 	const { isSelected, attributes, setAttributes } = props;
-
-	const blockProps = useBlockProps({
-		className: "eb-guten-block-main-parrent-wrapper",
-	});
 
 	const {
 		// responsive control attributes ⬇
@@ -268,148 +267,79 @@ const Edit = (props) => {
 		}
 	}, []);
 
+	const blockProps = useBlockProps({
+		className: `eb-guten-block-main-parent-wrapper`,
+	});
+
 	//
 	// CSS/styling Codes Starts from Here
 	//
 	// function to generate typography styles for an element based on it's prefix
-	const generateTypographyStylesForEdit = (
-		prefixConstant,
-		defaultFontSize = false
-	) => {
-		const {
-			[`${prefixConstant}FontFamily`]: fontFamily,
-			[`${prefixConstant}FontWeight`]: fontWeight,
-			[`${prefixConstant}TextTransform`]: textTransform,
-			[`${prefixConstant}TextDecoration`]: textDecoration,
-			[`${prefixConstant}FontSize`]: fontSize = fontSize || defaultFontSize,
-			[`${prefixConstant}SizeUnit`]: sizeUnit,
-			[`${prefixConstant}LetterSpacing`]: letterSpacing,
-			[`${prefixConstant}LetterSpacingUnit`]: letterSpacingUnit,
-			[`${prefixConstant}LineHeight`]: lineHeight,
-			[`${prefixConstant}LineHeightUnit`]: lineHeightUnit,
-
-			[`TAB${prefixConstant}FontFamily`]: TABfontFamily,
-			[`TAB${prefixConstant}FontWeight`]: TABfontWeight,
-			[`TAB${prefixConstant}TextTransform`]: TABtextTransform,
-			[`TAB${prefixConstant}TextDecoration`]: TABtextDecoration,
-			[`TAB${prefixConstant}FontSize`]: TABfontSize,
-			[`TAB${prefixConstant}SizeUnit`]: TABsizeUnit = TABsizeUnit || sizeUnit,
-			[`TAB${prefixConstant}LetterSpacingUnit`]: TABletterSpacingUnit = TABletterSpacingUnit ||
-				letterSpacingUnit,
-			[`TAB${prefixConstant}LetterSpacing`]: TABletterSpacing,
-			[`TAB${prefixConstant}LineHeight`]: TABlineHeight,
-			[`TAB${prefixConstant}LineHeightUnit`]: TABlineHeightUnit = TABlineHeightUnit ||
-				lineHeightUnit,
-
-			[`MOB${prefixConstant}FontFamily`]: MOBfontFamily = MOBfontFamily ||
-				TABfontFamily,
-			[`MOB${prefixConstant}FontWeight`]: MOBfontWeight = MOBfontWeight ||
-				TABfontWeight,
-			[`MOB${prefixConstant}TextTransform`]: MOBtextTransform = MOBtextTransform ||
-				TABtextTransform,
-			[`MOB${prefixConstant}TextDecoration`]: MOBtextDecoration = MOBtextDecoration ||
-				TABtextDecoration,
-			[`MOB${prefixConstant}FontSize`]: MOBfontSize = MOBfontSize ||
-				TABfontSize,
-			[`MOB${prefixConstant}SizeUnit`]: MOBsizeUnit = MOBsizeUnit ||
-				TABsizeUnit,
-			[`MOB${prefixConstant}LetterSpacing`]: MOBletterSpacing = MOBletterSpacing ||
-				TABletterSpacing,
-			[`MOB${prefixConstant}LetterSpacingUnit`]: MOBletterSpacingUnit = MOBletterSpacingUnit ||
-				TABletterSpacingUnit,
-			[`MOB${prefixConstant}LineHeight`]: MOBlineHeight = MOBlineHeight ||
-				TABlineHeight,
-			[`MOB${prefixConstant}LineHeightUnit`]: MOBlineHeightUnit = MOBlineHeightUnit ||
-				TABlineHeightUnit,
-		} = attributes;
-
-		const typoStylesDesktop = `
-			${fontFamily ? `font-family: ${fontFamily};` : " "}
-			${hasVal(fontSize) ? `font-size: ${fontSize}${sizeUnit};` : " "}
-			${hasVal(lineHeight) ? `line-height: ${lineHeight}${lineHeightUnit};` : " "}
-			${fontWeight ? `font-weight: ${fontWeight};` : " "}
-			${textDecoration ? `text-decoration: ${textDecoration};` : " "}
-			${textTransform ? `text-transform: ${textTransform};` : " "}
-			${
-				hasVal(letterSpacing)
-					? `letter-spacing: ${letterSpacing}${letterSpacingUnit};`
-					: " "
-			}
-		`;
-
-		const typoStylesTab = `
-			${TABfontFamily ? `font-family: ${TABfontFamily};` : " "}
-			${hasVal(TABfontSize) ? `font-size: ${TABfontSize}${TABsizeUnit};` : " "}
-			${
-				hasVal(TABlineHeight)
-					? `line-height: ${TABlineHeight}${TABlineHeightUnit};`
-					: " "
-			}
-			${TABfontWeight ? `font-weight: ${TABfontWeight};` : " "}
-			${TABtextDecoration ? `text-decoration: ${TABtextDecoration};` : " "}
-			${TABtextTransform ? `text-transform: ${TABtextTransform};` : " "}
-			${
-				hasVal(TABletterSpacing)
-					? `letter-spacing: ${TABletterSpacing}${TABletterSpacingUnit};`
-					: " "
-			}
-		`;
-
-		const typoStylesMobile = `
-			${MOBfontFamily ? `font-family: ${MOBfontFamily};` : " "}
-			${hasVal(MOBfontSize) ? `font-size: ${MOBfontSize}${MOBsizeUnit};` : " "}
-			${
-				hasVal(MOBlineHeight)
-					? `line-height: ${MOBlineHeight}${MOBlineHeightUnit};`
-					: " "
-			}
-			${MOBfontWeight ? `font-weight: ${MOBfontWeight};` : " "}
-			${MOBtextDecoration ? `text-decoration: ${MOBtextDecoration};` : " "}
-			${MOBtextTransform ? `text-transform: ${MOBtextTransform};` : " "}
-			${
-				hasVal(MOBletterSpacing)
-					? `letter-spacing: ${MOBletterSpacing}${MOBletterSpacingUnit};`
-					: " "
-			}
-		`;
-
-		return {
-			typoStylesDesktop,
-			typoStylesTab,
-			typoStylesMobile,
-		};
-	};
 
 	const {
 		typoStylesDesktop: titleTypoStylesDesktop,
 		typoStylesTab: titleTypoStylesTab,
 		typoStylesMobile: titleTypoStylesMobile,
-	} = generateTypographyStylesForEdit(title, 40);
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_title,
+		defaultFontSize: 40,
+	});
 
 	const {
 		typoStylesDesktop: numberTypoStylesDesktop,
 		typoStylesTab: numberTypoStylesTab,
 		typoStylesMobile: numberTypoStylesMobile,
-	} = generateTypographyStylesForEdit(number, 40);
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_number,
+		defaultFontSize: 40,
+	});
 
 	const {
 		typoStylesDesktop: numPrefixTypoStylesDesktop,
 		typoStylesTab: numPrefixTypoStylesTab,
 		typoStylesMobile: numPrefixTypoStylesMobile,
-	} = generateTypographyStylesForEdit(numPrefix);
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_numPrefix,
+	});
 
 	const {
 		typoStylesDesktop: numSuffixTypoStylesDesktop,
 		typoStylesTab: numSuffixTypoStylesTab,
 		typoStylesMobile: numSuffixTypoStylesMobile,
-	} = generateTypographyStylesForEdit(numSuffix);
+	} = generateTypographyStyles({
+		attributes,
+		prefixConstant: typoPrefix_numSuffix,
+	});
+
+	const {
+		dimensionStylesDesktop: wrapperMarginStylesDesktop,
+		dimensionStylesTab: wrapperMarginStylesTab,
+		dimensionStylesMobile: wrapperMarginStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: wrapperMargin,
+		styleFor: "margin",
+	});
+
+	const {
+		dimensionStylesDesktop: wrapperPaddingStylesDesktop,
+		dimensionStylesTab: wrapperPaddingStylesTab,
+		dimensionStylesMobile: wrapperPaddingStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: wrapperPadding,
+		styleFor: "padding",
+	});
 
 	const wrapperStylesDesktop = `
 	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
+	
+		${wrapperMarginStylesDesktop}
+		${wrapperPaddingStylesDesktop}
 		
-		margin: ${marginTop}${marginUnit} ${marginRight}${marginUnit} ${marginBottom}${marginUnit} ${marginLeft}${marginUnit};
-		padding: ${paddingTop}${paddingUnit} ${paddingRight}${paddingUnit} ${paddingBottom}${paddingUnit} ${paddingLeft}${paddingUnit};
-
 		${hasVal(gapNumTitle) ? `gap: ${gapNumTitle}px;` : " "}
 		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
 		
@@ -453,17 +383,18 @@ const Edit = (props) => {
 
 	const wrapperStylesTab = `
 	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
-		margin: ${TABmarginTop}${TABmarginUnit} ${TABmarginRight}${TABmarginUnit} ${TABmarginBottom}${TABmarginUnit} ${TABmarginLeft}${TABmarginUnit};
-		padding: ${TABpaddingTop}${TABpaddingUnit} ${TABpaddingRight}${TABpaddingUnit} ${TABpaddingBottom}${TABpaddingUnit} ${TABpaddingLeft}${TABpaddingUnit};
-		
+		${wrapperMarginStylesTab}
+		${wrapperPaddingStylesTab}
+
 		${hasVal(TABgapNumTitle) ? `gap: ${TABgapNumTitle}px;` : " "}	
 	}
 	`;
 
 	const wrapperStylesMobile = `
 	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
-		margin: ${MOBmarginTop}${MOBmarginUnit} ${MOBmarginRight}${MOBmarginUnit} ${MOBmarginBottom}${MOBmarginUnit} ${MOBmarginLeft}${MOBmarginUnit};
-		padding: ${MOBpaddingTop}${MOBpaddingUnit} ${MOBpaddingRight}${MOBpaddingUnit} ${MOBpaddingBottom}${MOBpaddingUnit} ${MOBpaddingLeft}${MOBpaddingUnit};
+		
+		${wrapperMarginStylesTab}
+		${wrapperPaddingStylesTab}
 
 		${
 			MOBgapNumTitle !== TABgapNumTitle && hasVal(MOBgapNumTitle)

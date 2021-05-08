@@ -1,5 +1,9 @@
 import * as prefixObjs from "./constants/typographyPrefixConstants";
-import { generateTypographyAttributes } from "./helpers";
+import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
+import {
+	generateDimensionsAttributes,
+	generateTypographyAttributes,
+} from "./helpers";
 
 export default {
 	// responsive control attributes ⬇
@@ -12,130 +16,6 @@ export default {
 	uniqueIdNumber: {
 		type: "number",
 	},
-
-	// typography attributes ⬇
-	...generateTypographyAttributes(Object.values(prefixObjs)),
-
-	// MOBnumberFontFamily: { type: "string" },
-	// MOBnumberFontSize: { type: "number" },
-	// MOBnumberFontWeight: { type: "string" },
-	// MOBnumberLetterSpacing: { type: "number" },
-	// MOBnumberLetterSpacingUnit: { type: "string" },
-	// MOBnumberLineHeight: { type: "number" },
-	// MOBnumberLineHeightUnit: { type: "string" },
-	// MOBnumberSizeUnit: { type: "string" },
-	// MOBnumberTextDecoration: { type: "string" },
-	// MOBnumberTextTransform: { type: "string" },
-	// MOBprefixFontFamily: { type: "string" },
-	// MOBprefixFontSize: { type: "number" },
-	// MOBprefixFontWeight: { type: "string" },
-	// MOBprefixLetterSpacing: { type: "number" },
-	// MOBprefixLetterSpacingUnit: { type: "string" },
-	// MOBprefixLineHeight: { type: "number" },
-	// MOBprefixLineHeightUnit: { type: "string" },
-	// MOBprefixSizeUnit: { type: "string" },
-	// MOBprefixTextDecoration: { type: "string" },
-	// MOBprefixTextTransform: { type: "string" },
-	// MOBsuffixFontFamily: { type: "string" },
-	// MOBsuffixFontSize: { type: "number" },
-	// MOBsuffixFontWeight: { type: "string" },
-	// MOBsuffixLetterSpacing: { type: "number" },
-	// MOBsuffixLetterSpacingUnit: { type: "string" },
-	// MOBsuffixLineHeight: { type: "number" },
-	// MOBsuffixLineHeightUnit: { type: "string" },
-	// MOBsuffixSizeUnit: { type: "string" },
-	// MOBsuffixTextDecoration: { type: "string" },
-	// MOBsuffixTextTransform: { type: "string" },
-	// MOBtitleFontFamily: { type: "string" },
-	// MOBtitleFontSize: { type: "number" },
-	// MOBtitleFontWeight: { type: "string" },
-	// MOBtitleLetterSpacing: { type: "number" },
-	// MOBtitleLetterSpacingUnit: { type: "string" },
-	// MOBtitleLineHeight: { type: "number" },
-	// MOBtitleLineHeightUnit: { type: "string" },
-	// MOBtitleSizeUnit: { type: "string" },
-	// MOBtitleTextDecoration: { type: "string" },
-	// MOBtitleTextTransform: { type: "string" },
-	// TABnumberFontFamily: { type: "string" },
-	// TABnumberFontSize: { type: "number" },
-	// TABnumberFontWeight: { type: "string" },
-	// TABnumberLetterSpacing: { type: "number" },
-	// TABnumberLetterSpacingUnit: { type: "string" },
-	// TABnumberLineHeight: { type: "number" },
-	// TABnumberLineHeightUnit: { type: "string" },
-	// TABnumberSizeUnit: { type: "string" },
-	// TABnumberTextDecoration: { type: "string" },
-	// TABnumberTextTransform: { type: "string" },
-	// TABprefixFontFamily: { type: "string" },
-	// TABprefixFontSize: { type: "number" },
-	// TABprefixFontWeight: { type: "string" },
-	// TABprefixLetterSpacing: { type: "number" },
-	// TABprefixLetterSpacingUnit: { type: "string" },
-	// TABprefixLineHeight: { type: "number" },
-	// TABprefixLineHeightUnit: { type: "string" },
-	// TABprefixSizeUnit: { type: "string" },
-	// TABprefixTextDecoration: { type: "string" },
-	// TABprefixTextTransform: { type: "string" },
-	// TABsuffixFontFamily: { type: "string" },
-	// TABsuffixFontSize: { type: "number" },
-	// TABsuffixFontWeight: { type: "string" },
-	// TABsuffixLetterSpacing: { type: "number" },
-	// TABsuffixLetterSpacingUnit: { type: "string" },
-	// TABsuffixLineHeight: { type: "number" },
-	// TABsuffixLineHeightUnit: { type: "string" },
-	// TABsuffixSizeUnit: { type: "string" },
-	// TABsuffixTextDecoration: { type: "string" },
-	// TABsuffixTextTransform: { type: "string" },
-	// TABtitleFontFamily: { type: "string" },
-	// TABtitleFontSize: { type: "number" },
-	// TABtitleFontWeight: { type: "string" },
-	// TABtitleLetterSpacing: { type: "number" },
-	// TABtitleLetterSpacingUnit: { type: "string" },
-	// TABtitleLineHeight: { type: "number" },
-	// TABtitleLineHeightUnit: { type: "string" },
-	// TABtitleSizeUnit: { type: "string" },
-	// TABtitleTextDecoration: { type: "string" },
-	// TABtitleTextTransform: { type: "string" },
-	// numberFontFamily: { type: "string" },
-	// numberFontSize: { type: "number" },
-	// numberFontWeight: { type: "string", default: "400" },
-	// numberLetterSpacing: { type: "number", default: 0 },
-	// numberLetterSpacingUnit: { type: "string", default: "px" },
-	// numberLineHeight: { type: "number", default: 1 },
-	// numberLineHeightUnit: { type: "string", default: "em" },
-	// numberSizeUnit: { type: "string", default: "px" },
-	// numberTextDecoration: { type: "string", default: "initial" },
-	// numberTextTransform: { type: "string", default: "none" },
-	// prefixFontFamily: { type: "string" },
-	// prefixFontSize: { type: "number" },
-	// prefixFontWeight: { type: "string", default: "400" },
-	// prefixLetterSpacing: { type: "number", default: 0 },
-	// prefixLetterSpacingUnit: { type: "string", default: "px" },
-	// prefixLineHeight: { type: "number", default: 1 },
-	// prefixLineHeightUnit: { type: "string", default: "em" },
-	// prefixSizeUnit: { type: "string", default: "px" },
-	// prefixTextDecoration: { type: "string", default: "initial" },
-	// prefixTextTransform: { type: "string", default: "none" },
-	// suffixFontFamily: { type: "string" },
-	// suffixFontSize: { type: "number" },
-	// suffixFontWeight: { type: "string", default: "400" },
-	// suffixLetterSpacing: { type: "number", default: 0 },
-	// suffixLetterSpacingUnit: { type: "string", default: "px" },
-	// suffixLineHeight: { type: "number", default: 1 },
-	// suffixLineHeightUnit: { type: "string", default: "em" },
-	// suffixSizeUnit: { type: "string", default: "px" },
-	// suffixTextDecoration: { type: "string", default: "initial" },
-	// suffixTextTransform: { type: "string", default: "none" },
-	// titleFontFamily: { type: "string" },
-	// titleFontSize: { type: "number" },
-	// titleFontWeight: { type: "string", default: "400" },
-	// titleLetterSpacing: { type: "number", default: 0 },
-	// titleLetterSpacingUnit: { type: "string", default: "px" },
-	// titleLineHeight: { type: "number", default: 1 },
-	// titleLineHeightUnit: { type: "string", default: "em" },
-	// titleSizeUnit: { type: "string", default: "px" },
-	// titleTextDecoration: { type: "string", default: "initial" },
-	// titleTextTransform: { type: "string", default: "none" },
 
 	// counter settings attributes ⬇
 	startValue: {
@@ -256,115 +136,6 @@ export default {
 		type: "number",
 	},
 	MOBgapNumSuffix: {
-		type: "number",
-	},
-
-	// margin padding attributes ⬇
-	marginUnit: {
-		type: "string",
-		default: "px",
-	},
-
-	marginTop: {
-		type: "number",
-	},
-	marginRight: {
-		type: "number",
-	},
-	marginBottom: {
-		type: "number",
-	},
-	marginLeft: {
-		type: "number",
-	},
-
-	paddingUnit: {
-		type: "string",
-		default: "px",
-	},
-
-	paddingTop: {
-		type: "number",
-		default: 30,
-	},
-	paddingRight: {
-		type: "number",
-		default: 10,
-	},
-	paddingBottom: {
-		type: "number",
-		default: 30,
-	},
-	paddingLeft: {
-		type: "number",
-		default: 10,
-	},
-
-	TABmarginUnit: {
-		type: "string",
-	},
-
-	TABmarginTop: {
-		type: "number",
-	},
-	TABmarginRight: {
-		type: "number",
-	},
-	TABmarginBottom: {
-		type: "number",
-	},
-	TABmarginLeft: {
-		type: "number",
-	},
-
-	TABpaddingUnit: {
-		type: "string",
-	},
-
-	TABpaddingTop: {
-		type: "number",
-	},
-	TABpaddingRight: {
-		type: "number",
-	},
-	TABpaddingBottom: {
-		type: "number",
-	},
-	TABpaddingLeft: {
-		type: "number",
-	},
-
-	MOBmarginUnit: {
-		type: "string",
-	},
-
-	MOBmarginTop: {
-		type: "number",
-	},
-	MOBmarginRight: {
-		type: "number",
-	},
-	MOBmarginBottom: {
-		type: "number",
-	},
-	MOBmarginLeft: {
-		type: "number",
-	},
-
-	MOBpaddingUnit: {
-		type: "string",
-	},
-
-	MOBpaddingTop: {
-		type: "number",
-	},
-	MOBpaddingRight: {
-		type: "number",
-	},
-	MOBpaddingBottom: {
-		type: "number",
-	},
-	MOBpaddingLeft: {
 		type: "number",
 	},
 
@@ -498,4 +269,16 @@ export default {
 		type: "string",
 		default: "500",
 	},
+
+	// typography attributes ⬇
+	...generateTypographyAttributes(Object.values(prefixObjs)),
+
+	// margin padding attributes ⬇
+	...generateDimensionsAttributes(wrapperMargin),
+	...generateDimensionsAttributes(wrapperPadding, {
+		top: 30,
+		bottom: 30,
+		right: 10,
+		left: 10,
+	}),
 };
