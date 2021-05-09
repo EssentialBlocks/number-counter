@@ -124,7 +124,7 @@ export default {
 	// background attributes ⬇
 	backgroundType: {
 		type: "string",
-		default: "fill",
+		default: "gradient",
 	},
 	backgroundColor: {
 		type: "string",

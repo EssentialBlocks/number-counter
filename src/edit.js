@@ -54,8 +54,8 @@ const Edit = (props) => {
 		wrapperFlexDirection,
 
 		// counter color attributes ⬇
-		titleColor = "#566162",
-		numberColor = "#3074ff",
+		titleColor = "#fff",
+		numberColor = "#fff",
 		numPrefixColor,
 		numSuffixColor,
 
