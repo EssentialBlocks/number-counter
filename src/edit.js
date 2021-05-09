@@ -30,14 +30,17 @@ import {
 } from "./helpers";
 
 const Edit = (props) => {
-	const { isSelected, attributes, setAttributes } = props;
+	const { isSelected, attributes, setAttributes, clientId } = props;
 
 	const {
 		// responsive control attributes ⬇
 		resOption,
 
-		// to make unique className ⬇
-		uniqueIdNumber,
+		// blockId attribute for making unique className and other uniqueness ⬇
+		blockId,
+
+		// blockMeta is for keeping all the styles ⬇
+		blockMeta,
 
 		// counter settings attributes ⬇
 		target,
@@ -51,23 +54,13 @@ const Edit = (props) => {
 		wrapperFlexDirection,
 
 		// counter color attributes ⬇
-		titleColor,
-		numberColor,
+		titleColor = "#566162",
+		numberColor = "#3074ff",
 		numPrefixColor,
 		numSuffixColor,
 
-		TABtitleColor,
-		TABnumberColor,
-		TABnumPrefixColor,
-		TABnumSuffixColor,
-
-		MOBtitleColor = MOBtitleColor || TABtitleColor,
-		MOBnumberColor = MOBnumberColor || TABnumberColor,
-		MOBnumPrefixColor = MOBnumPrefixColor || TABnumPrefixColor,
-		MOBnumSuffixColor = MOBnumSuffixColor || TABnumSuffixColor,
-
 		// spacing attributes ⬇
-		gapNumTitle,
+		gapNumTitle = 20,
 		gapNumPrefix,
 		gapNumSuffix,
 
@@ -75,84 +68,9 @@ const Edit = (props) => {
 		TABgapNumPrefix,
 		TABgapNumSuffix,
 
-		MOBgapNumTitle = MOBgapNumTitle || TABgapNumTitle,
-		MOBgapNumPrefix = MOBgapNumPrefix || TABgapNumPrefix,
-		MOBgapNumSuffix = MOBgapNumSuffix || TABgapNumSuffix,
-
-		// margin padding attributes ⬇
-		marginUnit,
-
-		marginTop = marginTop || 0,
-		marginRight = marginRight || 0,
-		marginBottom = marginBottom || 0,
-		marginLeft = marginLeft || 0,
-
-		paddingUnit,
-
-		paddingTop = paddingTop || 0,
-		paddingRight = paddingRight || 0,
-		paddingBottom = paddingBottom || 0,
-		paddingLeft = paddingLeft || 0,
-
-		TABmarginUnit = TABmarginUnit || marginUnit,
-
-		TABmarginTop = TABmarginTop === 0
-			? TABmarginTop
-			: TABmarginTop || marginTop,
-		TABmarginRight = TABmarginRight === 0
-			? TABmarginRight
-			: TABmarginRight || marginRight,
-		TABmarginBottom = TABmarginBottom === 0
-			? TABmarginBottom
-			: TABmarginBottom || marginBottom,
-		TABmarginLeft = TABmarginLeft === 0
-			? TABmarginLeft
-			: TABmarginLeft || marginLeft,
-
-		TABpaddingUnit = TABpaddingUnit || paddingUnit,
-
-		TABpaddingTop = TABpaddingTop === 0
-			? TABpaddingTop
-			: TABpaddingTop || paddingTop,
-		TABpaddingRight = TABpaddingRight === 0
-			? TABpaddingRight
-			: TABpaddingRight || paddingRight,
-		TABpaddingBottom = TABpaddingBottom === 0
-			? TABpaddingBottom
-			: TABpaddingBottom || paddingBottom,
-		TABpaddingLeft = TABpaddingLeft === 0
-			? TABpaddingLeft
-			: TABpaddingLeft || paddingLeft,
-
-		MOBmarginUnit = MOBmarginUnit || TABmarginUnit,
-
-		MOBmarginTop = MOBmarginTop === 0
-			? MOBmarginTop
-			: MOBmarginTop || TABmarginTop,
-		MOBmarginRight = MOBmarginRight === 0
-			? MOBmarginRight
-			: MOBmarginRight || TABmarginRight,
-		MOBmarginBottom = MOBmarginBottom === 0
-			? MOBmarginBottom
-			: MOBmarginBottom || TABmarginBottom,
-		MOBmarginLeft = MOBmarginLeft === 0
-			? MOBmarginLeft
-			: MOBmarginLeft || TABmarginLeft,
-
-		MOBpaddingUnit = MOBpaddingUnit || TABpaddingUnit,
-
-		MOBpaddingTop = MOBpaddingTop === 0
-			? MOBpaddingTop
-			: MOBpaddingTop || TABpaddingTop,
-		MOBpaddingRight = MOBpaddingRight === 0
-			? MOBpaddingRight
-			: MOBpaddingRight || TABpaddingRight,
-		MOBpaddingBottom = MOBpaddingBottom === 0
-			? MOBpaddingBottom
-			: MOBpaddingBottom || TABpaddingBottom,
-		MOBpaddingLeft = MOBpaddingLeft === 0
-			? MOBpaddingLeft
-			: MOBpaddingLeft || TABpaddingLeft,
+		MOBgapNumTitle,
+		MOBgapNumPrefix,
+		MOBgapNumSuffix,
 
 		// background attributes ⬇
 		backgroundType,
@@ -170,18 +88,17 @@ const Edit = (props) => {
 
 		// shadow attributes  ⬇
 		shadowColor,
-		hOffset = hOffset || 0,
-		vOffset = vOffset || 0,
-		blur = blur || 0,
-		spread = spread || 0,
+		hOffset = 0,
+		vOffset = 0,
+		blur = 0,
+		spread = 0,
 		inset,
 
-		hoverShadowColor = hoverShadowColor || shadowColor,
-		hoverHOffset = hoverHOffset || hOffset,
-		hoverVOffset = hoverVOffset || vOffset,
-		hoverBlur = hoverBlur || blur,
-		hoverSpread = hoverSpread || spread,
-		hoverInset,
+		hoverShadowColor = shadowColor,
+		hoverHOffset = hOffset,
+		hoverVOffset = vOffset,
+		hoverBlur = blur,
+		hoverSpread = spread,
 
 		// transition attributes ⬇
 		wrapperTransitionTime,
@@ -237,19 +154,6 @@ const Edit = (props) => {
 		isShowSeparator,
 	]);
 
-	// this useEffect is for creating a unique id for each block's unique className by a random unique number
-	useEffect(() => {
-		const genRandomNumber = generateRandomNumber();
-		const anotherSameClassElements = document.querySelectorAll(
-			`.eb-counter-wrapper-${uniqueIdNumber}`
-		);
-		if (!uniqueIdNumber || anotherSameClassElements[1]) {
-			setAttributes({
-				uniqueIdNumber: genRandomNumber,
-			});
-		}
-	}, []);
-
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
 		const bodyClasses = document.body.className;
@@ -265,6 +169,54 @@ const Edit = (props) => {
 				.split("-")[3];
 			setAttributes({ resOption });
 		}
+	}, []);
+
+	// this useEffect is for creating a unique blockId for each block's unique className
+	useEffect(() => {
+		// const current_block_id = attributes.blockId;
+
+		const BLOCK_PREFIX = "eb-counter";
+		const unique_id =
+			BLOCK_PREFIX + "-" + Math.random().toString(36).substr(2, 7);
+
+		/**
+		 * Define and Generate Unique Block ID
+		 */
+		if (!blockId) {
+			setAttributes({ blockId: unique_id });
+		}
+
+		/**
+		 * Assign New Unique ID when duplicate BlockId found
+		 * Mostly happens when User Duplicate a Block
+		 */
+		const all_blocks = wp.data.select("core/block-editor").getBlocks();
+
+		// console.log({ all_blocks });
+
+		let duplicateFound = false;
+		const fixDuplicateBlockId = (blocks) => {
+			if (duplicateFound) return;
+			for (const item of blocks) {
+				const { innerBlocks } = item;
+				if (item.attributes.blockId === blockId) {
+					if (item.clientId !== clientId) {
+						setAttributes({ blockId: unique_id });
+						// console.log("found a duplicate");
+						duplicateFound = true;
+						return;
+					} else if (innerBlocks.length > 0) {
+						fixDuplicateBlockId(innerBlocks);
+					}
+				} else if (innerBlocks.length > 0) {
+					fixDuplicateBlockId(innerBlocks);
+				}
+			}
+		};
+
+		fixDuplicateBlockId(all_blocks);
+
+		// console.log({ blockId });
 	}, []);
 
 	const blockProps = useBlockProps({
@@ -335,12 +287,21 @@ const Edit = (props) => {
 	});
 
 	const wrapperStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
-	
+
+	.${blockId} .eb-counter-title,
+	.${blockId} h4.eb-counter-number {
+		margin: 0;
+		padding: 0;
+	}
+
+	.${blockId}{
+		text-align: center;
+		display: flex;
+
 		${wrapperMarginStylesDesktop}
 		${wrapperPaddingStylesDesktop}
 		
-		${hasVal(gapNumTitle) ? `gap: ${gapNumTitle}px;` : " "}
+		${gapNumTitle ? `gap: ${gapNumTitle}px;` : " "}
 		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
 		
 		background-image:
@@ -370,19 +331,21 @@ const Edit = (props) => {
 		};
 	}
 
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}:hover{		
+	.${blockId}:hover{		
 		${
 			hoverShadowColor
-				? `box-shadow: ${hoverShadowColor} ${hoverHOffset}px ${hoverVOffset}px ${hoverBlur}px ${hoverSpread}px ${
-						hoverInset ? "inset" : " "
+				? `
+				box-shadow: ${hoverShadowColor} ${hoverHOffset}px ${hoverVOffset}px ${hoverBlur}px ${hoverSpread}px ${
+						inset ? "inset" : " "
 				  };`
 				: " "
 		}
+				
 	}
 	`;
 
 	const wrapperStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
+	.${blockId}{
 		${wrapperMarginStylesTab}
 		${wrapperPaddingStylesTab}
 
@@ -391,21 +354,17 @@ const Edit = (props) => {
 	`;
 
 	const wrapperStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber}{
+	.${blockId}{
 		
 		${wrapperMarginStylesTab}
 		${wrapperPaddingStylesTab}
 
-		${
-			MOBgapNumTitle !== TABgapNumTitle && hasVal(MOBgapNumTitle)
-				? `gap: ${MOBgapNumTitle}px;`
-				: " "
-		}
+		${hasVal(MOBgapNumTitle) ? `gap: ${MOBgapNumTitle}px;` : " "}
 	}
 	`;
 
 	const numberStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-number{
+	.${blockId} .eb-counter-number{
 		${numberTypoStylesDesktop}
 		${numberColor ? ` color : ${numberColor};` : " "}
 		${hasVal(gapNumPrefix) ? `padding-left: ${gapNumPrefix}px;` : " "}
@@ -414,76 +373,68 @@ const Edit = (props) => {
 	`;
 
 	const numberStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-number{
+	.${blockId} .eb-counter-number{
 		${numberTypoStylesTab}
-		${TABnumberColor ? `color : ${TABnumberColor};` : " "}
 		${hasVal(TABgapNumPrefix) ? `padding-left: ${TABgapNumPrefix}px;` : " "}
 		${hasVal(TABgapNumSuffix) ? `padding-right: ${TABgapNumSuffix}px;` : " "}
 	} `;
 
 	const numberStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-number{
+	.${blockId} .eb-counter-number{
 		${numberTypoStylesMobile}
-		${MOBnumberColor ? `color : ${MOBnumberColor};` : " "}
 		${hasVal(MOBgapNumPrefix) ? `padding-left: ${MOBgapNumPrefix}px;` : " "}
 		${hasVal(MOBgapNumSuffix) ? `padding-right: ${MOBgapNumSuffix}px;` : " "}
 	}`;
 
 	const titleStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-title{
+	.${blockId} .eb-counter-title{
 		${titleTypoStylesDesktop}
 		${titleColor ? `color : ${titleColor};` : " "}
 	}
 	`;
 
 	const titleStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-title{
+	.${blockId} .eb-counter-title{
 		${titleTypoStylesTab}
-		${TABtitleColor ? `color : ${TABtitleColor};` : " "}
 	}  `;
 
 	const titleStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-title{
+	.${blockId} .eb-counter-title{
 		${titleTypoStylesMobile}
-		${MOBtitleColor ? `color : ${MOBtitleColor};` : " "}
 	} `;
 
 	const numPrefixStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-prefix{
+	.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesDesktop}
 		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
 	}
 	`;
 
 	const numPrefixStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-prefix{
+	.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
-		${TABnumPrefixColor ? `color : ${TABnumPrefixColor};` : " "}
 	}  `;
 
 	const numPrefixStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-prefix{
+	.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
-		${MOBnumPrefixColor ? `color : ${MOBnumPrefixColor};` : " "}
 	}  `;
 
 	const numSuffixStylesDesktop = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-suffix{
+	.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesDesktop}
 		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
 	}
 	`;
 
 	const numSuffixStylesTab = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-suffix{
+	.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
-		${TABnumSuffixColor ? `color : ${TABnumSuffixColor};` : " "}
 	} `;
 
 	const numSuffixStylesMobile = `
-	.eb-counter-wrapper.eb-counter-wrapper-${uniqueIdNumber} .eb-counter-suffix{
+	.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
-		${MOBnumSuffixColor ? `color : ${MOBnumSuffixColor};` : " "}
 	}
 
 	`;
@@ -516,6 +467,20 @@ const Edit = (props) => {
 	// CSS/styling Codes Ends Here
 	//
 
+	// Set All Style in "blockMeta" Attribute
+	useEffect(() => {
+		const styleObject = {
+			desktop: desktopAllStyles,
+			tab: tabAllStyles,
+			mobile: mobileAllStyles,
+		};
+		if (JSON.stringify(blockMeta) != JSON.stringify(styleObject)) {
+			setAttributes({ blockMeta: styleObject });
+		}
+	}, [attributes]);
+
+	// console.log("--edit theke", { attributes });
+
 	return [
 		isSelected && (
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
@@ -524,31 +489,33 @@ const Edit = (props) => {
 		<div {...blockProps}>
 			<style>
 				{`
-				${softMinifyCssStrings(desktopAllStyles)}
+				${desktopAllStyles}
 
-				/*
-					edit_mimmikcss_start
-				*/
+				/* mimmikcssStart */
 
-				${resOption === "tab" ? softMinifyCssStrings(tabAllStyles) : " "}
-				${resOption === "mobile" ? softMinifyCssStrings(mobileAllStyles) : " "}
+				${resOption === "tab" ? tabAllStyles : " "}
+				${resOption === "mobile" ? tabAllStyles + mobileAllStyles : " "}
 
-				/*
-					edit_mimmikcss_end
-				*/
+				/* mimmikcssEnd */
 
-				@media all and (max-width: 1030px) {				
+				@media all and (max-width: 1024px) {	
+
+					/* tabcssStart */			
 					${softMinifyCssStrings(tabAllStyles)}
+					/* tabcssEnd */			
+				
 				}
-
-				@media all and (max-width: 680px) {
+				
+				@media all and (max-width: 767px) {
+					
+					/* mobcssStart */			
 					${softMinifyCssStrings(mobileAllStyles)}
+					/* mobcssEnd */			
+				
 				}
 				`}
 			</style>
-			<div
-				className={`eb-counter-wrapper eb-counter-wrapper-${uniqueIdNumber}`}
-			>
+			<div className={`eb-counter-wrapper ${blockId}`}>
 				<h4 className="eb-counter-number">
 					<span className="eb-counter-prefix">{counterPrefix}</span>
 					<span ref={counterRef} className="eb-counter eb-counter-number">

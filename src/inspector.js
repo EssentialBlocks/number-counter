@@ -73,40 +73,18 @@ const Inspector = (props) => {
 		numPrefixColor,
 		numSuffixColor,
 
-		TABtitleColor,
-		TABnumberColor,
-		TABnumPrefixColor,
-		TABnumSuffixColor,
-
-		MOBtitleColor,
-		MOBnumberColor,
-		MOBnumPrefixColor,
-		MOBnumSuffixColor,
-
 		// spacing attributes ⬇
-		gapNumTitle = gapNumTitle || 0,
-		gapNumPrefix = gapNumPrefix || 0,
-		gapNumSuffix = gapNumSuffix || 0,
+		gapNumTitle,
+		gapNumPrefix,
+		gapNumSuffix,
 
-		TABgapNumTitle = TABgapNumTitle === 0
-			? TABgapNumTitle
-			: TABgapNumTitle || gapNumTitle,
-		TABgapNumPrefix = TABgapNumPrefix === 0
-			? TABgapNumPrefix
-			: TABgapNumPrefix || gapNumPrefix,
-		TABgapNumSuffix = TABgapNumSuffix === 0
-			? TABgapNumSuffix
-			: TABgapNumSuffix || gapNumSuffix,
+		TABgapNumTitle,
+		TABgapNumPrefix,
+		TABgapNumSuffix,
 
-		MOBgapNumTitle = MOBgapNumTitle === 0
-			? MOBgapNumTitle
-			: MOBgapNumTitle || TABgapNumTitle,
-		MOBgapNumPrefix = MOBgapNumPrefix === 0
-			? MOBgapNumPrefix
-			: MOBgapNumPrefix || TABgapNumPrefix,
-		MOBgapNumSuffix = MOBgapNumSuffix === 0
-			? MOBgapNumSuffix
-			: MOBgapNumSuffix || TABgapNumSuffix,
+		MOBgapNumTitle,
+		MOBgapNumPrefix,
+		MOBgapNumSuffix,
 
 		// background attributes ⬇
 		backgroundType,
@@ -131,16 +109,15 @@ const Inspector = (props) => {
 		blur,
 		spread,
 		inset,
-		hoverShadowColor = shadowColor,
+		hoverShadowColor,
 		hoverHOffset,
 		hoverVOffset,
 		hoverBlur,
 		hoverSpread,
-		hoverInset,
 		wrapperTransitionTime,
 	} = attributes;
 
-	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
+	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 	useEffect(() => {
 		const bodyClasses = document.body.className;
 		// console.log("----log from inspector useEffect with empty []", {
@@ -162,41 +139,40 @@ const Inspector = (props) => {
 
 	// this useEffect is for mimmiking css for all the eb blocks on resOption changing
 	useEffect(() => {
-		const allCounterWrapper = document.querySelectorAll(
-			".eb-guten-block-main-parrent-wrapper:not(.is-selected) > style"
+		const allEbBlocksWrapper = document.querySelectorAll(
+			".eb-guten-block-main-parent-wrapper:not(.is-selected) > style"
 		);
-
-		console.log("---inspector", { allCounterWrapper });
-		if (allCounterWrapper.length < 1) return;
-
-		allCounterWrapper.forEach((styleTag) => {
+		// console.log("---inspector", { allEbBlocksWrapper });
+		if (allEbBlocksWrapper.length < 1) return;
+		allEbBlocksWrapper.forEach((styleTag) => {
 			const cssStrings = styleTag.textContent;
 			const minCss = cssStrings.replace(/\s+/g, " ");
-			const regexCssMimmikSpace = /(?<=edit_mimmikcss_start\s*\*\/).+(?=\/\*\s*edit_mimmikcss_end)/i;
+			const regexCssMimmikSpace = /(?<=mimmikcssStart\s\*\/).+(?=\/\*\smimmikcssEnd)/i;
 			let newCssStrings = " ";
-
 			if (resOption === "tab") {
-				let tabCssMacth = minCss.match(
-					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*1030px\s*\)\s*\{).+(?=\}\s*\@media\s+all)/i
-				);
-				let tabCssStrings = (tabCssMacth || [" "])[0];
-				// console.log({
-				// 	tabCssStrings: tabCssStrings,
-				// });
+				const tabCssStrings = (minCss.match(
+					/(?<=tabcssStart\s\*\/).+(?=\/\*\stabcssEnd)/i
+				) || [" "])[0];
+				// console.log({ tabCssStrings });
 				newCssStrings = minCss.replace(regexCssMimmikSpace, tabCssStrings);
 			} else if (resOption === "mobile") {
-				let mobCssMacth = minCss.match(
-					/(?<=\@media\s+all\s+and\s+\(max-width\s*\:\s*680px\s*\)\s*\{).+(?=(\}\s*)$)/i
+				const tabCssStrings = (minCss.match(
+					/(?<=tabcssStart\s\*\/).+(?=\/\*\stabcssEnd)/i
+				) || [" "])[0];
+
+				const mobCssStrings = (minCss.match(
+					/(?<=mobcssStart\s\*\/).+(?=\/\*\smobcssEnd)/i
+				) || [" "])[0];
+
+				// console.log({ tabCssStrings, mobCssStrings });
+
+				newCssStrings = minCss.replace(
+					regexCssMimmikSpace,
+					`${tabCssStrings} ${mobCssStrings}`
 				);
-				let mobCssStrings = (mobCssMacth || [" "])[0];
-				// console.log({
-				// 	mobCssStrings: mobCssStrings,
-				// });
-				newCssStrings = minCss.replace(regexCssMimmikSpace, mobCssStrings);
 			} else {
 				newCssStrings = minCss.replace(regexCssMimmikSpace, " ");
 			}
-
 			styleTag.textContent = newCssStrings;
 		});
 	}, [resOption]);
@@ -340,94 +316,28 @@ const Inspector = (props) => {
 					/>
 				</PanelBody>
 
-				<ResPanelBody
-					title={__("Colors")}
-					initialOpen={false}
-					resRequiredProps={resRequiredProps}
-				>
-					{resOption == "desktop" && (
-						<>
-							<ColorControl
-								label={__("Number")}
-								color={numberColor}
-								onChange={(numberColor) => setAttributes({ numberColor })}
-							/>
-							<ColorControl
-								label={__("Title")}
-								color={titleColor}
-								onChange={(titleColor) => setAttributes({ titleColor })}
-							/>
-							<ColorControl
-								label={__("Number Prefix")}
-								color={numPrefixColor}
-								onChange={(numPrefixColor) => setAttributes({ numPrefixColor })}
-							/>
-							<ColorControl
-								label={__("Number Suffix")}
-								color={numSuffixColor}
-								onChange={(numSuffixColor) => setAttributes({ numSuffixColor })}
-							/>
-						</>
-					)}
-
-					{resOption == "tab" && (
-						<>
-							<ColorControl
-								label={__("Number")}
-								color={TABnumberColor}
-								onChange={(TABnumberColor) => setAttributes({ TABnumberColor })}
-							/>
-							<ColorControl
-								label={__("Title")}
-								color={TABtitleColor}
-								onChange={(TABtitleColor) => setAttributes({ TABtitleColor })}
-							/>
-							<ColorControl
-								label={__("Number Prefix")}
-								color={TABnumPrefixColor}
-								onChange={(TABnumPrefixColor) =>
-									setAttributes({ TABnumPrefixColor })
-								}
-							/>
-							<ColorControl
-								label={__("Number Suffix")}
-								color={TABnumSuffixColor}
-								onChange={(TABnumSuffixColor) =>
-									setAttributes({ TABnumSuffixColor })
-								}
-							/>
-						</>
-					)}
-
-					{resOption == "mobile" && (
-						<>
-							<ColorControl
-								label={__("Number")}
-								color={MOBnumberColor}
-								onChange={(MOBnumberColor) => setAttributes({ MOBnumberColor })}
-							/>
-							<ColorControl
-								label={__("Title")}
-								color={MOBtitleColor}
-								onChange={(MOBtitleColor) => setAttributes({ MOBtitleColor })}
-							/>
-							<ColorControl
-								label={__("Number Prefix")}
-								color={MOBnumPrefixColor}
-								onChange={(MOBnumPrefixColor) =>
-									setAttributes({ MOBnumPrefixColor })
-								}
-							/>
-							<ColorControl
-								label={__("Number Suffix")}
-								color={MOBnumSuffixColor}
-								onChange={(MOBnumSuffixColor) =>
-									setAttributes({ MOBnumSuffixColor })
-								}
-							/>
-						</>
-					)}
-				</ResPanelBody>
+				<PanelBody title={__("Colors")} initialOpen={false}>
+					<ColorControl
+						label={__("Number")}
+						color={numberColor}
+						onChange={(numberColor) => setAttributes({ numberColor })}
+					/>
+					<ColorControl
+						label={__("Title")}
+						color={titleColor}
+						onChange={(titleColor) => setAttributes({ titleColor })}
+					/>
+					<ColorControl
+						label={__("Number Prefix")}
+						color={numPrefixColor}
+						onChange={(numPrefixColor) => setAttributes({ numPrefixColor })}
+					/>
+					<ColorControl
+						label={__("Number Suffix")}
+						color={numSuffixColor}
+						onChange={(numSuffixColor) => setAttributes({ numSuffixColor })}
+					/>
+				</PanelBody>
 
 				<ResPanelBody
 					title={__("Spacing")}
@@ -436,85 +346,131 @@ const Inspector = (props) => {
 				>
 					{resOption == "desktop" && (
 						<>
-							<RangeControl
-								label={__("Number & Title Gap")}
-								value={gapNumTitle}
-								onChange={(gapNumTitle) => setAttributes({ gapNumTitle })}
-								min={0}
-								max={100}
-							/>
-							<RangeControl
-								label={__("Number & Prefix Gap")}
-								value={gapNumPrefix}
-								onChange={(gapNumPrefix) => setAttributes({ gapNumPrefix })}
-								min={0}
-								max={100}
-							/>
-							<RangeControl
-								label={__("Number & Suffix Gap")}
-								value={gapNumSuffix}
-								onChange={(gapNumSuffix) => setAttributes({ gapNumSuffix })}
-								min={0}
-								max={100}
-							/>
+							<ResetControl
+								onReset={() => setAttributes({ gapNumTitle: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Title Gap")}
+									value={gapNumTitle}
+									onChange={(gapNumTitle) => setAttributes({ gapNumTitle })}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
+
+							<ResetControl
+								onReset={() => setAttributes({ gapNumPrefix: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Prefix Gap")}
+									value={gapNumPrefix}
+									onChange={(gapNumPrefix) => setAttributes({ gapNumPrefix })}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
+
+							<ResetControl
+								onReset={() => setAttributes({ gapNumSuffix: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Suffix Gap")}
+									value={gapNumSuffix}
+									onChange={(gapNumSuffix) => setAttributes({ gapNumSuffix })}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
 						</>
 					)}
 					{resOption == "tab" && (
 						<>
-							<RangeControl
-								label={__("Number & Title Gap")}
-								value={TABgapNumTitle}
-								onChange={(TABgapNumTitle) => setAttributes({ TABgapNumTitle })}
-								min={0}
-								max={100}
-							/>
-							<RangeControl
-								label={__("Number & Prefix Gap")}
-								value={TABgapNumPrefix}
-								onChange={(TABgapNumPrefix) =>
-									setAttributes({ TABgapNumPrefix })
-								}
-								min={0}
-								max={100}
-							/>
-							<RangeControl
-								label={__("Number & Suffix Gap")}
-								value={TABgapNumSuffix}
-								onChange={(TABgapNumSuffix) =>
-									setAttributes({ TABgapNumSuffix })
-								}
-								min={0}
-								max={100}
-							/>
+							<ResetControl
+								onReset={() => setAttributes({ TABgapNumTitle: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Title Gap")}
+									value={TABgapNumTitle}
+									onChange={(TABgapNumTitle) =>
+										setAttributes({ TABgapNumTitle })
+									}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
+
+							<ResetControl
+								onReset={() => setAttributes({ TABgapNumPrefix: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Prefix Gap")}
+									value={TABgapNumPrefix}
+									onChange={(TABgapNumPrefix) =>
+										setAttributes({ TABgapNumPrefix })
+									}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
+
+							<ResetControl
+								onReset={() => setAttributes({ TABgapNumSuffix: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Suffix Gap")}
+									value={TABgapNumSuffix}
+									onChange={(TABgapNumSuffix) =>
+										setAttributes({ TABgapNumSuffix })
+									}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
 						</>
 					)}
 					{resOption == "mobile" && (
 						<>
-							<RangeControl
-								label={__("Number & Title Gap")}
-								value={MOBgapNumTitle}
-								onChange={(MOBgapNumTitle) => setAttributes({ MOBgapNumTitle })}
-								min={0}
-								max={100}
-							/>
-							<RangeControl
-								label={__("Number & Prefix Gap")}
-								value={MOBgapNumPrefix}
-								onChange={(MOBgapNumPrefix) =>
-									setAttributes({ MOBgapNumPrefix })
-								}
-								min={0}
-								max={100}
-							/>
-							<RangeControl
-								label={__("Number & Suffix Gap")}
-								value={MOBgapNumSuffix}
-								onChange={(MOBgapNumSuffix) =>
-									setAttributes({ MOBgapNumSuffix })
-								}
-								min={0}
-								max={100}
-							/>
+							<ResetControl
+								onReset={() => setAttributes({ MOBgapNumTitle: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Title Gap")}
+									value={MOBgapNumTitle}
+									onChange={(MOBgapNumTitle) =>
+										setAttributes({ MOBgapNumTitle })
+									}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
+
+							<ResetControl
+								onReset={() => setAttributes({ MOBgapNumPrefix: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Prefix Gap")}
+									value={MOBgapNumPrefix}
+									onChange={(MOBgapNumPrefix) =>
+										setAttributes({ MOBgapNumPrefix })
+									}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
+
+							<ResetControl
+								onReset={() => setAttributes({ MOBgapNumSuffix: undefined })}
+							>
+								<RangeControl
+									label={__("Number & Suffix Gap")}
+									value={MOBgapNumSuffix}
+									onChange={(MOBgapNumSuffix) =>
+										setAttributes({ MOBgapNumSuffix })
+									}
+									min={0}
+									max={100}
+								/>
+							</ResetControl>
 						</>
 					)}
 				</ResPanelBody>
@@ -727,12 +683,6 @@ const Inspector = (props) => {
 									max={20}
 								/>
 							</ResetControl>
-
-							<ToggleControl
-								label={__("Inset")}
-								checked={inset}
-								onChange={() => setAttributes({ inset: !inset })}
-							/>
 						</>
 					)}
 
@@ -793,14 +743,14 @@ const Inspector = (props) => {
 									max={20}
 								/>
 							</ResetControl>
-
-							<ToggleControl
-								label={__("Inset")}
-								checked={hoverInset}
-								onChange={() => setAttributes({ hoverInset: !hoverInset })}
-							/>
 						</>
 					)}
+
+					<ToggleControl
+						label={__("Inset")}
+						checked={inset}
+						onChange={() => setAttributes({ inset: !inset })}
+					/>
 
 					<BaseControl id="eb-counter-transition-time">
 						<TextControl

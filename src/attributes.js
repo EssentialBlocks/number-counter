@@ -6,15 +6,25 @@ import {
 } from "./helpers";
 
 export default {
+	// the following 4 attributes is must required for responsive options and asset generation for frontend
 	// responsive control attributes ⬇
 	resOption: {
 		type: "string",
 		default: "desktop",
 	},
 
-	// uniqueIdNumber attribute for making unique className
-	uniqueIdNumber: {
-		type: "number",
+	// blockId attribute for making unique className and other uniqueness ⬇
+	blockId: {
+		type: "string",
+	},
+	blockRoot: {
+		type: "string",
+		default: "essential_block",
+	},
+
+	// blockMeta is for keeping all the styles ⬇
+	blockMeta: {
+		type: "object",
 	},
 
 	// counter settings attributes ⬇
@@ -56,6 +66,7 @@ export default {
 	},
 	wrapperFlexDirection: {
 		type: "string",
+		default: "column",
 	},
 	layoutLabel: {
 		type: "string",
@@ -79,44 +90,15 @@ export default {
 		// default: "#3074ff",
 	},
 
-	TABtitleColor: {
-		type: "string",
-	},
-	TABnumberColor: {
-		type: "string",
-	},
-	TABnumPrefixColor: {
-		type: "string",
-	},
-	TABnumSuffixColor: {
-		type: "string",
-	},
-
-	MOBtitleColor: {
-		type: "string",
-	},
-	MOBnumberColor: {
-		type: "string",
-	},
-	MOBnumPrefixColor: {
-		type: "string",
-	},
-	MOBnumSuffixColor: {
-		type: "string",
-	},
-
 	// spacing attributes ⬇
 	gapNumTitle: {
 		type: "number",
-		default: 20,
 	},
 	gapNumPrefix: {
 		type: "number",
-		default: 0,
 	},
 	gapNumSuffix: {
 		type: "number",
-		default: 0,
 	},
 
 	TABgapNumTitle: {
@@ -256,10 +238,6 @@ export default {
 	},
 	hoverShadowColor: {
 		type: "string",
-	},
-	hoverInset: {
-		type: "boolean",
-		default: false,
 	},
 	isHover: {
 		type: "boolean",
