@@ -515,7 +515,7 @@ const Edit = (props) => {
 				}
 				`}
 			</style>
-			<div className={`eb-counter-wrapper ${blockId}`}>
+			<div className={`${blockId} eb-counter-wrapper`}>
 				<h4 className="eb-counter-number">
 					<span className="eb-counter-prefix">{counterPrefix}</span>
 					<span ref={counterRef} className="eb-counter eb-counter-number">

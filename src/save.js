@@ -10,8 +10,8 @@ import { RichText, useBlockProps } from "@wordpress/block-editor";
 
 const Save = ({ attributes }) => {
 	const {
-		// to make unique className ⬇
-		uniqueIdNumber,
+		// blockId attribute for making unique className and other uniqueness ⬇
+		blockId,
 
 		// counter settings attributes ⬇
 		target,
@@ -26,9 +26,7 @@ const Save = ({ attributes }) => {
 
 	return (
 		<div {...useBlockProps.save()}>
-			<div
-				className={`eb-counter-wrapper eb-counter-wrapper-${uniqueIdNumber}`}
-			>
+			<div className={`${blockId} eb-counter-wrapper`}>
 				<h4 className="eb-counter-number">
 					<span className="eb-counter-prefix">{counterPrefix}</span>
 					<span
