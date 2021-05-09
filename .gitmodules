@@ -19,3 +19,6 @@
 [submodule "util/typography-control-v2"]
 	path = util/typography-control-v2
 	url = git@github.com:EssentialBlocks/typography-control-v2.git
+[submodule "lib/style-handler"]
+	path = lib/style-handler
+	url = git@github.com:EssentialBlocks/style-handler.git
