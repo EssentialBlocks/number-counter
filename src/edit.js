@@ -356,8 +356,8 @@ const Edit = (props) => {
 	const wrapperStylesMobile = `
 	.${blockId}{
 		
-		${wrapperMarginStylesTab}
-		${wrapperPaddingStylesTab}
+		${wrapperMarginStylesMobile}
+		${wrapperPaddingStylesMobile}
 
 		${hasVal(MOBgapNumTitle) ? `gap: ${MOBgapNumTitle}px;` : " "}
 	}
