@@ -20,7 +20,6 @@ import {
 import { wrapperPadding, wrapperMargin } from "./constants/dimensionsConstants";
 
 import {
-	generateRandomNumber,
 	textInsideForEdit,
 	softMinifyCssStrings,
 	hasVal,
