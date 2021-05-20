@@ -1,6 +1,6 @@
 === Number Counter ===
 Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
-Tags:              blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
+Tags:              block, blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
 Requires at least: 5.6.0
 Tested up to:      5.7.0
 Stable tag:        1.0.0
