@@ -1,11 +1,10 @@
 {
 	"apiVersion": 2,
-	"name": "essential-blocks-separate/counter",
+	"name": "number-counter/number-counter",
 	"title": "Counter",
 	"category": "widgets",
-	"icon": "smiley",
 	"description": "Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!",
-	"textdomain": "counter",
+	"textdomain": "number-counter",
 	"supports": {
 		"html": false
 	},
