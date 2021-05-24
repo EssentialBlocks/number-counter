@@ -34,7 +34,7 @@ export default {
 	},
 	target: {
 		type: "string",
-		default: "5000",
+		default: "50000",
 	},
 	duration: {
 		type: "string",
@@ -131,7 +131,7 @@ export default {
 	},
 	gradientColor: {
 		type: "string",
-		default: "linear-gradient(45deg,#8200ff,#ff0071)",
+		default: "linear-gradient(45deg,#7967ff,#c277f2)",
 	},
 	backgroundSize: {
 		type: "string",
