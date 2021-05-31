@@ -1333,7 +1333,9 @@ function ResPanelBody(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
+/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1343,7 +1345,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_objectSpread(_objectSpread(_objectSpread({
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({
   // the following 4 attributes is must required for responsive options and asset generation for frontend
   // responsive control attributes ⬇
   resOption: {
@@ -1450,135 +1454,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   MOBgapNumSuffix: {
     type: "number"
-  },
-  // background attributes ⬇
-  backgroundType: {
-    type: "string",
-    "default": "gradient"
-  },
-  backgroundColor: {
-    type: "string"
-  },
-  gradientColor: {
-    type: "string",
-    "default": "linear-gradient(45deg,#7967ff,#c277f2)"
-  },
-  backgroundSize: {
-    type: "string"
-  },
-  imageURL: {
-    type: "string"
-  },
-  imageID: {
-    type: "string"
-  },
-  TABbackgroundType: {
-    type: "string"
-  },
-  TABbackgroundColor: {
-    type: "string"
-  },
-  TABgradientColor: {
-    type: "string"
-  },
-  TABbackgroundSize: {
-    type: "string"
-  },
-  TABimageURL: {
-    type: "string"
-  },
-  TABimageID: {
-    type: "string"
-  },
-  MOBbackgroundType: {
-    type: "string"
-  },
-  MOBbackgroundColor: {
-    type: "string"
-  },
-  MOBgradientColor: {
-    type: "string"
-  },
-  MOBbackgroundSize: {
-    type: "string"
-  },
-  MOBimageURL: {
-    type: "string"
-  },
-  MOBimageID: {
-    type: "string"
-  },
-  // border attributes ⬇
-  borderColor: {
-    type: "string"
-  },
-  borderStyle: {
-    type: "string",
-    "default": "solid"
-  },
-  borderWidth: {
-    type: "number"
-  },
-  borderRadius: {
-    type: "number"
-  },
-  radiusUnit: {
-    type: "string",
-    "default": "px"
-  },
-  // shadow attributes  ⬇
-  hOffset: {
-    type: "number"
-  },
-  vOffset: {
-    type: "number"
-  },
-  blur: {
-    type: "number"
-  },
-  spread: {
-    type: "number"
-  },
-  shadowColor: {
-    type: "string"
-  },
-  inset: {
-    type: "boolean",
-    "default": false
-  },
-  shadowType: {
-    type: "string",
-    "default": "normal"
-  },
-  hoverHOffset: {
-    type: "number"
-  },
-  hoverVOffset: {
-    type: "number"
-  },
-  hoverBlur: {
-    type: "number"
-  },
-  hoverSpread: {
-    type: "number"
-  },
-  hoverShadowColor: {
-    type: "string"
-  },
-  isHover: {
-    type: "boolean",
-    "default": false
-  },
-  wrapperTransitionTime: {
-    type: "string",
-    "default": "500"
   }
-}, Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__))), Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_1__["wrapperMargin"])), Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_1__["wrapperPadding"], {
+}, Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateTypographyAttributes"])(Object.values(_constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_0__))), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_1__["wrapperMargin"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateDimensionsAttributes"])(_constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_1__["wrapperPadding"], {
   top: 30,
   bottom: 30,
   right: 10,
   left: 10
-})));
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_2__["WrapBg"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_3__["wrpBdShadow"])));
+
+/***/ }),
+
+/***/ "./src/constants/backgroundsConstants.js":
+/*!***********************************************!*\
+  !*** ./src/constants/backgroundsConstants.js ***!
+  \***********************************************/
+/*! exports provided: WrapBg */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WrapBg", function() { return WrapBg; });
+// each and every const here has to be totally unique from one another
+var WrapBg = "wrpBG_";
+
+/***/ }),
+
+/***/ "./src/constants/borderShadowConstants.js":
+/*!************************************************!*\
+  !*** ./src/constants/borderShadowConstants.js ***!
+  \************************************************/
+/*! exports provided: wrpBdShadow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrpBdShadow", function() { return wrpBdShadow; });
+var wrpBdShadow = "wrp_";
 
 /***/ }),
 
@@ -1808,7 +1719,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspector */ "./src/inspector.js");
 /* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
 /* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
+/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/helpers */ "./util/helpers/index.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -1825,6 +1738,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 /**
  * Internal dependencies
  */
+
+
 
 
 
@@ -1863,38 +1778,7 @@ var Edit = function Edit(props) {
       TABgapNumSuffix = attributes.TABgapNumSuffix,
       MOBgapNumTitle = attributes.MOBgapNumTitle,
       MOBgapNumPrefix = attributes.MOBgapNumPrefix,
-      MOBgapNumSuffix = attributes.MOBgapNumSuffix,
-      backgroundType = attributes.backgroundType,
-      imageURL = attributes.imageURL,
-      gradientColor = attributes.gradientColor,
-      backgroundSize = attributes.backgroundSize,
-      backgroundColor = attributes.backgroundColor,
-      borderWidth = attributes.borderWidth,
-      borderStyle = attributes.borderStyle,
-      borderColor = attributes.borderColor,
-      borderRadius = attributes.borderRadius,
-      radiusUnit = attributes.radiusUnit,
-      shadowColor = attributes.shadowColor,
-      _attributes$hOffset = attributes.hOffset,
-      hOffset = _attributes$hOffset === void 0 ? 0 : _attributes$hOffset,
-      _attributes$vOffset = attributes.vOffset,
-      vOffset = _attributes$vOffset === void 0 ? 0 : _attributes$vOffset,
-      _attributes$blur = attributes.blur,
-      blur = _attributes$blur === void 0 ? 0 : _attributes$blur,
-      _attributes$spread = attributes.spread,
-      spread = _attributes$spread === void 0 ? 0 : _attributes$spread,
-      inset = attributes.inset,
-      _attributes$hoverShad = attributes.hoverShadowColor,
-      hoverShadowColor = _attributes$hoverShad === void 0 ? shadowColor : _attributes$hoverShad,
-      _attributes$hoverHOff = attributes.hoverHOffset,
-      hoverHOffset = _attributes$hoverHOff === void 0 ? hOffset : _attributes$hoverHOff,
-      _attributes$hoverVOff = attributes.hoverVOffset,
-      hoverVOffset = _attributes$hoverVOff === void 0 ? vOffset : _attributes$hoverVOff,
-      _attributes$hoverBlur = attributes.hoverBlur,
-      hoverBlur = _attributes$hoverBlur === void 0 ? blur : _attributes$hoverBlur,
-      _attributes$hoverSpre = attributes.hoverSpread,
-      hoverSpread = _attributes$hoverSpre === void 0 ? spread : _attributes$hoverSpre,
-      wrapperTransitionTime = attributes.wrapperTransitionTime;
+      MOBgapNumSuffix = attributes.MOBgapNumSuffix;
   var counterRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])(null);
 
   var CounterAnimation = function CounterAnimation() {
@@ -1906,14 +1790,14 @@ var Edit = function Edit(props) {
     var timeoutId = setTimeout(function () {
       function updateCount() {
         cleanStartValue += increaseBy;
-        counterRef.current.innerText = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["textInsideForEdit"])(Math.floor(cleanStartValue), isShowSeparator, separator);
+        counterRef.current.innerText = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["textInsideForEdit"])(Math.floor(cleanStartValue), isShowSeparator, separator);
 
         if (cleanStartValue < endTarget) {
           timeoutIdInside = setTimeout(function () {
             updateCount();
           }, 53);
         } else {
-          counterRef.current.innerText = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["textInsideForEdit"])(endTarget, isShowSeparator, separator);
+          counterRef.current.innerText = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["textInsideForEdit"])(endTarget, isShowSeparator, separator);
         }
       }
 
@@ -2010,7 +1894,7 @@ var Edit = function Edit(props) {
   //
   // function to generate typography styles for an element based on it's prefix
 
-  var _generateTypographySt = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["generateTypographyStyles"])({
+  var _generateTypographySt = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_title"],
     defaultFontSize: 40
@@ -2019,7 +1903,7 @@ var Edit = function Edit(props) {
       titleTypoStylesTab = _generateTypographySt.typoStylesTab,
       titleTypoStylesMobile = _generateTypographySt.typoStylesMobile;
 
-  var _generateTypographySt2 = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["generateTypographyStyles"])({
+  var _generateTypographySt2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_number"],
     defaultFontSize: 40
@@ -2028,7 +1912,7 @@ var Edit = function Edit(props) {
       numberTypoStylesTab = _generateTypographySt2.typoStylesTab,
       numberTypoStylesMobile = _generateTypographySt2.typoStylesMobile;
 
-  var _generateTypographySt3 = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["generateTypographyStyles"])({
+  var _generateTypographySt3 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_numPrefix"]
   }),
@@ -2036,7 +1920,7 @@ var Edit = function Edit(props) {
       numPrefixTypoStylesTab = _generateTypographySt3.typoStylesTab,
       numPrefixTypoStylesMobile = _generateTypographySt3.typoStylesMobile;
 
-  var _generateTypographySt4 = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["generateTypographyStyles"])({
+  var _generateTypographySt4 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateTypographyStyles"])({
     attributes: attributes,
     prefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_5__["typoPrefix_numSuffix"]
   }),
@@ -2044,7 +1928,7 @@ var Edit = function Edit(props) {
       numSuffixTypoStylesTab = _generateTypographySt4.typoStylesTab,
       numSuffixTypoStylesMobile = _generateTypographySt4.typoStylesMobile;
 
-  var _generateDimensionsCo = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["wrapperMargin"],
     styleFor: "margin"
@@ -2053,7 +1937,7 @@ var Edit = function Edit(props) {
       wrapperMarginStylesTab = _generateDimensionsCo.dimensionStylesTab,
       wrapperMarginStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
 
-  var _generateDimensionsCo2 = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["generateDimensionsControlStyles"])({
+  var _generateDimensionsCo2 = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateDimensionsControlStyles"])({
     attributes: attributes,
     controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_6__["wrapperPadding"],
     styleFor: "padding"
@@ -2062,24 +1946,44 @@ var Edit = function Edit(props) {
       wrapperPaddingStylesTab = _generateDimensionsCo2.dimensionStylesTab,
       wrapperPaddingStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
 
-  var wrapperStylesDesktop = "\n\n\t.".concat(blockId, " .eb-counter-title,\n\t.").concat(blockId, " h4.eb-counter-number {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t}\n\n\t.").concat(blockId, "{\n\t\ttext-align: center;\n\t\tdisplay: flex;\n\n\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\n\t\t").concat(gapNumTitle ? "gap: ".concat(gapNumTitle, "px;") : " ", "\n\t\t").concat(wrapperFlexDirection ? "flex-direction: ".concat(wrapperFlexDirection, ";") : " ", "\n\t\t\n\t\tbackground-image:\n\t\t\t").concat(backgroundType === "image" && imageURL ? "url(\"".concat(imageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\n\t\t").concat(backgroundSize ? "background-size: ".concat(backgroundSize, ";") : " ", "\n\t\t").concat(backgroundColor ? "background-color: ".concat(backgroundColor, ";") : " ", "\t\n\t\t").concat(borderColor ? "border: ".concat(borderWidth, "px ").concat(borderStyle, " ").concat(borderColor, ";") : " ", "\n\t\t").concat(borderRadius ? "border-radius: ".concat(borderRadius).concat(radiusUnit, ";") : " ", "\n\n\t\t").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n\t\ttransition: ").concat(wrapperTransitionTime ? "".concat(wrapperTransitionTime / 1000, "s") : ".5s", ";\n\t}\n\n\t.").concat(blockId, ":hover{\t\t\n\t\t").concat(hoverShadowColor ? "\n\t\t\t\tbox-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n\t\t\t\t\n\t}\n\t");
-  var wrapperStylesTab = "\n\t.".concat(blockId, "{\n\t\t").concat(wrapperMarginStylesTab, "\n\t\t").concat(wrapperPaddingStylesTab, "\n\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(TABgapNumTitle) ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\n\t}\n\t");
-  var wrapperStylesMobile = "\n\t.".concat(blockId, "{\n\t\t\n\t\t").concat(wrapperMarginStylesMobile, "\n\t\t").concat(wrapperPaddingStylesMobile, "\n\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(MOBgapNumTitle) ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t");
-  var numberStylesDesktop = "\n\t.".concat(blockId, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\t").concat(numberColor ? " color : ".concat(numberColor, ";") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(gapNumPrefix) ? "padding-left: ".concat(gapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(gapNumSuffix) ? "padding-right: ".concat(gapNumSuffix, "px;") : " ", "\n\t}\n\t");
-  var numberStylesTab = "\n\t.".concat(blockId, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(TABgapNumPrefix) ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(TABgapNumSuffix) ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
-  var numberStylesMobile = "\n\t.".concat(blockId, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(MOBgapNumPrefix) ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["hasVal"])(MOBgapNumSuffix) ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
-  var titleStylesDesktop = "\n\t.".concat(blockId, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\t").concat(titleColor ? "color : ".concat(titleColor, ";") : " ", "\n\t}\n\t");
-  var titleStylesTab = "\n\t.".concat(blockId, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t}  ");
-  var titleStylesMobile = "\n\t.".concat(blockId, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t} ");
-  var numPrefixStylesDesktop = "\n\t.".concat(blockId, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\t").concat(numPrefixColor ? "color : ".concat(numPrefixColor, ";") : " ", "\n\t}\n\t");
-  var numPrefixStylesTab = "\n\t.".concat(blockId, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t}  ");
-  var numPrefixStylesMobile = "\n\t.".concat(blockId, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t}  ");
-  var numSuffixStylesDesktop = "\n\t.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\t").concat(numSuffixColor ? "color : ".concat(numSuffixColor, ";") : " ", "\n\t}\n\t");
-  var numSuffixStylesTab = "\n\t.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t} ");
-  var numSuffixStylesMobile = "\n\t.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t}\n\n\t");
-  var desktopAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(titleStylesDesktop) ? titleStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numPrefixStylesDesktop) ? numPrefixStylesDesktop : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numSuffixStylesDesktop) ? numSuffixStylesDesktop : " ", "\n\t");
-  var tabAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numberStylesTab) ? numberStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(titleStylesTab) ? titleStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numPrefixStylesTab) ? numPrefixStylesTab : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numSuffixStylesTab) ? numSuffixStylesTab : " ", "\n\t");
-  var mobileAllStyles = "\n\t\t".concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t"); //
+  var _generateBackgroundCo = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateBackgroundControlStyles"])({
+    attributes: attributes,
+    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_7__["WrapBg"]
+  }),
+      backgroundStylesDesktop = _generateBackgroundCo.backgroundStylesDesktop,
+      backgroundStylesTab = _generateBackgroundCo.backgroundStylesTab,
+      backgroundStylesMobile = _generateBackgroundCo.backgroundStylesMobile,
+      overlyStyles = _generateBackgroundCo.overlyStyles;
+
+  var _generateBorderShadow = Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["generateBorderShadowStyles"])({
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_8__["wrpBdShadow"],
+    attributes: attributes
+  }),
+      bdShadowStyesDesktop = _generateBorderShadow.styesDesktop,
+      bdShadowStyesTab = _generateBorderShadow.styesTab,
+      bdShadowStyesMobile = _generateBorderShadow.styesMobile,
+      bdShadowStylesHoverDesktop = _generateBorderShadow.stylesHoverDesktop,
+      bdShadowStylesHoverTab = _generateBorderShadow.stylesHoverTab,
+      bdShadowStylesHoverMobile = _generateBorderShadow.stylesHoverMobile;
+
+  var wrapperStylesDesktop = "\n\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-title,\n\t.eb-counter-wrapper.").concat(blockId, " h4.eb-counter-number {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t}\n\n\t.eb-counter-wrapper.").concat(blockId, "{\n\t\ttext-align: center;\n\t\tdisplay: flex;\n\n\t\t").concat(wrapperMarginStylesDesktop, "\n\t\t").concat(wrapperPaddingStylesDesktop, "\n\t\t\n\t\t").concat(gapNumTitle ? "gap: ".concat(gapNumTitle, "px;") : " ", "\n\t\t").concat(wrapperFlexDirection ? "flex-direction: ".concat(wrapperFlexDirection, ";") : " ", "\n\t\n\t\t").concat(backgroundStylesDesktop, "\n\t\t").concat(bdShadowStyesDesktop, "\n\t}\n\n\n\t\n\t.eb-counter-wrapper.").concat(blockId, ":before{\n\t\t").concat(overlyStyles, "\n\t}\n\n\t.eb-counter-wrapper.").concat(blockId, ":hover{\t\t\n\t\t").concat(bdShadowStylesHoverDesktop, "\n\t}\n\t");
+  var wrapperStylesTab = "\n\t.eb-counter-wrapper.".concat(blockId, "{\n\t\t").concat(wrapperMarginStylesTab, "\n\t\t").concat(wrapperPaddingStylesTab, "\n\t\t").concat(backgroundStylesTab, "\n\t\t").concat(bdShadowStyesTab, "\n\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(TABgapNumTitle) ? "gap: ".concat(TABgapNumTitle, "px;") : " ", "\t\t\n\t}\n\n\t.eb-counter-wrapper.").concat(blockId, ":hover{\t\t\n\t\t").concat(bdShadowStylesHoverTab, "\n\t}\n\t");
+  var wrapperStylesMobile = "\n\t.eb-counter-wrapper.".concat(blockId, "{\n\t\t").concat(wrapperMarginStylesMobile, "\n\t\t").concat(wrapperPaddingStylesMobile, "\n\t\t").concat(backgroundStylesMobile, "\n\t\t").concat(bdShadowStyesMobile, "\n\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(MOBgapNumTitle) ? "gap: ".concat(MOBgapNumTitle, "px;") : " ", "\n\t}\n\t\n\t.eb-counter-wrapper.").concat(blockId, ":hover{\t\t\n\t\t").concat(bdShadowStylesHoverMobile, "\n\t}\n\t");
+  var numberStylesDesktop = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-number{\n\t\t").concat(numberTypoStylesDesktop, "\n\t\t").concat(numberColor ? " color : ".concat(numberColor, ";") : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(gapNumPrefix) ? "padding-left: ".concat(gapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(gapNumSuffix) ? "padding-right: ".concat(gapNumSuffix, "px;") : " ", "\n\t}\n\t");
+  var numberStylesTab = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-number{\n\t\t").concat(numberTypoStylesTab, "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(TABgapNumPrefix) ? "padding-left: ".concat(TABgapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(TABgapNumSuffix) ? "padding-right: ".concat(TABgapNumSuffix, "px;") : " ", "\n\t} ");
+  var numberStylesMobile = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-number{\n\t\t").concat(numberTypoStylesMobile, "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(MOBgapNumPrefix) ? "padding-left: ".concat(MOBgapNumPrefix, "px;") : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["hasVal"])(MOBgapNumSuffix) ? "padding-right: ".concat(MOBgapNumSuffix, "px;") : " ", "\n\t}");
+  var titleStylesDesktop = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-title{\n\t\t").concat(titleTypoStylesDesktop, "\n\t\t").concat(titleColor ? "color : ".concat(titleColor, ";") : " ", "\n\t}\n\t");
+  var titleStylesTab = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-title{\n\t\t").concat(titleTypoStylesTab, "\n\t}  ");
+  var titleStylesMobile = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-title{\n\t\t").concat(titleTypoStylesMobile, "\n\t} ");
+  var numPrefixStylesDesktop = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesDesktop, "\n\t\t").concat(numPrefixColor ? "color : ".concat(numPrefixColor, ";") : " ", "\n\t}\n\t");
+  var numPrefixStylesTab = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesTab, "\n\t}  ");
+  var numPrefixStylesMobile = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-prefix{\n\t\t").concat(numPrefixTypoStylesMobile, "\n\t}  ");
+  var numSuffixStylesDesktop = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesDesktop, "\n\t\t").concat(numSuffixColor ? "color : ".concat(numSuffixColor, ";") : " ", "\n\t}\n\t");
+  var numSuffixStylesTab = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesTab, "\n\t} ");
+  var numSuffixStylesMobile = "\n\t.eb-counter-wrapper.".concat(blockId, " .eb-counter-suffix{\n\t\t").concat(numSuffixTypoStylesMobile, "\n\t}\n\n\t");
+  var desktopAllStyles = "\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(wrapperStylesDesktop) ? wrapperStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numberStylesDesktop) ? numberStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(titleStylesDesktop) ? titleStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numPrefixStylesDesktop) ? numPrefixStylesDesktop : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numSuffixStylesDesktop) ? numSuffixStylesDesktop : " ", "\n\t");
+  var tabAllStyles = "\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(wrapperStylesTab) ? wrapperStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numberStylesTab) ? numberStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(titleStylesTab) ? titleStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numPrefixStylesTab) ? numPrefixStylesTab : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numSuffixStylesTab) ? numSuffixStylesTab : " ", "\n\t");
+  var mobileAllStyles = "\n\t\t".concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(wrapperStylesMobile) ? wrapperStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numberStylesMobile) ? numberStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(titleStylesMobile) ? titleStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numPrefixStylesMobile) ? numPrefixStylesMobile : " ", "\n\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["isCssExists"])(numSuffixStylesMobile) ? numSuffixStylesMobile : " ", "\n\t"); //
   // CSS/styling Codes Ends Here
   //
   // Set All Style in "blockMeta" Attribute
@@ -2101,7 +2005,7 @@ var Edit = function Edit(props) {
   return [isSelected && /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
-  }), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("style", null, "\n\t\t\t\t".concat(desktopAllStyles, "\n\n\t\t\t\t/* mimmikcssStart */\n\n\t\t\t\t").concat(resOption === "tab" ? tabAllStyles : " ", "\n\t\t\t\t").concat(resOption === "mobile" ? tabAllStyles + mobileAllStyles : " ", "\n\n\t\t\t\t/* mimmikcssEnd */\n\n\t\t\t\t@media all and (max-width: 1024px) {\t\n\n\t\t\t\t\t/* tabcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["softMinifyCssStrings"])(tabAllStyles), "\n\t\t\t\t\t/* tabcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\t@media all and (max-width: 767px) {\n\t\t\t\t\t\n\t\t\t\t\t/* mobcssStart */\t\t\t\n\t\t\t\t\t").concat(Object(_util_helpers__WEBPACK_IMPORTED_MODULE_9__["softMinifyCssStrings"])(mobileAllStyles), "\n\t\t\t\t\t/* mobcssEnd */\t\t\t\n\t\t\t\t\n\t\t\t\t}\n\t\t\t\t")), /*#__PURE__*/React.createElement("div", {
     className: "".concat(blockId, " eb-counter-wrapper")
   }, /*#__PURE__*/React.createElement("h4", {
     className: "eb-counter-number"
@@ -2137,266 +2041,6 @@ var Edit = function Edit(props) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "./src/helpers.js":
-/*!************************!*\
-  !*** ./src/helpers.js ***!
-  \************************/
-/*! exports provided: generateDimensionsAttributes, generateTypographyAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, hasVal, generateTypographyStyles, generateDimensionsControlStyles */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsAttributes", function() { return generateDimensionsAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hardMinifyCssStrings", function() { return hardMinifyCssStrings; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "softMinifyCssStrings", function() { return softMinifyCssStrings; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasVal", function() { return hasVal; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
-var generateDimensionsAttributes = function generateDimensionsAttributes(controlName) {
-  var _objectSpread3;
-
-  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var top = defaults.top,
-      right = defaults.right,
-      bottom = defaults.bottom,
-      left = defaults.left;
-  var desktopTop = top ? _defineProperty({}, "".concat(controlName, "Top"), {
-    type: "string",
-    "default": "".concat(top)
-  }) : _defineProperty({}, "".concat(controlName, "Top"), {
-    type: "string"
-  });
-  var desktopRight = right ? _defineProperty({}, "".concat(controlName, "Right"), {
-    type: "string",
-    "default": "".concat(right)
-  }) : _defineProperty({}, "".concat(controlName, "Right"), {
-    type: "string"
-  });
-  var desktopBottom = bottom ? _defineProperty({}, "".concat(controlName, "Bottom"), {
-    type: "string",
-    "default": "".concat(bottom)
-  }) : _defineProperty({}, "".concat(controlName, "Bottom"), {
-    type: "string"
-  });
-  var desktopLeft = left ? _defineProperty({}, "".concat(controlName, "Left"), {
-    type: "string",
-    "default": "".concat(left)
-  }) : _defineProperty({}, "".concat(controlName, "Left"), {
-    type: "string"
-  });
-  return _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_defineProperty({}, "".concat(controlName, "Unit"), {
-    type: "string",
-    "default": "px"
-  }), desktopTop), desktopRight), desktopBottom), desktopLeft), {}, (_objectSpread3 = {}, _defineProperty(_objectSpread3, "TAB".concat(controlName, "Unit"), {
-    type: "string",
-    "default": "px"
-  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "Top"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "Right"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "Bottom"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "Left"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "Unit"), {
-    type: "string",
-    "default": "px"
-  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "Top"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "Right"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "Bottom"), {
-    type: "string"
-  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "Left"), {
-    type: "string"
-  }), _objectSpread3));
-}; // function to generate typography attributes for multiple typography control based on the array of prefix
-
-var generateTypographyAttributes = function generateTypographyAttributes(prefixArray) {
-  var typoAttrs = prefixArray.reduce(function (total, current) {
-    var _result;
-
-    var result = (_result = {}, _defineProperty(_result, "".concat(current, "FontFamily"), {
-      type: "string"
-    }), _defineProperty(_result, "".concat(current, "SizeUnit"), {
-      type: "string",
-      "default": "px"
-    }), _defineProperty(_result, "".concat(current, "FontSize"), {
-      type: "number"
-    }), _defineProperty(_result, "".concat(current, "FontWeight"), {
-      type: "string"
-    }), _defineProperty(_result, "".concat(current, "TextTransform"), {
-      type: "string"
-    }), _defineProperty(_result, "".concat(current, "TextDecoration"), {
-      type: "string"
-    }), _defineProperty(_result, "".concat(current, "LetterSpacingUnit"), {
-      type: "string",
-      "default": "px"
-    }), _defineProperty(_result, "".concat(current, "LetterSpacing"), {
-      type: "number"
-    }), _defineProperty(_result, "".concat(current, "LineHeightUnit"), {
-      type: "string",
-      "default": "em"
-    }), _defineProperty(_result, "".concat(current, "LineHeight"), {
-      type: "number"
-    }), _defineProperty(_result, "TAB".concat(current, "SizeUnit"), {
-      type: "string",
-      "default": "px"
-    }), _defineProperty(_result, "TAB".concat(current, "FontSize"), {
-      type: "number"
-    }), _defineProperty(_result, "TAB".concat(current, "LetterSpacingUnit"), {
-      type: "string",
-      "default": "px"
-    }), _defineProperty(_result, "TAB".concat(current, "LetterSpacing"), {
-      type: "number"
-    }), _defineProperty(_result, "TAB".concat(current, "LineHeightUnit"), {
-      type: "string",
-      "default": "em"
-    }), _defineProperty(_result, "TAB".concat(current, "LineHeight"), {
-      type: "number"
-    }), _defineProperty(_result, "MOB".concat(current, "SizeUnit"), {
-      type: "string",
-      "default": "px"
-    }), _defineProperty(_result, "MOB".concat(current, "FontSize"), {
-      type: "number"
-    }), _defineProperty(_result, "MOB".concat(current, "LetterSpacingUnit"), {
-      type: "string",
-      "default": "px"
-    }), _defineProperty(_result, "MOB".concat(current, "LetterSpacing"), {
-      type: "number"
-    }), _defineProperty(_result, "MOB".concat(current, "LineHeightUnit"), {
-      type: "string",
-      "default": "em"
-    }), _defineProperty(_result, "MOB".concat(current, "LineHeight"), {
-      type: "number"
-    }), _result);
-    return _objectSpread(_objectSpread({}, total), result);
-  }, {}); // console.log({ typoAttrs });
-
-  return typoAttrs;
-}; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
-
-var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
-  return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
-}; // generateRandomNumber function is for generating a random number
-
-var generateRandomNumber = function generateRandomNumber() {
-  return Math.floor(Math.random() * 1000000000);
-}; // hardMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
-
-var hardMinifyCssStrings = function hardMinifyCssStrings(cssString) {
-  // console.log({ cssString });
-  return cssString.replace(/\s+/g, " ").replace(/(?<=\:).+(?=\;)/g, function (match) {
-    // console.log({ match, g1, offset, string });
-    return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
-  }) // .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
-  .replace(/\s+(?![\w\d\.\-\#]+\{)/g, "").replace(/\s+/g, " ").replace(/__s_p_a_c_e__/g, " ");
-}; // softMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
-
-var softMinifyCssStrings = function softMinifyCssStrings(cssString) {
-  return cssString.replace(/\s+/g, " ");
-}; // check if css string is empty or not.
-
-var isCssExists = function isCssExists(cssString) {
-  return /.+(?=\:(?!hover)(?!focus))/.test(cssString);
-}; // check if range controller input numbers  has value
-
-var hasVal = function hasVal(val) {
-  return val || val === 0;
-}; //
-// function to generate typography styles for an element based on it's prefix
-
-var generateTypographyStyles = function generateTypographyStyles(_ref9) {
-  var prefixConstant = _ref9.prefixConstant,
-      defaultFontSize = _ref9.defaultFontSize,
-      attributes = _ref9.attributes;
-  var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
-      fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
-      textTransform = attributes["".concat(prefixConstant, "TextTransform")],
-      textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
-      _attributes$ = attributes["".concat(prefixConstant, "FontSize")],
-      fontSize = _attributes$ === void 0 ? defaultFontSize : _attributes$,
-      sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
-      letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
-      letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
-      lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
-      lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
-      TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
-      TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
-      TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
-      TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
-      TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
-      TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
-      MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
-      MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
-      MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
-      MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
-      MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
-      MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")];
-  var typoStylesDesktop = "\n\t\t\t".concat(fontFamily ? "font-family: ".concat(fontFamily, ";") : " ", "\n\t\t\t").concat(hasVal(fontSize) ? "font-size: ".concat(fontSize).concat(sizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(lineHeight) ? "line-height: ".concat(lineHeight).concat(lineHeightUnit, ";") : " ", "\n\t\t\t").concat(fontWeight ? "font-weight: ".concat(fontWeight, ";") : " ", "\n\t\t\t").concat(textDecoration ? "text-decoration: ".concat(textDecoration, ";") : " ", "\n\t\t\t").concat(textTransform ? "text-transform: ".concat(textTransform, ";") : " ", "\n\t\t\t").concat(hasVal(letterSpacing) ? "letter-spacing: ".concat(letterSpacing).concat(letterSpacingUnit, ";") : " ", "\n\t\t");
-  var typoStylesTab = "\n\t\t\t".concat(hasVal(TABfontSize) ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABlineHeight) ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABletterSpacing) ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
-  var typoStylesMobile = "\n\t\t\t".concat(hasVal(MOBfontSize) ? "font-size: ".concat(MOBfontSize).concat(MOBsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBlineHeight) ? "line-height: ".concat(MOBlineHeight).concat(MOBlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBletterSpacing) ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
-  return {
-    typoStylesDesktop: typoStylesDesktop,
-    typoStylesTab: typoStylesTab,
-    typoStylesMobile: typoStylesMobile
-  };
-}; //
-// function to generate dimensions-controls styles for an element based on it's controlName(prefix)
-
-var generateDimensionsControlStyles = function generateDimensionsControlStyles(_ref10) {
-  var controlName = _ref10.controlName,
-      styleFor = _ref10.styleFor,
-      attributes = _ref10.attributes;
-  var dimensionUnit = attributes["".concat(controlName, "Unit")],
-      dimensionTop = attributes["".concat(controlName, "Top")],
-      dimensionRight = attributes["".concat(controlName, "Right")],
-      dimensionBottom = attributes["".concat(controlName, "Bottom")],
-      dimensionLeft = attributes["".concat(controlName, "Left")],
-      TABdimensionUnit = attributes["TAB".concat(controlName, "Unit")],
-      TABdimensionTop = attributes["TAB".concat(controlName, "Top")],
-      TABdimensionRight = attributes["TAB".concat(controlName, "Right")],
-      TABdimensionBottom = attributes["TAB".concat(controlName, "Bottom")],
-      TABdimensionLeft = attributes["TAB".concat(controlName, "Left")],
-      MOBdimensionUnit = attributes["MOB".concat(controlName, "Unit")],
-      MOBdimensionTop = attributes["MOB".concat(controlName, "Top")],
-      MOBdimensionRight = attributes["MOB".concat(controlName, "Right")],
-      MOBdimensionBottom = attributes["MOB".concat(controlName, "Bottom")],
-      MOBdimensionLeft = attributes["MOB".concat(controlName, "Left")];
-  var dimensionStylesDesktop = " ";
-  var dimensionStylesTab = " ";
-  var dimensionStylesMobile = " ";
-
-  if (styleFor !== "border-radius") {
-    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
-    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
-    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  } else {
-    dimensionStylesDesktop = "\n\t\t\t".concat(dimensionTop ? "border-top-left-radius: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionRight ? "border-top-right-radius: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
-    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-left-radius: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-top-right-radius: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
-    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-left-radius: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-top-right-radius: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  }
-
-  return {
-    dimensionStylesDesktop: dimensionStylesDesktop,
-    dimensionStylesTab: dimensionStylesTab,
-    dimensionStylesMobile: dimensionStylesMobile
-  };
-};
 
 /***/ }),
 
@@ -2810,9 +2454,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_toggle_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/toggle-button */ "./util/toggle-button/index.js");
 /* harmony import */ var _util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/typography-control-v2 */ "./util/typography-control-v2/index.js");
 /* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ResPanelBody */ "./src/ResPanelBody.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
-/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
-/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
+/* harmony import */ var _util_background_control__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../util/background-control */ "./util/background-control/index.js");
+/* harmony import */ var _util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../util/border-shadow-control */ "./util/border-shadow-control/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
+/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
+/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
 /**
  * WordPress dependencies
  */
@@ -2823,6 +2471,10 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
+
+
+
+
 
 
 
@@ -2862,31 +2514,7 @@ var Inspector = function Inspector(props) {
       TABgapNumSuffix = attributes.TABgapNumSuffix,
       MOBgapNumTitle = attributes.MOBgapNumTitle,
       MOBgapNumPrefix = attributes.MOBgapNumPrefix,
-      MOBgapNumSuffix = attributes.MOBgapNumSuffix,
-      backgroundType = attributes.backgroundType,
-      backgroundColor = attributes.backgroundColor,
-      gradientColor = attributes.gradientColor,
-      imageURL = attributes.imageURL,
-      imageID = attributes.imageID,
-      backgroundSize = attributes.backgroundSize,
-      borderWidth = attributes.borderWidth,
-      radiusUnit = attributes.radiusUnit,
-      borderRadius = attributes.borderRadius,
-      borderStyle = attributes.borderStyle,
-      borderColor = attributes.borderColor,
-      shadowType = attributes.shadowType,
-      shadowColor = attributes.shadowColor,
-      hOffset = attributes.hOffset,
-      vOffset = attributes.vOffset,
-      blur = attributes.blur,
-      spread = attributes.spread,
-      inset = attributes.inset,
-      hoverShadowColor = attributes.hoverShadowColor,
-      hoverHOffset = attributes.hoverHOffset,
-      hoverVOffset = attributes.hoverVOffset,
-      hoverBlur = attributes.hoverBlur,
-      hoverSpread = attributes.hoverSpread,
-      wrapperTransitionTime = attributes.wrapperTransitionTime; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
+      MOBgapNumSuffix = attributes.MOBgapNumSuffix; // this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     var bodyClasses = document.body.className; // console.log("----log from inspector useEffect with empty []", {
@@ -3049,7 +2677,7 @@ var Inspector = function Inspector(props) {
     }
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Layouts"),
-    options: _constants__WEBPACK_IMPORTED_MODULE_13__["LAYOUT_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_15__["LAYOUT_OPTIONS"],
     value: layoutLabel,
     onChange: function onChange(value) {
       return handleLayoutChange(value);
@@ -3064,7 +2692,7 @@ var Inspector = function Inspector(props) {
     }
   }), isShowSeparator && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Separator"),
-    options: _constants__WEBPACK_IMPORTED_MODULE_13__["SEPARATOR_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_15__["SEPARATOR_OPTIONS"],
     value: separastorSelectLabel,
     onChange: function onChange(value) {
       return handleSeparatorChange(value);
@@ -3074,19 +2702,19 @@ var Inspector = function Inspector(props) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
     baseLabel: "Title",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_title"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_title"],
     resRequiredProps: resRequiredProps
   }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
     baseLabel: "Number",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_number"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_number"],
     resRequiredProps: resRequiredProps
   }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
     baseLabel: "Number prefix",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_numPrefix"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_numPrefix"],
     resRequiredProps: resRequiredProps
   }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
     baseLabel: "Number Suffix",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_14__["typoPrefix_numSuffix"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_numSuffix"],
     resRequiredProps: resRequiredProps
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Colors"),
@@ -3276,324 +2904,25 @@ var Inspector = function Inspector(props) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_5__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrapperMargin"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["wrapperMargin"],
     baseLabel: "Margin"
   }), /*#__PURE__*/React.createElement(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_5__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_15__["wrapperPadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["wrapperPadding"],
     baseLabel: "Padding"
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background"),
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Counter Background"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Type")
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants__WEBPACK_IMPORTED_MODULE_13__["BACKGROUND_TYPES"].map(function (_ref) {
-    var value = _ref.value,
-        label = _ref.label;
-    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-      isPrimary: backgroundType === value,
-      isSecondary: backgroundType !== value,
-      onClick: function onClick() {
-        return setAttributes({
-          backgroundType: value
-        });
-      }
-    }, label);
-  }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color"),
-    color: backgroundColor,
-    onChange: function onChange(backgroundColor) {
-      return setAttributes({
-        backgroundColor: backgroundColor
-      });
-    }
-  }), backgroundType === "gradient" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient"),
-    initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    gradientColor: gradientColor,
-    onChange: function onChange(gradientColor) {
-      return setAttributes({
-        gradientColor: gradientColor
-      });
-    }
-  })), backgroundType === "image" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Image")
-  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
-    onSelect: function onSelect(media) {
-      return setAttributes({
-        imageURL: media.url,
-        imgeID: media.id
-      });
-    },
-    type: "image",
-    value: imageID,
-    render: function render(_ref2) {
-      var open = _ref2.open;
-      return !imageURL && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-        className: "eb-wrapper-upload-button",
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Upload Image"),
-        icon: "format-image",
-        onClick: open
-      });
-    }
-  }), imageURL && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_image_avatar__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    imageUrl: imageURL,
-    onDeleteImage: function onDeleteImage() {
-      return setAttributes({
-        imageURL: null
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Size")
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ButtonGroup"], null, _constants__WEBPACK_IMPORTED_MODULE_13__["BACKGROUND_SIZES"].map(function (_ref3) {
-    var value = _ref3.value,
-        label = _ref3.label;
-    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
-      isPrimary: backgroundSize === value,
-      isSecondary: backgroundSize !== value,
-      onClick: function onClick() {
-        return setAttributes({
-          backgroundSize: value
-        });
-      }
-    }, label);
-  })))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border"),
-    initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color"),
-    color: borderColor,
-    onChange: function onChange(borderColor) {
-      return setAttributes({
-        borderColor: borderColor
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        borderWidth: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Width"),
-    value: borderWidth,
-    onChange: function onChange(borderWidth) {
-      return setAttributes({
-        borderWidth: borderWidth
-      });
-    },
-    min: 0,
-    max: 100
-  })), /*#__PURE__*/React.createElement(_util_unit_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    selectedUnit: radiusUnit,
-    unitTypes: _constants__WEBPACK_IMPORTED_MODULE_13__["LETTER_SPACING_LINE_HEIGHT_UNITS"],
-    onClick: function onClick(radiusUnit) {
-      return setAttributes({
-        radiusUnit: radiusUnit
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        borderRadius: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Radius"),
-    value: borderRadius,
-    onChange: function onChange(borderRadius) {
-      return setAttributes({
-        borderRadius: borderRadius
-      });
-    },
-    min: 0,
-    max: 100
-  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Style"),
-    value: borderStyle,
-    options: _constants__WEBPACK_IMPORTED_MODULE_13__["BORDER_STYLES"],
-    onChange: function onChange(borderStyle) {
-      return setAttributes({
-        borderStyle: borderStyle
-      });
-    }
+  }, /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(_util_background_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_18__["WrapBg"],
+    resRequiredProps: resRequiredProps
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow"),
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Counter Border "),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement("span", {
-    className: shadowType === "normal" ? "blueOnNormal" : "blueOnHover"
-  }, /*#__PURE__*/React.createElement(_util_toggle_button__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    options: _constants__WEBPACK_IMPORTED_MODULE_13__["SHADOW_HOVER_OPTIONS"],
-    onChange: function onChange(value) {
-      return setAttributes({
-        shadowType: value
-      });
-    }
-  })), shadowType === "normal" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Color"),
-    color: shadowColor,
-    onChange: function onChange(shadowColor) {
-      return setAttributes({
-        shadowColor: shadowColor
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        hOffset: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal Offset"),
-    value: hOffset,
-    onChange: function onChange(hOffset) {
-      return setAttributes({
-        hOffset: hOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        vOffset: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical Offset"),
-    value: vOffset,
-    onChange: function onChange(vOffset) {
-      return setAttributes({
-        vOffset: vOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        blur: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Blur"),
-    value: blur,
-    onChange: function onChange(blur) {
-      return setAttributes({
-        blur: blur
-      });
-    },
-    min: 0,
-    max: 20
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        spread: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Spread"),
-    value: spread,
-    onChange: function onChange(spread) {
-      return setAttributes({
-        spread: spread
-      });
-    },
-    min: 0,
-    max: 20
-  }))), shadowType === "hover" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_color_control__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Hover Shadow Color"),
-    color: hoverShadowColor,
-    onChange: function onChange(hoverShadowColor) {
-      return setAttributes({
-        hoverShadowColor: hoverShadowColor
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        hoverHOffset: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal Offset"),
-    value: hoverHOffset,
-    onChange: function onChange(hoverHOffset) {
-      return setAttributes({
-        hoverHOffset: hoverHOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        hoverVOffset: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical Offset"),
-    value: hoverVOffset,
-    onChange: function onChange(hoverVOffset) {
-      return setAttributes({
-        hoverVOffset: hoverVOffset
-      });
-    },
-    min: 0,
-    max: 20
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        hoverBlur: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Blur"),
-    value: hoverBlur,
-    onChange: function onChange(hoverBlur) {
-      return setAttributes({
-        hoverBlur: hoverBlur
-      });
-    },
-    min: 0,
-    max: 20
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    onReset: function onReset() {
-      return setAttributes({
-        hoverSpread: undefined
-      });
-    }
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["RangeControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Spread"),
-    value: hoverSpread,
-    onChange: function onChange(hoverSpread) {
-      return setAttributes({
-        hoverSpread: hoverSpread
-      });
-    },
-    min: 0,
-    max: 20
-  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ToggleControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Inset"),
-    checked: inset,
-    onChange: function onChange() {
-      return setAttributes({
-        inset: !inset
-      });
-    }
-  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["BaseControl"], {
-    id: "eb-counter-transition-time"
-  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Transition"),
-    value: wrapperTransitionTime,
-    type: "number",
-    onChange: function onChange(wrapperTransitionTime) {
-      return setAttributes({
-        wrapperTransitionTime: wrapperTransitionTime
-      });
-    }
-  })))));
+  }, /*#__PURE__*/React.createElement(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_19__["wrpBdShadow"],
+    resRequiredProps: resRequiredProps
+  })), /*#__PURE__*/React.createElement(React.Fragment, null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
@@ -3656,6 +2985,1241 @@ var Save = function Save(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);
+
+/***/ }),
+
+/***/ "./util/background-control/index.js":
+/*!******************************************!*\
+  !*** ./util/background-control/index.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BackgroundControl; });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _gradient_color_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../gradient-color-controller */ "./util/gradient-color-controller/index.js");
+/* harmony import */ var _unit_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../unit-control */ "./util/unit-control/index.js");
+/* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+var handleDesktopBtnClick = function handleDesktopBtnClick(_ref) {
+  var setAttributes = _ref.setAttributes;
+  document.body.classList.add("eb-res-option-desktop");
+  document.body.classList.remove("eb-res-option-tab", "eb-res-option-mobile");
+  setAttributes({
+    resOption: "desktop"
+  });
+};
+
+var handleTabBtnClick = function handleTabBtnClick(_ref2) {
+  var setAttributes = _ref2.setAttributes;
+  document.body.classList.add("eb-res-option-tab");
+  document.body.classList.remove("eb-res-option-desktop", "eb-res-option-mobile");
+  setAttributes({
+    resOption: "tab"
+  });
+};
+
+var handleMobileBtnClick = function handleMobileBtnClick(_ref3) {
+  var setAttributes = _ref3.setAttributes;
+  document.body.classList.add("eb-res-option-mobile");
+  document.body.classList.remove("eb-res-option-desktop", "eb-res-option-tab");
+  setAttributes({
+    resOption: "mobile"
+  });
+};
+
+function WithResBtns(_ref4) {
+  var children = _ref4.children,
+      resRequiredProps = _ref4.resRequiredProps,
+      label = _ref4.label;
+  var setAttributes = resRequiredProps.setAttributes,
+      resOption = resRequiredProps.resOption;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "newWithResWrapper"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "resBtns"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "resLabel"
+  }, label), /*#__PURE__*/React.createElement("span", {
+    onClick: function onClick() {
+      return handleDesktopBtnClick({
+        setAttributes: setAttributes
+      });
+    },
+    "class": "typoResButton dashicons dashicons-desktop ".concat(resOption === "desktop" ? "active" : " ")
+  }), /*#__PURE__*/React.createElement("span", {
+    onClick: function onClick() {
+      return handleTabBtnClick({
+        setAttributes: setAttributes
+      });
+    },
+    "class": "typoResButton dashicons dashicons-tablet ".concat(resOption === "tab" ? "active" : " ")
+  }), /*#__PURE__*/React.createElement("span", {
+    onClick: function onClick() {
+      return handleMobileBtnClick({
+        setAttributes: setAttributes
+      });
+    },
+    "class": "typoResButton dashicons dashicons-smartphone ".concat(resOption === "mobile" ? "active" : " ")
+  })), children);
+}
+
+var ImageAvatar = function ImageAvatar(_ref5) {
+  var imageUrl = _ref5.imageUrl,
+      onDeleteImage = _ref5.onDeleteImage;
+
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      hover = _useState2[0],
+      setHover = _useState2[1];
+
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      deleteHover = _useState4[0],
+      setDeleteHover = _useState4[1];
+
+  var deleteButtonStyle = {
+    visibility: hover ? "visible" : "hidden",
+    backgroundColor: deleteHover ? "white" : "#64666a",
+    color: "#b4b5b7",
+    position: "absolute",
+    right: 34,
+    fontSize: 16,
+    alignSelf: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 3,
+    cursor: "pointer"
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "image-avatar",
+    style: {
+      backgroundImage: "url(".concat(imageUrl, ")")
+    },
+    onMouseEnter: function onMouseEnter() {
+      return setHover(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setHover(false);
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "image-avatar-delete dashicons dashicons-trash",
+    onMouseEnter: function onMouseEnter() {
+      return setDeleteHover(true);
+    },
+    onMouseLeave: function onMouseLeave() {
+      return setDeleteHover(false);
+    },
+    style: deleteButtonStyle,
+    onClick: function onClick() {
+      return onDeleteImage();
+    }
+  }));
+};
+
+function BackgroundControl(_ref6) {
+  var resRequiredProps = _ref6.resRequiredProps,
+      controlName = _ref6.controlName;
+  var setAttributes = resRequiredProps.setAttributes,
+      attributes = resRequiredProps.attributes,
+      resOption = resRequiredProps.resOption;
+  var backgroundType = attributes["".concat(controlName, "backgroundType")],
+      backgroundColor = attributes["".concat(controlName, "backgroundColor")],
+      gradientColor = attributes["".concat(controlName, "gradientColor")],
+      bgImageURL = attributes["".concat(controlName, "bgImageURL")],
+      bgImageID = attributes["".concat(controlName, "bgImageID")],
+      backgroundSize = attributes["".concat(controlName, "backgroundSize")],
+      bgImgCustomSize = attributes["".concat(controlName, "bgImgCustomSize")],
+      bgImgCustomSizeUnit = attributes["".concat(controlName, "bgImgCustomSizeUnit")],
+      bgImgPos = attributes["".concat(controlName, "bgImgPos")],
+      bgImgcustomPosX = attributes["".concat(controlName, "bgImgcustomPosX")],
+      bgImgcustomPosXUnit = attributes["".concat(controlName, "bgImgcustomPosXUnit")],
+      bgImgcustomPosY = attributes["".concat(controlName, "bgImgcustomPosY")],
+      bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
+      bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
+      bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
+      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      overlyType = attributes["".concat(controlName, "overlyType")],
+      _attributes$ = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$ === void 0 ? "#00000080" : _attributes$,
+      overlyGradient = attributes["".concat(controlName, "overlyGradient")],
+      TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
+      TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
+      TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
+      TABbgImgPos = attributes["TAB".concat(controlName, "bgImgPos")],
+      TABbgImgcustomPosX = attributes["TAB".concat(controlName, "bgImgcustomPosX")],
+      TABbgImgcustomPosXUnit = attributes["TAB".concat(controlName, "bgImgcustomPosXUnit")],
+      TABbgImgcustomPosY = attributes["TAB".concat(controlName, "bgImgcustomPosY")],
+      TABbgImgcustomPosYUnit = attributes["TAB".concat(controlName, "bgImgcustomPosYUnit")],
+      TABbgImgRepeat = attributes["TAB".concat(controlName, "bgImgRepeat")],
+      MOBbackgroundSize = attributes["MOB".concat(controlName, "backgroundSize")],
+      MOBbgImgCustomSize = attributes["MOB".concat(controlName, "bgImgCustomSize")],
+      MOBbgImgCustomSizeUnit = attributes["MOB".concat(controlName, "bgImgCustomSizeUnit")],
+      MOBbgImgPos = attributes["MOB".concat(controlName, "bgImgPos")],
+      MOBbgImgcustomPosX = attributes["MOB".concat(controlName, "bgImgcustomPosX")],
+      MOBbgImgcustomPosXUnit = attributes["MOB".concat(controlName, "bgImgcustomPosXUnit")],
+      MOBbgImgcustomPosY = attributes["MOB".concat(controlName, "bgImgcustomPosY")],
+      MOBbgImgcustomPosYUnit = attributes["MOB".concat(controlName, "bgImgcustomPosYUnit")],
+      MOBbgImgRepeat = attributes["MOB".concat(controlName, "bgImgRepeat")];
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Type")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"], null, [{
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Fill"),
+    value: "fill"
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient"),
+    value: "gradient"
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Image"),
+    value: "image"
+  }].map(function (_ref7) {
+    var value = _ref7.value,
+        label = _ref7.label;
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      isPrimary: backgroundType === value,
+      isSecondary: backgroundType !== value,
+      onClick: function onClick() {
+        return setAttributes(_defineProperty({}, "".concat(controlName, "backgroundType"), value));
+      }
+    }, label);
+  }))), backgroundType === "fill" && /*#__PURE__*/React.createElement(_color_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Color"),
+    color: backgroundColor,
+    onChange: function onChange(backgroundColor) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "backgroundColor"), backgroundColor));
+    }
+  }), backgroundType === "gradient" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Gradient"),
+    initialOpen: false
+  }, /*#__PURE__*/React.createElement(_gradient_color_controller__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    gradientColor: gradientColor,
+    onChange: function onChange(gradientColor) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "gradientColor"), gradientColor));
+    }
+  })), backgroundType === "image" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Background Image")
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["MediaUpload"], {
+    onSelect: function onSelect(_ref8) {
+      var _setAttributes4;
+
+      var url = _ref8.url,
+          id = _ref8.id;
+      return setAttributes((_setAttributes4 = {}, _defineProperty(_setAttributes4, "".concat(controlName, "bgImageURL"), url), _defineProperty(_setAttributes4, "".concat(controlName, "bgImageID"), id), _setAttributes4));
+    },
+    type: "image",
+    value: bgImageID,
+    render: function render(_ref9) {
+      var open = _ref9.open;
+      return !bgImageURL && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+        className: "eb-infobox-inspector-panel-img-btn components-button",
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Upload Image"),
+        icon: "format-image",
+        onClick: open
+      }), /*#__PURE__*/React.createElement("span", {
+        style: {
+          padding: "10px 0",
+          display: "block"
+        }
+      }));
+    }
+  }), bgImageURL && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(ImageAvatar, {
+    imageUrl: bgImageURL,
+    onDeleteImage: function onDeleteImage() {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImageURL"), null));
+    }
+  }), resOption === "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: bgImgPos,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Center"),
+      value: "center center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Left"),
+      value: "center left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Right"),
+      value: "center right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Center"),
+      value: "top center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Left"),
+      value: "top left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Right"),
+      value: "top right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Center"),
+      value: "bottom center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Left"),
+      value: "bottom left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Right"),
+      value: "bottom right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(bgImgPos) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgPos"), bgImgPos));
+    }
+  })), bgImgPos === "custom" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: bgImgcustomPosXUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(bgImgcustomPosXUnit) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgcustomPosXUnit"), bgImgcustomPosXUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "X Position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: bgImgcustomPosX,
+    min: 0,
+    max: bgImgcustomPosXUnit === "px" ? 2000 : 100,
+    onChange: function onChange(bgImgcustomPosX) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgcustomPosX"), bgImgcustomPosX));
+    }
+  })), /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: bgImgcustomPosYUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(bgImgcustomPosYUnit) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgcustomPosYUnit"), bgImgcustomPosYUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Y Position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: bgImgcustomPosY,
+    min: 0,
+    max: bgImgcustomPosYUnit === "px" ? 2000 : 100,
+    step: bgImgcustomPosYUnit === "px" ? 1 : 0.1,
+    onChange: function onChange(bgImgcustomPosY) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgcustomPosY"), bgImgcustomPosY));
+    }
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: "Attachment",
+    value: bgImgAttachment,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Scroll"),
+      value: "scroll"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Fixed"),
+      value: "fixed"
+    }],
+    onChange: function onChange(bgImgAttachment) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgAttachment"), bgImgAttachment));
+    }
+  }), bgImgAttachment === "fixed" && /*#__PURE__*/React.createElement("p", {
+    style: {
+      marginTop: "-10px",
+      paddingBottom: "10px"
+    }
+  }, /*#__PURE__*/React.createElement("i", null, "Note: Attachment Fixed works only on desktop.")), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Repeat"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: bgImgRepeat,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("No-repeat"),
+      value: "no-repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat"),
+      value: "repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat-x"),
+      value: "repeat-x"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat-y"),
+      value: "repeat-y"
+    }],
+    onChange: function onChange(bgImgRepeat) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgRepeat"), bgImgRepeat));
+    }
+  })), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Size"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: backgroundSize,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Auto"),
+      value: "auto"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Cover"),
+      value: "cover"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Contain"),
+      value: "contain"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(backgroundSize) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "backgroundSize"), backgroundSize));
+    }
+  })), backgroundSize === "custom" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: bgImgCustomSizeUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(bgImgCustomSizeUnit) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgCustomSizeUnit"), bgImgCustomSizeUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Width"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: bgImgCustomSize,
+    min: 0,
+    max: bgImgCustomSizeUnit === "px" ? 2000 : 100,
+    step: bgImgCustomSizeUnit === "px" ? 1 : 0.1,
+    onChange: function onChange(bgImgCustomSize) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgCustomSize"), bgImgCustomSize));
+    }
+  })))), resOption === "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: TABbgImgPos,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Center"),
+      value: "center center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Left"),
+      value: "center left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Right"),
+      value: "center right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Center"),
+      value: "top center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Left"),
+      value: "top left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Right"),
+      value: "top right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Center"),
+      value: "bottom center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Left"),
+      value: "bottom left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Right"),
+      value: "bottom right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(TABbgImgPos) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgPos"), TABbgImgPos));
+    }
+  })), TABbgImgPos === "custom" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: TABbgImgcustomPosXUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(TABbgImgcustomPosXUnit) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgcustomPosXUnit"), TABbgImgcustomPosXUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "X Position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: TABbgImgcustomPosX,
+    min: 0,
+    max: TABbgImgcustomPosXUnit === "px" ? 2000 : 100,
+    onChange: function onChange(TABbgImgcustomPosX) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgcustomPosX"), TABbgImgcustomPosX));
+    }
+  })), /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: TABbgImgcustomPosYUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(TABbgImgcustomPosYUnit) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgcustomPosYUnit"), TABbgImgcustomPosYUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Y Position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: TABbgImgcustomPosY,
+    min: 0,
+    max: TABbgImgcustomPosYUnit === "px" ? 2000 : 100,
+    step: TABbgImgcustomPosYUnit === "px" ? 1 : 0.1,
+    onChange: function onChange(TABbgImgcustomPosY) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgcustomPosY"), TABbgImgcustomPosY));
+    }
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: "Attachment",
+    value: bgImgAttachment,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Scroll"),
+      value: "scroll"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Fixed"),
+      value: "fixed"
+    }],
+    onChange: function onChange(bgImgAttachment) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgAttachment"), bgImgAttachment));
+    }
+  }), bgImgAttachment === "fixed" && /*#__PURE__*/React.createElement("p", {
+    style: {
+      marginTop: "-10px",
+      paddingBottom: "10px"
+    }
+  }, /*#__PURE__*/React.createElement("i", null, "Note: Attachment Fixed works only on desktop.")), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Repeat"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: TABbgImgRepeat,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("No-repeat"),
+      value: "no-repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat"),
+      value: "repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat-x"),
+      value: "repeat-x"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat-y"),
+      value: "repeat-y"
+    }],
+    onChange: function onChange(TABbgImgRepeat) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgRepeat"), TABbgImgRepeat));
+    }
+  })), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Size"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: TABbackgroundSize,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Auto"),
+      value: "auto"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Cover"),
+      value: "cover"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Contain"),
+      value: "contain"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(TABbackgroundSize) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "backgroundSize"), TABbackgroundSize));
+    }
+  })), TABbackgroundSize === "custom" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: TABbgImgCustomSizeUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(TABbgImgCustomSizeUnit) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgCustomSizeUnit"), TABbgImgCustomSizeUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Width"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: TABbgImgCustomSize,
+    min: 0,
+    max: TABbgImgCustomSizeUnit === "px" ? 2000 : 100,
+    step: TABbgImgCustomSizeUnit === "px" ? 1 : 0.1,
+    onChange: function onChange(TABbgImgCustomSize) {
+      return setAttributes(_defineProperty({}, "TAB".concat(controlName, "bgImgCustomSize"), TABbgImgCustomSize));
+    }
+  })))), resOption === "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: MOBbgImgPos,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Center"),
+      value: "center center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Left"),
+      value: "center left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Center Right"),
+      value: "center right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Center"),
+      value: "top center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Left"),
+      value: "top left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Top Right"),
+      value: "top right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Center"),
+      value: "bottom center"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Left"),
+      value: "bottom left"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Bottom Right"),
+      value: "bottom right"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(MOBbgImgPos) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgPos"), MOBbgImgPos));
+    }
+  })), MOBbgImgPos === "custom" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: MOBbgImgcustomPosXUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(MOBbgImgcustomPosXUnit) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgcustomPosXUnit"), MOBbgImgcustomPosXUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "X Position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: MOBbgImgcustomPosX,
+    min: 0,
+    max: MOBbgImgcustomPosXUnit === "px" ? 2000 : 100,
+    onChange: function onChange(MOBbgImgcustomPosX) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgcustomPosX"), MOBbgImgcustomPosX));
+    }
+  })), /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: MOBbgImgcustomPosYUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(MOBbgImgcustomPosYUnit) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgcustomPosYUnit"), MOBbgImgcustomPosYUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Y Position"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: MOBbgImgcustomPosY,
+    min: 0,
+    max: MOBbgImgcustomPosYUnit === "px" ? 2000 : 100,
+    step: MOBbgImgcustomPosYUnit === "px" ? 1 : 0.1,
+    onChange: function onChange(MOBbgImgcustomPosY) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgcustomPosY"), MOBbgImgcustomPosY));
+    }
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: "Attachment",
+    value: bgImgAttachment,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Scroll"),
+      value: "scroll"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Fixed"),
+      value: "fixed"
+    }],
+    onChange: function onChange(bgImgAttachment) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "bgImgAttachment"), bgImgAttachment));
+    }
+  }), bgImgAttachment === "fixed" && /*#__PURE__*/React.createElement("p", {
+    style: {
+      marginTop: "-10px",
+      paddingBottom: "10px"
+    }
+  }, /*#__PURE__*/React.createElement("i", null, "Note: Attachment Fixed works only on desktop.")), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Repeat"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: MOBbgImgRepeat,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("No-repeat"),
+      value: "no-repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat"),
+      value: "repeat"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat-x"),
+      value: "repeat-x"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Repeat-y"),
+      value: "repeat-y"
+    }],
+    onChange: function onChange(MOBbgImgRepeat) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgRepeat"), MOBbgImgRepeat));
+    }
+  })), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Size"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: MOBbackgroundSize,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Default"),
+      value: ""
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Auto"),
+      value: "auto"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Cover"),
+      value: "cover"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Contain"),
+      value: "contain"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Custom"),
+      value: "custom"
+    }],
+    onChange: function onChange(MOBbackgroundSize) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "backgroundSize"), MOBbackgroundSize));
+    }
+  })), MOBbackgroundSize === "custom" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_unit_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedUnit: MOBbgImgCustomSizeUnit,
+    unitTypes: [{
+      label: "px",
+      value: "px"
+    }, {
+      label: "em",
+      value: "em"
+    }, {
+      label: "%",
+      value: "%"
+    }],
+    onClick: function onClick(MOBbgImgCustomSizeUnit) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgCustomSizeUnit"), MOBbgImgCustomSizeUnit));
+    }
+  }), /*#__PURE__*/React.createElement(WithResBtns, {
+    resRequiredProps: resRequiredProps,
+    label: "Width"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    value: MOBbgImgCustomSize,
+    min: 0,
+    max: MOBbgImgCustomSizeUnit === "px" ? 2000 : 100,
+    step: MOBbgImgCustomSizeUnit === "px" ? 1 : 0.1,
+    onChange: function onChange(MOBbgImgCustomSize) {
+      return setAttributes(_defineProperty({}, "MOB".concat(controlName, "bgImgCustomSize"), MOBbgImgCustomSize));
+    }
+  }))))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ToggleControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Enable Overly"),
+    checked: isBgOverly,
+    onChange: function onChange() {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "isBgOverly"), !isBgOverly));
+    }
+  }), isBgOverly && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Overly Type")
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["ButtonGroup"], {
+    id: "eb-infobox-infobox-background"
+  }, [{
+    label: "Fill",
+    value: "fill"
+  }, {
+    label: "Gradient",
+    value: "gradient"
+  }].map(function (_ref10) {
+    var value = _ref10.value,
+        label = _ref10.label;
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      isLarge: true,
+      isPrimary: overlyType === value,
+      isSecondary: overlyType !== value,
+      onClick: function onClick() {
+        return setAttributes(_defineProperty({}, "".concat(controlName, "overlyType"), value));
+      }
+    }, label);
+  }))), overlyType === "fill" && /*#__PURE__*/React.createElement(_color_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Overly"),
+    color: overlyColor,
+    onChange: function onChange(overlyColor) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "overlyColor"), overlyColor));
+    }
+  }), overlyType === "gradient" && /*#__PURE__*/React.createElement(_gradient_color_controller__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    gradientColor: overlyGradient,
+    onChange: function onChange(overlyGradient) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "overlyGradient"), overlyGradient));
+    }
+  }) //   <PanelBody title={__("Gradient")} initialOpen={false}>
+  // </PanelBody>
+  )));
+}
+
+/***/ }),
+
+/***/ "./util/border-shadow-control/index.js":
+/*!*********************************************!*\
+  !*** ./util/border-shadow-control/index.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BorderShadowControl; });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../color-control */ "./util/color-control/index.js");
+/* harmony import */ var _reset_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reset-control */ "./util/reset-control/index.js");
+/* harmony import */ var _dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dimensions-control-v2 */ "./util/dimensions-control-v2/index.js");
+/* harmony import */ var _typography_control_v2_Icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../typography-control-v2/Icon */ "./util/typography-control-v2/Icon.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+function BorderShadowControl(_ref) {
+  var resRequiredProps = _ref.resRequiredProps,
+      controlName = _ref.controlName;
+  var setAttributes = resRequiredProps.setAttributes,
+      attributes = resRequiredProps.attributes;
+  var borderStyle = attributes["".concat(controlName, "borderStyle")],
+      borderColor = attributes["".concat(controlName, "borderColor")],
+      shadowType = attributes["".concat(controlName, "shadowType")],
+      shadowColor = attributes["".concat(controlName, "shadowColor")],
+      hOffset = attributes["".concat(controlName, "hOffset")],
+      vOffset = attributes["".concat(controlName, "vOffset")],
+      blur = attributes["".concat(controlName, "blur")],
+      spread = attributes["".concat(controlName, "spread")],
+      hoverShadowColor = attributes["".concat(controlName, "hoverShadowColor")],
+      hoverHOffset = attributes["".concat(controlName, "hoverHOffset")],
+      hoverVOffset = attributes["".concat(controlName, "hoverVOffset")],
+      hoverBlur = attributes["".concat(controlName, "hoverBlur")],
+      hoverSpread = attributes["".concat(controlName, "hoverSpread")],
+      inset = attributes["".concat(controlName, "inset")],
+      transitionTime = attributes["".concat(controlName, "transitionTime")],
+      BorderType = attributes["".concat(controlName, "BorderType")],
+      HborderStyle = attributes["".concat(controlName, "HborderStyle")],
+      HborderColor = attributes["".concat(controlName, "HborderColor")];
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+    id: "eb-infobox-border-hover-ptions"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ButtonGroup"], {
+    id: "eb-infobox-border-hover-ptions"
+  }, [{
+    label: "Normal",
+    value: "normal"
+  }, {
+    label: "Hover",
+    value: "hover"
+  }].map(function (_ref2) {
+    var value = _ref2.value,
+        label = _ref2.label;
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+      isLarge: true,
+      isSecondary: BorderType !== value,
+      isPrimary: BorderType === value,
+      onClick: function onClick() {
+        return setAttributes(_defineProperty({}, "".concat(controlName, "BorderType"), value));
+      }
+    }, label);
+  }))), BorderType === "normal" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Style"),
+    value: borderStyle,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("None"),
+      value: "none"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Dashed"),
+      value: "dashed"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Solid"),
+      value: "solid"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Dotted"),
+      value: "dotted"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Double"),
+      value: "double"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Groove"),
+      value: "groove"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Inset"),
+      value: "inset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Outset"),
+      value: "outset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Ridge"),
+      value: "ridge"
+    }],
+    onChange: function onChange(borderStyle) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "borderStyle"), borderStyle));
+    }
+  }), borderStyle !== "none" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_color_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color"),
+    color: borderColor,
+    onChange: function onChange(borderColor) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "borderColor"), borderColor));
+    }
+  }), /*#__PURE__*/React.createElement(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "Bdr_"),
+    baseLabel: "Border Width"
+  })), /*#__PURE__*/React.createElement(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    forBorderRadius: true,
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "Rds_"),
+    baseLabel: "Border Radius"
+  })), BorderType === "hover" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Style"),
+    value: HborderStyle,
+    options: [{
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("None"),
+      value: "none"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Dashed"),
+      value: "dashed"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Solid"),
+      value: "solid"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Dotted"),
+      value: "dotted"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Double"),
+      value: "double"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Groove"),
+      value: "groove"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Inset"),
+      value: "inset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Outset"),
+      value: "outset"
+    }, {
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Ridge"),
+      value: "ridge"
+    }],
+    onChange: function onChange(HborderStyle) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "HborderStyle"), HborderStyle));
+    }
+  }), HborderStyle !== "none" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_color_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Border Color"),
+    color: HborderColor,
+    onChange: function onChange(HborderColor) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "HborderColor"), HborderColor));
+    }
+  }), /*#__PURE__*/React.createElement(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "HBdr_"),
+    baseLabel: "Border Width"
+  })), /*#__PURE__*/React.createElement(_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    forBorderRadius: true,
+    resRequiredProps: resRequiredProps,
+    controlName: "".concat(controlName, "HRds_"),
+    baseLabel: "Border Radius"
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Box Shadow"),
+    className: "eb-typography-base"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
+    className: "eb-typography-dropdown",
+    contentClassName: "my-popover-content-classname",
+    position: "bottom right",
+    renderToggle: function renderToggle(_ref3) {
+      var isOpen = _ref3.isOpen,
+          onToggle = _ref3.onToggle;
+      return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+        isSmall: true,
+        onClick: onToggle,
+        "aria-expanded": isOpen
+      }, /*#__PURE__*/React.createElement(_typography_control_v2_Icon__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+    },
+    renderContent: function renderContent() {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+        className: "eb-panel-control",
+        style: {
+          minWidth: "230px",
+          padding: "10px"
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+        id: "eb-infobox-shadow-hover-ptions"
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ButtonGroup"], {
+        id: "eb-infobox-shadow-hover-ptions"
+      }, [{
+        label: "Normal",
+        value: "normal"
+      }, {
+        label: "Hover",
+        value: "hover"
+      }].map(function (_ref4) {
+        var value = _ref4.value,
+            label = _ref4.label;
+        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+          isLarge: true,
+          isSecondary: shadowType !== value,
+          isPrimary: shadowType === value,
+          onClick: function onClick() {
+            return setAttributes(_defineProperty({}, "".concat(controlName, "shadowType"), value));
+          }
+        }, label);
+      }))), shadowType === "normal" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_color_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Color"),
+        color: shadowColor,
+        onChange: function onChange(shadowColor) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "shadowColor"), shadowColor));
+        }
+      }), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hOffset"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal Offset"),
+        value: hOffset,
+        onChange: function onChange(hOffset) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hOffset"), hOffset));
+        },
+        min: 0,
+        max: 20
+      })), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "vOffset"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical Offset"),
+        value: vOffset,
+        onChange: function onChange(vOffset) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "vOffset"), vOffset));
+        },
+        min: 0,
+        max: 20
+      })), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "blur"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Blur"),
+        value: blur,
+        onChange: function onChange(blur) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "blur"), blur));
+        },
+        min: 0,
+        max: 20
+      })), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "spread"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Spread"),
+        value: spread,
+        onChange: function onChange(spread) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "spread"), spread));
+        },
+        min: 0,
+        max: 20
+      }))), shadowType === "hover" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_color_control__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Hover Shadow Color"),
+        color: hoverShadowColor,
+        onChange: function onChange(hoverShadowColor) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverShadowColor"), hoverShadowColor));
+        }
+      }), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverHOffset"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Horizontal Offset"),
+        value: hoverHOffset,
+        onChange: function onChange(hoverHOffset) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverHOffset"), hoverHOffset));
+        },
+        min: 0,
+        max: 20
+      })), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverVOffset"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Vertical Offset"),
+        value: hoverVOffset,
+        onChange: function onChange(hoverVOffset) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverVOffset"), hoverVOffset));
+        },
+        min: 0,
+        max: 20
+      })), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverBlur"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Blur"),
+        value: hoverBlur,
+        onChange: function onChange(hoverBlur) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverBlur"), hoverBlur));
+        },
+        min: 0,
+        max: 20
+      })), /*#__PURE__*/React.createElement(_reset_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onReset: function onReset() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverSpread"), undefined));
+        }
+      }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["RangeControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Shadow Spread"),
+        value: hoverSpread,
+        onChange: function onChange(hoverSpread) {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "hoverSpread"), hoverSpread));
+        },
+        min: 0,
+        max: 20
+      }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ToggleControl"], {
+        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Inset"),
+        checked: inset,
+        onChange: function onChange() {
+          return setAttributes(_defineProperty({}, "".concat(controlName, "inset"), !inset));
+        }
+      })));
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+    id: "eb-infobox-transition-time"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Transition"),
+    value: transitionTime,
+    type: "number",
+    onChange: function onChange(transitionTime) {
+      return setAttributes(_defineProperty({}, "".concat(controlName, "transitionTime"), transitionTime));
+    }
+  })));
+}
 
 /***/ }),
 
@@ -4129,7 +4693,7 @@ var parseGradientColor = function parseGradientColor(gradientColor) {
       radialX = 50,
       radialY = 50;
 
-  var _ref = gradientColor.match(/\#[a-f\d]{3,8}|rgba?\([\d\,\.]{3,16}\)/gi) || [,],
+  var _ref = gradientColor.match(/\#[a-f\d]{3,8}|rgba?\([\d\,\.]{3,16}\)/gi) || ["#0000", "#0000"],
       _ref2 = _slicedToArray(_ref, 2),
       colorOne = _ref2[0],
       colorTwo = _ref2[1];
@@ -4139,7 +4703,7 @@ var parseGradientColor = function parseGradientColor(gradientColor) {
       gradientType = _ref4[0];
 
   if (gradientType == "linear") {
-    angle = (gradientColor.match(/\d{1,3}(?=deg)/i) || [])[0];
+    angle = gradientColor.match(/\d{1,3}(?=deg)/i)[0];
 
     var _ref5 = gradientColor.match(/\d{1,3}(?=\%)/gi) || [0, 100];
 
@@ -4450,6 +5014,692 @@ GradientColorControl.propTypes = {
   onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (GradientColorControl);
+
+/***/ }),
+
+/***/ "./util/helpers/index.js":
+/*!*******************************!*\
+  !*** ./util/helpers/index.js ***!
+  \*******************************/
+/*! exports provided: hasVal, generateBackgroundAttributes, generateDimensionsAttributes, generateTypographyAttributes, generateBorderShadowAttributes, textInsideForEdit, generateRandomNumber, hardMinifyCssStrings, softMinifyCssStrings, isCssExists, generateTypographyStyles, generateDimensionsControlStyles, generateBorderShadowStyles, generateBackgroundControlStyles, generateResponsiveRangeAttributes, generateResponsiveRangeStyles, getFlipTransform, getButtonClasses, getBackgroundImage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasVal", function() { return hasVal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBackgroundAttributes", function() { return generateBackgroundAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsAttributes", function() { return generateDimensionsAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyAttributes", function() { return generateTypographyAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBorderShadowAttributes", function() { return generateBorderShadowAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textInsideForEdit", function() { return textInsideForEdit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateRandomNumber", function() { return generateRandomNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hardMinifyCssStrings", function() { return hardMinifyCssStrings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "softMinifyCssStrings", function() { return softMinifyCssStrings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isCssExists", function() { return isCssExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateTypographyStyles", function() { return generateTypographyStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateDimensionsControlStyles", function() { return generateDimensionsControlStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBorderShadowStyles", function() { return generateBorderShadowStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateBackgroundControlStyles", function() { return generateBackgroundControlStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateResponsiveRangeAttributes", function() { return generateResponsiveRangeAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateResponsiveRangeStyles", function() { return generateResponsiveRangeStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFlipTransform", function() { return getFlipTransform; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getButtonClasses", function() { return getButtonClasses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBackgroundImage", function() { return getBackgroundImage; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// check if range controller input numbers  has value
+var hasVal = function hasVal(val) {
+  return val || val === 0;
+}; // function to generate Background control's attributes
+
+var generateBackgroundAttributes = function generateBackgroundAttributes(controlName) {
+  var _objectSpread3;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var isBgDefaultFill = defaults.isBgDefaultFill,
+      defaultFillColor = defaults.defaultFillColor,
+      _defaults$defaultBgGr = defaults.defaultBgGradient,
+      defaultBgGradient = _defaults$defaultBgGr === void 0 ? "linear-gradient(45deg,#7967ff,#c277f2)" : _defaults$defaultBgGr;
+  var bgColorAttr = defaultFillColor ? _defineProperty({}, "".concat(controlName, "backgroundColor"), {
+    type: "string",
+    "default": defaultFillColor
+  }) : _defineProperty({}, "".concat(controlName, "backgroundColor"), {
+    type: "string"
+  });
+  return _objectSpread(_objectSpread(_defineProperty({}, "".concat(controlName, "backgroundType"), {
+    type: "string",
+    "default": isBgDefaultFill === true ? "fill" : "gradient"
+  }), bgColorAttr), {}, (_objectSpread3 = {}, _defineProperty(_objectSpread3, "".concat(controlName, "gradientColor"), {
+    type: "string",
+    "default": defaultBgGradient
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImageURL"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImageID"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "backgroundSize"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgCustomSize"), {
+    type: "number",
+    "default": 100
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgCustomSizeUnit"), {
+    type: "string",
+    "default": "%"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgPos"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgcustomPosX"), {
+    type: "number",
+    "default": 0
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgcustomPosXUnit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgcustomPosY"), {
+    type: "number",
+    "default": 0
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgcustomPosYUnit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgAttachment"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "bgImgRepeat"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "isBgOverly"), {
+    type: "boolean",
+    "default": false
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "overlyType"), {
+    type: "string",
+    "default": "fill"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "overlyColor"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "".concat(controlName, "overlyGradient"), {
+    type: "string",
+    "default": "linear-gradient(45deg,#000000cc,#00000000)"
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "backgroundSize"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgCustomSize"), {
+    type: "number",
+    "default": 100
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgCustomSizeUnit"), {
+    type: "string",
+    "default": "%"
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgPos"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgcustomPosX"), {
+    type: "number",
+    "default": 0
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgcustomPosXUnit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgcustomPosY"), {
+    type: "number",
+    "default": 0
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgcustomPosYUnit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread3, "TAB".concat(controlName, "bgImgRepeat"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "backgroundSize"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgCustomSize"), {
+    type: "number",
+    "default": 100
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgCustomSizeUnit"), {
+    type: "string",
+    "default": "%"
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgPos"), {
+    type: "string"
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgcustomPosX"), {
+    type: "number",
+    "default": 0
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgcustomPosXUnit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgcustomPosY"), {
+    type: "number",
+    "default": 0
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgcustomPosYUnit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread3, "MOB".concat(controlName, "bgImgRepeat"), {
+    type: "string"
+  }), _objectSpread3));
+}; // function to generate New Dimensions-Control's attributes for multiple Dimensions control based on the array of values(prefixs)
+
+var generateDimensionsAttributes = function generateDimensionsAttributes(controlName) {
+  var _objectSpread5;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var top = defaults.top,
+      right = defaults.right,
+      bottom = defaults.bottom,
+      left = defaults.left;
+  var desktopTop = hasVal(top) ? _defineProperty({}, "".concat(controlName, "Top"), {
+    type: "string",
+    "default": "".concat(top)
+  }) : _defineProperty({}, "".concat(controlName, "Top"), {
+    type: "string"
+  });
+  var desktopRight = hasVal(right) ? _defineProperty({}, "".concat(controlName, "Right"), {
+    type: "string",
+    "default": "".concat(right)
+  }) : _defineProperty({}, "".concat(controlName, "Right"), {
+    type: "string"
+  });
+  var desktopBottom = hasVal(bottom) ? _defineProperty({}, "".concat(controlName, "Bottom"), {
+    type: "string",
+    "default": "".concat(bottom)
+  }) : _defineProperty({}, "".concat(controlName, "Bottom"), {
+    type: "string"
+  });
+  var desktopLeft = hasVal(left) ? _defineProperty({}, "".concat(controlName, "Left"), {
+    type: "string",
+    "default": "".concat(left)
+  }) : _defineProperty({}, "".concat(controlName, "Left"), {
+    type: "string"
+  });
+  return _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_defineProperty({}, "".concat(controlName, "Unit"), {
+    type: "string",
+    "default": "px"
+  }), desktopTop), desktopRight), desktopBottom), desktopLeft), {}, (_objectSpread5 = {}, _defineProperty(_objectSpread5, "TAB".concat(controlName, "Unit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread5, "TAB".concat(controlName, "Top"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "TAB".concat(controlName, "Right"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "TAB".concat(controlName, "Bottom"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "TAB".concat(controlName, "Left"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "MOB".concat(controlName, "Unit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread5, "MOB".concat(controlName, "Top"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "MOB".concat(controlName, "Right"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "MOB".concat(controlName, "Bottom"), {
+    type: "string"
+  }), _defineProperty(_objectSpread5, "MOB".concat(controlName, "Left"), {
+    type: "string"
+  }), _objectSpread5));
+}; // function to generate typography attributes for multiple typography control based on the array of prefix
+
+var generateTypographyAttributes = function generateTypographyAttributes(prefixArray) {
+  var typoAttrs = prefixArray.reduce(function (total, current) {
+    var _result;
+
+    var result = (_result = {}, _defineProperty(_result, "".concat(current, "FontFamily"), {
+      type: "string"
+    }), _defineProperty(_result, "".concat(current, "SizeUnit"), {
+      type: "string",
+      "default": "px"
+    }), _defineProperty(_result, "".concat(current, "FontSize"), {
+      type: "number"
+    }), _defineProperty(_result, "".concat(current, "FontWeight"), {
+      type: "string"
+    }), _defineProperty(_result, "".concat(current, "TextTransform"), {
+      type: "string"
+    }), _defineProperty(_result, "".concat(current, "TextDecoration"), {
+      type: "string"
+    }), _defineProperty(_result, "".concat(current, "LetterSpacingUnit"), {
+      type: "string",
+      "default": "px"
+    }), _defineProperty(_result, "".concat(current, "LetterSpacing"), {
+      type: "number"
+    }), _defineProperty(_result, "".concat(current, "LineHeightUnit"), {
+      type: "string",
+      "default": "em"
+    }), _defineProperty(_result, "".concat(current, "LineHeight"), {
+      type: "number"
+    }), _defineProperty(_result, "TAB".concat(current, "SizeUnit"), {
+      type: "string",
+      "default": "px"
+    }), _defineProperty(_result, "TAB".concat(current, "FontSize"), {
+      type: "number"
+    }), _defineProperty(_result, "TAB".concat(current, "LetterSpacingUnit"), {
+      type: "string",
+      "default": "px"
+    }), _defineProperty(_result, "TAB".concat(current, "LetterSpacing"), {
+      type: "number"
+    }), _defineProperty(_result, "TAB".concat(current, "LineHeightUnit"), {
+      type: "string",
+      "default": "em"
+    }), _defineProperty(_result, "TAB".concat(current, "LineHeight"), {
+      type: "number"
+    }), _defineProperty(_result, "MOB".concat(current, "SizeUnit"), {
+      type: "string",
+      "default": "px"
+    }), _defineProperty(_result, "MOB".concat(current, "FontSize"), {
+      type: "number"
+    }), _defineProperty(_result, "MOB".concat(current, "LetterSpacingUnit"), {
+      type: "string",
+      "default": "px"
+    }), _defineProperty(_result, "MOB".concat(current, "LetterSpacing"), {
+      type: "number"
+    }), _defineProperty(_result, "MOB".concat(current, "LineHeightUnit"), {
+      type: "string",
+      "default": "em"
+    }), _defineProperty(_result, "MOB".concat(current, "LineHeight"), {
+      type: "number"
+    }), _result);
+    return _objectSpread(_objectSpread({}, total), result);
+  }, {}); // console.log({ typoAttrs });
+
+  return typoAttrs;
+}; // Important: the following "generateBorderShadowAttributes" function must be declared below the "generateDimensionsAttributes" function declaration
+// function to generate BorderShadow control's attributes
+
+var generateBorderShadowAttributes = function generateBorderShadowAttributes(controlName) {
+  var _objectSpread6;
+
+  var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var _defaults$bdrDefaults = defaults.bdrDefaults,
+      bdrDefaults = _defaults$bdrDefaults === void 0 ? {} : _defaults$bdrDefaults,
+      _defaults$rdsDefaults = defaults.rdsDefaults,
+      rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults;
+
+  var result = _objectSpread(_objectSpread(_objectSpread(_objectSpread((_objectSpread6 = {}, _defineProperty(_objectSpread6, "".concat(controlName, "BorderType"), {
+    type: "string",
+    "default": "normal"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "borderColor"), {
+    type: "string"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "borderStyle"), {
+    type: "string",
+    "default": "none"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "HborderColor"), {
+    type: "string"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "HborderStyle"), {
+    type: "string",
+    "default": "none"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hOffset"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "vOffset"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "blur"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "spread"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "shadowColor"), {
+    type: "string"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "inset"), {
+    type: "boolean",
+    "default": false
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "shadowType"), {
+    type: "string",
+    "default": "normal"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverHOffset"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverVOffset"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverBlur"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverSpread"), {
+    type: "number"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverShadowColor"), {
+    type: "string"
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverInset"), {
+    type: "boolean",
+    "default": false
+  }), _defineProperty(_objectSpread6, "".concat(controlName, "transitionTime"), {
+    type: "string",
+    "default": "500"
+  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)), generateDimensionsAttributes("".concat(controlName, "HBdr_"))), generateDimensionsAttributes("".concat(controlName, "HRds_"))); // console.log("---generateBorderShadowAttributes:", { result });
+
+
+  return result;
+}; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
+
+var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
+  return isShowSeparator ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : value.toString();
+}; // generateRandomNumber function is for generating a random number
+
+var generateRandomNumber = function generateRandomNumber() {
+  return Math.floor(Math.random() * 1000000000);
+}; // hardMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
+
+var hardMinifyCssStrings = function hardMinifyCssStrings(cssString) {
+  // console.log({ cssString });
+  return cssString.replace(/\s+/g, " ").replace(/(?<=\:).+(?=\;)/g, function (match) {
+    // console.log({ match, g1, offset, string });
+    return match.trim().replace(/\s+/g, "__s_p_a_c_e__");
+  }) // .replace(/\s+(?!(?:[\w\d\.\-\#]+\{))/g, "")
+  .replace(/\s+(?![\w\d\.\-\#]+\{)/g, "").replace(/\s+/g, " ").replace(/__s_p_a_c_e__/g, " ");
+}; // softMinifyCssStrings is for minifying the css which is in the style tag as a string  for view.js
+
+var softMinifyCssStrings = function softMinifyCssStrings(cssString) {
+  return cssString.replace(/\s+/g, " ");
+}; // check if css string is empty or not.
+
+var isCssExists = function isCssExists(cssString) {
+  return /.+(?=\:(?!hover)(?!focus))/.test(cssString);
+}; //
+// function to generate typography styles for an element based on it's prefix
+
+var generateTypographyStyles = function generateTypographyStyles(_ref11) {
+  var prefixConstant = _ref11.prefixConstant,
+      defaultFontSize = _ref11.defaultFontSize,
+      attributes = _ref11.attributes;
+  var fontFamily = attributes["".concat(prefixConstant, "FontFamily")],
+      fontWeight = attributes["".concat(prefixConstant, "FontWeight")],
+      textTransform = attributes["".concat(prefixConstant, "TextTransform")],
+      textDecoration = attributes["".concat(prefixConstant, "TextDecoration")],
+      _attributes$ = attributes["".concat(prefixConstant, "FontSize")],
+      fontSize = _attributes$ === void 0 ? defaultFontSize : _attributes$,
+      sizeUnit = attributes["".concat(prefixConstant, "SizeUnit")],
+      letterSpacing = attributes["".concat(prefixConstant, "LetterSpacing")],
+      letterSpacingUnit = attributes["".concat(prefixConstant, "LetterSpacingUnit")],
+      lineHeight = attributes["".concat(prefixConstant, "LineHeight")],
+      lineHeightUnit = attributes["".concat(prefixConstant, "LineHeightUnit")],
+      TABsizeUnit = attributes["TAB".concat(prefixConstant, "SizeUnit")],
+      TABletterSpacingUnit = attributes["TAB".concat(prefixConstant, "LetterSpacingUnit")],
+      TABlineHeightUnit = attributes["TAB".concat(prefixConstant, "LineHeightUnit")],
+      TABfontSize = attributes["TAB".concat(prefixConstant, "FontSize")],
+      TABletterSpacing = attributes["TAB".concat(prefixConstant, "LetterSpacing")],
+      TABlineHeight = attributes["TAB".concat(prefixConstant, "LineHeight")],
+      MOBsizeUnit = attributes["MOB".concat(prefixConstant, "SizeUnit")],
+      MOBletterSpacingUnit = attributes["MOB".concat(prefixConstant, "LetterSpacingUnit")],
+      MOBlineHeightUnit = attributes["MOB".concat(prefixConstant, "LineHeightUnit")],
+      MOBfontSize = attributes["MOB".concat(prefixConstant, "FontSize")],
+      MOBletterSpacing = attributes["MOB".concat(prefixConstant, "LetterSpacing")],
+      MOBlineHeight = attributes["MOB".concat(prefixConstant, "LineHeight")];
+  var typoStylesDesktop = "\n\t\t\t".concat(fontFamily ? "font-family: ".concat(fontFamily, ";") : " ", "\n\t\t\t").concat(hasVal(fontSize) ? "font-size: ".concat(fontSize).concat(sizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(lineHeight) ? "line-height: ".concat(lineHeight).concat(lineHeightUnit, ";") : " ", "\n\t\t\t").concat(fontWeight ? "font-weight: ".concat(fontWeight, ";") : " ", "\n\t\t\t").concat(textDecoration ? "text-decoration: ".concat(textDecoration, ";") : " ", "\n\t\t\t").concat(textTransform ? "text-transform: ".concat(textTransform, ";") : " ", "\n\t\t\t").concat(hasVal(letterSpacing) ? "letter-spacing: ".concat(letterSpacing).concat(letterSpacingUnit, ";") : " ", "\n\t\t");
+  var typoStylesTab = "\n\t\t\t".concat(hasVal(TABfontSize) ? "font-size: ".concat(TABfontSize).concat(TABsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABlineHeight) ? "line-height: ".concat(TABlineHeight).concat(TABlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(TABletterSpacing) ? "letter-spacing: ".concat(TABletterSpacing).concat(TABletterSpacingUnit, ";") : " ", "\n\t\t");
+  var typoStylesMobile = "\n\t\t\t".concat(hasVal(MOBfontSize) ? "font-size: ".concat(MOBfontSize).concat(MOBsizeUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBlineHeight) ? "line-height: ".concat(MOBlineHeight).concat(MOBlineHeightUnit, ";") : " ", "\n\t\t\t").concat(hasVal(MOBletterSpacing) ? "letter-spacing: ".concat(MOBletterSpacing).concat(MOBletterSpacingUnit, ";") : " ", "\n\t\t");
+  return {
+    typoStylesDesktop: typoStylesDesktop,
+    typoStylesTab: typoStylesTab,
+    typoStylesMobile: typoStylesMobile
+  };
+}; //
+// function to generate dimensions-controls styles for an element based on it's controlName(prefix)
+
+var generateDimensionsControlStyles = function generateDimensionsControlStyles(_ref12) {
+  var controlName = _ref12.controlName,
+      styleFor = _ref12.styleFor,
+      attributes = _ref12.attributes;
+  var dimensionUnit = attributes["".concat(controlName, "Unit")],
+      dimensionTop = attributes["".concat(controlName, "Top")],
+      dimensionRight = attributes["".concat(controlName, "Right")],
+      dimensionBottom = attributes["".concat(controlName, "Bottom")],
+      dimensionLeft = attributes["".concat(controlName, "Left")],
+      TABdimensionUnit = attributes["TAB".concat(controlName, "Unit")],
+      TABdimensionTop = attributes["TAB".concat(controlName, "Top")],
+      TABdimensionRight = attributes["TAB".concat(controlName, "Right")],
+      TABdimensionBottom = attributes["TAB".concat(controlName, "Bottom")],
+      TABdimensionLeft = attributes["TAB".concat(controlName, "Left")],
+      MOBdimensionUnit = attributes["MOB".concat(controlName, "Unit")],
+      MOBdimensionTop = attributes["MOB".concat(controlName, "Top")],
+      MOBdimensionRight = attributes["MOB".concat(controlName, "Right")],
+      MOBdimensionBottom = attributes["MOB".concat(controlName, "Bottom")],
+      MOBdimensionLeft = attributes["MOB".concat(controlName, "Left")]; // console.log({ controlName, attributes });
+
+  var dimensionStylesDesktop = " ";
+  var dimensionStylesTab = " ";
+  var dimensionStylesMobile = " ";
+
+  if (styleFor === "border") {
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "border-top-width: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "border-right-width: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "border-left-width: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "border-bottom-width: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-width: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-right-width: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-left-width: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-width: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-width: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-right-width: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-left-width: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-width: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  } else if (styleFor === "border-radius") {
+    dimensionStylesDesktop = "\n\t\t\t".concat(dimensionTop ? "border-top-left-radius: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionRight ? "border-top-right-radius: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t\t").concat(dimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-left-radius: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-top-right-radius: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-left-radius: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-top-right-radius: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-bottom-left-radius: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-right-radius: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  } else {
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
+    dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
+  }
+
+  return {
+    dimensionStylesDesktop: dimensionStylesDesktop,
+    dimensionStylesTab: dimensionStylesTab,
+    dimensionStylesMobile: dimensionStylesMobile
+  };
+}; // Important: the following "generateBorderShadowStyles" function must be declared below the "generateDimensionsControlStyles" function declaration
+// function to generate BorderShadow control's Styles for an element based on it's controlName(prefix)
+
+var generateBorderShadowStyles = function generateBorderShadowStyles(_ref13) {
+  var controlName = _ref13.controlName,
+      attributes = _ref13.attributes;
+
+  var _generateDimensionsCo = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "Bdr_"),
+    styleFor: "border",
+    attributes: attributes
+  }),
+      borderStylesDesktop = _generateDimensionsCo.dimensionStylesDesktop,
+      borderStylesTab = _generateDimensionsCo.dimensionStylesTab,
+      borderStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
+
+  var _generateDimensionsCo2 = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "Rds_"),
+    styleFor: "border-radius",
+    attributes: attributes
+  }),
+      radiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
+      radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
+      radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
+
+  var _generateDimensionsCo3 = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "HBdr_"),
+    styleFor: "border",
+    attributes: attributes
+  }),
+      HborderStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
+      HborderStylesTab = _generateDimensionsCo3.dimensionStylesTab,
+      HborderStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
+
+  var _generateDimensionsCo4 = generateDimensionsControlStyles({
+    controlName: "".concat(controlName, "HRds_"),
+    styleFor: "border-radius",
+    attributes: attributes
+  }),
+      HradiusStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
+      HradiusStylesTab = _generateDimensionsCo4.dimensionStylesTab,
+      HradiusStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
+
+  var borderStyle = attributes["".concat(controlName, "borderStyle")],
+      borderColor = attributes["".concat(controlName, "borderColor")],
+      HborderStyle = attributes["".concat(controlName, "HborderStyle")],
+      _attributes$2 = attributes["".concat(controlName, "HborderColor")],
+      HborderColor = _attributes$2 === void 0 ? borderColor : _attributes$2,
+      shadowColor = attributes["".concat(controlName, "shadowColor")],
+      _attributes$3 = attributes["".concat(controlName, "hOffset")],
+      hOffset = _attributes$3 === void 0 ? 0 : _attributes$3,
+      _attributes$4 = attributes["".concat(controlName, "vOffset")],
+      vOffset = _attributes$4 === void 0 ? 0 : _attributes$4,
+      _attributes$5 = attributes["".concat(controlName, "blur")],
+      blur = _attributes$5 === void 0 ? 0 : _attributes$5,
+      _attributes$6 = attributes["".concat(controlName, "spread")],
+      spread = _attributes$6 === void 0 ? 0 : _attributes$6,
+      inset = attributes["".concat(controlName, "inset")],
+      _attributes$7 = attributes["".concat(controlName, "hoverShadowColor")],
+      hoverShadowColor = _attributes$7 === void 0 ? shadowColor : _attributes$7,
+      _attributes$8 = attributes["".concat(controlName, "hoverHOffset")],
+      hoverHOffset = _attributes$8 === void 0 ? hOffset : _attributes$8,
+      _attributes$9 = attributes["".concat(controlName, "hoverVOffset")],
+      hoverVOffset = _attributes$9 === void 0 ? vOffset : _attributes$9,
+      _attributes$10 = attributes["".concat(controlName, "hoverBlur")],
+      hoverBlur = _attributes$10 === void 0 ? blur : _attributes$10,
+      _attributes$11 = attributes["".concat(controlName, "hoverSpread")],
+      hoverSpread = _attributes$11 === void 0 ? spread : _attributes$11,
+      transitionTime = attributes["".concat(controlName, "transitionTime")];
+  var styesDesktop = "\n    ".concat(borderStylesDesktop, "\n    ").concat(radiusStylesDesktop, "\n\n\n    ").concat(borderStyle !== "none" && borderColor ? "\n        ".concat(borderStylesDesktop, "\n        border-color: ").concat(borderColor, ";\n        border-style: ").concat(borderStyle, ";\n        ") : " ", "\n\n    ").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
+  var styesTab = "  \n    ".concat(borderColor ? borderStylesTab : " ", "\n    ").concat(radiusStylesTab, "\n  ");
+  var styesMobile = "\n    ".concat(borderColor ? borderStylesMobile : " ", "\n    ").concat(radiusStylesMobile, "\n  ");
+  var stylesHoverDesktop = "\n    ".concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n\n    ").concat(HborderStyle !== "none" ? "\n          ".concat(HborderColor !== borderColor ? "border-color: ".concat(HborderColor, ";") : " ", " \n          ").concat(HborderStyle !== borderStyle ? "border-style: ".concat(HborderStyle, ";") : " ", "\n          ").concat(HborderStylesDesktop, "\n        ") : " ", "\n\n    ").concat(HradiusStylesDesktop, "    \n\n  ");
+  var stylesHoverTab = "\n    ".concat(HborderStyle !== "none" ? HborderStylesTab : " ", "\n    ").concat(HradiusStylesTab, "  \n  ");
+  var stylesHoverMobile = "\n    ".concat(HborderStyle !== "none" ? HborderStylesMobile : " ", "\n    ").concat(HradiusStylesMobile, "  \n  ");
+  return {
+    styesDesktop: styesDesktop,
+    styesTab: styesTab,
+    styesMobile: styesMobile,
+    stylesHoverDesktop: stylesHoverDesktop,
+    stylesHoverTab: stylesHoverTab,
+    stylesHoverMobile: stylesHoverMobile
+  };
+}; // function to generate Background control styles based on the unique controlName(prefix)
+
+var generateBackgroundControlStyles = function generateBackgroundControlStyles(_ref14) {
+  var controlName = _ref14.controlName,
+      attributes = _ref14.attributes;
+  var backgroundType = attributes["".concat(controlName, "backgroundType")],
+      backgroundColor = attributes["".concat(controlName, "backgroundColor")],
+      gradientColor = attributes["".concat(controlName, "gradientColor")],
+      bgImageURL = attributes["".concat(controlName, "bgImageURL")],
+      backgroundSize = attributes["".concat(controlName, "backgroundSize")],
+      bgImgCustomSize = attributes["".concat(controlName, "bgImgCustomSize")],
+      bgImgCustomSizeUnit = attributes["".concat(controlName, "bgImgCustomSizeUnit")],
+      bgImgPos = attributes["".concat(controlName, "bgImgPos")],
+      bgImgcustomPosX = attributes["".concat(controlName, "bgImgcustomPosX")],
+      bgImgcustomPosXUnit = attributes["".concat(controlName, "bgImgcustomPosXUnit")],
+      bgImgcustomPosY = attributes["".concat(controlName, "bgImgcustomPosY")],
+      bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
+      bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
+      bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
+      _attributes$12 = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$12 === void 0 ? "#00000080" : _attributes$12,
+      overlyType = attributes["".concat(controlName, "overlyType")],
+      isBgOverly = attributes["".concat(controlName, "isBgOverly")],
+      overlyGradient = attributes["".concat(controlName, "overlyGradient")],
+      TABbackgroundSize = attributes["TAB".concat(controlName, "backgroundSize")],
+      TABbgImgCustomSize = attributes["TAB".concat(controlName, "bgImgCustomSize")],
+      TABbgImgCustomSizeUnit = attributes["TAB".concat(controlName, "bgImgCustomSizeUnit")],
+      TABbgImgPos = attributes["TAB".concat(controlName, "bgImgPos")],
+      TABbgImgcustomPosX = attributes["TAB".concat(controlName, "bgImgcustomPosX")],
+      TABbgImgcustomPosXUnit = attributes["TAB".concat(controlName, "bgImgcustomPosXUnit")],
+      TABbgImgcustomPosY = attributes["TAB".concat(controlName, "bgImgcustomPosY")],
+      TABbgImgcustomPosYUnit = attributes["TAB".concat(controlName, "bgImgcustomPosYUnit")],
+      TABbgImgRepeat = attributes["TAB".concat(controlName, "bgImgRepeat")],
+      MOBbackgroundSize = attributes["MOB".concat(controlName, "backgroundSize")],
+      MOBbgImgCustomSize = attributes["MOB".concat(controlName, "bgImgCustomSize")],
+      MOBbgImgCustomSizeUnit = attributes["MOB".concat(controlName, "bgImgCustomSizeUnit")],
+      MOBbgImgPos = attributes["MOB".concat(controlName, "bgImgPos")],
+      MOBbgImgcustomPosX = attributes["MOB".concat(controlName, "bgImgcustomPosX")],
+      MOBbgImgcustomPosXUnit = attributes["MOB".concat(controlName, "bgImgcustomPosXUnit")],
+      MOBbgImgcustomPosY = attributes["MOB".concat(controlName, "bgImgcustomPosY")],
+      MOBbgImgcustomPosYUnit = attributes["MOB".concat(controlName, "bgImgcustomPosYUnit")],
+      MOBbgImgRepeat = attributes["MOB".concat(controlName, "bgImgRepeat")];
+  var backgroundStylesDesktop = "\n    background-image: ".concat(backgroundType === "image" && bgImageURL ? "url(\"".concat(bgImageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\n    ").concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(backgroundSize && backgroundSize !== "custom" ? "background-size: ".concat(backgroundSize, ";") : backgroundSize === "custom" ? "background-size: ".concat(bgImgCustomSize).concat(bgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(bgImgPos && bgImgPos !== "custom" ? "background-position: ".concat(bgImgPos, ";") : bgImgPos === "custom" ? "background-position: ".concat(bgImgcustomPosX).concat(bgImgcustomPosXUnit, " ").concat(bgImgcustomPosY).concat(bgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(bgImgAttachment ? "background-attachment: ".concat(bgImgAttachment, ";") : " ", "\n\n        ").concat(bgImgRepeat ? "background-repeat: ".concat(bgImgRepeat, ";") : " ", "\n\n        ") : " ", "\n  \n\t\t").concat(backgroundColor ? "background-color: ".concat(backgroundColor, ";") : " ", "\n    ").concat(isBgOverly ? "\n          z-index: 2;\n          position: relative;\n        " : " ", "\t\n\n  ");
+  var backgroundStylesTab = "\n    ".concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(TABbackgroundSize && TABbackgroundSize !== "custom" ? "background-size: ".concat(TABbackgroundSize, ";") : TABbackgroundSize === "custom" ? "background-size: ".concat(TABbgImgCustomSize).concat(TABbgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(TABbgImgPos && TABbgImgPos !== "custom" ? "background-position: ".concat(TABbgImgPos, ";") : TABbgImgPos === "custom" ? "background-position: ".concat(TABbgImgcustomPosX).concat(TABbgImgcustomPosXUnit, " ").concat(TABbgImgcustomPosY).concat(TABbgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(TABbgImgRepeat ? "background-repeat: ".concat(TABbgImgRepeat, ";") : " ", "\n\n        ") : " ", "\n\n    ").concat(backgroundType === "image" ? "background-attachment: scroll;" : " ", "\n\n  ");
+  var backgroundStylesMobile = "\n    ".concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(MOBbackgroundSize && MOBbackgroundSize !== "custom" ? "background-size: ".concat(MOBbackgroundSize, ";") : MOBbackgroundSize === "custom" ? "background-size: ".concat(MOBbgImgCustomSize).concat(MOBbgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(MOBbgImgPos && MOBbgImgPos !== "custom" ? "background-position: ".concat(MOBbgImgPos, ";") : MOBbgImgPos === "custom" ? "background-position: ".concat(MOBbgImgcustomPosX).concat(MOBbgImgcustomPosXUnit, " ").concat(MOBbgImgcustomPosY).concat(MOBbgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(MOBbgImgRepeat ? "background-repeat: ".concat(MOBbgImgRepeat, ";") : " ", "\n\n        ") : " ", "\n\n  ");
+  var overlyStyles = "\n  \n    ".concat(backgroundType === "image" && isBgOverly ? "\n          content: \"\";\n          position: absolute;\n          top: 0;\n          bottom: 0;\n          right: 0;\n          left: 0;\n          z-index: -1;\n\n          ".concat(overlyType === "fill" ? "background-color: ".concat(overlyColor, ";") : overlyType === "gradient" ? "background-image: ".concat(overlyGradient, ";") : " ", "\n      ") : " ", "\n  \n  \n  ");
+  return {
+    backgroundStylesDesktop: backgroundStylesDesktop,
+    backgroundStylesTab: backgroundStylesTab,
+    backgroundStylesMobile: backgroundStylesMobile,
+    overlyStyles: overlyStyles
+  };
+}; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
+
+var generateResponsiveRangeAttributes = function generateResponsiveRangeAttributes(controlName) {
+  var _objectSpread8;
+
+  var defaultRange = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var desktop = defaultRange ? _defineProperty({}, "".concat(controlName, "Range"), {
+    type: "number",
+    "default": "".concat(defaultRange)
+  }) : _defineProperty({}, "".concat(controlName, "Range"), {
+    type: "number"
+  });
+
+  var result = _objectSpread(_objectSpread(_defineProperty({}, "".concat(controlName, "Unit"), {
+    type: "string",
+    "default": "px"
+  }), desktop), {}, (_objectSpread8 = {}, _defineProperty(_objectSpread8, "TAB".concat(controlName, "Unit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread8, "TAB".concat(controlName, "Range"), {
+    type: "number"
+  }), _defineProperty(_objectSpread8, "MOB".concat(controlName, "Unit"), {
+    type: "string",
+    "default": "px"
+  }), _defineProperty(_objectSpread8, "MOB".concat(controlName, "Range"), {
+    type: "number"
+  }), _objectSpread8));
+
+  return _objectSpread({}, result);
+}; // function to generate responsive range control styles for an element based on it's prefix
+
+var generateResponsiveRangeStyles = function generateResponsiveRangeStyles(_ref17) {
+  var controlName = _ref17.controlName,
+      property = _ref17.property,
+      attributes = _ref17.attributes;
+  var desktopSizeUnit = attributes["".concat(controlName, "Unit")],
+      desktopRange = attributes["".concat(controlName, "Range")],
+      TABsizeUnit = attributes["TAB".concat(controlName, "Unit")],
+      TABrange = attributes["TAB".concat(controlName, "Range")],
+      MOBsizeUnit = attributes["MOB".concat(controlName, "Unit")],
+      MOBrange = attributes["MOB".concat(controlName, "Range")];
+  var size = isNaN(parseFloat(desktopRange)) ? "" : desktopSizeUnit;
+  var rangeStylesDesktop = desktopRange ? property + ":" + desktopRange + size + ";" : "";
+  var rangeStylesTab = TABrange ? property + ":" + TABrange + TABsizeUnit + ";" : "";
+  var rangeStylesMobile = MOBrange ? property + ":" + MOBrange + MOBsizeUnit + ";" : "";
+  return {
+    rangeStylesDesktop: rangeStylesDesktop,
+    rangeStylesTab: rangeStylesTab,
+    rangeStylesMobile: rangeStylesMobile
+  };
+}; // Return flilp value based on type
+
+var getFlipTransform = function getFlipTransform(flipType) {
+  switch (flipType) {
+    case "flip-left":
+      return "rotateY(-180deg)";
+
+    case "flip-right":
+      return "rotateY(180deg)";
+
+    case "flip-up":
+      return "rotateX(180deg)";
+
+    case "flip-bottom":
+      return "rotateX(-180deg)";
+
+    case "zoom-in":
+      return "scale(1.1)";
+
+    case "zoom-out":
+      return "scale(0.8)";
+  }
+}; // Return css class names based on button style name
+
+var getButtonClasses = function getButtonClasses(buttonStyle) {
+  switch (buttonStyle) {
+    case "styleOne":
+      return "btn-gradient blue";
+
+    case "styleTwo":
+      return "btn-gradient purple";
+
+    case "styleThree":
+      return "btn-gradient orange";
+
+    case "custom":
+      return "";
+  }
+};
+var getBackgroundImage = function getBackgroundImage(type, gradientValue, imageURL) {
+  switch (type) {
+    case "fill":
+      return "none";
+
+    case "gradient":
+      return gradientValue;
+
+    case "image":
+      if (imageURL) {
+        return "url(".concat(imageURL, ")");
+      }
+
+      return "none";
+  }
+};
 
 /***/ }),
 

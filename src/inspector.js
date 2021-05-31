@@ -30,6 +30,9 @@ import ToggleButton from "../util/toggle-button";
 import TypographyDropdown from "../util/typography-control-v2";
 import ResPanelBody from "./ResPanelBody";
 
+import BackgroundControl from "../util/background-control";
+import BorderShadowControl from "../util/border-shadow-control";
+
 import {
 	BACKGROUND_TYPES,
 	BACKGROUND_SIZES,
@@ -49,6 +52,8 @@ import {
 } from "./constants/typographyPrefixConstants";
 
 import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
+import { WrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 
 const Inspector = (props) => {
 	// console.log("--------inspector:", { props });
@@ -86,35 +91,35 @@ const Inspector = (props) => {
 		MOBgapNumPrefix,
 		MOBgapNumSuffix,
 
-		// background attributes ⬇
-		backgroundType,
-		backgroundColor,
-		gradientColor,
-		imageURL,
-		imageID,
-		backgroundSize,
+		// // background attributes ⬇
+		// backgroundType,
+		// backgroundColor,
+		// gradientColor,
+		// imageURL,
+		// imageID,
+		// backgroundSize,
 
-		// border attributes ⬇
-		borderWidth,
-		radiusUnit,
-		borderRadius,
-		borderStyle,
-		borderColor,
+		// // border attributes ⬇
+		// borderWidth,
+		// radiusUnit,
+		// borderRadius,
+		// borderStyle,
+		// borderColor,
 
-		// shadow attributes  ⬇
-		shadowType,
-		shadowColor,
-		hOffset,
-		vOffset,
-		blur,
-		spread,
-		inset,
-		hoverShadowColor,
-		hoverHOffset,
-		hoverVOffset,
-		hoverBlur,
-		hoverSpread,
-		wrapperTransitionTime,
+		// // shadow attributes  ⬇
+		// shadowType,
+		// shadowColor,
+		// hOffset,
+		// vOffset,
+		// blur,
+		// spread,
+		// inset,
+		// hoverShadowColor,
+		// hoverHOffset,
+		// hoverVOffset,
+		// hoverBlur,
+		// hoverSpread,
+		// wrapperTransitionTime,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
@@ -488,281 +493,300 @@ const Inspector = (props) => {
 					/>
 				</PanelBody>
 
-				<PanelBody title={__("Background")} initialOpen={false}>
-					<BaseControl label={__("Background Type")}>
-						<ButtonGroup>
-							{BACKGROUND_TYPES.map(({ value, label }) => (
-								<Button
-									isPrimary={backgroundType === value}
-									isSecondary={backgroundType !== value}
-									onClick={() =>
+				<PanelBody title={__("Counter Background")} initialOpen={false}>
+					<>
+						{/* <BaseControl label={__("Background Type")}>
+							<ButtonGroup>
+								{BACKGROUND_TYPES.map(({ value, label }) => (
+									<Button
+										isPrimary={backgroundType === value}
+										isSecondary={backgroundType !== value}
+										onClick={() =>
+											setAttributes({
+												backgroundType: value,
+											})
+										}
+									>
+										{label}
+									</Button>
+								))}
+							</ButtonGroup>
+						</BaseControl>
+						{backgroundType === "fill" && (
+							<ColorControl
+								label={__("Background Color")}
+								color={backgroundColor}
+								onChange={(backgroundColor) =>
+									setAttributes({ backgroundColor })
+								}
+							/>
+						)}
+						{backgroundType === "gradient" && (
+							<PanelBody title={__("Gradient")} initialOpen={false}>
+								<GradientColorController
+									gradientColor={gradientColor}
+									onChange={(gradientColor) => setAttributes({ gradientColor })}
+								/>
+							</PanelBody>
+						)}
+						{backgroundType === "image" && (
+							<PanelBody title={__("Background Image")}>
+								<MediaUpload
+									onSelect={(media) =>
 										setAttributes({
-											backgroundType: value,
+											imageURL: media.url,
+											imgeID: media.id,
 										})
 									}
-								>
-									{label}
-								</Button>
-							))}
-						</ButtonGroup>
-					</BaseControl>
+									type="image"
+									value={imageID}
+									render={({ open }) =>
+										!imageURL && (
+											<Button
+												className="eb-wrapper-upload-button"
+												label={__("Upload Image")}
+												icon="format-image"
+												onClick={open}
+											/>
+										)
+									}
+								/>
 
-					{backgroundType === "fill" && (
-						<ColorControl
-							label={__("Background Color")}
-							color={backgroundColor}
-							onChange={(backgroundColor) => setAttributes({ backgroundColor })}
-						/>
-					)}
-
-					{backgroundType === "gradient" && (
-						<PanelBody title={__("Gradient")} initialOpen={false}>
-							<GradientColorController
-								gradientColor={gradientColor}
-								onChange={(gradientColor) => setAttributes({ gradientColor })}
-							/>
-						</PanelBody>
-					)}
-
-					{backgroundType === "image" && (
-						<PanelBody title={__("Background Image")}>
-							<MediaUpload
-								onSelect={(media) =>
-									setAttributes({
-										imageURL: media.url,
-										imgeID: media.id,
-									})
-								}
-								type="image"
-								value={imageID}
-								render={({ open }) =>
-									!imageURL && (
-										<Button
-											className="eb-wrapper-upload-button"
-											label={__("Upload Image")}
-											icon="format-image"
-											onClick={open}
+								{imageURL && (
+									<>
+										<ImageAvatar
+											imageUrl={imageURL}
+											onDeleteImage={() => setAttributes({ imageURL: null })}
 										/>
-									)
-								}
-							/>
-
-							{imageURL && (
-								<>
-									<ImageAvatar
-										imageUrl={imageURL}
-										onDeleteImage={() => setAttributes({ imageURL: null })}
-									/>
-									<BaseControl label={__("Background Size")}>
-										<ButtonGroup>
-											{BACKGROUND_SIZES.map(({ value, label }) => (
-												<Button
-													isPrimary={backgroundSize === value}
-													isSecondary={backgroundSize !== value}
-													onClick={() =>
-														setAttributes({
-															backgroundSize: value,
-														})
-													}
-												>
-													{label}
-												</Button>
-											))}
-										</ButtonGroup>
-									</BaseControl>
-								</>
-							)}
-						</PanelBody>
-					)}
-				</PanelBody>
-
-				<PanelBody title={__("Border")} initialOpen={false}>
-					<ColorControl
-						label={__("Border Color")}
-						color={borderColor}
-						onChange={(borderColor) => setAttributes({ borderColor })}
-					/>
-
-					<ResetControl
-						onReset={() => setAttributes({ borderWidth: undefined })}
-					>
-						<RangeControl
-							label={__("Border Width")}
-							value={borderWidth}
-							onChange={(borderWidth) => setAttributes({ borderWidth })}
-							min={0}
-							max={100}
-						/>
-					</ResetControl>
-
-					<UnitControl
-						selectedUnit={radiusUnit}
-						unitTypes={LETTER_SPACING_LINE_HEIGHT_UNITS}
-						onClick={(radiusUnit) => setAttributes({ radiusUnit })}
-					/>
-
-					<ResetControl
-						onReset={() => setAttributes({ borderRadius: undefined })}
-					>
-						<RangeControl
-							label={__("Border Radius")}
-							value={borderRadius}
-							onChange={(borderRadius) => setAttributes({ borderRadius })}
-							min={0}
-							max={100}
-						/>
-					</ResetControl>
-
-					<SelectControl
-						label={__("Border Style")}
-						value={borderStyle}
-						options={BORDER_STYLES}
-						onChange={(borderStyle) => setAttributes({ borderStyle })}
+										<BaseControl label={__("Background Size")}>
+											<ButtonGroup>
+												{BACKGROUND_SIZES.map(({ value, label }) => (
+													<Button
+														isPrimary={backgroundSize === value}
+														isSecondary={backgroundSize !== value}
+														onClick={() =>
+															setAttributes({
+																backgroundSize: value,
+															})
+														}
+													>
+														{label}
+													</Button>
+												))}
+											</ButtonGroup>
+										</BaseControl>
+									</>
+								)}
+							</PanelBody>
+						)} */}
+					</>
+					<BackgroundControl
+						controlName={WrapBg}
+						resRequiredProps={resRequiredProps}
 					/>
 				</PanelBody>
 
-				<PanelBody title={__("Shadow")} initialOpen={false}>
-					<span
-						className={shadowType === "normal" ? "blueOnNormal" : "blueOnHover"}
-					>
-						<ToggleButton
-							options={SHADOW_HOVER_OPTIONS}
-							onChange={(value) => setAttributes({ shadowType: value })}
-						/>
-					</span>
-					{shadowType === "normal" && (
-						<>
-							<ColorControl
-								label={__("Shadow Color")}
-								color={shadowColor}
-								onChange={(shadowColor) => setAttributes({ shadowColor })}
-							/>
-
-							<ResetControl
-								onReset={() => setAttributes({ hOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Horizontal Offset")}
-									value={hOffset}
-									onChange={(hOffset) => setAttributes({ hOffset })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ vOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Vertical Offset")}
-									value={vOffset}
-									onChange={(vOffset) => setAttributes({ vOffset })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl onReset={() => setAttributes({ blur: undefined })}>
-								<RangeControl
-									label={__("Shadow Blur")}
-									value={blur}
-									onChange={(blur) => setAttributes({ blur })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ spread: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Spread")}
-									value={spread}
-									onChange={(spread) => setAttributes({ spread })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-						</>
-					)}
-
-					{shadowType === "hover" && (
-						<>
-							<ColorControl
-								label={__("Hover Shadow Color")}
-								color={hoverShadowColor}
-								onChange={(hoverShadowColor) =>
-									setAttributes({ hoverShadowColor })
-								}
-							/>
-
-							<ResetControl
-								onReset={() => setAttributes({ hoverHOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Horizontal Offset")}
-									value={hoverHOffset}
-									onChange={(hoverHOffset) => setAttributes({ hoverHOffset })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ hoverVOffset: undefined })}
-							>
-								<RangeControl
-									label={__("Vertical Offset")}
-									value={hoverVOffset}
-									onChange={(hoverVOffset) => setAttributes({ hoverVOffset })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ hoverBlur: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Blur")}
-									value={hoverBlur}
-									onChange={(hoverBlur) => setAttributes({ hoverBlur })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-
-							<ResetControl
-								onReset={() => setAttributes({ hoverSpread: undefined })}
-							>
-								<RangeControl
-									label={__("Shadow Spread")}
-									value={hoverSpread}
-									onChange={(hoverSpread) => setAttributes({ hoverSpread })}
-									min={0}
-									max={20}
-								/>
-							</ResetControl>
-						</>
-					)}
-
-					<ToggleControl
-						label={__("Inset")}
-						checked={inset}
-						onChange={() => setAttributes({ inset: !inset })}
+				<PanelBody title={__("Counter Border ")} initialOpen={false}>
+					<BorderShadowControl
+						controlName={wrpBdShadow}
+						resRequiredProps={resRequiredProps}
 					/>
+				</PanelBody>
 
-					<BaseControl id="eb-counter-transition-time">
-						<TextControl
-							label={__("Transition")}
-							value={wrapperTransitionTime}
-							type="number"
-							onChange={(wrapperTransitionTime) =>
-								setAttributes({ wrapperTransitionTime })
+				<>
+					{/* <PanelBody title={__("Border")} initialOpen={false}>
+						<ColorControl
+							label={__("Border Color")}
+							color={borderColor}
+							onChange={(borderColor) => setAttributes({ borderColor })}
+						/>
+
+						<ResetControl
+							onReset={() => setAttributes({ borderWidth: undefined })}
+						>
+							<RangeControl
+								label={__("Border Width")}
+								value={borderWidth}
+								onChange={(borderWidth) => setAttributes({ borderWidth })}
+								min={0}
+								max={100}
+							/>
+						</ResetControl>
+
+						<UnitControl
+							selectedUnit={radiusUnit}
+							unitTypes={LETTER_SPACING_LINE_HEIGHT_UNITS}
+							onClick={(radiusUnit) => setAttributes({ radiusUnit })}
+						/>
+
+						<ResetControl
+							onReset={() => setAttributes({ borderRadius: undefined })}
+						>
+							<RangeControl
+								label={__("Border Radius")}
+								value={borderRadius}
+								onChange={(borderRadius) => setAttributes({ borderRadius })}
+								min={0}
+								max={100}
+							/>
+						</ResetControl>
+
+						<SelectControl
+							label={__("Border Style")}
+							value={borderStyle}
+							options={BORDER_STYLES}
+							onChange={(borderStyle) => setAttributes({ borderStyle })}
+						/>
+					</PanelBody>
+
+					<PanelBody title={__("Shadow")} initialOpen={false}>
+						<span
+							className={
+								shadowType === "normal" ? "blueOnNormal" : "blueOnHover"
 							}
+						>
+							<ToggleButton
+								options={SHADOW_HOVER_OPTIONS}
+								onChange={(value) => setAttributes({ shadowType: value })}
+							/>
+						</span>
+						{shadowType === "normal" && (
+							<>
+								<ColorControl
+									label={__("Shadow Color")}
+									color={shadowColor}
+									onChange={(shadowColor) => setAttributes({ shadowColor })}
+								/>
+
+								<ResetControl
+									onReset={() => setAttributes({ hOffset: undefined })}
+								>
+									<RangeControl
+										label={__("Horizontal Offset")}
+										value={hOffset}
+										onChange={(hOffset) => setAttributes({ hOffset })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+
+								<ResetControl
+									onReset={() => setAttributes({ vOffset: undefined })}
+								>
+									<RangeControl
+										label={__("Vertical Offset")}
+										value={vOffset}
+										onChange={(vOffset) => setAttributes({ vOffset })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+
+								<ResetControl
+									onReset={() => setAttributes({ blur: undefined })}
+								>
+									<RangeControl
+										label={__("Shadow Blur")}
+										value={blur}
+										onChange={(blur) => setAttributes({ blur })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+
+								<ResetControl
+									onReset={() => setAttributes({ spread: undefined })}
+								>
+									<RangeControl
+										label={__("Shadow Spread")}
+										value={spread}
+										onChange={(spread) => setAttributes({ spread })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+							</>
+						)}
+
+						{shadowType === "hover" && (
+							<>
+								<ColorControl
+									label={__("Hover Shadow Color")}
+									color={hoverShadowColor}
+									onChange={(hoverShadowColor) =>
+										setAttributes({ hoverShadowColor })
+									}
+								/>
+
+								<ResetControl
+									onReset={() => setAttributes({ hoverHOffset: undefined })}
+								>
+									<RangeControl
+										label={__("Horizontal Offset")}
+										value={hoverHOffset}
+										onChange={(hoverHOffset) => setAttributes({ hoverHOffset })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+
+								<ResetControl
+									onReset={() => setAttributes({ hoverVOffset: undefined })}
+								>
+									<RangeControl
+										label={__("Vertical Offset")}
+										value={hoverVOffset}
+										onChange={(hoverVOffset) => setAttributes({ hoverVOffset })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+
+								<ResetControl
+									onReset={() => setAttributes({ hoverBlur: undefined })}
+								>
+									<RangeControl
+										label={__("Shadow Blur")}
+										value={hoverBlur}
+										onChange={(hoverBlur) => setAttributes({ hoverBlur })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+
+								<ResetControl
+									onReset={() => setAttributes({ hoverSpread: undefined })}
+								>
+									<RangeControl
+										label={__("Shadow Spread")}
+										value={hoverSpread}
+										onChange={(hoverSpread) => setAttributes({ hoverSpread })}
+										min={0}
+										max={20}
+									/>
+								</ResetControl>
+							</>
+						)}
+
+						<ToggleControl
+							label={__("Inset")}
+							checked={inset}
+							onChange={() => setAttributes({ inset: !inset })}
 						/>
-					</BaseControl>
-				</PanelBody>
+
+						<BaseControl id="eb-counter-transition-time">
+							<TextControl
+								label={__("Transition")}
+								value={wrapperTransitionTime}
+								type="number"
+								onChange={(wrapperTransitionTime) =>
+									setAttributes({ wrapperTransitionTime })
+								}
+							/>
+						</BaseControl>
+					</PanelBody>
+				 */}
+				</>
 			</span>
 		</InspectorControls>
 	);

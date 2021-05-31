@@ -1,9 +1,13 @@
 import * as prefixObjs from "./constants/typographyPrefixConstants";
 import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
+import { WrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
-} from "./helpers";
+	generateBackgroundAttributes,
+	generateBorderShadowAttributes,
+} from "../util/helpers";
 
 export default {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
@@ -121,132 +125,132 @@ export default {
 		type: "number",
 	},
 
-	// background attributes ⬇
-	backgroundType: {
-		type: "string",
-		default: "gradient",
-	},
-	backgroundColor: {
-		type: "string",
-	},
-	gradientColor: {
-		type: "string",
-		default: "linear-gradient(45deg,#7967ff,#c277f2)",
-	},
-	backgroundSize: {
-		type: "string",
-	},
-	imageURL: {
-		type: "string",
-	},
-	imageID: {
-		type: "string",
-	},
+	// // background attributes ⬇
+	// backgroundType: {
+	// 	type: "string",
+	// 	default: "gradient",
+	// },
+	// backgroundColor: {
+	// 	type: "string",
+	// },
+	// gradientColor: {
+	// 	type: "string",
+	// 	default: "linear-gradient(45deg,#7967ff,#c277f2)",
+	// },
+	// backgroundSize: {
+	// 	type: "string",
+	// },
+	// imageURL: {
+	// 	type: "string",
+	// },
+	// imageID: {
+	// 	type: "string",
+	// },
 
-	TABbackgroundType: {
-		type: "string",
-	},
-	TABbackgroundColor: {
-		type: "string",
-	},
-	TABgradientColor: {
-		type: "string",
-	},
-	TABbackgroundSize: {
-		type: "string",
-	},
-	TABimageURL: {
-		type: "string",
-	},
-	TABimageID: {
-		type: "string",
-	},
+	// TABbackgroundType: {
+	// 	type: "string",
+	// },
+	// TABbackgroundColor: {
+	// 	type: "string",
+	// },
+	// TABgradientColor: {
+	// 	type: "string",
+	// },
+	// TABbackgroundSize: {
+	// 	type: "string",
+	// },
+	// TABimageURL: {
+	// 	type: "string",
+	// },
+	// TABimageID: {
+	// 	type: "string",
+	// },
 
-	MOBbackgroundType: {
-		type: "string",
-	},
-	MOBbackgroundColor: {
-		type: "string",
-	},
-	MOBgradientColor: {
-		type: "string",
-	},
-	MOBbackgroundSize: {
-		type: "string",
-	},
-	MOBimageURL: {
-		type: "string",
-	},
-	MOBimageID: {
-		type: "string",
-	},
+	// MOBbackgroundType: {
+	// 	type: "string",
+	// },
+	// MOBbackgroundColor: {
+	// 	type: "string",
+	// },
+	// MOBgradientColor: {
+	// 	type: "string",
+	// },
+	// MOBbackgroundSize: {
+	// 	type: "string",
+	// },
+	// MOBimageURL: {
+	// 	type: "string",
+	// },
+	// MOBimageID: {
+	// 	type: "string",
+	// },
 
-	// border attributes ⬇
-	borderColor: {
-		type: "string",
-	},
-	borderStyle: {
-		type: "string",
-		default: "solid",
-	},
-	borderWidth: {
-		type: "number",
-	},
-	borderRadius: {
-		type: "number",
-	},
-	radiusUnit: {
-		type: "string",
-		default: "px",
-	},
+	// // border attributes ⬇
+	// borderColor: {
+	// 	type: "string",
+	// },
+	// borderStyle: {
+	// 	type: "string",
+	// 	default: "solid",
+	// },
+	// borderWidth: {
+	// 	type: "number",
+	// },
+	// borderRadius: {
+	// 	type: "number",
+	// },
+	// radiusUnit: {
+	// 	type: "string",
+	// 	default: "px",
+	// },
 
-	// shadow attributes  ⬇
-	hOffset: {
-		type: "number",
-	},
-	vOffset: {
-		type: "number",
-	},
-	blur: {
-		type: "number",
-	},
-	spread: {
-		type: "number",
-	},
-	shadowColor: {
-		type: "string",
-	},
-	inset: {
-		type: "boolean",
-		default: false,
-	},
-	shadowType: {
-		type: "string",
-		default: "normal",
-	},
-	hoverHOffset: {
-		type: "number",
-	},
-	hoverVOffset: {
-		type: "number",
-	},
-	hoverBlur: {
-		type: "number",
-	},
-	hoverSpread: {
-		type: "number",
-	},
-	hoverShadowColor: {
-		type: "string",
-	},
-	isHover: {
-		type: "boolean",
-		default: false,
-	},
-	wrapperTransitionTime: {
-		type: "string",
-		default: "500",
-	},
+	// // shadow attributes  ⬇
+	// hOffset: {
+	// 	type: "number",
+	// },
+	// vOffset: {
+	// 	type: "number",
+	// },
+	// blur: {
+	// 	type: "number",
+	// },
+	// spread: {
+	// 	type: "number",
+	// },
+	// shadowColor: {
+	// 	type: "string",
+	// },
+	// inset: {
+	// 	type: "boolean",
+	// 	default: false,
+	// },
+	// shadowType: {
+	// 	type: "string",
+	// 	default: "normal",
+	// },
+	// hoverHOffset: {
+	// 	type: "number",
+	// },
+	// hoverVOffset: {
+	// 	type: "number",
+	// },
+	// hoverBlur: {
+	// 	type: "number",
+	// },
+	// hoverSpread: {
+	// 	type: "number",
+	// },
+	// hoverShadowColor: {
+	// 	type: "string",
+	// },
+	// isHover: {
+	// 	type: "boolean",
+	// 	default: false,
+	// },
+	// wrapperTransitionTime: {
+	// 	type: "string",
+	// 	default: "500",
+	// },
 
 	// typography attributes ⬇
 	...generateTypographyAttributes(Object.values(prefixObjs)),
@@ -259,4 +263,8 @@ export default {
 		right: 10,
 		left: 10,
 	}),
+	// Background attributes ⬇
+	...generateBackgroundAttributes(WrapBg),
+	// border & shadow attributes ⬇
+	...generateBorderShadowAttributes(wrpBdShadow),
 };

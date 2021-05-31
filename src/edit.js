@@ -19,6 +19,8 @@ import {
 } from "./constants/typographyPrefixConstants";
 import { wrapperPadding, wrapperMargin } from "./constants/dimensionsConstants";
 
+import { WrapBg } from "./constants/backgroundsConstants";
+import { wrpBdShadow } from "./constants/borderShadowConstants";
 import {
 	textInsideForEdit,
 	softMinifyCssStrings,
@@ -26,7 +28,9 @@ import {
 	isCssExists,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
-} from "./helpers";
+	generateBackgroundControlStyles,
+	generateBorderShadowStyles,
+} from "../util/helpers";
 
 const Edit = (props) => {
 	const { isSelected, attributes, setAttributes, clientId } = props;
@@ -71,36 +75,36 @@ const Edit = (props) => {
 		MOBgapNumPrefix,
 		MOBgapNumSuffix,
 
-		// background attributes ⬇
-		backgroundType,
-		imageURL,
-		gradientColor,
-		backgroundSize,
-		backgroundColor,
+		// // background attributes ⬇
+		// backgroundType,
+		// imageURL,
+		// gradientColor,
+		// backgroundSize,
+		// backgroundColor,
 
-		// border attributes ⬇
-		borderWidth,
-		borderStyle,
-		borderColor,
-		borderRadius,
-		radiusUnit,
+		// // border attributes ⬇
+		// borderWidth,
+		// borderStyle,
+		// borderColor,
+		// borderRadius,
+		// radiusUnit,
 
-		// shadow attributes  ⬇
-		shadowColor,
-		hOffset = 0,
-		vOffset = 0,
-		blur = 0,
-		spread = 0,
-		inset,
+		// // shadow attributes  ⬇
+		// shadowColor,
+		// hOffset = 0,
+		// vOffset = 0,
+		// blur = 0,
+		// spread = 0,
+		// inset,
 
-		hoverShadowColor = shadowColor,
-		hoverHOffset = hOffset,
-		hoverVOffset = vOffset,
-		hoverBlur = blur,
-		hoverSpread = spread,
+		// hoverShadowColor = shadowColor,
+		// hoverHOffset = hOffset,
+		// hoverVOffset = vOffset,
+		// hoverBlur = blur,
+		// hoverSpread = spread,
 
-		// transition attributes ⬇
-		wrapperTransitionTime,
+		// // transition attributes ⬇
+		// wrapperTransitionTime,
 	} = attributes;
 
 	const counterRef = useRef(null);
@@ -285,15 +289,37 @@ const Edit = (props) => {
 		styleFor: "padding",
 	});
 
+	const {
+		backgroundStylesDesktop,
+		backgroundStylesTab,
+		backgroundStylesMobile,
+		overlyStyles,
+	} = generateBackgroundControlStyles({
+		attributes,
+		controlName: WrapBg,
+	});
+
+	const {
+		styesDesktop: bdShadowStyesDesktop,
+		styesTab: bdShadowStyesTab,
+		styesMobile: bdShadowStyesMobile,
+		stylesHoverDesktop: bdShadowStylesHoverDesktop,
+		stylesHoverTab: bdShadowStylesHoverTab,
+		stylesHoverMobile: bdShadowStylesHoverMobile,
+	} = generateBorderShadowStyles({
+		controlName: wrpBdShadow,
+		attributes,
+	});
+
 	const wrapperStylesDesktop = `
 
-	.${blockId} .eb-counter-title,
-	.${blockId} h4.eb-counter-number {
+	.eb-counter-wrapper.${blockId} .eb-counter-title,
+	.eb-counter-wrapper.${blockId} h4.eb-counter-number {
 		margin: 0;
 		padding: 0;
 	}
 
-	.${blockId}{
+	.eb-counter-wrapper.${blockId}{
 		text-align: center;
 		display: flex;
 
@@ -302,68 +328,54 @@ const Edit = (props) => {
 		
 		${gapNumTitle ? `gap: ${gapNumTitle}px;` : " "}
 		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
-		
-		background-image:
-			${
-				backgroundType === "image" && imageURL
-					? `url("${imageURL}")`
-					: backgroundType === "gradient"
-					? gradientColor
-					: "none"
-			};
-
-		${backgroundSize ? `background-size: ${backgroundSize};` : " "}
-		${backgroundColor ? `background-color: ${backgroundColor};` : " "}	
-		${borderColor ? `border: ${borderWidth}px ${borderStyle} ${borderColor};` : " "}
-		${borderRadius ? `border-radius: ${borderRadius}${radiusUnit};` : " "}
-
-		${
-			shadowColor
-				? `box-shadow: ${shadowColor} ${hOffset}px ${vOffset}px ${blur}px ${spread}px ${
-						inset ? "inset" : ""
-				  };`
-				: " "
-		}
-
-		transition: ${
-			wrapperTransitionTime ? `${wrapperTransitionTime / 1000}s` : ".5s"
-		};
+	
+		${backgroundStylesDesktop}
+		${bdShadowStyesDesktop}
 	}
 
-	.${blockId}:hover{		
-		${
-			hoverShadowColor
-				? `
-				box-shadow: ${hoverShadowColor} ${hoverHOffset}px ${hoverVOffset}px ${hoverBlur}px ${hoverSpread}px ${
-						inset ? "inset" : " "
-				  };`
-				: " "
-		}
-				
+
+	
+	.eb-counter-wrapper.${blockId}:before{
+		${overlyStyles}
+	}
+
+	.eb-counter-wrapper.${blockId}:hover{		
+		${bdShadowStylesHoverDesktop}
 	}
 	`;
 
 	const wrapperStylesTab = `
-	.${blockId}{
+	.eb-counter-wrapper.${blockId}{
 		${wrapperMarginStylesTab}
 		${wrapperPaddingStylesTab}
+		${backgroundStylesTab}
+		${bdShadowStyesTab}
 
-		${hasVal(TABgapNumTitle) ? `gap: ${TABgapNumTitle}px;` : " "}	
+		${hasVal(TABgapNumTitle) ? `gap: ${TABgapNumTitle}px;` : " "}		
+	}
+
+	.eb-counter-wrapper.${blockId}:hover{		
+		${bdShadowStylesHoverTab}
 	}
 	`;
 
 	const wrapperStylesMobile = `
-	.${blockId}{
-		
+	.eb-counter-wrapper.${blockId}{
 		${wrapperMarginStylesMobile}
 		${wrapperPaddingStylesMobile}
+		${backgroundStylesMobile}
+		${bdShadowStyesMobile}
 
 		${hasVal(MOBgapNumTitle) ? `gap: ${MOBgapNumTitle}px;` : " "}
+	}
+	
+	.eb-counter-wrapper.${blockId}:hover{		
+		${bdShadowStylesHoverMobile}
 	}
 	`;
 
 	const numberStylesDesktop = `
-	.${blockId} .eb-counter-number{
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesDesktop}
 		${numberColor ? ` color : ${numberColor};` : " "}
 		${hasVal(gapNumPrefix) ? `padding-left: ${gapNumPrefix}px;` : " "}
@@ -372,67 +384,67 @@ const Edit = (props) => {
 	`;
 
 	const numberStylesTab = `
-	.${blockId} .eb-counter-number{
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesTab}
 		${hasVal(TABgapNumPrefix) ? `padding-left: ${TABgapNumPrefix}px;` : " "}
 		${hasVal(TABgapNumSuffix) ? `padding-right: ${TABgapNumSuffix}px;` : " "}
 	} `;
 
 	const numberStylesMobile = `
-	.${blockId} .eb-counter-number{
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesMobile}
 		${hasVal(MOBgapNumPrefix) ? `padding-left: ${MOBgapNumPrefix}px;` : " "}
 		${hasVal(MOBgapNumSuffix) ? `padding-right: ${MOBgapNumSuffix}px;` : " "}
 	}`;
 
 	const titleStylesDesktop = `
-	.${blockId} .eb-counter-title{
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesDesktop}
 		${titleColor ? `color : ${titleColor};` : " "}
 	}
 	`;
 
 	const titleStylesTab = `
-	.${blockId} .eb-counter-title{
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesTab}
 	}  `;
 
 	const titleStylesMobile = `
-	.${blockId} .eb-counter-title{
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesMobile}
 	} `;
 
 	const numPrefixStylesDesktop = `
-	.${blockId} .eb-counter-prefix{
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesDesktop}
 		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
 	}
 	`;
 
 	const numPrefixStylesTab = `
-	.${blockId} .eb-counter-prefix{
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesTab}
 	}  `;
 
 	const numPrefixStylesMobile = `
-	.${blockId} .eb-counter-prefix{
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
 	}  `;
 
 	const numSuffixStylesDesktop = `
-	.${blockId} .eb-counter-suffix{
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesDesktop}
 		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
 	}
 	`;
 
 	const numSuffixStylesTab = `
-	.${blockId} .eb-counter-suffix{
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesTab}
 	} `;
 
 	const numSuffixStylesMobile = `
-	.${blockId} .eb-counter-suffix{
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
 	}
 
