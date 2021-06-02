@@ -1460,7 +1460,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   bottom: 30,
   right: 10,
   left: 10
-})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_2__["WrapBg"])), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_3__["wrpBdShadow"])));
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBackgroundAttributes"])(_constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_2__["WrapBg"], {
+  isBgDefaultGradient: true,
+  defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)"
+})), Object(_util_helpers__WEBPACK_IMPORTED_MODULE_4__["generateBorderShadowAttributes"])(_constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_3__["wrpBdShadow"])));
 
 /***/ }),
 
@@ -2447,20 +2450,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _util_color_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/color-control */ "./util/color-control/index.js");
 /* harmony import */ var _util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/dimensions-control-v2 */ "./util/dimensions-control-v2/index.js");
-/* harmony import */ var _util_unit_control__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/unit-control */ "./util/unit-control/index.js");
-/* harmony import */ var _util_gradient_color_controller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/gradient-color-controller */ "./util/gradient-color-controller/index.js");
-/* harmony import */ var _util_image_avatar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/image-avatar */ "./util/image-avatar/index.js");
-/* harmony import */ var _util_reset_control__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/reset-control */ "./util/reset-control/index.js");
-/* harmony import */ var _util_toggle_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/toggle-button */ "./util/toggle-button/index.js");
-/* harmony import */ var _util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/typography-control-v2 */ "./util/typography-control-v2/index.js");
-/* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ResPanelBody */ "./src/ResPanelBody.js");
-/* harmony import */ var _util_background_control__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../util/background-control */ "./util/background-control/index.js");
-/* harmony import */ var _util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../util/border-shadow-control */ "./util/border-shadow-control/index.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
-/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
-/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
-/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
-/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
+/* harmony import */ var _util_reset_control__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../util/reset-control */ "./util/reset-control/index.js");
+/* harmony import */ var _util_typography_control_v2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/typography-control-v2 */ "./util/typography-control-v2/index.js");
+/* harmony import */ var _util_background_control__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/background-control */ "./util/background-control/index.js");
+/* harmony import */ var _util_border_shadow_control__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../util/border-shadow-control */ "./util/border-shadow-control/index.js");
+/* harmony import */ var _ResPanelBody__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ResPanelBody */ "./src/ResPanelBody.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./constants */ "./src/constants/index.js");
+/* harmony import */ var _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./constants/typographyPrefixConstants */ "./src/constants/typographyPrefixConstants.js");
+/* harmony import */ var _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./constants/dimensionsConstants */ "./src/constants/dimensionsConstants.js");
+/* harmony import */ var _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./constants/backgroundsConstants */ "./src/constants/backgroundsConstants.js");
+/* harmony import */ var _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./constants/borderShadowConstants */ "./src/constants/borderShadowConstants.js");
 /**
  * WordPress dependencies
  */
@@ -2471,10 +2470,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
-
-
-
-
 
 
 
@@ -2677,7 +2672,7 @@ var Inspector = function Inspector(props) {
     }
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Layouts"),
-    options: _constants__WEBPACK_IMPORTED_MODULE_15__["LAYOUT_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_11__["LAYOUT_OPTIONS"],
     value: layoutLabel,
     onChange: function onChange(value) {
       return handleLayoutChange(value);
@@ -2692,7 +2687,7 @@ var Inspector = function Inspector(props) {
     }
   }), isShowSeparator && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Separator"),
-    options: _constants__WEBPACK_IMPORTED_MODULE_15__["SEPARATOR_OPTIONS"],
+    options: _constants__WEBPACK_IMPORTED_MODULE_11__["SEPARATOR_OPTIONS"],
     value: separastorSelectLabel,
     onChange: function onChange(value) {
       return handleSeparatorChange(value);
@@ -2700,21 +2695,21 @@ var Inspector = function Inspector(props) {
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Typography"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }, /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Title",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_title"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_12__["typoPrefix_title"],
     resRequiredProps: resRequiredProps
-  }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Number",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_number"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_12__["typoPrefix_number"],
     resRequiredProps: resRequiredProps
-  }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Number prefix",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_numPrefix"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_12__["typoPrefix_numPrefix"],
     resRequiredProps: resRequiredProps
-  }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }), /*#__PURE__*/React.createElement(_util_typography_control_v2__WEBPACK_IMPORTED_MODULE_7__["default"], {
     baseLabel: "Number Suffix",
-    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_16__["typoPrefix_numSuffix"],
+    typographyPrefixConstant: _constants_typographyPrefixConstants__WEBPACK_IMPORTED_MODULE_12__["typoPrefix_numSuffix"],
     resRequiredProps: resRequiredProps
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Colors"),
@@ -2751,11 +2746,11 @@ var Inspector = function Inspector(props) {
         numSuffixColor: numSuffixColor
       });
     }
-  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  })), /*#__PURE__*/React.createElement(_ResPanelBody__WEBPACK_IMPORTED_MODULE_10__["default"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Spacing"),
     initialOpen: false,
     resRequiredProps: resRequiredProps
-  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, resOption == "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         gapNumTitle: undefined
@@ -2771,7 +2766,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         gapNumPrefix: undefined
@@ -2787,7 +2782,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         gapNumSuffix: undefined
@@ -2803,7 +2798,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  }))), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }))), resOption == "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         TABgapNumTitle: undefined
@@ -2819,7 +2814,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         TABgapNumPrefix: undefined
@@ -2835,7 +2830,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         TABgapNumSuffix: undefined
@@ -2851,7 +2846,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  }))), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }))), resOption == "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         MOBgapNumTitle: undefined
@@ -2867,7 +2862,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         MOBgapNumPrefix: undefined
@@ -2883,7 +2878,7 @@ var Inspector = function Inspector(props) {
     },
     min: 0,
     max: 100
-  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/React.createElement(_util_reset_control__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onReset: function onReset() {
       return setAttributes({
         MOBgapNumSuffix: undefined
@@ -2904,25 +2899,25 @@ var Inspector = function Inspector(props) {
     initialOpen: false
   }, /*#__PURE__*/React.createElement(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_5__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["wrapperMargin"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_13__["wrapperMargin"],
     baseLabel: "Margin"
   }), /*#__PURE__*/React.createElement(_util_dimensions_control_v2__WEBPACK_IMPORTED_MODULE_5__["default"], {
     resRequiredProps: resRequiredProps,
-    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_17__["wrapperPadding"],
+    controlName: _constants_dimensionsConstants__WEBPACK_IMPORTED_MODULE_13__["wrapperPadding"],
     baseLabel: "Padding"
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Counter Background"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(_util_background_control__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_18__["WrapBg"],
+  }, /*#__PURE__*/React.createElement(_util_background_control__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    controlName: _constants_backgroundsConstants__WEBPACK_IMPORTED_MODULE_14__["WrapBg"],
     resRequiredProps: resRequiredProps
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Counter Border "),
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Counter Border & Shadow"),
     initialOpen: false
-  }, /*#__PURE__*/React.createElement(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_14__["default"], {
-    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_19__["wrpBdShadow"],
+  }, /*#__PURE__*/React.createElement(_util_border_shadow_control__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    controlName: _constants_borderShadowConstants__WEBPACK_IMPORTED_MODULE_15__["wrpBdShadow"],
     resRequiredProps: resRequiredProps
-  })), /*#__PURE__*/React.createElement(React.Fragment, null)));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
@@ -3267,7 +3262,7 @@ function BackgroundControl(_ref6) {
     }
   }), resOption === "desktop" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WithResBtns, {
     resRequiredProps: resRequiredProps,
-    label: "position"
+    label: "Position"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
     value: bgImgPos,
     options: [{
@@ -3455,7 +3450,7 @@ function BackgroundControl(_ref6) {
     }
   })))), resOption === "tab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WithResBtns, {
     resRequiredProps: resRequiredProps,
-    label: "position"
+    label: "Position"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
     value: TABbgImgPos,
     options: [{
@@ -3643,7 +3638,7 @@ function BackgroundControl(_ref6) {
     }
   })))), resOption === "mobile" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WithResBtns, {
     resRequiredProps: resRequiredProps,
-    label: "position"
+    label: "Position"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
     value: MOBbgImgPos,
     options: [{
@@ -3909,7 +3904,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function BorderShadowControl(_ref) {
   var resRequiredProps = _ref.resRequiredProps,
-      controlName = _ref.controlName;
+      controlName = _ref.controlName,
+      noBorder = _ref.noBorder,
+      noShadow = _ref.noShadow;
   var setAttributes = resRequiredProps.setAttributes,
       attributes = resRequiredProps.attributes;
   var borderStyle = attributes["".concat(controlName, "borderStyle")],
@@ -3930,7 +3927,7 @@ function BorderShadowControl(_ref) {
       BorderType = attributes["".concat(controlName, "BorderType")],
       HborderStyle = attributes["".concat(controlName, "HborderStyle")],
       HborderColor = attributes["".concat(controlName, "HborderColor")];
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, noBorder !== true && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
     id: "eb-infobox-border-hover-ptions"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ButtonGroup"], {
     id: "eb-infobox-border-hover-ptions"
@@ -4049,7 +4046,7 @@ function BorderShadowControl(_ref) {
     resRequiredProps: resRequiredProps,
     controlName: "".concat(controlName, "HRds_"),
     baseLabel: "Border Radius"
-  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+  }))), noShadow !== true && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Box Shadow"),
     className: "eb-typography-base"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
@@ -4209,7 +4206,7 @@ function BorderShadowControl(_ref) {
         }
       })));
     }
-  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["BaseControl"], {
     id: "eb-infobox-transition-time"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])("Transition"),
@@ -5060,10 +5057,10 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
   var _objectSpread3;
 
   var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var isBgDefaultFill = defaults.isBgDefaultFill,
+  var isBgDefaultGradient = defaults.isBgDefaultGradient,
       defaultFillColor = defaults.defaultFillColor,
       _defaults$defaultBgGr = defaults.defaultBgGradient,
-      defaultBgGradient = _defaults$defaultBgGr === void 0 ? "linear-gradient(45deg,#7967ff,#c277f2)" : _defaults$defaultBgGr;
+      defaultBgGradient = _defaults$defaultBgGr === void 0 ? "linear-gradient(45deg,#00000000,#00000000)" : _defaults$defaultBgGr;
   var bgColorAttr = defaultFillColor ? _defineProperty({}, "".concat(controlName, "backgroundColor"), {
     type: "string",
     "default": defaultFillColor
@@ -5072,7 +5069,7 @@ var generateBackgroundAttributes = function generateBackgroundAttributes(control
   });
   return _objectSpread(_objectSpread(_defineProperty({}, "".concat(controlName, "backgroundType"), {
     type: "string",
-    "default": isBgDefaultFill === true ? "fill" : "gradient"
+    "default": isBgDefaultGradient === true ? "gradient" : "fill"
   }), bgColorAttr), {}, (_objectSpread3 = {}, _defineProperty(_objectSpread3, "".concat(controlName, "gradientColor"), {
     type: "string",
     "default": defaultBgGradient
@@ -5294,15 +5291,24 @@ var generateTypographyAttributes = function generateTypographyAttributes(prefixA
 // function to generate BorderShadow control's attributes
 
 var generateBorderShadowAttributes = function generateBorderShadowAttributes(controlName) {
-  var _objectSpread6;
+  var _objectSpread6, _shdAttrs;
 
   var defaults = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var _defaults$bdrDefaults = defaults.bdrDefaults,
-      bdrDefaults = _defaults$bdrDefaults === void 0 ? {} : _defaults$bdrDefaults,
+      bdrDefaults = _defaults$bdrDefaults === void 0 ? {
+    top: 1,
+    right: 1,
+    bottom: 1,
+    left: 1
+  } : _defaults$bdrDefaults,
       _defaults$rdsDefaults = defaults.rdsDefaults,
-      rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults;
+      rdsDefaults = _defaults$rdsDefaults === void 0 ? {} : _defaults$rdsDefaults,
+      _defaults$noBorder = defaults.noBorder,
+      noBorder = _defaults$noBorder === void 0 ? false : _defaults$noBorder,
+      _defaults$noShadow = defaults.noShadow,
+      noShadow = _defaults$noShadow === void 0 ? false : _defaults$noShadow;
 
-  var result = _objectSpread(_objectSpread(_objectSpread(_objectSpread((_objectSpread6 = {}, _defineProperty(_objectSpread6, "".concat(controlName, "BorderType"), {
+  var bdrAttrs = _objectSpread(_objectSpread(_objectSpread(_objectSpread((_objectSpread6 = {}, _defineProperty(_objectSpread6, "".concat(controlName, "BorderType"), {
     type: "string",
     "default": "normal"
   }), _defineProperty(_objectSpread6, "".concat(controlName, "borderColor"), {
@@ -5315,42 +5321,130 @@ var generateBorderShadowAttributes = function generateBorderShadowAttributes(con
   }), _defineProperty(_objectSpread6, "".concat(controlName, "HborderStyle"), {
     type: "string",
     "default": "none"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hOffset"), {
+  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)), generateDimensionsAttributes("".concat(controlName, "HBdr_"))), generateDimensionsAttributes("".concat(controlName, "HRds_")));
+
+  var shdAttrs = (_shdAttrs = {}, _defineProperty(_shdAttrs, "".concat(controlName, "hOffset"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "vOffset"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "vOffset"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "blur"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "blur"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "spread"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "spread"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "shadowColor"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "shadowColor"), {
     type: "string"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "inset"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "inset"), {
     type: "boolean",
     "default": false
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "shadowType"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "shadowType"), {
     type: "string",
     "default": "normal"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverHOffset"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "hoverHOffset"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverVOffset"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "hoverVOffset"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverBlur"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "hoverBlur"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverSpread"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "hoverSpread"), {
     type: "number"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverShadowColor"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "hoverShadowColor"), {
     type: "string"
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "hoverInset"), {
+  }), _defineProperty(_shdAttrs, "".concat(controlName, "hoverInset"), {
     type: "boolean",
     "default": false
-  }), _defineProperty(_objectSpread6, "".concat(controlName, "transitionTime"), {
-    type: "string",
-    "default": "500"
-  }), _objectSpread6), generateDimensionsAttributes("".concat(controlName, "Bdr_"), bdrDefaults)), generateDimensionsAttributes("".concat(controlName, "Rds_"), rdsDefaults)), generateDimensionsAttributes("".concat(controlName, "HBdr_"))), generateDimensionsAttributes("".concat(controlName, "HRds_"))); // console.log("---generateBorderShadowAttributes:", { result });
+  }), _shdAttrs);
 
+  if (noBorder === true) {
+    return _objectSpread(_objectSpread({}, shdAttrs), {}, _defineProperty({}, "".concat(controlName, "transitionTime"), {
+      type: "string",
+      "default": "500"
+    }));
+  } else if (noShadow === true) {
+    return _objectSpread(_objectSpread({}, bdrAttrs), {}, _defineProperty({}, "".concat(controlName, "transitionTime"), {
+      type: "string",
+      "default": "500"
+    }));
+  } else {
+    return _objectSpread(_objectSpread(_objectSpread({}, bdrAttrs), shdAttrs), {}, _defineProperty({}, "".concat(controlName, "transitionTime"), {
+      type: "string",
+      "default": "500"
+    }));
+  } // const result = {
+  //   // Border Shadow attributes ⬇
+  //   // border attributes ⬇
+  //   [`${controlName}BorderType`]: {
+  //     type: "string",
+  //     default: "normal",
+  //   },
+  //   [`${controlName}borderColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}borderStyle`]: {
+  //     type: "string",
+  //     default: "none",
+  //   },
+  //   [`${controlName}HborderColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}HborderStyle`]: {
+  //     type: "string",
+  //     default: "none",
+  //   },
+  //   // shadow attributes  ⬇
+  //   [`${controlName}hOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}vOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}blur`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}spread`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}shadowColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}inset`]: {
+  //     type: "boolean",
+  //     default: false,
+  //   },
+  //   [`${controlName}shadowType`]: {
+  //     type: "string",
+  //     default: "normal",
+  //   },
+  //   [`${controlName}hoverHOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverVOffset`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverBlur`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverSpread`]: {
+  //     type: "number",
+  //   },
+  //   [`${controlName}hoverShadowColor`]: {
+  //     type: "string",
+  //   },
+  //   [`${controlName}hoverInset`]: {
+  //     type: "boolean",
+  //     default: false,
+  //   },
+  //   [`${controlName}transitionTime`]: {
+  //     type: "string",
+  //     default: "500",
+  //   },
+  //   ...generateDimensionsAttributes(`${controlName}Bdr_`, bdrDefaults),
+  //   ...generateDimensionsAttributes(`${controlName}Rds_`, rdsDefaults),
+  //   ...generateDimensionsAttributes(`${controlName}HBdr_`),
+  //   ...generateDimensionsAttributes(`${controlName}HRds_`),
+  // };
+  // console.log("---generateBorderShadowAttributes:", { result });
+  // return result;
 
-  return result;
 }; // helper Functions: function 'textInsideForEdit' is for setting the innertext depending on whether separator should be shown and which separator should be shown
 
 var textInsideForEdit = function textInsideForEdit(value, isShowSeparator, separator) {
@@ -5442,7 +5536,7 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
   var dimensionStylesMobile = " ";
 
   if (styleFor === "border") {
-    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "border-top-width: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "border-right-width: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "border-left-width: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "border-bottom-width: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
+    dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "border-top-width: ".concat(parseFloat(dimensionTop)).concat(dimensionUnit, "; z-index:999;") : " ", "\n\t\t").concat(dimensionRight ? "border-right-width: ".concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "border-left-width: ".concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "border-bottom-width: ".concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
     dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "border-top-width: ".concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "border-right-width: ".concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "border-left-width: ".concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "border-bottom-width: ".concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
     dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "border-top-width: ".concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "border-right-width: ".concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "border-left-width: ".concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "border-bottom-width: ".concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
   } else if (styleFor === "border-radius") {
@@ -5453,7 +5547,12 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
     dimensionStylesDesktop = "\n\t\t".concat(dimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(dimensionTop)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(dimensionRight)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(dimensionLeft)).concat(dimensionUnit, ";") : " ", "\n\t\t").concat(dimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(dimensionBottom)).concat(dimensionUnit, ";") : " ", "\n\t\n\t\t");
     dimensionStylesTab = "\n\t\t\t".concat(TABdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(TABdimensionTop)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(TABdimensionRight)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(TABdimensionLeft)).concat(TABdimensionUnit, ";") : " ", "\n\t\t\t").concat(TABdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(TABdimensionBottom)).concat(TABdimensionUnit, ";") : " ", "\n\n\t\t");
     dimensionStylesMobile = "\n\t\t\t".concat(MOBdimensionTop ? "".concat(styleFor, "-top: ").concat(parseFloat(MOBdimensionTop)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionRight ? "".concat(styleFor, "-right: ").concat(parseFloat(MOBdimensionRight)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionLeft ? "".concat(styleFor, "-left: ").concat(parseFloat(MOBdimensionLeft)).concat(MOBdimensionUnit, ";") : " ", "\n\t\t\t").concat(MOBdimensionBottom ? "".concat(styleFor, "-bottom: ").concat(parseFloat(MOBdimensionBottom)).concat(MOBdimensionUnit, ";") : " ", "\n\n\t\t");
-  }
+  } // console.log({
+  //   dimensionStylesDesktop,
+  //   // dimensionStylesTab,
+  //   // dimensionStylesMobile,
+  // });
+
 
   return {
     dimensionStylesDesktop: dimensionStylesDesktop,
@@ -5465,76 +5564,142 @@ var generateDimensionsControlStyles = function generateDimensionsControlStyles(_
 
 var generateBorderShadowStyles = function generateBorderShadowStyles(_ref13) {
   var controlName = _ref13.controlName,
-      attributes = _ref13.attributes;
+      attributes = _ref13.attributes,
+      noBorder = _ref13.noBorder,
+      noShadow = _ref13.noShadow;
+  var borderStylesDesktop = "";
+  var borderStylesTab = "";
+  var borderStylesMobile = "";
+  var radiusStylesDesktop = "";
+  var radiusStylesTab = "";
+  var radiusStylesMobile = "";
+  var HborderStylesDesktop = "";
+  var HborderStylesTab = "";
+  var HborderStylesMobile = "";
+  var HradiusStylesDesktop = "";
+  var HradiusStylesTab = "";
+  var HradiusStylesMobile = "";
 
-  var _generateDimensionsCo = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "Bdr_"),
-    styleFor: "border",
-    attributes: attributes
-  }),
-      borderStylesDesktop = _generateDimensionsCo.dimensionStylesDesktop,
-      borderStylesTab = _generateDimensionsCo.dimensionStylesTab,
-      borderStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
+  if (noBorder !== true) {
+    var _generateDimensionsCo = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "Bdr_"),
+      styleFor: "border",
+      attributes: attributes
+    }),
+        F_borderStylesDesktop = _generateDimensionsCo.dimensionStylesDesktop,
+        F_borderStylesTab = _generateDimensionsCo.dimensionStylesTab,
+        F_borderStylesMobile = _generateDimensionsCo.dimensionStylesMobile;
 
-  var _generateDimensionsCo2 = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "Rds_"),
-    styleFor: "border-radius",
-    attributes: attributes
-  }),
-      radiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
-      radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
-      radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
+    var _generateDimensionsCo2 = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "Rds_"),
+      styleFor: "border-radius",
+      attributes: attributes
+    }),
+        F_radiusStylesDesktop = _generateDimensionsCo2.dimensionStylesDesktop,
+        F_radiusStylesTab = _generateDimensionsCo2.dimensionStylesTab,
+        F_radiusStylesMobile = _generateDimensionsCo2.dimensionStylesMobile;
 
-  var _generateDimensionsCo3 = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "HBdr_"),
-    styleFor: "border",
-    attributes: attributes
-  }),
-      HborderStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
-      HborderStylesTab = _generateDimensionsCo3.dimensionStylesTab,
-      HborderStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
+    var _generateDimensionsCo3 = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "HBdr_"),
+      styleFor: "border",
+      attributes: attributes
+    }),
+        F_HborderStylesDesktop = _generateDimensionsCo3.dimensionStylesDesktop,
+        F_HborderStylesTab = _generateDimensionsCo3.dimensionStylesTab,
+        F_HborderStylesMobile = _generateDimensionsCo3.dimensionStylesMobile;
 
-  var _generateDimensionsCo4 = generateDimensionsControlStyles({
-    controlName: "".concat(controlName, "HRds_"),
-    styleFor: "border-radius",
-    attributes: attributes
-  }),
-      HradiusStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
-      HradiusStylesTab = _generateDimensionsCo4.dimensionStylesTab,
-      HradiusStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
+    var _generateDimensionsCo4 = generateDimensionsControlStyles({
+      controlName: "".concat(controlName, "HRds_"),
+      styleFor: "border-radius",
+      attributes: attributes
+    }),
+        F_HradiusStylesDesktop = _generateDimensionsCo4.dimensionStylesDesktop,
+        F_HradiusStylesTab = _generateDimensionsCo4.dimensionStylesTab,
+        F_HradiusStylesMobile = _generateDimensionsCo4.dimensionStylesMobile;
+
+    borderStylesDesktop = F_borderStylesDesktop;
+    borderStylesTab = F_borderStylesTab;
+    borderStylesMobile = F_borderStylesMobile;
+    radiusStylesDesktop = F_radiusStylesDesktop;
+    radiusStylesTab = F_radiusStylesTab;
+    radiusStylesMobile = F_radiusStylesMobile;
+    HborderStylesDesktop = F_HborderStylesDesktop;
+    HborderStylesTab = F_HborderStylesTab;
+    HborderStylesMobile = F_HborderStylesMobile;
+    HradiusStylesDesktop = F_HradiusStylesDesktop;
+    HradiusStylesTab = F_HradiusStylesTab;
+    HradiusStylesMobile = F_HradiusStylesMobile;
+  } // const {
+  //   dimensionStylesDesktop: borderStylesDesktop,
+  //   dimensionStylesTab: borderStylesTab,
+  //   dimensionStylesMobile: borderStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}Bdr_`,
+  //   styleFor: "border",
+  //   attributes,
+  // });
+  // const {
+  //   dimensionStylesDesktop: radiusStylesDesktop,
+  //   dimensionStylesTab: radiusStylesTab,
+  //   dimensionStylesMobile: radiusStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}Rds_`,
+  //   styleFor: "border-radius",
+  //   attributes,
+  // });
+  // const {
+  //   dimensionStylesDesktop: HborderStylesDesktop,
+  //   dimensionStylesTab: HborderStylesTab,
+  //   dimensionStylesMobile: HborderStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}HBdr_`,
+  //   styleFor: "border",
+  //   attributes,
+  // });
+  // const {
+  //   dimensionStylesDesktop: HradiusStylesDesktop,
+  //   dimensionStylesTab: HradiusStylesTab,
+  //   dimensionStylesMobile: HradiusStylesMobile,
+  // } = generateDimensionsControlStyles({
+  //   controlName: `${controlName}HRds_`,
+  //   styleFor: "border-radius",
+  //   attributes,
+  // });
+
 
   var borderStyle = attributes["".concat(controlName, "borderStyle")],
-      borderColor = attributes["".concat(controlName, "borderColor")],
+      _attributes$2 = attributes["".concat(controlName, "borderColor")],
+      borderColor = _attributes$2 === void 0 ? "#333333" : _attributes$2,
       HborderStyle = attributes["".concat(controlName, "HborderStyle")],
-      _attributes$2 = attributes["".concat(controlName, "HborderColor")],
-      HborderColor = _attributes$2 === void 0 ? borderColor : _attributes$2,
+      _attributes$3 = attributes["".concat(controlName, "HborderColor")],
+      HborderColor = _attributes$3 === void 0 ? borderColor : _attributes$3,
       shadowColor = attributes["".concat(controlName, "shadowColor")],
-      _attributes$3 = attributes["".concat(controlName, "hOffset")],
-      hOffset = _attributes$3 === void 0 ? 0 : _attributes$3,
-      _attributes$4 = attributes["".concat(controlName, "vOffset")],
-      vOffset = _attributes$4 === void 0 ? 0 : _attributes$4,
-      _attributes$5 = attributes["".concat(controlName, "blur")],
-      blur = _attributes$5 === void 0 ? 0 : _attributes$5,
-      _attributes$6 = attributes["".concat(controlName, "spread")],
-      spread = _attributes$6 === void 0 ? 0 : _attributes$6,
+      _attributes$4 = attributes["".concat(controlName, "hOffset")],
+      hOffset = _attributes$4 === void 0 ? 0 : _attributes$4,
+      _attributes$5 = attributes["".concat(controlName, "vOffset")],
+      vOffset = _attributes$5 === void 0 ? 0 : _attributes$5,
+      _attributes$6 = attributes["".concat(controlName, "blur")],
+      blur = _attributes$6 === void 0 ? 0 : _attributes$6,
+      _attributes$7 = attributes["".concat(controlName, "spread")],
+      spread = _attributes$7 === void 0 ? 0 : _attributes$7,
       inset = attributes["".concat(controlName, "inset")],
-      _attributes$7 = attributes["".concat(controlName, "hoverShadowColor")],
-      hoverShadowColor = _attributes$7 === void 0 ? shadowColor : _attributes$7,
-      _attributes$8 = attributes["".concat(controlName, "hoverHOffset")],
-      hoverHOffset = _attributes$8 === void 0 ? hOffset : _attributes$8,
-      _attributes$9 = attributes["".concat(controlName, "hoverVOffset")],
-      hoverVOffset = _attributes$9 === void 0 ? vOffset : _attributes$9,
-      _attributes$10 = attributes["".concat(controlName, "hoverBlur")],
-      hoverBlur = _attributes$10 === void 0 ? blur : _attributes$10,
-      _attributes$11 = attributes["".concat(controlName, "hoverSpread")],
-      hoverSpread = _attributes$11 === void 0 ? spread : _attributes$11,
+      _attributes$8 = attributes["".concat(controlName, "hoverShadowColor")],
+      hoverShadowColor = _attributes$8 === void 0 ? shadowColor : _attributes$8,
+      _attributes$9 = attributes["".concat(controlName, "hoverHOffset")],
+      hoverHOffset = _attributes$9 === void 0 ? hOffset : _attributes$9,
+      _attributes$10 = attributes["".concat(controlName, "hoverVOffset")],
+      hoverVOffset = _attributes$10 === void 0 ? vOffset : _attributes$10,
+      _attributes$11 = attributes["".concat(controlName, "hoverBlur")],
+      hoverBlur = _attributes$11 === void 0 ? blur : _attributes$11,
+      _attributes$12 = attributes["".concat(controlName, "hoverSpread")],
+      hoverSpread = _attributes$12 === void 0 ? spread : _attributes$12,
       transitionTime = attributes["".concat(controlName, "transitionTime")];
-  var styesDesktop = "\n    ".concat(borderStylesDesktop, "\n    ").concat(radiusStylesDesktop, "\n\n\n    ").concat(borderStyle !== "none" && borderColor ? "\n        ".concat(borderStylesDesktop, "\n        border-color: ").concat(borderColor, ";\n        border-style: ").concat(borderStyle, ";\n        ") : " ", "\n\n    ").concat(shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
-  var styesTab = "  \n    ".concat(borderColor ? borderStylesTab : " ", "\n    ").concat(radiusStylesTab, "\n  ");
-  var styesMobile = "\n    ".concat(borderColor ? borderStylesMobile : " ", "\n    ").concat(radiusStylesMobile, "\n  ");
-  var stylesHoverDesktop = "\n    ".concat(hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " ", "\n\n    ").concat(HborderStyle !== "none" ? "\n          ".concat(HborderColor !== borderColor ? "border-color: ".concat(HborderColor, ";") : " ", " \n          ").concat(HborderStyle !== borderStyle ? "border-style: ".concat(HborderStyle, ";") : " ", "\n          ").concat(HborderStylesDesktop, "\n        ") : " ", "\n\n    ").concat(HradiusStylesDesktop, "    \n\n  ");
-  var stylesHoverTab = "\n    ".concat(HborderStyle !== "none" ? HborderStylesTab : " ", "\n    ").concat(HradiusStylesTab, "  \n  ");
-  var stylesHoverMobile = "\n    ".concat(HborderStyle !== "none" ? HborderStylesMobile : " ", "\n    ").concat(HradiusStylesMobile, "  \n  ");
+  var styesDesktop = "  \n    ".concat(noBorder !== true ? "\n        ".concat(radiusStylesDesktop, "\n        ").concat(borderStyle !== "none" && borderColor ? "\n            ".concat(borderStylesDesktop, "\n            border-color: ").concat(borderColor, ";\n            border-style: ").concat(borderStyle, ";\n            ") : " ", "\n        ") : " ", "\n  \n    ").concat(noShadow !== true ? shadowColor ? "box-shadow: ".concat(shadowColor, " ").concat(hOffset, "px ").concat(vOffset, "px ").concat(blur, "px ").concat(spread, "px ").concat(inset ? "inset" : "", ";") : " " : " ", "\n\n    transition: ").concat(transitionTime ? "".concat(transitionTime / 1000, "s") : ".5s", ";\n\n  ");
+  var styesTab = "  \n  ".concat(noBorder !== true ? "\n      ".concat(borderColor ? borderStylesTab : " ", "\n      ").concat(radiusStylesTab, "\n      ") : " ", "\n    \n  ");
+  var styesMobile = "\n  ".concat(noBorder !== true ? "\n      ".concat(borderColor ? borderStylesMobile : " ", "\n      ").concat(radiusStylesMobile, "\n      ") : " ", "\n  ");
+  var stylesHoverDesktop = "\n  ".concat(noBorder !== true ? "\n      ".concat(HborderStyle !== "none" ? "\n            ".concat(HborderColor !== borderColor ? "border-color: ".concat(HborderColor, ";") : " ", " \n            ").concat(HborderStyle !== borderStyle ? "border-style: ".concat(HborderStyle, ";") : " ", "\n            ").concat(HborderStylesDesktop, "\n          ") : " ", "\n\n      ").concat(HradiusStylesDesktop, "    \n      ") : " ", "   \n   \n  ").concat(noShadow !== true ? hoverShadowColor ? "box-shadow: ".concat(hoverShadowColor, " ").concat(hoverHOffset, "px ").concat(hoverVOffset, "px ").concat(hoverBlur, "px ").concat(hoverSpread, "px ").concat(inset ? "inset" : " ", ";") : " " : " ", "\n\n  ");
+  var stylesHoverTab = "\n  ".concat(noBorder !== true ? "\n      ".concat(HborderStyle !== "none" ? HborderStylesTab : " ", "\n      ").concat(HradiusStylesTab, "  \n      ") : " ", "\n  ");
+  var stylesHoverMobile = "\n  ".concat(noBorder !== true ? "\n      ".concat(HborderStyle !== "none" ? HborderStylesMobile : " ", "\n      ").concat(HradiusStylesMobile, "\n      ") : " ", "\n   \n  ");
   return {
     styesDesktop: styesDesktop,
     styesTab: styesTab,
@@ -5562,8 +5727,8 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       bgImgcustomPosYUnit = attributes["".concat(controlName, "bgImgcustomPosYUnit")],
       bgImgAttachment = attributes["".concat(controlName, "bgImgAttachment")],
       bgImgRepeat = attributes["".concat(controlName, "bgImgRepeat")],
-      _attributes$12 = attributes["".concat(controlName, "overlyColor")],
-      overlyColor = _attributes$12 === void 0 ? "#00000080" : _attributes$12,
+      _attributes$13 = attributes["".concat(controlName, "overlyColor")],
+      overlyColor = _attributes$13 === void 0 ? "#00000080" : _attributes$13,
       overlyType = attributes["".concat(controlName, "overlyType")],
       isBgOverly = attributes["".concat(controlName, "isBgOverly")],
       overlyGradient = attributes["".concat(controlName, "overlyGradient")],
@@ -5585,7 +5750,7 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
       MOBbgImgcustomPosY = attributes["MOB".concat(controlName, "bgImgcustomPosY")],
       MOBbgImgcustomPosYUnit = attributes["MOB".concat(controlName, "bgImgcustomPosYUnit")],
       MOBbgImgRepeat = attributes["MOB".concat(controlName, "bgImgRepeat")];
-  var backgroundStylesDesktop = "\n    background-image: ".concat(backgroundType === "image" && bgImageURL ? "url(\"".concat(bgImageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\n    ").concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(backgroundSize && backgroundSize !== "custom" ? "background-size: ".concat(backgroundSize, ";") : backgroundSize === "custom" ? "background-size: ".concat(bgImgCustomSize).concat(bgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(bgImgPos && bgImgPos !== "custom" ? "background-position: ".concat(bgImgPos, ";") : bgImgPos === "custom" ? "background-position: ".concat(bgImgcustomPosX).concat(bgImgcustomPosXUnit, " ").concat(bgImgcustomPosY).concat(bgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(bgImgAttachment ? "background-attachment: ".concat(bgImgAttachment, ";") : " ", "\n\n        ").concat(bgImgRepeat ? "background-repeat: ".concat(bgImgRepeat, ";") : " ", "\n\n        ") : " ", "\n  \n\t\t").concat(backgroundColor ? "background-color: ".concat(backgroundColor, ";") : " ", "\n    ").concat(isBgOverly ? "\n          z-index: 2;\n          position: relative;\n        " : " ", "\t\n\n  ");
+  var backgroundStylesDesktop = "\n    background-image: ".concat(backgroundType === "image" && bgImageURL ? "url(\"".concat(bgImageURL, "\")") : backgroundType === "gradient" ? gradientColor : "none", ";\n\n    ").concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(backgroundSize && backgroundSize !== "custom" ? "background-size: ".concat(backgroundSize, ";") : backgroundSize === "custom" ? "background-size: ".concat(bgImgCustomSize).concat(bgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(bgImgPos && bgImgPos !== "custom" ? "background-position: ".concat(bgImgPos, ";") : bgImgPos === "custom" ? "background-position: ".concat(bgImgcustomPosX).concat(bgImgcustomPosXUnit, " ").concat(bgImgcustomPosY).concat(bgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(bgImgAttachment ? "background-attachment: ".concat(bgImgAttachment, ";") : " ", "\n\n        ").concat(bgImgRepeat ? "background-repeat: ".concat(bgImgRepeat, ";") : " ", "\n        \n        ").concat(isBgOverly ? "\n              z-index: 2;\n              position: relative;\n            " : " ", "\t\n        ") : " ", "\n  \n\t\t").concat(backgroundColor ? "background-color: ".concat(backgroundColor, ";") : " ", "\n\n  ");
   var backgroundStylesTab = "\n    ".concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(TABbackgroundSize && TABbackgroundSize !== "custom" ? "background-size: ".concat(TABbackgroundSize, ";") : TABbackgroundSize === "custom" ? "background-size: ".concat(TABbgImgCustomSize).concat(TABbgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(TABbgImgPos && TABbgImgPos !== "custom" ? "background-position: ".concat(TABbgImgPos, ";") : TABbgImgPos === "custom" ? "background-position: ".concat(TABbgImgcustomPosX).concat(TABbgImgcustomPosXUnit, " ").concat(TABbgImgcustomPosY).concat(TABbgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(TABbgImgRepeat ? "background-repeat: ".concat(TABbgImgRepeat, ";") : " ", "\n\n        ") : " ", "\n\n    ").concat(backgroundType === "image" ? "background-attachment: scroll;" : " ", "\n\n  ");
   var backgroundStylesMobile = "\n    ".concat(backgroundType === "image" && bgImageURL ? "\n        ".concat(MOBbackgroundSize && MOBbackgroundSize !== "custom" ? "background-size: ".concat(MOBbackgroundSize, ";") : MOBbackgroundSize === "custom" ? "background-size: ".concat(MOBbgImgCustomSize).concat(MOBbgImgCustomSizeUnit, " auto;") : " ", "\n\n        ").concat(MOBbgImgPos && MOBbgImgPos !== "custom" ? "background-position: ".concat(MOBbgImgPos, ";") : MOBbgImgPos === "custom" ? "background-position: ".concat(MOBbgImgcustomPosX).concat(MOBbgImgcustomPosXUnit, " ").concat(MOBbgImgcustomPosY).concat(MOBbgImgcustomPosYUnit, ";") : " ", "\n\n        ").concat(MOBbgImgRepeat ? "background-repeat: ".concat(MOBbgImgRepeat, ";") : " ", "\n\n        ") : " ", "\n\n  ");
   var overlyStyles = "\n  \n    ".concat(backgroundType === "image" && isBgOverly ? "\n          content: \"\";\n          position: absolute;\n          top: 0;\n          bottom: 0;\n          right: 0;\n          left: 0;\n          z-index: -1;\n\n          ".concat(overlyType === "fill" ? "background-color: ".concat(overlyColor, ";") : overlyType === "gradient" ? "background-image: ".concat(overlyGradient, ";") : " ", "\n      ") : " ", "\n  \n  \n  ");
@@ -5598,7 +5763,7 @@ var generateBackgroundControlStyles = function generateBackgroundControlStyles(_
 }; // function to generate responsive range controller attributes for multiple range control based on the array of prefix
 
 var generateResponsiveRangeAttributes = function generateResponsiveRangeAttributes(controlName) {
-  var _objectSpread8;
+  var _objectSpread11;
 
   var defaultRange = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   var desktop = defaultRange ? _defineProperty({}, "".concat(controlName, "Range"), {
@@ -5611,17 +5776,17 @@ var generateResponsiveRangeAttributes = function generateResponsiveRangeAttribut
   var result = _objectSpread(_objectSpread(_defineProperty({}, "".concat(controlName, "Unit"), {
     type: "string",
     "default": "px"
-  }), desktop), {}, (_objectSpread8 = {}, _defineProperty(_objectSpread8, "TAB".concat(controlName, "Unit"), {
+  }), desktop), {}, (_objectSpread11 = {}, _defineProperty(_objectSpread11, "TAB".concat(controlName, "Unit"), {
     type: "string",
     "default": "px"
-  }), _defineProperty(_objectSpread8, "TAB".concat(controlName, "Range"), {
+  }), _defineProperty(_objectSpread11, "TAB".concat(controlName, "Range"), {
     type: "number"
-  }), _defineProperty(_objectSpread8, "MOB".concat(controlName, "Unit"), {
+  }), _defineProperty(_objectSpread11, "MOB".concat(controlName, "Unit"), {
     type: "string",
     "default": "px"
-  }), _defineProperty(_objectSpread8, "MOB".concat(controlName, "Range"), {
+  }), _defineProperty(_objectSpread11, "MOB".concat(controlName, "Range"), {
     type: "number"
-  }), _objectSpread8));
+  }), _objectSpread11));
 
   return _objectSpread({}, result);
 }; // function to generate responsive range control styles for an element based on it's prefix
@@ -5700,89 +5865,6 @@ var getBackgroundImage = function getBackgroundImage(type, gradientValue, imageU
       return "none";
   }
 };
-
-/***/ }),
-
-/***/ "./util/image-avatar/index.js":
-/*!************************************!*\
-  !*** ./util/image-avatar/index.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-var ImageAvatar = function ImageAvatar(_ref) {
-  var imageUrl = _ref.imageUrl,
-      onDeleteImage = _ref.onDeleteImage;
-
-  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      hover = _useState2[0],
-      setHover = _useState2[1];
-
-  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      deleteHover = _useState4[0],
-      setDeleteHover = _useState4[1];
-
-  var deleteButtonStyle = {
-    visibility: hover ? "visible" : "hidden",
-    backgroundColor: deleteHover ? "white" : "#64666a",
-    color: "#b4b5b7",
-    position: "absolute",
-    right: 34,
-    fontSize: 16,
-    alignSelf: "center",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 3,
-    cursor: "pointer"
-  };
-  return /*#__PURE__*/React.createElement("div", {
-    className: "image-avatar",
-    style: {
-      backgroundImage: "url(".concat(imageUrl, ")")
-    },
-    onMouseEnter: function onMouseEnter() {
-      return setHover(true);
-    },
-    onMouseLeave: function onMouseLeave() {
-      return setHover(false);
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "image-avatar-delete dashicons dashicons-trash",
-    onMouseEnter: function onMouseEnter() {
-      return setDeleteHover(true);
-    },
-    onMouseLeave: function onMouseLeave() {
-      return setDeleteHover(false);
-    },
-    style: deleteButtonStyle,
-    onClick: function onClick() {
-      return onDeleteImage();
-    }
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (ImageAvatar);
 
 /***/ }),
 

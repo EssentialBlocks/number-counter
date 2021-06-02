@@ -264,7 +264,10 @@ export default {
 		left: 10,
 	}),
 	// Background attributes ⬇
-	...generateBackgroundAttributes(WrapBg),
+	...generateBackgroundAttributes(WrapBg, {
+		isBgDefaultGradient: true,
+		defaultBgGradient: "linear-gradient(45deg,#7967ff,#c277f2)",
+	}),
 	// border & shadow attributes ⬇
 	...generateBorderShadowAttributes(wrpBdShadow),
 };
