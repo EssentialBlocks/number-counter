@@ -6,8 +6,6 @@ import { InspectorControls, MediaUpload } from "@wordpress/block-editor";
 import { useEffect } from "@wordpress/element";
 
 import {
-	ButtonGroup,
-	Button,
 	PanelBody,
 	ToggleControl,
 	TextControl,
