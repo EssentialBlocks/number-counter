@@ -610,6 +610,8 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   font-size: 14px;
   line-height: 23px;
   width: 16px;
+  z-index: 9999;
+  position: relative;
 }
 
 .typoResButton.active {
@@ -637,7 +639,7 @@ body.eb-res-option-mobile .editor-styles-wrapper {
   left: 83px;
 }
 
-.eb-panel-control .components-button-group {
+.eb-panel-control .components-button-group:not(.eb-unit-control-btn-group) {
   position: relative;
   z-index: 0;
 }
