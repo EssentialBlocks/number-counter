@@ -2,8 +2,8 @@
 Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
 Tags:              block, blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
 Requires at least: 5.6.0
-Tested up to:      5.7.0
-Stable tag:        1.0.0
+Tested up to:      5.8.0
+Stable tag:        1.0.1
 Requires PHP:      7.0.0
 License:           GPLv3 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
@@ -72,6 +72,10 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
+
+= 1.0.1 - 19/08/2021 =
+* Improved: Controls with latest version
+* Improved: Security for asset generation
 
 = 1.0.0 - 20/05/2021 =
 * Initial release
