@@ -28,7 +28,7 @@ require_once __DIR__ . '/lib/style-handler/style-handler.php';
 
 function create_block_counter_block_init()
 {
-	$dir = __DIR__;
+	$dir = dirname(__FILE__);
 
 	$script_asset_path = "$dir/build/index.asset.php";
 	if (!file_exists($script_asset_path)) {
@@ -36,15 +36,21 @@ function create_block_counter_block_init()
 			'You need to run `npm start` or `npm run build` for the "essential-blocks-separate/counter" block first.'
 		);
 	}
+
 	$index_js     = 'build/index.js';
-	$script_asset = require($script_asset_path);
 	wp_register_script(
 		'essential-blocks-separate-number-counter-editor',
 		plugins_url($index_js, __FILE__),
-		$script_asset['dependencies'],
-		$script_asset['version']
+		array(
+			'wp-blocks',
+			'wp-i18n',
+			'wp-element',
+			'wp-block-editor',
+			'wp-editor',
+		),
+		filemtime("$dir/$index_js")
 	);
-	wp_set_script_translations('essential-blocks-separate-number-counter-editor', 'counter');
+
 
 	$editor_css = 'build/index.css';
 	wp_register_style(
@@ -54,21 +60,13 @@ function create_block_counter_block_init()
 		filemtime("$dir/$editor_css")
 	);
 
-	$style_css = 'build/style-index.css';
-	wp_register_style(
-		'essential-blocks-separate-number-counter',
-		plugins_url($style_css, __FILE__),
-		array(),
-		filemtime("$dir/$style_css")
-	);
 
-	$frontend_js_path = include_once dirname(__FILE__). "/build/frontend.asset.php";
 	$frontend_js = "build/frontend.js";
 	wp_register_script(
 		'essential-blocks-counter-frontend',
 		plugins_url($frontend_js, __FILE__),
-		array_merge( array("jquery"), $frontend_js_path['dependencies'] ),
-		$frontend_js_path['version'],
+		array("jquery", "wp-editor"),
+		filemtime("$dir/$frontend_js"),
 		true
 	);
 
@@ -79,8 +77,12 @@ function create_block_counter_block_init()
 			array(
 				'editor_script' => 'essential-blocks-separate-number-counter-editor',
 				'editor_style'  => 'essential-blocks-separate-number-counter-editor',
-				'style'         => 'essential-blocks-separate-number-counter',
-				'script'        => 'essential-blocks-counter-frontend',
+				'render_callback' => function ($attribs, $content) {
+					if (!is_admin()) {
+						wp_enqueue_script('essential-blocks-counter-frontend');
+					}
+					return $content;
+				}
 			)
 		);
 	}

@@ -1,8 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
-import { RichText, useBlockProps } from "@wordpress/block-editor";
+const { __ } = wp.i18n;
+const { RichText, useBlockProps } = wp.blockEditor;
 
 /**
  * Internal dependencies

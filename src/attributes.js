@@ -2,11 +2,13 @@ import * as prefixObjs from "./constants/typographyPrefixConstants";
 import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
 import { WrapBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow } from "./constants/borderShadowConstants";
+import { rgNumTitle, rgNumPrefix, rgNumSuffix } from "./constants/rangeNames";
 import {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 	generateBackgroundAttributes,
 	generateBorderShadowAttributes,
+	generateResponsiveRangeAttributes,
 } from "../util/helpers";
 
 export default {
@@ -14,7 +16,7 @@ export default {
 	// responsive control attributes ⬇
 	resOption: {
 		type: "string",
-		default: "desktop",
+		default: "Desktop",
 	},
 
 	// blockId attribute for making unique className and other uniqueness ⬇
@@ -94,36 +96,36 @@ export default {
 		// default: "#3074ff",
 	},
 
-	// spacing attributes ⬇
-	gapNumTitle: {
-		type: "number",
-	},
-	gapNumPrefix: {
-		type: "number",
-	},
-	gapNumSuffix: {
-		type: "number",
-	},
+	// // spacing attributes ⬇
+	// gapNumTitle: {
+	// 	type: "number",
+	// },
+	// gapNumPrefix: {
+	// 	type: "number",
+	// },
+	// gapNumSuffix: {
+	// 	type: "number",
+	// },
 
-	TABgapNumTitle: {
-		type: "number",
-	},
-	TABgapNumPrefix: {
-		type: "number",
-	},
-	TABgapNumSuffix: {
-		type: "number",
-	},
+	// TABgapNumTitle: {
+	// 	type: "number",
+	// },
+	// TABgapNumPrefix: {
+	// 	type: "number",
+	// },
+	// TABgapNumSuffix: {
+	// 	type: "number",
+	// },
 
-	MOBgapNumTitle: {
-		type: "number",
-	},
-	MOBgapNumPrefix: {
-		type: "number",
-	},
-	MOBgapNumSuffix: {
-		type: "number",
-	},
+	// MOBgapNumTitle: {
+	// 	type: "number",
+	// },
+	// MOBgapNumPrefix: {
+	// 	type: "number",
+	// },
+	// MOBgapNumSuffix: {
+	// 	type: "number",
+	// },
 
 	// // background attributes ⬇
 	// backgroundType: {
@@ -262,6 +264,7 @@ export default {
 		bottom: 30,
 		right: 10,
 		left: 10,
+		isLinked: false,
 	}),
 	// Background attributes ⬇
 	...generateBackgroundAttributes(WrapBg, {
@@ -270,4 +273,11 @@ export default {
 	}),
 	// border & shadow attributes ⬇
 	...generateBorderShadowAttributes(wrpBdShadow),
+
+	// Responsive Range Controller attributes
+	...generateResponsiveRangeAttributes(rgNumTitle, {
+		defaultRange: 20,
+	}),
+	...generateResponsiveRangeAttributes(rgNumPrefix),
+	...generateResponsiveRangeAttributes(rgNumSuffix),
 };
