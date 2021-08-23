@@ -73,7 +73,7 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
-= 1.0.1 - 19/08/2021 =
+= 1.0.1 - 23/08/2021 =
 * Improved: Controls with latest version
 * Improved: Security for asset generation
 
