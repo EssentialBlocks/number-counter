@@ -1,34 +1,29 @@
-=== Counter Block ===
-Contributors: hz-tyfoon, wpdevteam
-Tags: block, blocks, counter, counter box, counter up, gutenberg, gutenberg blocks
-Requires at least: 5.0
-Tested up to: 5.6.1
-Stable tag: 1.0.0
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+=== Number Counter ===
+Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, hztyfoon
+Tags:              block, blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
+Requires at least: 5.6.0
+Tested up to:      5.8.0
+Stable tag:        1.0.1
+Requires PHP:      7.0.0
+License:           GPLv3 or later
+License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 
-Put spotlight on your statistics using animated Counter-Up for Gutenberg 
+
+Counter block written with ESNext standard and JSX support – build step required.
 
 == Description ==
 
-Using this **Counter** plugin, you can Put spotlight on your statistics and numbers.
+Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!
 
-**Completely Customizable:** You can customize the content, colors, etc to make it just the way you need.
-
-**Super Light-weight:** No extra resources used and it's highly optimized for super fast loading & instant Live editing.
-
-**Dedicated Support:** We’ve an extraordinary support team ready to help you. Ask your questions in the support forum, we’ll get back to you immediately.
-
-
-## 🚀 BACKED BY A TRUSTED TEAM ## 
+## 🚀 BACKED BY A TRUSTED TEAM ##
 
 This Block is brought to you by [WPDeveloper](https://wpdeveloper.net), the team behind the most popular elements library [Essential Addons for Elementor](https://wordpress.org/plugins/essential-addons-for-elementor-lite/) (used by almost 700,000 happy users from 180+ countries).
 
 ## 👨‍💻 DOCUMENTATION AND SUPPORT ##
 
 - For documentation and tutorials go to our [documentation](https://essential-blocks.com/docs/)
-- To report issue and contribution visit [Github](https://github.com/EssentialBlocks/counter-block).
-- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/counter-block).
+- To report issue and contribution visit [Github](https://github.com/EssentialBlocks/number-counter).
+- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/number-counter).
 - For more information about features, FAQs and documentation, check out our website at [WPDeveloper](https://wpdeveloper.net/).
 
 ## 🙌 JOIN THE COMMUNITY ##
@@ -37,7 +32,7 @@ This Block is brought to you by [WPDeveloper](https://wpdeveloper.net), the team
 
 🤝 Join our [Facebook Community](https://www.facebook.com/groups/wpdeveloper.net/) & get connected with expert web creators like yourself.
 
-🧡 LOVED Countdown Block? Rate us on [WordPress Repository](https://wordpress.org/support/plugin/counter-block/reviews/#new-post)
+🧡 LOVED Number Counter? Rate us on [WordPress Repository](https://wordpress.org/support/plugin/number-counter/reviews/#new-post)
 
 🔥 GET FREEBIES FOR YOUR WORDPRESS SITE
 
@@ -61,11 +56,11 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 
 = Modern Way: =
 1. Go to the WordPress Block/Gutenberg Editor
-2. Search For "Counter Block". 
+2. Search For "Number Counter".
 3. Install in 1-click
 
 = Old Way: =
-1. Upload `counter-block` to the `/wp-content/plugins/` directory
+1. Upload `number-counter` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Follow the [Documentation](https://essential-blocks.com/docs/)
 
@@ -76,13 +71,11 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 
 Yes, it will work with any standard WordPress theme.
 
-== Screenshots ==
-
-
 == Changelog ==
 
+= 1.0.1 - 23/08/2021 =
+* Improved: Controls with latest version
+* Improved: Security for asset generation
 
-= 1.0.0 =
-* Initial Release
-
-== Upgrade Counter ==
+= 1.0.0 - 20/05/2021 =
+* Initial release

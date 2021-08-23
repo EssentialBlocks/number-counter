@@ -1,5 +1,5 @@
 /**
- * WordPress depencencies
+ * WordPress dependeincies
  */
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -7,30 +7,34 @@ const { registerBlockType } = wp.blocks;
 /**
  * Internal dependencies
  */
-import Edit from "./components/edit";
-import Save from "./components/save";
-import attributes from "./attributes";
-import icon from "./icon";
-// import example from "./example";
+import Edit from "./edit";
+import save from "./save";
+import { CounterIcon } from "../util/icons";
+
+import metadata from "../block.json";
 import "./style.scss";
+import attributes from "./attributes";
 
-registerBlockType("block/counter-up-block", {
-	title: __("Counter Up", "block"),
+import example from "./example";
 
+const { name, category } = metadata;
+
+registerBlockType(name, {
+	apiVersion: 2,
+	title: __("Number Counter", "essential-blocks"),
+	icon: CounterIcon,
 	description: __(
-		"Put spotlight on your statistics using animated Counter-Up for Gutenberg ",
+		`Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!`,
 		"block"
 	),
-
-	category: "widgets",
-	icon,
+	category,
 	attributes,
 	keywords: [
-		__("EB counter up", "essential-blocks"),
-		__("counter up", "essential-blocks"),
+		__("EB number counter", "essential-blocks"),
 		__("counter", "essential-blocks"),
+		__("counter up", "essential-blocks"),
 	],
 	edit: Edit,
-	save: Save,
-	// example: example,
+	save,
+	example: example,
 });

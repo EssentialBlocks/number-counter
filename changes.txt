@@ -1,0 +1,73 @@
+1) crated 'randomNumber' attribute in attributes.js with no default value (it's important not to give it a default value) to make unique className of the block's wrapper(main parent div, not EB's wrapper block)
+
+2) in edit.js inside useEffect with empty array [] as dependency created a unique randomNumber for that randomNumber attribute once by using 'setAttributes' & 'generateRandomNumber' function from helpers.js once, which will make sure the unique randomNumber is generated only once not on every render or reload. it makes sure that this randomNumber does not change on every reload by checking if the default value is empty or not (which will be empty only at the very first time) but once setAttributes is runned it's no longer empty, so it never changes again on reload. during this it also checks if there are any other same className with the same randomNumber in the DOM and if there are, then the 'randomNumber' changes which is only useful when user duplicate or copy-paste a block. Because during duplication there will be a randomNumber attribute with a value (not empty) in that block's attributes(states).
+
+3) the unique 'randomNumber' then received in edit.js & save.js as an attribute from 'attributes' prop to make a unique className beside the one that is being used.
+
+4) then there's a '<style>' tag in edit.js and save.js before the html(JSX) markup and using the unique className theres styles written inside the '<style>' tag.
+
+0.1) now we can easily write media-quieries inside that style tag and there we can use different attributes for styles in different screensize. 
+
+0.2) we can also take one attribute for one set of styles and parse that attribute to make different styles similar to what we did for "gradientColor" attribute and it's functionality in new gradient-controller 
+or 
+we can take three attributes for every single styles that need responsive options for three screen size (desktop,tab, mobile)
+currently doing the latter. and it's important not to use any default value for most of the style attributes for mobile & tab in attributes.js except (style units like px,em,rem,vw etc.) because we don't want any dafault styles for tab/mobile if user's not decided to give styles for tab/mobile 
+
+---------------------------------------------------
+(these following 2 things are fixs not workflow/pattern of how the responsive created)
+1) fixed error on leaving the block and clicking another block by using "if statement" instead of "&&" inside 'useEffect' in inspector.js which returned a boolean(actually it can return undefined) causing error on leaving the block.
+
+2) changed the 'randomNumber' attribute 'type' to 'number' from 'string' in attributes.js so that it doesn't ask for 'attempt block recovery' every time on reload
+changed default spacing attributes value to in attributes.js 
+---------------------------------------------------
+
+applied responsive on colors in both edit & save
+need to take an attribute to see which button of the 3 buttons (desktop,tab,mobile) is active (clicked) throughout inspector and edit.js so that we can reduce the width of edit page (.edit-post-visual-editor.editor-styles-wrapper) on tab and mobile when respective button is clicked and mimmik the css in edit.js based on that attribute (resOption). which will also tell us which button is clicked. in this case we won't need media queries for edit.js only for save.js(frontend).
+-----
+also added a unique class in the body tag for each responsive buttons click (desktop/tab/mobile) of the edit page when user clicks any of the three responsive buttons (i.e. eb-res-option-desktop/eb-res-option-tab/eb-res-option-mobile). that class is ued both for reducing the editor page with css in style.scss and it also makes it when user clciks different blocks when editing a page the width don't get reset to desktop. it's used in the useEffect on [] dependency of edit.js where it checks the body classes and set the resOption attribute to appropiate value.
+
+----2021_03_08_19_09-----
+
+in edit.js some attributes fallback value given on destructure so they don't get undefined in css. little ghataghati 'wp.data' in js
+
+in inspector.js hover shadowcolor fallen back to shadowcolor as it's more logical
+
+in save.js shadow attributes fallen back to a value when undefined and made hover shadow with css in frontend rather that js data-attributes in frontend.js.
+
+in frontend.js all shadow hover data commented as they're no longer needed.
+
+-------------------
+2021-03-11 12-57
+
+runned 
+    git submodule update --init
+    git submodule update --init --recursive
+    git submodule update --recursive --remote
+
+----------------
+2021-03-17 16-16
+
+1) changed body class parsing to 'regex' from 'multiple if statements' in useEffect of edit.js and inspector.js to set 'resOption' attribute to appropiate value
+
+2) in 'useBlockProps' in edit.js -> changed blockWrapper div class to "eb-guten-block-main-parrent-wrapper" to use this class on every signle EB block for responsive uses
+
+3) used regex test in edit.js checking of the bodyClass Containing 'eb-res-option' 
+
+4) previous commit: css mimmiking on responsive buttons clicking responsible codes moved to edit.js from frontend.js 
+
+----------------------
+2021-03-18 03-21
+
+1) edit.js and save.js styling pattern made same. 
+only difference is in edit.js all the mobile styles attributes fallen back to tab styles in case of undefined during destructuring from attributes prop. 
+this fallBack was done because when user will click mobile button the mimmikcss will not work properly otherwise. take this example, suppose user choose color red for desktop and color green for tab and no color for mobile. now user clicked on mobile button. now in mobile preview the tab color should be shown. If the mobile color not fallen back to tab color then tab color won't show for the mobile preview. because in that scenario there won't be any color in the mobile's media query. so, the color will be shown from desktop's color. which is not right, cause it should show tab's color.
+
+2) in rangeController values 0 made acceptable by using 'hasVal' function from helpers.js 
+
+3) many attributes default value removed to make less css codes
+
+4) in typography component many select-options first value made to 'default' rather than an actual typography style value like elementor's typography options to remove confusion 
+
+5) in inspector.js bodyClass checked if exists or not before setting resOption attributes to a value based of the className. It's useful in case of block breaking and 'attempt block recovery' situation. without this checking of bodyClass there will be an error if 'attempt block recovery' happens.  
+
+6) renamed 'randomNumber' attribute to 'uniqueIdNumber'
