@@ -4,7 +4,7 @@
  * Plugin Name:     Number Counter
  * Plugin URI: 		https://essential-blocks.com
  * Description:     Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!
- * Version:         1.0.1
+ * Version:         1.0.2
  * Author:          WPDeveloper
  * Author URI: 		https://wpdeveloper.net
  * License:         GPLv3 or later
@@ -21,64 +21,116 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
 
+define('NUMBER_COUNTER_BLOCK_VERSION', "1.1.0");
+define('NUMBER_COUNTER_BLOCK_ADMIN_URL', plugin_dir_url(__FILE__));
+define('NUMBER_COUNTER_BLOCK_ADMIN_PATH', dirname(__FILE__));
 
 require_once __DIR__ . '/includes/font-loader.php';
 require_once __DIR__ . '/includes/post-meta.php';
+require_once __DIR__ . '/includes/helpers.php';
 require_once __DIR__ . '/lib/style-handler/style-handler.php';
 
 function number_counter_init()
 {
-	$dir = dirname(__FILE__);
 
-	$script_asset_path = "$dir/build/index.asset.php";
+	$script_asset_path = NUMBER_COUNTER_BLOCK_ADMIN_PATH . "/dist/index.asset.php";
 	if (!file_exists($script_asset_path)) {
 		throw new Error(
-			'You need to run `npm start` or `npm run build` for the "essential-blocks-separate/counter" block first.'
+			'You need to run `npm start` or `npm run build` for the "number-counter/number-counter" block first.'
 		);
 	}
+	$script_asset = require($script_asset_path);
+	$all_dependencies = array_merge($script_asset['dependencies'], array(
+		'wp-blocks',
+		'wp-i18n',
+		'wp-element',
+		'wp-block-editor',
+		'number-counter-block-controls-util',
+	));
 
-	$index_js     = 'build/index.js';
+	$index_js     = NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/index.js';
 	wp_register_script(
 		'essential-blocks-separate-number-counter-editor',
-		plugins_url($index_js, __FILE__),
-		array(
-			'wp-blocks',
-			'wp-i18n',
-			'wp-element',
-			'wp-block-editor',
-			'wp-editor',
-		),
-		filemtime("$dir/$index_js")
-	);
-
-
-	$editor_css = 'build/index.css';
-	wp_register_style(
-		'essential-blocks-separate-number-counter-editor',
-		plugins_url($editor_css, __FILE__),
-		array(),
-		filemtime("$dir/$editor_css")
-	);
-
-
-	$frontend_js = "build/frontend.js";
-	wp_register_script(
-		'essential-blocks-counter-frontend',
-		plugins_url($frontend_js, __FILE__),
-		array("jquery", "wp-editor"),
-		filemtime("$dir/$frontend_js"),
+		$index_js,
+		$all_dependencies,
+		$script_asset['version'],
 		true
 	);
 
 
-	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/counter')) {
+	$frontend_js = NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/frontend/index.js';
+	wp_register_script(
+		'essential-blocks-counter-frontend',
+		$frontend_js,
+		array(),
+		NUMBER_COUNTER_BLOCK_VERSION,
+		true
+	);
+
+	// 
+	// 
+	$controls_dependencies = require NUMBER_COUNTER_BLOCK_ADMIN_PATH . '/dist/controls.asset.php';
+
+	wp_register_script(
+		"number-counter-block-controls-util",
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.js',
+		array_merge($controls_dependencies['dependencies'], array("essential-blocks-edit-post")),
+		$controls_dependencies['version'],
+		true
+	);
+
+	wp_localize_script('number-counter-block-controls-util', 'EssentialBlocksLocalize', array(
+		'eb_wp_version' => (float) get_bloginfo('version'),
+		'rest_rootURL' => get_rest_url(),
+	));
+
+
+	wp_register_style(
+		'fontpicker-default-theme',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/assets/css/fonticonpicker.base-theme.react.css',
+		array(),
+		NUMBER_COUNTER_BLOCK_VERSION,
+		"all"
+	);
+
+	wp_register_style(
+		'fontpicker-matetial-theme',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/assets/css/fonticonpicker.material-theme.react.css',
+		array(),
+		NUMBER_COUNTER_BLOCK_VERSION,
+		"all"
+	);
+
+
+	wp_register_style(
+		'fontawesome-frontend-css',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/assets/css/font-awesome5.css',
+		array(),
+		NUMBER_COUNTER_BLOCK_VERSION,
+		"all"
+	);
+
+	wp_register_style(
+		'number-counter-editor-css',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.css',
+		array(
+			'fontawesome-frontend-css',
+			'fontpicker-default-theme',
+			'fontpicker-matetial-theme',
+		),
+		$controls_dependencies['version'],
+		'all'
+	);
+
+	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/number-counter')) {
 		register_block_type(
-			'number-counter/number-counter',
+			Number_Counter_Helper::get_block_register_path("number-counter/number-counter", NUMBER_COUNTER_BLOCK_ADMIN_PATH),
 			array(
 				'editor_script' => 'essential-blocks-separate-number-counter-editor',
-				'editor_style'  => 'essential-blocks-separate-number-counter-editor',
-				'render_callback' => function ($attribs, $content) {
+				'editor_style' 	=> 'number-counter-editor-css',
+				'render_callback' => function ($attributes, $content) {
 					if (!is_admin()) {
+						wp_enqueue_style('fontawesome-frontend-css');
 						wp_enqueue_script('essential-blocks-counter-frontend');
 					}
 					return $content;
@@ -87,4 +139,5 @@ function number_counter_init()
 		);
 	}
 }
+
 add_action('init', 'number_counter_init');
