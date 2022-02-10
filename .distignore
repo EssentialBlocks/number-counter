@@ -51,3 +51,4 @@ src
 util
 .wordpress-org
 changes.txt
+dist/*.*.map

@@ -1,16 +1,16 @@
 /**
  * WordPress dependencies
  */
-const { useBlockProps, RichText } = wp.blockEditor;
-const { useEffect, useRef } = wp.element;
-
-const { select } = wp.data;
+import { __ } from "@wordpress/i18n";
+import { useEffect, useRef } from "@wordpress/element";
+import { useBlockProps, RichText, MediaUpload } from "@wordpress/block-editor";
+import { Button } from "@wordpress/components";
+import { select } from "@wordpress/data";
 
 /**
  * Internal dependencies
  */
-
-import "./editor.scss";
+ import classnames from "classnames";
 
 import Inspector from "./inspector";
 import {
@@ -19,27 +19,62 @@ import {
 	typoPrefix_numPrefix,
 	typoPrefix_numSuffix,
 } from "./constants/typographyPrefixConstants";
-import { wrapperPadding, wrapperMargin } from "./constants/dimensionsConstants";
+import {
+	wrapperPadding,
+	wrapperMargin,
+	mediaBgPadding,
+	mediaBgMargin,
+	mediaBgRadius,
+} from "./constants/dimensionsConstants";
 
 import { WrapBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow } from "./constants/borderShadowConstants";
-import { rgNumTitle, rgNumPrefix, rgNumSuffix } from "./constants/rangeNames";
+
 import {
+	rgNumTitle,
+	rgNumPrefix,
+	rgNumSuffix,
+
+	//
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+	mediaContentGap,
+} from "./constants/rangeNames";
+
+// import {
+// 	textInsideForEdit,
+// 	softMinifyCssStrings,
+// 	generateDimensionsControlStyles,
+// 	generateTypographyStyles,
+// 	generateBackgroundControlStyles,
+// 	generateBorderShadowStyles,
+// 	generateResponsiveRangeStyles,
+// 	mimmikCssForPreviewBtnClick,
+// 	duplicateBlockIdFix,
+// } from "../../../util/helpers";
+
+const {
+	//
 	textInsideForEdit,
 	softMinifyCssStrings,
-	hasVal,
-	isCssExists,
 	generateDimensionsControlStyles,
 	generateTypographyStyles,
 	generateBackgroundControlStyles,
 	generateBorderShadowStyles,
 	generateResponsiveRangeStyles,
-	mimmikCssForPreviewBtnClick,
+	// mimmikCssForPreviewBtnClick,
 	duplicateBlockIdFix,
-} from "../util/helpers";
+} = window.EBNumberCounterControls;
+
+const editorStoreForGettingPreivew =
+	eb_style_handler.editor_type === "edit-site"
+		? "core/edit-site"
+		: "core/edit-post";
+
 
 const Edit = (props) => {
-	const { isSelected, attributes, setAttributes, clientId } = props;
+	const { isSelected, attributes, setAttributes, className, clientId } = props;
 
 	const {
 		// responsive control attributes ⬇
@@ -68,49 +103,38 @@ const Edit = (props) => {
 		numPrefixColor,
 		numSuffixColor,
 
-		// spacing attributes ⬇
-		gapNumTitle = 20,
-		gapNumPrefix,
-		gapNumSuffix,
+		//
+		[`${mediaImageWidth}Unit`]: mediaImgWidthUnit,
+		[`TAB${mediaImageWidth}Unit`]: TABmediaImgWidthUnit,
+		[`MOB${mediaImageWidth}Unit`]: MOBmediaImgWidthUnit,
 
-		TABgapNumTitle,
-		TABgapNumPrefix,
-		TABgapNumSuffix,
+		//
+		rootFlexDirection,
+		contentAlignment,
+		mediaAlignSelf,
+		contentsAlignSelf,
 
-		MOBgapNumTitle,
-		MOBgapNumPrefix,
-		MOBgapNumSuffix,
+		//
+		media,
+		selectedIcon,
+		useIconBg,
+		iconBgType,
+		imageUrl,
+		imageId,
 
-		// // background attributes ⬇
-		// backgroundType,
-		// imageURL,
-		// gradientColor,
-		// backgroundSize,
-		// backgroundColor,
+		//
+		iconColor,
+		iconBgColor,
+		iconBgGradient,
+		isMediaImgHeightAuto,
 
-		// // border attributes ⬇
-		// borderWidth,
-		// borderStyle,
-		// borderColor,
-		// borderRadius,
-		// radiusUnit,
-
-		// // shadow attributes  ⬇
-		// shadowColor,
-		// hOffset = 0,
-		// vOffset = 0,
-		// blur = 0,
-		// spread = 0,
-		// inset,
-
-		// hoverShadowColor = shadowColor,
-		// hoverHOffset = hOffset,
-		// hoverVOffset = vOffset,
-		// hoverBlur = blur,
-		// hoverSpread = spread,
-
-		// // transition attributes ⬇
-		// wrapperTransitionTime,
+		//
+		mIconZUnit,
+		mIconZRange,
+		TABmIconZUnit,
+		TABmIconZRange,
+		MOBmIconZUnit,
+		MOBmIconZRange,
 	} = attributes;
 
 	const counterRef = useRef(null);
@@ -155,18 +179,15 @@ const Edit = (props) => {
 		};
 	};
 
-	useEffect(() => CounterAnimation(), [
-		target,
-		duration,
-		startValue,
-		separator,
-		isShowSeparator,
-	]);
+	useEffect(
+		() => CounterAnimation(),
+		[target, duration, startValue, separator, isShowSeparator]
+	);
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
 		setAttributes({
-			resOption: select("core/edit-post").__experimentalGetPreviewDeviceType(),
+			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
 		});
 	}, []);
 
@@ -182,23 +203,23 @@ const Edit = (props) => {
 		});
 	}, []);
 
-	// this useEffect is for mimmiking css when responsive options clicked from wordpress's 'preview' button
-	useEffect(() => {
-		mimmikCssForPreviewBtnClick({
-			domObj: document,
-			select,
-		});
-	}, []);
+	// // this useEffect is for mimmiking css when responsive options clicked from wordpress's 'preview' button
+	// useEffect(() => {
+	// 	mimmikCssForPreviewBtnClick({
+	// 		domObj: document,
+	// 		select,
+	// 	});
+	// }, []);
 
 	const blockProps = useBlockProps({
-		className: `eb-guten-block-main-parent-wrapper`,
+		className: classnames(className, `eb-guten-block-main-parent-wrapper`),
 	});
 
 	//
 	// CSS/styling Codes Starts from Here
 	//
-	// function to generate typography styles for an element based on it's prefix
 
+	// styles for generateTypographyStyles starts ⬇
 	const {
 		typoStylesDesktop: titleTypoStylesDesktop,
 		typoStylesTab: titleTypoStylesTab,
@@ -237,6 +258,9 @@ const Edit = (props) => {
 		prefixConstant: typoPrefix_numSuffix,
 	});
 
+	// styles for generateTypographyStyles end
+	// styles for generateDimensionsControlStyles starts ⬇
+
 	const {
 		dimensionStylesDesktop: wrapperMarginStylesDesktop,
 		dimensionStylesTab: wrapperMarginStylesTab,
@@ -258,6 +282,39 @@ const Edit = (props) => {
 	});
 
 	const {
+		dimensionStylesDesktop: mediaBgPaddingDesktop,
+		dimensionStylesTab: mediaBgPaddingTab,
+		dimensionStylesMobile: mediaBgPaddingMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: mediaBgPadding,
+		styleFor: "padding",
+	});
+
+	const {
+		dimensionStylesDesktop: mediaRadiusStylesDesktop,
+		dimensionStylesTab: mediaRadiusStylesTab,
+		dimensionStylesMobile: mediaRadiusStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: mediaBgRadius,
+		styleFor: "border-radius",
+	});
+
+	const {
+		dimensionStylesDesktop: mediaBgMarginStylesDesktop,
+		dimensionStylesTab: mediaBgMarginStylesTab,
+		dimensionStylesMobile: mediaBgMarginStylesMobile,
+	} = generateDimensionsControlStyles({
+		attributes,
+		controlName: mediaBgMargin,
+		styleFor: "margin",
+	});
+
+	// styles for generateDimensionsControlStyles end
+	// styles for generateBackgroundControlStyles starts ⬇
+
+	const {
 		backgroundStylesDesktop,
 		hoverBackgroundStylesDesktop,
 		backgroundStylesTab,
@@ -270,10 +327,15 @@ const Edit = (props) => {
 		hoverOverlayStylesTab,
 		overlayStylesMobile,
 		hoverOverlayStylesMobile,
+		bgTransitionStyle,
+		ovlTransitionStyle,
 	} = generateBackgroundControlStyles({
 		attributes,
 		controlName: WrapBg,
 	});
+
+	// styles for generateBackgroundControlStyles end
+	// styles for generateBorderShadowStyles starts ⬇
 
 	const {
 		styesDesktop: bdShadowStyesDesktop,
@@ -282,8 +344,54 @@ const Edit = (props) => {
 		stylesHoverDesktop: bdShadowStylesHoverDesktop,
 		stylesHoverTab: bdShadowStylesHoverTab,
 		stylesHoverMobile: bdShadowStylesHoverMobile,
+		transitionStyle: bdShadowTransitionStyle,
 	} = generateBorderShadowStyles({
 		controlName: wrpBdShadow,
+		attributes,
+	});
+
+	// styles for generateBorderShadowStyles end
+	// styles for generateResponsiveRangeStyles starts ⬇
+
+	const {
+		rangeStylesDesktop: iconSizeDesktop,
+		rangeStylesTab: iconSizeTab,
+		rangeStylesMobile: iconSizeMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaIconSize,
+		customUnit: "px",
+		property: "font-size",
+		attributes,
+	});
+
+	const {
+		rangeStylesDesktop: contentMediaGapDesktop,
+		rangeStylesTab: contentMediaGapTab,
+		rangeStylesMobile: contentMediaGapMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaContentGap,
+		customUnit: "px",
+		property: "gap",
+		attributes,
+	});
+
+	const {
+		rangeStylesDesktop: mediaImgHeightDesktop,
+		rangeStylesTab: mediaImgHeightTab,
+		rangeStylesMobile: mediaImgHeightMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaImageHeight,
+		property: "height",
+		attributes,
+	});
+
+	const {
+		rangeStylesDesktop: mediaImgWidthDesktop,
+		rangeStylesTab: mediaImgWidthTab,
+		rangeStylesMobile: mediaImgWidthMobile,
+	} = generateResponsiveRangeStyles({
+		controlName: mediaImageWidth,
+		property: "width",
 		attributes,
 	});
 
@@ -317,6 +425,8 @@ const Edit = (props) => {
 		attributes,
 	});
 
+	// styles for generateResponsiveRangeStyles end
+
 	const wrapperStylesDesktop = `
 
 	.eb-counter-wrapper.${blockId} .eb-counter-title,
@@ -330,19 +440,29 @@ const Edit = (props) => {
 	}	
 
 	.eb-counter-wrapper.${blockId}{
-		text-align: center;
+		overflow:hidden;
 		display: flex;
-
+		flex-direction:${rootFlexDirection};
+		${media !== "none" ? `${contentMediaGapDesktop}` : ""}
 		${wrapperMarginStylesDesktop}
 		${wrapperPaddingStylesDesktop}
-		
-		${numTitleGapDesktop}
-		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
-	
 		${backgroundStylesDesktop}
 		${bdShadowStyesDesktop}
+		transition:${bgTransitionStyle}, ${bdShadowTransitionStyle};
 	}
 
+	.eb-counter-wrapper.${blockId} .counter-contents-wrapper{
+		display:flex;
+		flex:1;
+		text-align: ${contentAlignment || "center"};
+		${
+			contentsAlignSelf && media !== "none"
+				? `justify-content:${contentsAlignSelf};`
+				: ""
+		}
+		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
+		${numTitleGapDesktop}
+	}
 
 	.eb-counter-wrapper.${blockId}:hover{	
 		${hoverBackgroundStylesDesktop}
@@ -351,23 +471,119 @@ const Edit = (props) => {
 	
 	.eb-counter-wrapper.${blockId}:before{
 		${overlayStylesDesktop}
+		transition:${ovlTransitionStyle};
 	}
 	
 	.eb-counter-wrapper.${blockId}:hover:before{
 		${hoverOverlayStylesDesktop}
 	}
 
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
+		${numberTypoStylesDesktop}
+		${numberColor ? ` color : ${numberColor};` : " "}
+		${numPrefixGapDesktop}
+		${numSuffixGapDesktop}
+	}
+
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
+		${titleTypoStylesDesktop}
+		${titleColor ? `color : ${titleColor};` : " "}
+	}
+
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
+		${numPrefixTypoStylesDesktop}
+		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
+	}
+
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
+		${numSuffixTypoStylesDesktop}
+		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
+	}
+
+
+
+	${
+		media !== "none"
+			? `
+			.eb-counter-wrapper.${blockId} .icon-img-wrapper {
+				align-self: ${mediaAlignSelf};
+				${mediaBgMarginStylesDesktop}
+			}
+
+			${
+				media === "image"
+					? `
+
+					.eb-counter-wrapper.${blockId} .icon-img-wrapper{
+						${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
+					}
+					
+					.eb-counter-wrapper.${blockId} .icon-img-wrapper img {
+						
+						${imageUrl ? mediaRadiusStylesDesktop : " "}
+						
+						${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
+						${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
+						
+					}
+
+					.eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
+						${imageUrl ? " " : mediaRadiusStylesDesktop}
+					}
+					`
+					: " "
+			}
+
+			${
+				media === "icon"
+					? `
+				.eb-counter-wrapper.${blockId} .eb-icon {
+								
+					${mediaBgPaddingDesktop}
+					${mediaRadiusStylesDesktop}
+
+					${
+						useIconBg
+							? `${
+									iconBgType === "fill"
+										? `background-color: ${iconBgColor};`
+										: iconBgType === "gradient"
+										? `background-image: ${iconBgGradient};`
+										: " "
+							  }`
+							: " "
+					}						
+					
+				}
+
+				.eb-counter-wrapper.${blockId} .eb-icon > span{
+					color: ${iconColor || "#fff"};
+				}
+
+				.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
+					${iconSizeDesktop}
+					height:${mIconZRange}${mIconZUnit};
+					width:${mIconZRange}${mIconZUnit};
+					display:flex;
+					justify-content:center;
+					align-items:center;
+				}
+
+				`
+					: ""
+			}
+			`
+			: " "
+	}
 	`;
 
 	const wrapperStylesTab = `
 	.eb-counter-wrapper.${blockId}{
+		${media !== "none" ? `${contentMediaGapTab}` : ""}
 		${wrapperMarginStylesTab}
 		${wrapperPaddingStylesTab}
 		${backgroundStylesTab}
 		${bdShadowStyesTab}
-
-		${numTitleGapTab}
-				
 	}
 
 	.eb-counter-wrapper.${blockId}:hover{		
@@ -378,23 +594,111 @@ const Edit = (props) => {
 	.eb-counter-wrapper.${blockId}:before{
 		${overlayStylesTab}
 	}
-	
+
 	.eb-counter-wrapper.${blockId}:hover:before{
 		${hoverOverlayStylesTab}
+	}
+
+	.eb-counter-wrapper.${blockId} .counter-contents-wrapper{
+		${numTitleGapTab}
+	}
+
+	.eb-counter-wrapper.${blockId} .eb-counter-number{
+		${numberTypoStylesTab}
+		${numPrefixGapTab}
+		${numSuffixGapTab}
+	} 
+
+	.eb-counter-wrapper.${blockId} .eb-counter-title{
+		${titleTypoStylesTab}
+	} 
+
+	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
+		${numPrefixTypoStylesTab}
+	}  
+
+	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
+		${numSuffixTypoStylesTab}
+	} 
+
+
+	${
+		media !== "none"
+			? `
+
+			.eb-counter-wrapper.${blockId} .icon-img-wrapper {
+				${mediaBgMarginStylesTab}				
+			}
+			
+			${
+				media === "icon"
+					? `
+				
+					.eb-counter-wrapper.${blockId} .eb-icon {
+						${mediaRadiusStylesTab}
+						${mediaBgPaddingTab}				
+					}
+					
+					.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
+						${iconSizeTab}
+						${TABmIconZRange ? `height:${TABmIconZRange}${TABmIconZUnit};` : ""}
+						${TABmIconZRange ? `width:${TABmIconZRange}${TABmIconZUnit};` : ""}
+					}
+				
+				`
+					: " "
+			}
+
+			
+			${
+				media === "image"
+					? `
+						
+				.eb-counter-wrapper.${blockId} .icon-img-wrapper{
+					${
+						TABmediaImgWidthUnit === "%"
+							? mediaImgWidthTab
+							: mediaImgWidthUnit === "%"
+							? `width: auto;`
+							: " "
+					}
+				}
+
+				.eb-counter-wrapper.${blockId} .icon-img-wrapper img {
+					
+					${
+						TABmediaImgWidthUnit === "%"
+							? mediaImgWidthUnit === "%"
+								? " "
+								: `width: 100%;`
+							: mediaImgWidthTab
+					}
+					
+					${isMediaImgHeightAuto ? "" : mediaImgHeightTab}
+					
+				}
+
+				.eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
+					${mediaRadiusStylesTab}
+
+				}
+				
+				`
+					: " "
+			}
+		`
+			: " "
 	}
 
 	`;
 
 	const wrapperStylesMobile = `
 	.eb-counter-wrapper.${blockId}{
+		${media !== "none" ? `${contentMediaGapMobile}` : ""}
 		${wrapperMarginStylesMobile}
 		${wrapperPaddingStylesMobile}
 		${backgroundStylesMobile}
 		${bdShadowStyesMobile}
-
-		${numTitleGapMobile}
-
-		
 	}
 	
 	.eb-counter-wrapper.${blockId}:hover{		
@@ -410,113 +714,113 @@ const Edit = (props) => {
 		${hoverOverlayStylesMobile}
 	}
 
-	`;
-
-	const numberStylesDesktop = `
-	.eb-counter-wrapper.${blockId} .eb-counter-number{
-		${numberTypoStylesDesktop}
-		${numberColor ? ` color : ${numberColor};` : " "}
-		
-		${numPrefixGapDesktop}
-		${numSuffixGapDesktop}
-		
+	.eb-counter-wrapper.${blockId} .counter-contents-wrapper{
+		${numTitleGapMobile}
 	}
-	`;
 
-	const numberStylesTab = `
-	.eb-counter-wrapper.${blockId} .eb-counter-number{
-		${numberTypoStylesTab}	
-			
-		${numPrefixGapTab}
-		${numSuffixGapTab}
-
-	} `;
-
-	const numberStylesMobile = `
 	.eb-counter-wrapper.${blockId} .eb-counter-number{
 		${numberTypoStylesMobile}
-		
 		${numPrefixGapMobile}
 		${numSuffixGapMobile}
-
-	}`;
-
-	const titleStylesDesktop = `
-	.eb-counter-wrapper.${blockId} .eb-counter-title{
-		${titleTypoStylesDesktop}
-		${titleColor ? `color : ${titleColor};` : " "}
 	}
-	`;
 
-	const titleStylesTab = `
-	.eb-counter-wrapper.${blockId} .eb-counter-title{
-		${titleTypoStylesTab}
-	}  `;
-
-	const titleStylesMobile = `
 	.eb-counter-wrapper.${blockId} .eb-counter-title{
 		${titleTypoStylesMobile}
-	} `;
+	} 
 
-	const numPrefixStylesDesktop = `
-	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
-		${numPrefixTypoStylesDesktop}
-		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
-	}
-	`;
-
-	const numPrefixStylesTab = `
-	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
-		${numPrefixTypoStylesTab}
-	}  `;
-
-	const numPrefixStylesMobile = `
 	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
 		${numPrefixTypoStylesMobile}
-	}  `;
+	}  
 
-	const numSuffixStylesDesktop = `
-	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
-		${numSuffixTypoStylesDesktop}
-		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
-	}
-	`;
-
-	const numSuffixStylesTab = `
-	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
-		${numSuffixTypoStylesTab}
-	} `;
-
-	const numSuffixStylesMobile = `
 	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
 		${numSuffixTypoStylesMobile}
 	}
 
+
+
+	${
+		media !== "none"
+			? `
+
+			.eb-counter-wrapper.${blockId} .icon-img-wrapper {
+				${mediaBgMarginStylesMobile}				
+			}
+			
+			${
+				media === "icon"
+					? `
+				
+					.eb-counter-wrapper.${blockId} .eb-icon {
+						${mediaRadiusStylesMobile}
+						${mediaBgPaddingMobile}				
+					}
+					
+					.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
+						${iconSizeMobile}
+						${MOBmIconZRange ? `height:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
+						${MOBmIconZRange ? `width:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
+					}
+				
+				`
+					: " "
+			}
+
+			
+			${
+				media === "image"
+					? `
+						
+				.eb-counter-wrapper.${blockId} .icon-img-wrapper{
+					${
+						MOBmediaImgWidthUnit === "%"
+							? mediaImgWidthMobile
+							: mediaImgWidthUnit === "%"
+							? `width: auto;`
+							: " "
+					}
+				}
+
+				.eb-counter-wrapper.${blockId} .icon-img-wrapper img {
+					
+					${
+						MOBmediaImgWidthUnit === "%"
+							? mediaImgWidthUnit === "%"
+								? " "
+								: `width: 100%;`
+							: mediaImgWidthMobile
+					}
+					
+					${isMediaImgHeightAuto ? "" : mediaImgHeightMobile}
+					
+				}
+
+				.eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
+					${mediaRadiusStylesMobile}
+
+				}
+				
+				`
+					: " "
+			}
+		`
+			: " "
+	}
+
+
+
 	`;
 
-	const desktopAllStyles = `
-		${isCssExists(wrapperStylesDesktop) ? wrapperStylesDesktop : " "}
-		${isCssExists(numberStylesDesktop) ? numberStylesDesktop : " "}
-		${isCssExists(titleStylesDesktop) ? titleStylesDesktop : " "}
-		${isCssExists(numPrefixStylesDesktop) ? numPrefixStylesDesktop : " "}
-		${isCssExists(numSuffixStylesDesktop) ? numSuffixStylesDesktop : " "}
-	`;
+	const desktopAllStyles = softMinifyCssStrings(`
+		${wrapperStylesDesktop}
+	`);
 
-	const tabAllStyles = `
-		${isCssExists(wrapperStylesTab) ? wrapperStylesTab : " "}
-		${isCssExists(numberStylesTab) ? numberStylesTab : " "}
-		${isCssExists(titleStylesTab) ? titleStylesTab : " "}
-		${isCssExists(numPrefixStylesTab) ? numPrefixStylesTab : " "}
-		${isCssExists(numSuffixStylesTab) ? numSuffixStylesTab : " "}
-	`;
+	const tabAllStyles = softMinifyCssStrings(`
+		${wrapperStylesTab}
+	`);
 
-	const mobileAllStyles = `
-		${isCssExists(wrapperStylesMobile) ? wrapperStylesMobile : " "}
-		${isCssExists(numberStylesMobile) ? numberStylesMobile : " "}
-		${isCssExists(titleStylesMobile) ? titleStylesMobile : " "}
-		${isCssExists(numPrefixStylesMobile) ? numPrefixStylesMobile : " "}
-		${isCssExists(numSuffixStylesMobile) ? numSuffixStylesMobile : " "}
-	`;
+	const mobileAllStyles = softMinifyCssStrings(`
+		${wrapperStylesMobile}
+	`);
 
 	//
 	// CSS/styling Codes Ends Here
@@ -569,20 +873,61 @@ const Edit = (props) => {
 				`}
 			</style>
 			<div className={`${blockId} eb-counter-wrapper`}>
-				<h4 className="eb-counter-number">
-					<span className="eb-counter-prefix">{counterPrefix}</span>
-					<span ref={counterRef} className="eb-counter eb-counter-number">
-						0
-					</span>
-					<span className="eb-counter-suffix">{counterSuffix}</span>
-				</h4>
-				<RichText
-					tagName="h3"
-					className="eb-counter-title"
-					value={counterTitle}
-					formattingControl={["bold", "italic"]}
-					onChange={(counterTitle) => setAttributes({ counterTitle })}
-				/>
+				{media === "icon" ? (
+					<div className="icon-img-wrapper">
+						<div className="eb-icon ">
+							<span
+								data-icon={selectedIcon}
+								className={`eb-counter-icon-data-selector  ${selectedIcon}`}
+							></span>
+						</div>
+					</div>
+				) : null}
+
+				{media === "image" ? (
+					<div className="icon-img-wrapper">
+						<div className="eb-counter-image-wrapper">
+							<MediaUpload
+								onSelect={({ id, url }) =>
+									setAttributes({ imageUrl: url, imageId: id })
+								}
+								type="image"
+								value={imageId}
+								render={({ open }) => {
+									if (!imageUrl) {
+										return (
+											<Button
+												className="eb-infobox-img-btn components-button"
+												label={__("Upload Image", "essential-blocks")}
+												icon="format-image"
+												onClick={open}
+											/>
+										);
+									} else {
+										return <img className="eb-counter-image" src={imageUrl} />;
+									}
+								}}
+							/>
+						</div>
+					</div>
+				) : null}
+
+				<div className="counter-contents-wrapper">
+					<h4 className="eb-counter-number">
+						<span className="eb-counter-prefix">{counterPrefix}</span>
+						<span ref={counterRef} className="eb-counter eb-counter-number">
+							0
+						</span>
+						<span className="eb-counter-suffix">{counterSuffix}</span>
+					</h4>
+					<RichText
+						tagName="h3"
+						className="eb-counter-title"
+						value={counterTitle}
+						formattingControl={["bold", "italic"]}
+						onChange={(counterTitle) => setAttributes({ counterTitle })}
+					/>
+				</div>
 			</div>
 		</div>,
 	];

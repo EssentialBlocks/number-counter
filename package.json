@@ -1,10 +1,10 @@
 {
 	"name": "counter",
-	"version": "0.1.0",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
-	"main": "build/index.js",
+	"version": "1.0.2",
+	"description": "Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!",
+	"author": "wpdevteam",
+	"license": "GPL-3.0-or-later",
+	"main": "Gruntfile.js",
 	"scripts": {
 		"build": "wp-scripts build",
 		"format:js": "wp-scripts format-js",
@@ -14,12 +14,13 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
-		"@babel/plugin-proposal-class-properties": "^7.13.0",
-		"@wordpress/block-editor": "^5.2.10",
-		"@wordpress/blocks": "^7.0.6",
-		"@wordpress/i18n": "^3.18.0"
+		"@fonticonpicker/react-fonticonpicker": "hz-tyfoon/react-fonticonpicker#master",
+		"@babel/plugin-proposal-class-properties": "^7.16.5",
+		"@wordpress/block-editor": "^4.3.1",
+		"@wordpress/i18n": "^4.2.4",
+		"@wordpress/blocks": "^11.1.5"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^13.0.3"
+		"@wordpress/scripts": "^19.2.2"
 	}
 }

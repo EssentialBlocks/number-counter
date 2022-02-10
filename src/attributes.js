@@ -1,15 +1,43 @@
 import * as prefixObjs from "./constants/typographyPrefixConstants";
-import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
+import {
+	wrapperMargin,
+	wrapperPadding,
+
+	//
+	mediaBgPadding,
+	mediaBgMargin,
+	mediaBgRadius,
+} from "./constants/dimensionsConstants";
 import { WrapBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow } from "./constants/borderShadowConstants";
-import { rgNumTitle, rgNumPrefix, rgNumSuffix } from "./constants/rangeNames";
+
 import {
+	rgNumTitle,
+	rgNumPrefix,
+	rgNumSuffix,
+
+	//
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+	mediaContentGap,
+} from "./constants/rangeNames";
+
+// import {
+// 	generateDimensionsAttributes,
+// 	generateTypographyAttributes,
+// 	generateBackgroundAttributes,
+// 	generateBorderShadowAttributes,
+// 	generateResponsiveRangeAttributes,
+// } from "../../../util/helpers";
+
+const {
 	generateDimensionsAttributes,
 	generateTypographyAttributes,
 	generateBackgroundAttributes,
 	generateBorderShadowAttributes,
 	generateResponsiveRangeAttributes,
-} from "../util/helpers";
+} = window.EBNumberCounterControls;
 
 export default {
 	// the following 4 attributes is must required for responsive options and asset generation for frontend
@@ -96,169 +124,118 @@ export default {
 		// default: "#3074ff",
 	},
 
-	// // spacing attributes ⬇
-	// gapNumTitle: {
-	// 	type: "number",
-	// },
-	// gapNumPrefix: {
-	// 	type: "number",
-	// },
-	// gapNumSuffix: {
-	// 	type: "number",
-	// },
+	//
+	//
+	//
+	// this attribute is for selecting the desired design preset from the layout design presets options ⬇
 
-	// TABgapNumTitle: {
-	// 	type: "number",
-	// },
-	// TABgapNumPrefix: {
-	// 	type: "number",
-	// },
-	// TABgapNumSuffix: {
-	// 	type: "number",
-	// },
+	layoutPreset: {
+		type: "string",
+		default: "preset1",
+	},
 
-	// MOBgapNumTitle: {
-	// 	type: "number",
-	// },
-	// MOBgapNumPrefix: {
-	// 	type: "number",
-	// },
-	// MOBgapNumSuffix: {
-	// 	type: "number",
-	// },
+	// .eb-counter-wrapper flex-direction
+	rootFlexDirection: {
+		type: "string",
+		default: "column",
+	},
 
-	// // background attributes ⬇
-	// backgroundType: {
-	// 	type: "string",
-	// 	default: "gradient",
-	// },
-	// backgroundColor: {
-	// 	type: "string",
-	// },
-	// gradientColor: {
-	// 	type: "string",
-	// 	default: "linear-gradient(45deg,#7967ff,#c277f2)",
-	// },
-	// backgroundSize: {
-	// 	type: "string",
-	// },
-	// imageURL: {
-	// 	type: "string",
-	// },
-	// imageID: {
-	// 	type: "string",
-	// },
+	// .icon-img-wrapper align-self property
+	mediaAlignSelf: {
+		type: "string",
+		default: "center",
+	},
 
-	// TABbackgroundType: {
-	// 	type: "string",
-	// },
-	// TABbackgroundColor: {
-	// 	type: "string",
-	// },
-	// TABgradientColor: {
-	// 	type: "string",
-	// },
-	// TABbackgroundSize: {
-	// 	type: "string",
-	// },
-	// TABimageURL: {
-	// 	type: "string",
-	// },
-	// TABimageID: {
-	// 	type: "string",
-	// },
+	//
+	contentsAlignSelf: {
+		type: "string",
+	},
 
-	// MOBbackgroundType: {
-	// 	type: "string",
-	// },
-	// MOBbackgroundColor: {
-	// 	type: "string",
-	// },
-	// MOBgradientColor: {
-	// 	type: "string",
-	// },
-	// MOBbackgroundSize: {
-	// 	type: "string",
-	// },
-	// MOBimageURL: {
-	// 	type: "string",
-	// },
-	// MOBimageID: {
-	// 	type: "string",
-	// },
+	// .counter-contents-wrapper text-alignment
+	contentAlignment: {
+		type: "string",
+		default: "center",
+	},
 
-	// // border attributes ⬇
-	// borderColor: {
-	// 	type: "string",
-	// },
-	// borderStyle: {
-	// 	type: "string",
-	// 	default: "solid",
-	// },
-	// borderWidth: {
-	// 	type: "number",
-	// },
-	// borderRadius: {
-	// 	type: "number",
-	// },
-	// radiusUnit: {
-	// 	type: "string",
-	// 	default: "px",
-	// },
+	//
+	media: {
+		type: "string",
+		default: "none",
+		// default: "icon",
+	},
 
-	// // shadow attributes  ⬇
-	// hOffset: {
-	// 	type: "number",
-	// },
-	// vOffset: {
-	// 	type: "number",
-	// },
-	// blur: {
-	// 	type: "number",
-	// },
-	// spread: {
-	// 	type: "number",
-	// },
-	// shadowColor: {
-	// 	type: "string",
-	// },
-	// inset: {
-	// 	type: "boolean",
-	// 	default: false,
-	// },
-	// shadowType: {
-	// 	type: "string",
-	// 	default: "normal",
-	// },
-	// hoverHOffset: {
-	// 	type: "number",
-	// },
-	// hoverVOffset: {
-	// 	type: "number",
-	// },
-	// hoverBlur: {
-	// 	type: "number",
-	// },
-	// hoverSpread: {
-	// 	type: "number",
-	// },
-	// hoverShadowColor: {
-	// 	type: "string",
-	// },
-	// isHover: {
-	// 	type: "boolean",
-	// 	default: false,
-	// },
-	// wrapperTransitionTime: {
-	// 	type: "string",
-	// 	default: "500",
-	// },
+	//
+	selectedIcon: {
+		type: "string",
+		// source: "attribute",
+		// selector: ".eb-infobox-icon-data-selector",
+		// attribute: "data-icon",
+		default: "far fa-gem",
+	},
+
+	//
+	iconColor: {
+		type: "string",
+	},
+
+	//
+	useIconBg: {
+		type: "boolean",
+		default: true,
+	},
+
+	//
+	iconBgType: {
+		type: "string",
+		default: "gradient",
+	},
+
+	//
+	iconBgColor: {
+		type: "string",
+	},
+
+	//
+	iconBgGradient: {
+		type: "string",
+		default: "linear-gradient(45deg,#ffc2de,#ff46a1)",
+	},
+
+	//
+	//
+	imageUrl: {
+		type: "string",
+	},
+
+	imageId: {
+		type: "string",
+	},
+
+	isMediaImgHeightAuto: {
+		type: "boolean",
+		default: true,
+	},
 
 	// typography attributes ⬇
 	...generateTypographyAttributes(Object.values(prefixObjs)),
 
 	// margin padding attributes ⬇
 	...generateDimensionsAttributes(wrapperMargin),
+	...generateDimensionsAttributes(mediaBgPadding, {
+		top: 20,
+		bottom: 20,
+		right: 20,
+		left: 20,
+	}),
+	...generateDimensionsAttributes(mediaBgRadius, {
+		top: 20,
+		bottom: 20,
+		isLinked: false,
+	}),
+	...generateDimensionsAttributes(mediaBgMargin, {
+		top: 15,
+		isLinked: false,
+	}),
 	...generateDimensionsAttributes(wrapperPadding, {
 		top: 30,
 		bottom: 30,
@@ -274,10 +251,21 @@ export default {
 	// border & shadow attributes ⬇
 	...generateBorderShadowAttributes(wrpBdShadow),
 
-	// Responsive Range Controller attributes
+	// Responsive Range Controller attributes ⬇
 	...generateResponsiveRangeAttributes(rgNumTitle, {
 		defaultRange: 20,
 	}),
 	...generateResponsiveRangeAttributes(rgNumPrefix),
 	...generateResponsiveRangeAttributes(rgNumSuffix),
+	...generateResponsiveRangeAttributes(mediaIconSize, {
+		defaultRange: 50,
+	}),
+	...generateResponsiveRangeAttributes(mediaImageWidth, {
+		defaultRange: 300,
+	}),
+	...generateResponsiveRangeAttributes(mediaImageHeight),
+	...generateResponsiveRangeAttributes(mediaContentGap, {
+		defaultRange: 20,
+		noUnits: true,
+	}),
 };

@@ -1,33 +1,82 @@
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const { InspectorControls } = wp.blockEditor;
-const {
+import { __ } from "@wordpress/i18n";
+import { useEffect } from "@wordpress/element";
+import { InspectorControls, MediaUpload } from "@wordpress/block-editor";
+import {
 	PanelBody,
 	ToggleControl,
 	TextControl,
 	SelectControl,
 	BaseControl,
 	TabPanel,
-} = wp.components;
-const { useEffect } = wp.element;
+	Button,
+	ButtonGroup
+} from "@wordpress/components";
+import { select } from "@wordpress/data";
 
-const { select } = wp.data;
+/**
+ * External dependencies
+ */
+import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 
 /**
  * Internal dependencies
  */
 
 import objAttributes from "./attributes";
-import ColorControl from "../util/color-control";
-import ResponsiveDimensionsControl from "../util/dimensions-control-v2";
-import ResponsiveRangeController from "../util/responsive-range-control";
-import TypographyDropdown from "../util/typography-control-v2";
-import BackgroundControl from "../util/background-control";
-import BorderShadowControl from "../util/border-shadow-control";
 
-import { SEPARATOR_OPTIONS, LAYOUT_OPTIONS } from "./constants";
+// import ColorControl from "../../../util/color-control";
+// import ResponsiveDimensionsControl from "../../../util/dimensions-control-v2";
+// import ResponsiveRangeController from "../../../util/responsive-range-control";
+// import TypographyDropdown from "../../../util/typography-control-v2";
+// import BackgroundControl from "../../../util/background-control";
+// import BorderShadowControl from "../../../util/border-shadow-control";
+
+// import {
+// 	mimmikCssForResBtns,
+// 	mimmikCssOnPreviewBtnClickWhileBlockSelected,
+// } from "../../../util/helpers";
+// import faIcons from "../../../util/faIcons.js";
+// import ImageAvatar from "../../../util/image-avatar/";
+// import GradientColorControl from "../../../util/gradient-color-controller";
+
+const {
+	// objAttributes,
+	ColorControl,
+	ResponsiveDimensionsControl,
+	ResponsiveRangeController,
+	TypographyDropdown,
+	BackgroundControl,
+	BorderShadowControl,
+	GradientColorControl,
+	ImageAvatar,
+	faIcons,
+	// mimmikCssForResBtns,
+	// mimmikCssOnPreviewBtnClickWhileBlockSelected,
+} = window.EBNumberCounterControls;
+
+const editorStoreForGettingPreivew =
+	eb_style_handler.editor_type === "edit-site"
+		? "core/edit-site"
+		: "core/edit-post";
+
+import {
+	SEPARATOR_OPTIONS,
+	LAYOUT_OPTIONS,
+	MEDIA_TYPES,
+	ICON_IMAGE_BG_TYPES,
+	MEDIA_ALIGNMENTS_ON_FLEX_COLUMN,
+	MEDIA_ALIGNMENTS_ON_FLEX_ROW,
+	CONTENTS_ALIGNMENTS_ON_FLEX_ROW,
+	sizeUnitTypes,
+	imgHeightUnits,
+	LAYOUT_TYPES,
+	// HEADER_TAGS,
+	CONTENTS_ALIGNMENTS,
+	// HOVER_EFFECT,
+} from "./constants";
 
 import {
 	typoPrefix_numPrefix,
@@ -36,15 +85,28 @@ import {
 	typoPrefix_title,
 } from "./constants/typographyPrefixConstants";
 
-import { wrapperMargin, wrapperPadding } from "./constants/dimensionsConstants";
+import {
+	wrapperMargin,
+	wrapperPadding,
+
+	//
+	mediaBgPadding,
+	mediaBgMargin,
+	mediaBgRadius,
+} from "./constants/dimensionsConstants";
 import { WrapBg } from "./constants/backgroundsConstants";
 import { wrpBdShadow } from "./constants/borderShadowConstants";
-import { rgNumTitle, rgNumPrefix, rgNumSuffix } from "./constants/rangeNames";
-
 import {
-	mimmikCssForResBtns,
-	mimmikCssOnPreviewBtnClickWhileBlockSelected,
-} from "../util/helpers";
+	rgNumTitle,
+	rgNumPrefix,
+	rgNumSuffix,
+
+	//
+	mediaIconSize,
+	mediaImageWidth,
+	mediaImageHeight,
+	mediaContentGap,
+} from "./constants/rangeNames";
 
 const Inspector = (props) => {
 	const { attributes, setAttributes } = props;
@@ -67,34 +129,56 @@ const Inspector = (props) => {
 		numberColor,
 		numPrefixColor,
 		numSuffixColor,
+
+		//
+		//
+		layoutPreset,
+
+		//
+		rootFlexDirection,
+		contentAlignment,
+		mediaAlignSelf,
+		contentsAlignSelf,
+
+		//
+		media,
+		selectedIcon,
+		iconColor,
+		useIconBg,
+		iconBgType,
+		iconBgColor,
+		iconBgGradient,
+		imageUrl,
+		imageId,
+		isMediaImgHeightAuto,
 	} = attributes;
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class only the first time once
 	useEffect(() => {
 		setAttributes({
-			resOption: select("core/edit-post").__experimentalGetPreviewDeviceType(),
+			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
 		});
 	}, []);
 
-	// this useEffect is for mimmiking css for all the eb blocks on resOption changing
-	useEffect(() => {
-		mimmikCssForResBtns({
-			domObj: document,
-			resOption,
-		});
-	}, [resOption]);
+	// // this useEffect is for mimmiking css for all the eb blocks on resOption changing
+	// useEffect(() => {
+	// 	mimmikCssForResBtns({
+	// 		domObj: document,
+	// 		resOption,
+	// 	});
+	// }, [resOption]);
 
-	// this useEffect is to mimmik css for responsive preview in the editor page when clicking the buttons in the 'Preview button of wordpress' located beside the 'update' button while any block is selected and it's inspector panel is mounted in the DOM
-	useEffect(() => {
-		const cleanUp = mimmikCssOnPreviewBtnClickWhileBlockSelected({
-			domObj: document,
-			select,
-			setAttributes,
-		});
-		return () => {
-			cleanUp();
-		};
-	}, []);
+	// // this useEffect is to mimmik css for responsive preview in the editor page when clicking the buttons in the 'Preview button of wordpress' located beside the 'update' button while any block is selected and it's inspector panel is mounted in the DOM
+	// useEffect(() => {
+	// 	const cleanUp = mimmikCssOnPreviewBtnClickWhileBlockSelected({
+	// 		domObj: document,
+	// 		select,
+	// 		setAttributes,
+	// 	});
+	// 	return () => {
+	// 		cleanUp();
+	// 	};
+	// }, []);
 
 	const handleSeparatorChange = (separastorSelectLabel) => {
 		switch (separastorSelectLabel) {
@@ -126,6 +210,43 @@ const Inspector = (props) => {
 		setAttributes({ layoutLabel });
 	};
 
+	const handlePresetChange = (layoutPreset) => {
+		switch (layoutPreset) {
+			case "preset1":
+				setAttributes({
+					rootFlexDirection: "column",
+					contentAlignment: "center",
+					mediaAlignSelf: "center",
+				});
+				break;
+
+			case "preset2":
+				setAttributes({
+					rootFlexDirection: "column-reverse",
+					contentAlignment: "center",
+					mediaAlignSelf: "center",
+				});
+				break;
+
+			case "preset3":
+				setAttributes({
+					rootFlexDirection: "row",
+					contentAlignment: "left",
+					mediaAlignSelf: "flex-start",
+				});
+				break;
+
+			case "preset4":
+				setAttributes({
+					rootFlexDirection: "row-reverse",
+					contentAlignment: "right",
+					mediaAlignSelf: "flex-start",
+				});
+				break;
+		}
+		setAttributes({ layoutPreset });
+	};
+
 	const resRequiredProps = {
 		setAttributes,
 		resOption,
@@ -148,12 +269,12 @@ const Inspector = (props) => {
 						},
 						{
 							name: "styles",
-							title: "Styles",
+							title: "Style",
 							className: "eb-tab styles",
 						},
 						{
 							name: "advance",
-							title: "Advance",
+							title: "Advanced",
 							className: "eb-tab advance",
 						},
 					]}
@@ -163,12 +284,59 @@ const Inspector = (props) => {
 							{tab.name === "general" && (
 								<>
 									<PanelBody
-										title={__("Counter Settings")}
-										// initialOpen={false}
+									// initialOpen={false}
+									>
+										<BaseControl
+											id="eb-infobox-image-icon"
+											label={__("Media Options", "essential-blocks")}
+										>
+											<ButtonGroup id="eb-infobox-image-icon">
+												{MEDIA_TYPES.map((value) => (
+													<Button
+														// isLarge
+														isSecondary={media !== value}
+														isPrimary={media === value}
+														onClick={() => setAttributes({ media: value })}
+													>
+														{value}
+													</Button>
+												))}
+											</ButtonGroup>
+										</BaseControl>
+									</PanelBody>
+
+									{media !== "none" && (
+										<>
+											<PanelBody
+											// initialOpen={false}
+											>
+												<SelectControl
+													label={__("Layout Preset ", "essential-blocks")}
+													value={layoutPreset}
+													options={LAYOUT_TYPES}
+													onChange={handlePresetChange}
+												/>
+
+												<ResponsiveRangeController
+													baseLabel={__("Media & content spacing", "Infobox")}
+													controlName={mediaContentGap}
+													resRequiredProps={resRequiredProps}
+													min={0}
+													max={500}
+													step={1}
+													noUnits
+												/>
+											</PanelBody>
+										</>
+									)}
+
+									<PanelBody
+										title={__("Counter Settings", "essential-blocks")}
+									// initialOpen={false}
 									>
 										<BaseControl id="eb-counter-start-value">
 											<TextControl
-												label={__("Starting Number")}
+												label={__("Starting Number", "essential-blocks")}
 												value={startValue}
 												type="number"
 												onChange={(value) =>
@@ -179,7 +347,7 @@ const Inspector = (props) => {
 										</BaseControl>
 										<BaseControl id="eb-counter-end-value">
 											<TextControl
-												label={__("Ending Number")}
+												label={__("Ending Number", "essential-blocks")}
 												value={target}
 												type="number"
 												onChange={(value) =>
@@ -190,7 +358,7 @@ const Inspector = (props) => {
 										</BaseControl>
 										<BaseControl id="eb-counter-duration">
 											<TextControl
-												label={__("Animation Duration")}
+												label={__("Animation Duration", "essential-blocks")}
 												value={duration}
 												type="number"
 												onChange={(value) =>
@@ -201,7 +369,7 @@ const Inspector = (props) => {
 										</BaseControl>
 										<BaseControl id="eb-counter-prefix">
 											<TextControl
-												label={__("Number Prefix")}
+												label={__("Number Prefix", "essential-blocks")}
 												value={counterPrefix}
 												onChange={(counterPrefix) =>
 													setAttributes({ counterPrefix })
@@ -210,7 +378,7 @@ const Inspector = (props) => {
 										</BaseControl>
 										<BaseControl id="eb-counter-suffix">
 											<TextControl
-												label={__("Number Suffix")}
+												label={__("Number Suffix", "essential-blocks")}
 												value={counterSuffix}
 												onChange={(counterSuffix) =>
 													setAttributes({ counterSuffix })
@@ -219,14 +387,14 @@ const Inspector = (props) => {
 										</BaseControl>
 
 										<SelectControl
-											label={__("Layouts")}
+											label={__("Content layouts", "essential-blocks")}
 											options={LAYOUT_OPTIONS}
 											value={layoutLabel}
 											onChange={(value) => handleLayoutChange(value)}
 										/>
 
 										<ToggleControl
-											label={__("Thousand Separator")}
+											label={__("Thousand Separator", "essential-blocks")}
 											checked={isShowSeparator}
 											onChange={() =>
 												setAttributes({
@@ -237,7 +405,7 @@ const Inspector = (props) => {
 
 										{isShowSeparator && (
 											<SelectControl
-												label={__("Separator")}
+												label={__("Separator", "essential-blocks")}
 												options={SEPARATOR_OPTIONS}
 												value={separastorSelectLabel}
 												onChange={(value) => handleSeparatorChange(value)}
@@ -248,7 +416,291 @@ const Inspector = (props) => {
 							)}
 							{tab.name === "styles" && (
 								<>
-									<PanelBody title={__("Number")}>
+									{media !== "none" && (
+										<PanelBody title={__("Media", "essential-blocks")}>
+											{media === "icon" && (
+												<>
+													<BaseControl label={__("Select Icon", "essential-blocks")}>
+														<FontIconPicker
+															icons={faIcons}
+															onChange={(icon) =>
+																setAttributes({ selectedIcon: icon })
+															}
+															value={selectedIcon}
+															appendTo="body"
+															isMulti={false}
+														/>
+													</BaseControl>
+
+													{selectedIcon && (
+														<ResponsiveRangeController
+															baseLabel={__("Icon Size", "essential-blocks")}
+															controlName={mediaIconSize}
+															resRequiredProps={resRequiredProps}
+															min={8}
+															max={200}
+															step={1}
+														/>
+													)}
+
+													<ColorControl
+														label={__("Color", "essential-blocks")}
+														color={iconColor}
+														onChange={(iconColor) =>
+															setAttributes({ iconColor })
+														}
+													/>
+
+													<ResponsiveDimensionsControl
+														resRequiredProps={resRequiredProps}
+														controlName={mediaBgPadding}
+														baseLabel="Padding"
+													/>
+
+													<ToggleControl
+														label={__("Use Background", "essential-blocks")}
+														checked={useIconBg}
+														onChange={() =>
+															setAttributes({ useIconBg: !useIconBg })
+														}
+													/>
+
+													{useIconBg && (
+														<>
+															<BaseControl label={__("Background Type", "essential-blocks")}>
+																<ButtonGroup id="eb-infobox-infobox-background">
+																	{ICON_IMAGE_BG_TYPES.map(
+																		({ value, label }) => (
+																			<Button
+																				// isLarge
+																				isPrimary={iconBgType === value}
+																				isSecondary={iconBgType !== value}
+																				onClick={() =>
+																					setAttributes({
+																						iconBgType: value,
+																					})
+																				}
+																			>
+																				{label}
+																			</Button>
+																		)
+																	)}
+																</ButtonGroup>
+															</BaseControl>
+
+															{iconBgType === "fill" && (
+																<ColorControl
+																	label={__("Background Color", "essential-blocks")}
+																	color={iconBgColor}
+																	onChange={(iconBgColor) =>
+																		setAttributes({ iconBgColor })
+																	}
+																/>
+															)}
+
+															{iconBgType === "gradient" && (
+																<PanelBody
+																	title={__("Gradient", "essential-blocks")}
+																// initialOpen={false}
+																>
+																	<GradientColorControl
+																		gradientColor={iconBgGradient}
+																		onChange={(iconBgGradient) =>
+																			setAttributes({ iconBgGradient })
+																		}
+																	/>
+																</PanelBody>
+															)}
+														</>
+													)}
+												</>
+											)}
+
+											{media === "image" && !imageUrl && (
+												<MediaUpload
+													onSelect={({ id, url }) =>
+														setAttributes({ imageUrl: url, imageId: id })
+													}
+													type="image"
+													value={imageId}
+													render={({ open }) => {
+														return (
+															<Button
+																className="eb-background-control-inspector-panel-img-btn components-button"
+																label={__("Upload Image", "essential-blocks")}
+																icon="format-image"
+																onClick={open}
+															/>
+														);
+													}}
+												/>
+											)}
+
+											{media === "image" && imageUrl && (
+												<>
+													<ImageAvatar
+														imageUrl={imageUrl}
+														onDeleteImage={() =>
+															setAttributes({
+																imageUrl: null,
+															})
+														}
+													/>
+													<ResponsiveRangeController
+														baseLabel={__("Image Width", "essential-blocks")}
+														controlName={mediaImageWidth}
+														resRequiredProps={resRequiredProps}
+														units={sizeUnitTypes}
+														min={0}
+														max={500}
+														step={1}
+													/>
+													<ToggleControl
+														label={__("Auto Image Height", "essential-blocks")}
+														checked={isMediaImgHeightAuto}
+														onChange={() =>
+															setAttributes({
+																isMediaImgHeightAuto: !isMediaImgHeightAuto,
+															})
+														}
+													/>
+
+													{!isMediaImgHeightAuto && (
+														<>
+															<ResponsiveRangeController
+																baseLabel={__("Image Height", "essential-blocks")}
+																controlName={mediaImageHeight}
+																resRequiredProps={resRequiredProps}
+																units={imgHeightUnits}
+																min={0}
+																max={500}
+																step={1}
+															/>
+														</>
+													)}
+												</>
+											)}
+
+											<hr />
+
+											<ResponsiveDimensionsControl
+												forBorderRadius
+												resRequiredProps={resRequiredProps}
+												controlName={mediaBgRadius}
+												baseLabel="Border Radius"
+											/>
+
+											<ResponsiveDimensionsControl
+												resRequiredProps={resRequiredProps}
+												controlName={mediaBgMargin}
+												baseLabel="Margin"
+											/>
+										</PanelBody>
+									)}
+
+									<PanelBody title={__("Alignments", "essential-blocks")}>
+										{media !== "none" && (
+											<>
+												{(rootFlexDirection === "row" ||
+													rootFlexDirection === "row-reverse") && (
+														<>
+															<BaseControl
+																id="eb-infobox-alignments"
+																label="Media Vertical alignments"
+															>
+																<ButtonGroup id="eb-infobox-alignments">
+																	{MEDIA_ALIGNMENTS_ON_FLEX_ROW.map(
+																		({ value, label }) => (
+																			<Button
+																				// isLarge
+																				isSecondary={mediaAlignSelf !== value}
+																				isPrimary={mediaAlignSelf === value}
+																				onClick={() =>
+																					setAttributes({ mediaAlignSelf: value })
+																				}
+																			>
+																				{label}
+																			</Button>
+																		)
+																	)}
+																</ButtonGroup>
+															</BaseControl>
+
+															<BaseControl
+																id="eb-infobox-alignments"
+																label="Content Vertical alignments"
+															>
+																<ButtonGroup id="eb-infobox-alignments">
+																	{CONTENTS_ALIGNMENTS_ON_FLEX_ROW.map(
+																		({ value, label }) => (
+																			<Button
+																				// isLarge
+																				isSecondary={contentsAlignSelf !== value}
+																				isPrimary={contentsAlignSelf === value}
+																				onClick={() =>
+																					setAttributes({
+																						contentsAlignSelf: value,
+																					})
+																				}
+																			>
+																				{label}
+																			</Button>
+																		)
+																	)}
+																</ButtonGroup>
+															</BaseControl>
+														</>
+													)}
+
+												{(rootFlexDirection === "column" ||
+													rootFlexDirection === "column-reverse") && (
+														<BaseControl
+															id="eb-infobox-alignments"
+															label="Media alignments"
+														>
+															<ButtonGroup id="eb-infobox-alignments">
+																{MEDIA_ALIGNMENTS_ON_FLEX_COLUMN.map(
+																	({ value, label }) => (
+																		<Button
+																			// isLarge
+																			isSecondary={mediaAlignSelf !== value}
+																			isPrimary={mediaAlignSelf === value}
+																			onClick={() =>
+																				setAttributes({ mediaAlignSelf: value })
+																			}
+																		>
+																			{label}
+																		</Button>
+																	)
+																)}
+															</ButtonGroup>
+														</BaseControl>
+													)}
+											</>
+										)}
+
+										<BaseControl
+											id="eb-infobox-alignments"
+											label="Contents alignments"
+										>
+											<ButtonGroup id="eb-infobox-alignments">
+												{CONTENTS_ALIGNMENTS.map(({ value, label }) => (
+													<Button
+														// isLarge
+														isSecondary={contentAlignment !== value}
+														isPrimary={contentAlignment === value}
+														onClick={() =>
+															setAttributes({ contentAlignment: value })
+														}
+													>
+														{label}
+													</Button>
+												))}
+											</ButtonGroup>
+										</BaseControl>
+									</PanelBody>
+
+									<PanelBody title={__("Number", "essential-blocks")}>
 										<TypographyDropdown
 											baseLabel="Typography"
 											typographyPrefixConstant={typoPrefix_number}
@@ -256,13 +708,13 @@ const Inspector = (props) => {
 										/>
 
 										<ColorControl
-											label={__("Color")}
+											label={__("Color", "essential-blocks")}
 											color={numberColor}
 											onChange={(numberColor) => setAttributes({ numberColor })}
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Title")}>
+									<PanelBody title={__("Title", "essential-blocks")}>
 										<TypographyDropdown
 											baseLabel="Typography"
 											typographyPrefixConstant={typoPrefix_title}
@@ -270,13 +722,13 @@ const Inspector = (props) => {
 										/>
 
 										<ColorControl
-											label={__("Color")}
+											label={__("Color", "essential-blocks")}
 											color={titleColor}
 											onChange={(titleColor) => setAttributes({ titleColor })}
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Number prefix")} initialOpen={false}>
+									<PanelBody title={__("Number prefix", "essential-blocks")} initialOpen={false}>
 										<TypographyDropdown
 											baseLabel="Typography"
 											typographyPrefixConstant={typoPrefix_numPrefix}
@@ -284,7 +736,7 @@ const Inspector = (props) => {
 										/>
 
 										<ColorControl
-											label={__("Color")}
+											label={__("Color", "essential-blocks")}
 											color={numPrefixColor}
 											onChange={(numPrefixColor) =>
 												setAttributes({ numPrefixColor })
@@ -292,7 +744,7 @@ const Inspector = (props) => {
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Number Suffix")} initialOpen={false}>
+									<PanelBody title={__("Number Suffix", "essential-blocks")} initialOpen={false}>
 										<TypographyDropdown
 											baseLabel="Typography"
 											typographyPrefixConstant={typoPrefix_numSuffix}
@@ -300,7 +752,7 @@ const Inspector = (props) => {
 										/>
 
 										<ColorControl
-											label={__("Color")}
+											label={__("Color", "essential-blocks")}
 											color={numSuffixColor}
 											onChange={(numSuffixColor) =>
 												setAttributes({ numSuffixColor })
@@ -308,21 +760,21 @@ const Inspector = (props) => {
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Spacing")} initialOpen={false}>
+									<PanelBody title={__("Spacing", "essential-blocks")} initialOpen={false}>
 										<ResponsiveRangeController
-											baseLabel={__("Number & Title Gap", "Number-counter")}
+											baseLabel={__("Number & Title", "Number-counter")}
 											controlName={rgNumTitle}
 											resRequiredProps={resRequiredProps}
 											max={100}
 										/>
 										<ResponsiveRangeController
-											baseLabel={__("Number & Prefix Gap", "Number-counter")}
+											baseLabel={__("Number & Prefix", "Number-counter")}
 											controlName={rgNumPrefix}
 											resRequiredProps={resRequiredProps}
 											max={100}
 										/>
 										<ResponsiveRangeController
-											baseLabel={__("Number & Suffix Gap", "Number-counter")}
+											baseLabel={__("Number & Suffix", "Number-counter")}
 											controlName={rgNumSuffix}
 											resRequiredProps={resRequiredProps}
 											max={100}
@@ -332,7 +784,7 @@ const Inspector = (props) => {
 							)}
 							{tab.name === "advance" && (
 								<>
-									<PanelBody title={__("Margin Padding")}>
+									<PanelBody title={__("Margin Padding", "essential-blocks")}>
 										<ResponsiveDimensionsControl
 											resRequiredProps={resRequiredProps}
 											controlName={wrapperMargin}
@@ -345,7 +797,7 @@ const Inspector = (props) => {
 										/>
 									</PanelBody>
 
-									<PanelBody title={__("Background")} initialOpen={false}>
+									<PanelBody title={__("Background", "essential-blocks")} initialOpen={false}>
 										<BackgroundControl
 											controlName={WrapBg}
 											resRequiredProps={resRequiredProps}
