@@ -1,5 +1,5 @@
 === Number Counter ===
-Contributors: wpdevteam, re_enter_rupok, Asif2BD, hztyfoon, rahat89
+Contributors: wpdevteam, re_enter_rupok, Asif2BD, hztyfoon, rahat89, fencermonir
 Tags:              block, blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
 Requires at least: 5.6
 Tested up to:      5.9
@@ -72,6 +72,10 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
+
+= 1.1.2 - dev =
+* Added: Animation, Custom Css and Resposive Options
+* Improved: Controls & structure
 
 = 1.1.1 - 13/02/2022 =
 * Fixed: Frontend js file not enqueued
