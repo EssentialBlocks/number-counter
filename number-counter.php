@@ -46,6 +46,7 @@ function number_counter_init()
 		'wp-element',
 		'wp-block-editor',
 		'number-counter-block-controls-util',
+		'essential-blocks-eb-animation'
 	));
 
 	$index_js     = NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/index.js';
@@ -57,7 +58,22 @@ function number_counter_init()
 		true
 	);
 
+	$load_animation_js = NUMBER_COUNTER_BLOCK_ADMIN_URL . 'assets/js/eb-animation-load.js';
+	wp_register_script(
+		'essential-blocks-eb-animation',
+		$load_animation_js,
+		array(),
+		NUMBER_COUNTER_BLOCK_VERSION,
+		true
+	);
 
+	$animate_css = NUMBER_COUNTER_BLOCK_ADMIN_URL . 'assets/css/animate.min.css';
+	wp_register_style(
+		'essential-blocks-animation',
+		$animate_css,
+		array(),
+		NUMBER_COUNTER_BLOCK_VERSION
+	);
 	$frontend_js = NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/frontend/index.js';
 	wp_register_script(
 		'essential-blocks-counter-frontend',
@@ -67,27 +83,9 @@ function number_counter_init()
 		true
 	);
 
-	//
-	//
-	$controls_dependencies = require NUMBER_COUNTER_BLOCK_ADMIN_PATH . '/dist/controls.asset.php';
-
-	wp_register_script(
-		"number-counter-block-controls-util",
-		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.js',
-		array_merge($controls_dependencies['dependencies'], array("essential-blocks-edit-post")),
-		$controls_dependencies['version'],
-		true
-	);
-
-	wp_localize_script('number-counter-block-controls-util', 'EssentialBlocksLocalize', array(
-		'eb_wp_version' => (float) get_bloginfo('version'),
-		'rest_rootURL' => get_rest_url(),
-	));
-
-
 	wp_register_style(
 		'fontpicker-default-theme',
-		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/assets/css/fonticonpicker.base-theme.react.css',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . 'assets/css/fonticonpicker.base-theme.react.css',
 		array(),
 		NUMBER_COUNTER_BLOCK_VERSION,
 		"all"
@@ -95,31 +93,18 @@ function number_counter_init()
 
 	wp_register_style(
 		'fontpicker-matetial-theme',
-		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/assets/css/fonticonpicker.material-theme.react.css',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . 'assets/css/fonticonpicker.material-theme.react.css',
 		array(),
 		NUMBER_COUNTER_BLOCK_VERSION,
 		"all"
 	);
-
 
 	wp_register_style(
 		'fontawesome-frontend-css',
-		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/assets/css/font-awesome5.css',
+		NUMBER_COUNTER_BLOCK_ADMIN_URL . 'assets/css/font-awesome5.css',
 		array(),
 		NUMBER_COUNTER_BLOCK_VERSION,
 		"all"
-	);
-
-	wp_register_style(
-		'number-counter-editor-css',
-		NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.css',
-		array(
-			'fontawesome-frontend-css',
-			'fontpicker-default-theme',
-			'fontpicker-matetial-theme',
-		),
-		$controls_dependencies['version'],
-		'all'
 	);
 
 	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/number-counter')) {
@@ -131,7 +116,9 @@ function number_counter_init()
 				'render_callback' => function ($attributes, $content) {
 					if (!is_admin()) {
 						wp_enqueue_style('fontawesome-frontend-css');
+						wp_enqueue_style('essential-blocks-animation');
 						wp_enqueue_script('essential-blocks-counter-frontend');
+						wp_enqueue_script('essential-blocks-eb-animation');
 					}
 					return $content;
 				}
@@ -140,4 +127,4 @@ function number_counter_init()
 	}
 }
 
-add_action('init', 'number_counter_init');
+add_action('init', 'number_counter_init', 99);

@@ -2,6 +2,7 @@
  * WordPress dependeincies
  */
 import { __ } from "@wordpress/i18n";
+import { registerBlockType } from "@wordpress/blocks";
 
 /**
  * Internal dependencies
@@ -10,9 +11,8 @@ import Edit from "./edit";
 import save from "./save";
 import { CounterIcon } from "./icon";
 import metadata from "../block.json";
-import "./style.scss";
 import attributes from "./attributes";
-// import deprecated from "./deprecated";
+import deprecated from "./deprecated";
 import example from "./example";
 const { ebConditionalRegisterBlockType } = EBNumberCounterControls;
 
@@ -27,5 +27,5 @@ ebConditionalRegisterBlockType(metadata, {
 	edit: Edit,
 	save,
 	example: example,
-	// deprecated,
+	deprecated,
 });
