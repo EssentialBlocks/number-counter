@@ -30,5 +30,6 @@ export {
 	generateResponsiveRangeAttributes,
 	getFlipTransform,
 	getButtonClasses,
+	textInsideForEdit,
 	ebConditionalRegisterBlockType,
 } from "../controls/src/helpers";
