@@ -10,7 +10,7 @@ import { select } from "@wordpress/data";
 /**
  * Internal dependencies
  */
- import classnames from "classnames";
+import classnames from "classnames";
 
 import Inspector from "./inspector";
 import {
@@ -42,18 +42,6 @@ import {
 	mediaContentGap,
 } from "./constants/rangeNames";
 
-// import {
-// 	textInsideForEdit,
-// 	softMinifyCssStrings,
-// 	generateDimensionsControlStyles,
-// 	generateTypographyStyles,
-// 	generateBackgroundControlStyles,
-// 	generateBorderShadowStyles,
-// 	generateResponsiveRangeStyles,
-// 	mimmikCssForPreviewBtnClick,
-// 	duplicateBlockIdFix,
-// } from "../../../util/helpers";
-
 const {
 	//
 	textInsideForEdit,
@@ -68,10 +56,9 @@ const {
 } = window.EBNumberCounterControls;
 
 const editorStoreForGettingPreivew =
-	eb_style_handler.editor_type === "edit-site"
+	eb_conditional_localize.editor_type === "edit-site"
 		? "core/edit-site"
 		: "core/edit-post";
-
 
 const Edit = (props) => {
 	const { isSelected, attributes, setAttributes, className, clientId } = props;
@@ -85,6 +72,7 @@ const Edit = (props) => {
 
 		// blockMeta is for keeping all the styles ⬇
 		blockMeta,
+		classHook,
 
 		// counter settings attributes ⬇
 		target,
@@ -179,15 +167,20 @@ const Edit = (props) => {
 		};
 	};
 
-	useEffect(
-		() => CounterAnimation(),
-		[target, duration, startValue, separator, isShowSeparator]
-	);
+	useEffect(() => CounterAnimation(), [
+		target,
+		duration,
+		startValue,
+		separator,
+		isShowSeparator,
+	]);
 
 	// this useEffect is for setting the resOption attribute to desktop/tab/mobile depending on the added 'eb-res-option-' class
 	useEffect(() => {
 		setAttributes({
-			resOption: select(editorStoreForGettingPreivew).__experimentalGetPreviewDeviceType(),
+			resOption: select(
+				editorStoreForGettingPreivew
+			).__experimentalGetPreviewDeviceType(),
 		});
 	}, []);
 
@@ -838,14 +831,15 @@ const Edit = (props) => {
 		}
 	}, [attributes]);
 
-	return [
-		isSelected && (
-			<Inspector attributes={attributes} setAttributes={setAttributes} />
-		),
+	return (
+		<>
+			{isSelected && (
+				<Inspector attributes={attributes} setAttributes={setAttributes} />
+			)}
 
-		<div {...blockProps}>
-			<style>
-				{`
+			<div {...blockProps}>
+				<style>
+					{`
 				${desktopAllStyles}
 
 				/* mimmikcssStart */
@@ -871,66 +865,71 @@ const Edit = (props) => {
 				
 				}
 				`}
-			</style>
-			<div className={`${blockId} eb-counter-wrapper`}>
-				{media === "icon" ? (
-					<div className="icon-img-wrapper">
-						<div className="eb-icon ">
-							<span
-								data-icon={selectedIcon}
-								className={`eb-counter-icon-data-selector  ${selectedIcon}`}
-							></span>
-						</div>
-					</div>
-				) : null}
+				</style>
+				<div className={`eb-parent-wrapper eb-parent-${blockId} ${classHook}`}>
+					<div className={`${blockId} eb-counter-wrapper`}>
+						{media === "icon" ? (
+							<div className="icon-img-wrapper">
+								<div className="eb-icon ">
+									<span
+										data-icon={selectedIcon}
+										className={`eb-counter-icon-data-selector  ${selectedIcon}`}
+									></span>
+								</div>
+							</div>
+						) : null}
 
-				{media === "image" ? (
-					<div className="icon-img-wrapper">
-						<div className="eb-counter-image-wrapper">
-							<MediaUpload
-								onSelect={({ id, url }) =>
-									setAttributes({ imageUrl: url, imageId: id })
-								}
-								type="image"
-								value={imageId}
-								render={({ open }) => {
-									if (!imageUrl) {
-										return (
-											<Button
-												className="eb-infobox-img-btn components-button"
-												label={__("Upload Image", "essential-blocks")}
-												icon="format-image"
-												onClick={open}
-											/>
-										);
-									} else {
-										return <img className="eb-counter-image" src={imageUrl} />;
-									}
-								}}
+						{media === "image" ? (
+							<div className="icon-img-wrapper">
+								<div className="eb-counter-image-wrapper">
+									<MediaUpload
+										onSelect={({ id, url }) =>
+											setAttributes({ imageUrl: url, imageId: id })
+										}
+										type="image"
+										value={imageId}
+										render={({ open }) => {
+											if (!imageUrl) {
+												return (
+													<Button
+														className="eb-infobox-img-btn components-button"
+														label={__("Upload Image", "essential-blocks")}
+														icon="format-image"
+														onClick={open}
+													/>
+												);
+											} else {
+												return (
+													<img className="eb-counter-image" src={imageUrl} />
+												);
+											}
+										}}
+									/>
+								</div>
+							</div>
+						) : null}
+
+						<div className="counter-contents-wrapper">
+							<h4 className="eb-counter-number">
+								<span className="eb-counter-prefix">{counterPrefix}</span>
+								<span ref={counterRef} className="eb-counter eb-counter-number">
+									0
+								</span>
+								<span className="eb-counter-suffix">{counterSuffix}</span>
+							</h4>
+							<RichText
+								tagName="h3"
+								className="eb-counter-title"
+								value={counterTitle}
+								allowedFormats={["core/bold", "core/italic"]}
+								onChange={(counterTitle) => setAttributes({ counterTitle })}
 							/>
 						</div>
 					</div>
-				) : null}
-
-				<div className="counter-contents-wrapper">
-					<h4 className="eb-counter-number">
-						<span className="eb-counter-prefix">{counterPrefix}</span>
-						<span ref={counterRef} className="eb-counter eb-counter-number">
-							0
-						</span>
-						<span className="eb-counter-suffix">{counterSuffix}</span>
-					</h4>
-					<RichText
-						tagName="h3"
-						className="eb-counter-title"
-						value={counterTitle}
-						formattingControl={["bold", "italic"]}
-						onChange={(counterTitle) => setAttributes({ counterTitle })}
-					/>
 				</div>
 			</div>
-		</div>,
-	];
+		</>
+	);
 };
 
 export default Edit;
