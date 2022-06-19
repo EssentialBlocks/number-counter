@@ -52,7 +52,7 @@ class Number_Counter_Helper
             wp_register_script(
                 "number-counter-block-controls-util",
                 NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.js',
-                array_merge($controls_dependencies['dependencies'], array("essential-blocks-edit-post")),
+                array_merge($controls_dependencies['dependencies']),
                 $controls_dependencies['version'],
                 true
             );
