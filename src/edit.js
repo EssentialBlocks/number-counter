@@ -421,399 +421,399 @@ const Edit = (props) => {
 	// styles for generateResponsiveRangeStyles end
 
 	const wrapperStylesDesktop = `
-
-	.eb-counter-wrapper.${blockId} .eb-counter-title,
-	.eb-counter-wrapper.${blockId} h4.eb-counter-number {
-		margin: 0;
-		padding: 0;
-	}
-
-	.eb-counter-wrapper.${blockId} > * {
-		position: relative;
-	}	
-
-	.eb-counter-wrapper.${blockId}{
-		overflow:hidden;
-		display: flex;
-		flex-direction:${rootFlexDirection};
-		${media !== "none" ? `${contentMediaGapDesktop}` : ""}
-		${wrapperMarginStylesDesktop}
-		${wrapperPaddingStylesDesktop}
-		${backgroundStylesDesktop}
-		${bdShadowStyesDesktop}
-		transition:${bgTransitionStyle}, ${bdShadowTransitionStyle};
-	}
-
-	.eb-counter-wrapper.${blockId} .counter-contents-wrapper{
-		display:flex;
-		flex:1;
-		text-align: ${contentAlignment || "center"};
-		${
-			contentsAlignSelf && media !== "none"
-				? `justify-content:${contentsAlignSelf};`
-				: ""
-		}
-		${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
-		${numTitleGapDesktop}
-	}
-
-	.eb-counter-wrapper.${blockId}:hover{	
-		${hoverBackgroundStylesDesktop}
-		${bdShadowStylesHoverDesktop}
-	}
-	
-	.eb-counter-wrapper.${blockId}:before{
-		${overlayStylesDesktop}
-		transition:${ovlTransitionStyle};
-	}
-	
-	.eb-counter-wrapper.${blockId}:hover:before{
-		${hoverOverlayStylesDesktop}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-number{
-		${numberTypoStylesDesktop}
-		${numberColor ? ` color : ${numberColor};` : " "}
-		${numPrefixGapDesktop}
-		${numSuffixGapDesktop}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-title{
-		${titleTypoStylesDesktop}
-		${titleColor ? `color : ${titleColor};` : " "}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
-		${numPrefixTypoStylesDesktop}
-		${numPrefixColor ? `color : ${numPrefixColor};` : " "}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
-		${numSuffixTypoStylesDesktop}
-		${numSuffixColor ? `color : ${numSuffixColor};` : " "}
-	}
-
-
-
-	${
-		media !== "none"
-			? `
-			.eb-counter-wrapper.${blockId} .icon-img-wrapper {
-				align-self: ${mediaAlignSelf};
-				${mediaBgMarginStylesDesktop}
-			}
-
-			${
-				media === "image"
-					? `
-
-					.eb-counter-wrapper.${blockId} .icon-img-wrapper{
-						${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
-					}
-					
-					.eb-counter-wrapper.${blockId} .icon-img-wrapper img {
-						
-						${imageUrl ? mediaRadiusStylesDesktop : " "}
-						
-						${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
-						${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
-						
-					}
-
-					.eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
-						${imageUrl ? " " : mediaRadiusStylesDesktop}
-					}
-					`
-					: " "
-			}
-
-			${
-				media === "icon"
-					? `
-				.eb-counter-wrapper.${blockId} .eb-icon {
-								
-					${mediaBgPaddingDesktop}
-					${mediaRadiusStylesDesktop}
-
-					${
-						useIconBg
-							? `${
-									iconBgType === "fill"
-										? `background-color: ${iconBgColor};`
-										: iconBgType === "gradient"
-										? `background-image: ${iconBgGradient};`
-										: " "
-							  }`
-							: " "
-					}						
-					
-				}
-
-				.eb-counter-wrapper.${blockId} .eb-icon > span{
-					color: ${iconColor || "#fff"};
-				}
-
-				.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
-					${iconSizeDesktop}
-					height:${mIconZRange}${mIconZUnit};
-					width:${mIconZRange}${mIconZUnit};
-					display:flex;
-					justify-content:center;
-					align-items:center;
-				}
-
-				`
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-title,
+	 .eb-counter-wrapper.${blockId} h4.eb-counter-number {
+		 margin: 0;
+		 padding: 0;
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} > * {
+		 position: relative;
+	 }	
+ 
+	 .eb-counter-wrapper.${blockId}{
+		 overflow:hidden;
+		 display: flex;
+		 flex-direction:${rootFlexDirection};
+		 ${media !== "none" ? `${contentMediaGapDesktop}` : ""}
+		 ${wrapperMarginStylesDesktop}
+		 ${wrapperPaddingStylesDesktop}
+		 ${backgroundStylesDesktop}
+		 ${bdShadowStyesDesktop}
+		 transition:${bgTransitionStyle}, ${bdShadowTransitionStyle};
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .counter-contents-wrapper{
+		 display:flex;
+		 flex:1;
+		 text-align: ${contentAlignment || "center"};
+		 ${
+				contentsAlignSelf && media !== "none"
+					? `justify-content:${contentsAlignSelf};`
 					: ""
 			}
-			`
-			: " "
-	}
-	`;
+		 ${wrapperFlexDirection ? `flex-direction: ${wrapperFlexDirection};` : " "}
+		 ${numTitleGapDesktop}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId}:hover{	
+		 ${hoverBackgroundStylesDesktop}
+		 ${bdShadowStylesHoverDesktop}
+	 }
+	 
+	 .eb-counter-wrapper.${blockId}:before{
+		 ${overlayStylesDesktop}
+		 transition:${ovlTransitionStyle};
+	 }
+	 
+	 .eb-counter-wrapper.${blockId}:hover:before{
+		 ${hoverOverlayStylesDesktop}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-number{
+		 ${numberTypoStylesDesktop}
+		 ${numberColor ? ` color : ${numberColor};` : " "}
+		 ${numPrefixGapDesktop}
+		 ${numSuffixGapDesktop}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-title{
+		 ${titleTypoStylesDesktop}
+		 ${titleColor ? `color : ${titleColor};` : " "}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-prefix{
+		 ${numPrefixTypoStylesDesktop}
+		 ${numPrefixColor ? `color : ${numPrefixColor};` : " "}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-suffix{
+		 ${numSuffixTypoStylesDesktop}
+		 ${numSuffixColor ? `color : ${numSuffixColor};` : " "}
+	 }
+ 
+ 
+ 
+	 ${
+			media !== "none"
+				? `
+			 .eb-counter-wrapper.${blockId} .icon-img-wrapper {
+				 align-self: ${mediaAlignSelf};
+				 ${mediaBgMarginStylesDesktop}
+			 }
+ 
+			 ${
+					media === "image"
+						? `
+ 
+					 .eb-counter-wrapper.${blockId} .icon-img-wrapper{
+						 ${mediaImgWidthUnit === "%" ? mediaImgWidthDesktop : " "}
+					 }
+					 
+					 .eb-counter-wrapper.${blockId} .icon-img-wrapper img {
+						 
+						 ${imageUrl ? mediaRadiusStylesDesktop : " "}
+						 
+						 ${mediaImgWidthUnit === "%" ? `width: 100%;` : mediaImgWidthDesktop}
+						 ${isMediaImgHeightAuto ? `height:auto;` : mediaImgHeightDesktop}
+						 
+					 }
+ 
+					 .eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
+						 ${imageUrl ? " " : mediaRadiusStylesDesktop}
+					 }
+					 `
+						: " "
+				}
+ 
+			 ${
+					media === "icon"
+						? `
+				 .eb-counter-wrapper.${blockId} .eb-icon {
+								 
+					 ${mediaBgPaddingDesktop}
+					 ${mediaRadiusStylesDesktop}
+ 
+					 ${
+							useIconBg
+								? `${
+										iconBgType === "fill"
+											? `background-color: ${iconBgColor};`
+											: iconBgType === "gradient"
+											? `background-image: ${iconBgGradient};`
+											: " "
+								  }`
+								: " "
+						}						
+					 
+				 }
+ 
+				 .eb-counter-wrapper.${blockId} .eb-icon > span{
+					 color: ${iconColor || "#fff"};
+				 }
+ 
+				 .eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
+					 ${iconSizeDesktop}
+					 height:${mIconZRange}${mIconZUnit};
+					 width:${mIconZRange}${mIconZUnit};
+					 display:flex;
+					 justify-content:center;
+					 align-items:center;
+				 }
+ 
+				 `
+						: ""
+				}
+			 `
+				: " "
+		}
+	 `;
 
 	const wrapperStylesTab = `
-	.eb-counter-wrapper.${blockId}{
-		${media !== "none" ? `${contentMediaGapTab}` : ""}
-		${wrapperMarginStylesTab}
-		${wrapperPaddingStylesTab}
-		${backgroundStylesTab}
-		${bdShadowStyesTab}
-	}
-
-	.eb-counter-wrapper.${blockId}:hover{		
-		${hoverBackgroundStylesTab}
-		${bdShadowStylesHoverTab}
-	}
-	
-	.eb-counter-wrapper.${blockId}:before{
-		${overlayStylesTab}
-	}
-
-	.eb-counter-wrapper.${blockId}:hover:before{
-		${hoverOverlayStylesTab}
-	}
-
-	.eb-counter-wrapper.${blockId} .counter-contents-wrapper{
-		${numTitleGapTab}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-number{
-		${numberTypoStylesTab}
-		${numPrefixGapTab}
-		${numSuffixGapTab}
-	} 
-
-	.eb-counter-wrapper.${blockId} .eb-counter-title{
-		${titleTypoStylesTab}
-	} 
-
-	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
-		${numPrefixTypoStylesTab}
-	}  
-
-	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
-		${numSuffixTypoStylesTab}
-	} 
-
-
-	${
-		media !== "none"
-			? `
-
-			.eb-counter-wrapper.${blockId} .icon-img-wrapper {
-				${mediaBgMarginStylesTab}				
-			}
-			
-			${
-				media === "icon"
-					? `
-				
-					.eb-counter-wrapper.${blockId} .eb-icon {
-						${mediaRadiusStylesTab}
-						${mediaBgPaddingTab}				
-					}
-					
-					.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
-						${iconSizeTab}
-						${TABmIconZRange ? `height:${TABmIconZRange}${TABmIconZUnit};` : ""}
-						${TABmIconZRange ? `width:${TABmIconZRange}${TABmIconZUnit};` : ""}
-					}
-				
-				`
-					: " "
-			}
-
-			
-			${
-				media === "image"
-					? `
-						
-				.eb-counter-wrapper.${blockId} .icon-img-wrapper{
-					${
-						TABmediaImgWidthUnit === "%"
-							? mediaImgWidthTab
-							: mediaImgWidthUnit === "%"
-							? `width: auto;`
-							: " "
-					}
+	 .eb-counter-wrapper.${blockId}{
+		 ${media !== "none" ? `${contentMediaGapTab}` : ""}
+		 ${wrapperMarginStylesTab}
+		 ${wrapperPaddingStylesTab}
+		 ${backgroundStylesTab}
+		 ${bdShadowStyesTab}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId}:hover{		
+		 ${hoverBackgroundStylesTab}
+		 ${bdShadowStylesHoverTab}
+	 }
+	 
+	 .eb-counter-wrapper.${blockId}:before{
+		 ${overlayStylesTab}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId}:hover:before{
+		 ${hoverOverlayStylesTab}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .counter-contents-wrapper{
+		 ${numTitleGapTab}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-number{
+		 ${numberTypoStylesTab}
+		 ${numPrefixGapTab}
+		 ${numSuffixGapTab}
+	 } 
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-title{
+		 ${titleTypoStylesTab}
+	 } 
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-prefix{
+		 ${numPrefixTypoStylesTab}
+	 }  
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-suffix{
+		 ${numSuffixTypoStylesTab}
+	 } 
+ 
+ 
+	 ${
+			media !== "none"
+				? `
+ 
+			 .eb-counter-wrapper.${blockId} .icon-img-wrapper {
+				 ${mediaBgMarginStylesTab}				
+			 }
+			 
+			 ${
+					media === "icon"
+						? `
+				 
+					 .eb-counter-wrapper.${blockId} .eb-icon {
+						 ${mediaRadiusStylesTab}
+						 ${mediaBgPaddingTab}				
+					 }
+					 
+					 .eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
+						 ${iconSizeTab}
+						 ${TABmIconZRange ? `height:${TABmIconZRange}${TABmIconZUnit};` : ""}
+						 ${TABmIconZRange ? `width:${TABmIconZRange}${TABmIconZUnit};` : ""}
+					 }
+				 
+				 `
+						: " "
 				}
-
-				.eb-counter-wrapper.${blockId} .icon-img-wrapper img {
-					
-					${
-						TABmediaImgWidthUnit === "%"
-							? mediaImgWidthUnit === "%"
-								? " "
-								: `width: 100%;`
-							: mediaImgWidthTab
-					}
-					
-					${isMediaImgHeightAuto ? "" : mediaImgHeightTab}
-					
+ 
+			 
+			 ${
+					media === "image"
+						? `
+						 
+				 .eb-counter-wrapper.${blockId} .icon-img-wrapper{
+					 ${
+							TABmediaImgWidthUnit === "%"
+								? mediaImgWidthTab
+								: mediaImgWidthUnit === "%"
+								? `width: auto;`
+								: " "
+						}
+				 }
+ 
+				 .eb-counter-wrapper.${blockId} .icon-img-wrapper img {
+					 
+					 ${
+							TABmediaImgWidthUnit === "%"
+								? mediaImgWidthUnit === "%"
+									? " "
+									: `width: 100%;`
+								: mediaImgWidthTab
+						}
+					 
+					 ${isMediaImgHeightAuto ? "" : mediaImgHeightTab}
+					 
+				 }
+ 
+				 .eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
+					 ${mediaRadiusStylesTab}
+ 
+				 }
+				 
+				 `
+						: " "
 				}
-
-				.eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
-					${mediaRadiusStylesTab}
-
-				}
-				
-				`
-					: " "
-			}
-		`
-			: " "
-	}
-
-	`;
+		 `
+				: " "
+		}
+ 
+	 `;
 
 	const wrapperStylesMobile = `
-	.eb-counter-wrapper.${blockId}{
-		${media !== "none" ? `${contentMediaGapMobile}` : ""}
-		${wrapperMarginStylesMobile}
-		${wrapperPaddingStylesMobile}
-		${backgroundStylesMobile}
-		${bdShadowStyesMobile}
-	}
-	
-	.eb-counter-wrapper.${blockId}:hover{		
-		${hoverBackgroundStylesMobile}
-		${bdShadowStylesHoverMobile}
-	}
-
-	.eb-counter-wrapper.${blockId}:before{
-		${overlayStylesMobile}
-	}
-	
-	.eb-counter-wrapper.${blockId}:hover:before{
-		${hoverOverlayStylesMobile}
-	}
-
-	.eb-counter-wrapper.${blockId} .counter-contents-wrapper{
-		${numTitleGapMobile}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-number{
-		${numberTypoStylesMobile}
-		${numPrefixGapMobile}
-		${numSuffixGapMobile}
-	}
-
-	.eb-counter-wrapper.${blockId} .eb-counter-title{
-		${titleTypoStylesMobile}
-	} 
-
-	.eb-counter-wrapper.${blockId} .eb-counter-prefix{
-		${numPrefixTypoStylesMobile}
-	}  
-
-	.eb-counter-wrapper.${blockId} .eb-counter-suffix{
-		${numSuffixTypoStylesMobile}
-	}
-
-
-
-	${
-		media !== "none"
-			? `
-
-			.eb-counter-wrapper.${blockId} .icon-img-wrapper {
-				${mediaBgMarginStylesMobile}				
-			}
-			
-			${
-				media === "icon"
-					? `
-				
-					.eb-counter-wrapper.${blockId} .eb-icon {
-						${mediaRadiusStylesMobile}
-						${mediaBgPaddingMobile}				
-					}
-					
-					.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
-						${iconSizeMobile}
-						${MOBmIconZRange ? `height:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
-						${MOBmIconZRange ? `width:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
-					}
-				
-				`
-					: " "
-			}
-
-			
-			${
-				media === "image"
-					? `
-						
-				.eb-counter-wrapper.${blockId} .icon-img-wrapper{
-					${
-						MOBmediaImgWidthUnit === "%"
-							? mediaImgWidthMobile
-							: mediaImgWidthUnit === "%"
-							? `width: auto;`
-							: " "
-					}
+	 .eb-counter-wrapper.${blockId}{
+		 ${media !== "none" ? `${contentMediaGapMobile}` : ""}
+		 ${wrapperMarginStylesMobile}
+		 ${wrapperPaddingStylesMobile}
+		 ${backgroundStylesMobile}
+		 ${bdShadowStyesMobile}
+	 }
+	 
+	 .eb-counter-wrapper.${blockId}:hover{		
+		 ${hoverBackgroundStylesMobile}
+		 ${bdShadowStylesHoverMobile}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId}:before{
+		 ${overlayStylesMobile}
+	 }
+	 
+	 .eb-counter-wrapper.${blockId}:hover:before{
+		 ${hoverOverlayStylesMobile}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .counter-contents-wrapper{
+		 ${numTitleGapMobile}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-number{
+		 ${numberTypoStylesMobile}
+		 ${numPrefixGapMobile}
+		 ${numSuffixGapMobile}
+	 }
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-title{
+		 ${titleTypoStylesMobile}
+	 } 
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-prefix{
+		 ${numPrefixTypoStylesMobile}
+	 }  
+ 
+	 .eb-counter-wrapper.${blockId} .eb-counter-suffix{
+		 ${numSuffixTypoStylesMobile}
+	 }
+ 
+ 
+ 
+	 ${
+			media !== "none"
+				? `
+ 
+			 .eb-counter-wrapper.${blockId} .icon-img-wrapper {
+				 ${mediaBgMarginStylesMobile}				
+			 }
+			 
+			 ${
+					media === "icon"
+						? `
+				 
+					 .eb-counter-wrapper.${blockId} .eb-icon {
+						 ${mediaRadiusStylesMobile}
+						 ${mediaBgPaddingMobile}				
+					 }
+					 
+					 .eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {
+						 ${iconSizeMobile}
+						 ${MOBmIconZRange ? `height:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
+						 ${MOBmIconZRange ? `width:${MOBmIconZRange}${MOBmIconZUnit};` : ""}
+					 }
+				 
+				 `
+						: " "
 				}
-
-				.eb-counter-wrapper.${blockId} .icon-img-wrapper img {
-					
-					${
-						MOBmediaImgWidthUnit === "%"
-							? mediaImgWidthUnit === "%"
-								? " "
-								: `width: 100%;`
-							: mediaImgWidthMobile
-					}
-					
-					${isMediaImgHeightAuto ? "" : mediaImgHeightMobile}
-					
+ 
+			 
+			 ${
+					media === "image"
+						? `
+						 
+				 .eb-counter-wrapper.${blockId} .icon-img-wrapper{
+					 ${
+							MOBmediaImgWidthUnit === "%"
+								? mediaImgWidthMobile
+								: mediaImgWidthUnit === "%"
+								? `width: auto;`
+								: " "
+						}
+				 }
+ 
+				 .eb-counter-wrapper.${blockId} .icon-img-wrapper img {
+					 
+					 ${
+							MOBmediaImgWidthUnit === "%"
+								? mediaImgWidthUnit === "%"
+									? " "
+									: `width: 100%;`
+								: mediaImgWidthMobile
+						}
+					 
+					 ${isMediaImgHeightAuto ? "" : mediaImgHeightMobile}
+					 
+				 }
+ 
+				 .eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
+					 ${mediaRadiusStylesMobile}
+ 
+				 }
+				 
+				 `
+						: " "
 				}
-
-				.eb-counter-wrapper.${blockId} .eb-counter-image-wrapper{
-					${mediaRadiusStylesMobile}
-
-				}
-				
-				`
-					: " "
-			}
-		`
-			: " "
-	}
-
-
-
-	`;
+		 `
+				: " "
+		}
+ 
+ 
+ 
+	 `;
 
 	const desktopAllStyles = softMinifyCssStrings(`
-		${wrapperStylesDesktop}
-	`);
+		 ${wrapperStylesDesktop}
+	 `);
 
 	const tabAllStyles = softMinifyCssStrings(`
-		${wrapperStylesTab}
-	`);
+		 ${wrapperStylesTab}
+	 `);
 
 	const mobileAllStyles = softMinifyCssStrings(`
-		${wrapperStylesMobile}
-	`);
+		 ${wrapperStylesMobile}
+	 `);
 
 	//
 	// CSS/styling Codes Ends Here
@@ -840,31 +840,31 @@ const Edit = (props) => {
 			<div {...blockProps}>
 				<style>
 					{`
-				${desktopAllStyles}
-
-				/* mimmikcssStart */
-
-				${resOption === "Tablet" ? tabAllStyles : " "}
-				${resOption === "Mobile" ? tabAllStyles + mobileAllStyles : " "}
-
-				/* mimmikcssEnd */
-
-				@media all and (max-width: 1024px) {	
-
-					/* tabcssStart */			
-					${softMinifyCssStrings(tabAllStyles)}
-					/* tabcssEnd */			
-				
-				}
-				
-				@media all and (max-width: 767px) {
-					
-					/* mobcssStart */			
-					${softMinifyCssStrings(mobileAllStyles)}
-					/* mobcssEnd */			
-				
-				}
-				`}
+				 ${desktopAllStyles}
+ 
+				 /* mimmikcssStart */
+ 
+				 ${resOption === "Tablet" ? tabAllStyles : " "}
+				 ${resOption === "Mobile" ? tabAllStyles + mobileAllStyles : " "}
+ 
+				 /* mimmikcssEnd */
+ 
+				 @media all and (max-width: 1024px) {	
+ 
+					 /* tabcssStart */			
+					 ${softMinifyCssStrings(tabAllStyles)}
+					 /* tabcssEnd */			
+				 
+				 }
+				 
+				 @media all and (max-width: 767px) {
+					 
+					 /* mobcssStart */			
+					 ${softMinifyCssStrings(mobileAllStyles)}
+					 /* mobcssEnd */			
+				 
+				 }
+				 `}
 				</style>
 				<div className={`eb-parent-wrapper eb-parent-${blockId} ${classHook}`}>
 					<div className={`${blockId} eb-counter-wrapper`}>

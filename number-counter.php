@@ -4,7 +4,7 @@
  * Plugin Name:     Number Counter
  * Plugin URI: 		https://essential-blocks.com
  * Description:     Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!
- * Version:         1.1.2
+ * Version:         1.1.3
  * Author:          WPDeveloper
  * Author URI: 		https://wpdeveloper.net
  * License:         GPLv3 or later
@@ -21,7 +21,7 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
 
-define('NUMBER_COUNTER_BLOCK_VERSION', "1.1.2");
+define('NUMBER_COUNTER_BLOCK_VERSION', "1.1.3");
 define('NUMBER_COUNTER_BLOCK_ADMIN_URL', plugin_dir_url(__FILE__));
 define('NUMBER_COUNTER_BLOCK_ADMIN_PATH', dirname(__FILE__));
 
