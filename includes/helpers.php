@@ -47,11 +47,11 @@ class Number_Counter_Helper
          */
         if ($pagenow == 'post-new.php' || $pagenow == 'post.php' || $pagenow == 'site-editor.php' || ($pagenow == 'themes.php' && !empty($_SERVER['QUERY_STRING']) && str_contains($_SERVER['QUERY_STRING'], 'gutenberg-edit-site'))) {
 
-            $controls_dependencies = include_once NUMBER_COUNTER_BLOCK_ADMIN_PATH . '/dist/controls.asset.php';
+            $controls_dependencies = include_once NUMBER_COUNTER_BLOCK_ADMIN_PATH . '/dist/modules.asset.php';
 
             wp_register_script(
                 "number-counter-block-controls-util",
-                NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.js',
+                NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/modules.js',
                 array_merge($controls_dependencies['dependencies']),
                 $controls_dependencies['version'],
                 true
@@ -60,6 +60,7 @@ class Number_Counter_Helper
             wp_localize_script('number-counter-block-controls-util', 'EssentialBlocksLocalize', array(
                 'eb_wp_version' => (float) get_bloginfo('version'),
                 'rest_rootURL' => get_rest_url(),
+				'fontAwesome' => "true"
             ));
 
             if ($pagenow == 'post-new.php' || $pagenow == 'post.php') {
@@ -72,14 +73,23 @@ class Number_Counter_Helper
                 ));
             }
 
+			wp_register_style(
+				'essential-blocks-iconpicker-css',
+				NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/style-modules.css',
+				[],
+				NUMBER_COUNTER_BLOCK_VERSION,
+				'all'
+			);
+
             wp_enqueue_style(
                 'countdown-editor-css',
-                NUMBER_COUNTER_BLOCK_ADMIN_URL . '/dist/controls.css',
+                NUMBER_COUNTER_BLOCK_ADMIN_URL . 'dist/modules.css',
                 array(
                     'fontawesome-frontend-css',
                     'fontpicker-default-theme',
                     'fontpicker-matetial-theme',
-                    'essential-blocks-animation'
+                    'essential-blocks-animation',
+					'essential-blocks-iconpicker-css'
                 ),
                 $controls_dependencies['version'],
                 'all'

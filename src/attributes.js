@@ -215,6 +215,14 @@ export default {
 		type: "boolean",
 		default: true,
 	},
+	counterTitleLevel: {
+		type: "string",
+		default: "h4",
+	},
+	titleLevel: {
+		type: "string",
+		default: "h3",
+	},
 
 	// typography attributes ⬇
 	...generateTypographyAttributes(Object.values(prefixObjs)),
