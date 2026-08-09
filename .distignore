@@ -1,29 +1,61 @@
 # A set of files you probably don't want in your WordPress.org distribution
+
+# Dotfiles & editor config
 .babelrc
+.babelrc.js
+.babelrc.json
+babel.config.js
+babel.config.json
 .deployignore
 .distignore
 .editorconfig
 .eslintignore
 .eslintrc
-.gitmodules
-.git
-.gitignore
-.github
-.gitattributes
-.gitlab-ci.yml
-.travis.yml
+.eslintrc.js
+.eslintrc.json
+.prettierrc
+.prettierrc.js
+.prettierignore
+.stylelintrc
+.stylelintrc.json
+.nvmrc
+.env
+.env.example
+.idea
+.vscode
 .DS_Store
 Thumbs.db
-behat.yml
+
+# Version control
+.git
+.gitignore
+.gitmodules
+.gitattributes
+.github
+
+# CI
+.gitlab-ci.yml
+.travis.yml
 bitbucket-pipelines.yml
-bin
 .circleci/config.yml
+dependencies.yml
+
+# Dependency manifests & lockfiles
 composer.json
 composer.lock
-dependencies.yml
-Gruntfile.js
 package.json
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build tooling
+Gruntfile.js
+gulpfile.js
+webpack.config.js
+wp-cli.local.yml
+bin
+
+# Coding standards & tests
 phpunit.xml
 phpunit.xml.dist
 multisite.xml
@@ -32,22 +64,63 @@ multisite.xml.dist
 phpcs.xml
 .phpcs.xml.dist
 phpcs.xml.dist
-README.md
-webpack.config.js
-wp-cli.local.yml
-yarn.lock
+behat.yml
 tests
-vendor
+
+# Dependencies
 node_modules
+node_modules/**/*.*
+vendor
+
+# Source — compiled into dist/, not needed at runtime
+src
+config
+controls
+util
+lib/style-handler/style-handler.js
+lib/style-handler/helpers.js
+lib/style-handler/src
+lib/style-handler/package.json
+lib/style-handler/README.md
+lib/style-handler/.git
+lib/style-handler/.gitignore
+
+# Source maps
+dist/*.*.map
+**/*.map
+
+# Orphaned Font Awesome 4 webfonts — no shipped CSS or JS references these.
+# Only the FA5 faces (fa-solid-900 / fa-brands-400 / fa-regular-400) are used,
+# by assets/css/font-awesome5.css.
+assets/fonts/FontAwesome.otf
+assets/fonts/fontawesome-webfont.eot
+assets/fonts/fontawesome-webfont.svg
+assets/fonts/fontawesome-webfont.ttf
+assets/fonts/fontawesome-webfont.woff
+assets/fonts/fontawesome-webfont.woff2
+
+# Dead-browser font formats. font-awesome5.css still lists these in its src:
+# fallback chain, but every browser resolves woff2/woff first and never fetches
+# them: .eot is IE-only (IE11 EOL June 2022), .svg fonts are Safari <=4 /
+# iOS <=4.3 / Android <=4.3.
+assets/fonts/fa-solid-900.eot
+assets/fonts/fa-solid-900.svg
+assets/fonts/fa-brands-400.eot
+assets/fonts/fa-brands-400.svg
+assets/fonts/fa-regular-400.eot
+assets/fonts/fa-regular-400.svg
+
+# Docs & repo assets
+README.md
+readme.md
+compatibility-report.md
+changes.txt
+.wordpress-org
+
+# Archives & dumps
 *.sql
 *.tar.gz
 *.zip
-gulpfile.js
-.git
-node_modules/**/*.*
+*.tgz
 **/*.zip
-src
-util
-.wordpress-org
-changes.txt
-dist/*.*.map
+*.log
