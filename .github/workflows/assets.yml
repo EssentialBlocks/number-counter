@@ -1,14 +1,30 @@
 name: Assets Update to WordPress.org
 
+# The asset-update action rsyncs the whole branch over SVN trunk and then refuses
+# to commit if anything other than readme.txt differs. It can therefore only run
+# on a branch that already mirrors the released trunk. `latest` tracks the
+# published release; `dev` carries unreleased work, so pointing this at `dev`
+# always aborted with "Other files have been modified; changes not deployed".
+# The path filter keeps it from firing on code-only pushes.
 on:
   push:
-    branches: [ dev ]
+    branches: [ latest ]
+    paths:
+      - '.wordpress-org/**'
+      - 'readme.txt'
+  workflow_dispatch:
 
 jobs:
   assets:
     runs-on: ubuntu-latest
     steps:
+      # Submodules are required: trunk ships lib/style-handler/*.php and (on
+      # `latest`) controls/*, which live in submodules. Without them the rsync
+      # would delete those paths from trunk and trip the same abort.
       - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+          token: ${{ secrets.EB_PAT }}
       - name: Assets Update
         id: assets
         uses: 10up/action-wordpress-plugin-asset-update@2.2.0
