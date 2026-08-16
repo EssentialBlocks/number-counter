@@ -426,8 +426,9 @@ export default function Style(props) {
 
 				}
 
-				.eb-counter-wrapper.${blockId} .eb-icon > span{
+				.eb-counter-wrapper.${blockId} .eb-icon .eb-counter-icon-data-selector{
 					color: ${iconColor || "#fff"};
+					fill: ${iconColor || "#fff"};
 				}
 
 				.eb-counter-wrapper.${blockId} .icon-img-wrapper .eb-counter-icon-data-selector {

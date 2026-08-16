@@ -137,6 +137,9 @@ function number_counter_init()
 						wp_enqueue_style('essential-blocks-animation');
 						wp_enqueue_script('essential-blocks-counter-frontend');
 						wp_enqueue_script('essential-blocks-eb-animation');
+						// Google fonts are derived from this block's own typography
+						// attributes, so published posts work without a re-save.
+						Counter_Font_Loader::enqueue_for_attributes($attributes);
 					}
 					return $content;
 				}
