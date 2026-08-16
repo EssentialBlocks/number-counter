@@ -2,7 +2,7 @@ name: Assets Update to WordPress.org
 
 on:
   push:
-    branches: [ trunk ]
+    branches: [ dev ]
 
 jobs:
   assets:
