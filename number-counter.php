@@ -4,15 +4,23 @@
  * Plugin Name:     Number Counter
  * Plugin URI: 		https://essential-blocks.com
  * Description:     Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!
- * Version:         1.1.5
+ * Version:         1.2.0
  * Author:          WPDeveloper
  * Author URI: 		https://wpdeveloper.net
  * License:         GPLv3 or later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     number-counter
+ * Requires at least: 6.0
+ * Tested up to:    7.0
+ * Requires PHP:    7.4
  *
  * @package         create-block
  */
+
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+	exit;
+}
 
 /**
  * Registers all block assets so that they can be enqueued through the block editor
@@ -21,25 +29,35 @@
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
 
-define('NUMBER_COUNTER_BLOCK_VERSION', "1.1.5");
+define('NUMBER_COUNTER_BLOCK_VERSION', "1.2.0");
 define('NUMBER_COUNTER_BLOCK_ADMIN_URL', plugin_dir_url(__FILE__));
 define('NUMBER_COUNTER_BLOCK_ADMIN_PATH', dirname(__FILE__));
 
 require_once __DIR__ . '/includes/font-loader.php';
 require_once __DIR__ . '/includes/post-meta.php';
 require_once __DIR__ . '/includes/helpers.php';
-require_once __DIR__ . '/lib/style-handler/style-handler.php';
+
+// style-handler is a git submodule; guard so an uninitialised checkout does not fatal.
+if (file_exists(__DIR__ . '/lib/style-handler/style-handler.php')) {
+	require_once __DIR__ . '/lib/style-handler/style-handler.php';
+}
 
 function number_counter_init()
 {
 
 	$script_asset_path = NUMBER_COUNTER_BLOCK_ADMIN_PATH . "/dist/index.asset.php";
 	if (!file_exists($script_asset_path)) {
-		throw new Error(
+		// Bail instead of throwing: `Error` does not exist before PHP 7, and an
+		// uncaught throw on `init` takes the whole site down.
+		error_log(
 			'You need to run `npm start` or `npm run build` for the "number-counter/number-counter" block first.'
 		);
+		return;
 	}
 	$script_asset = require($script_asset_path);
+	if (!is_array($script_asset)) {
+		return;
+	}
 	$all_dependencies = array_merge($script_asset['dependencies'], array(
 		'wp-blocks',
 		'wp-i18n',
@@ -119,6 +137,9 @@ function number_counter_init()
 						wp_enqueue_style('essential-blocks-animation');
 						wp_enqueue_script('essential-blocks-counter-frontend');
 						wp_enqueue_script('essential-blocks-eb-animation');
+						// Google fonts are derived from this block's own typography
+						// attributes, so published posts work without a re-save.
+						Counter_Font_Loader::enqueue_for_attributes($attributes);
 					}
 					return $content;
 				}

@@ -1,6 +1,6 @@
 {
 	"name": "counter",
-	"version": "1.1.5",
+	"version": "1.2.0",
 	"description": "Put spotlight in important data using Counter block for Gutenberg. Customize the designs by adding proper Animation effects with flexibility and many more!",
 	"author": "wpdevteam",
 	"license": "GPL-3.0-or-later",
@@ -14,13 +14,15 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
-		"@fonticonpicker/react-fonticonpicker": "hz-tyfoon/react-fonticonpicker#master",
-		"@babel/plugin-proposal-class-properties": "^7.16.5",
+		"@babel/plugin-transform-class-properties": "^7.29.7",
 		"@wordpress/block-editor": "^4.3.1",
 		"@wordpress/i18n": "^4.2.4",
-		"@wordpress/blocks": "^11.1.5"
+		"@wordpress/blocks": "^11.1.5",
+		"classnames": "^2.5.1",
+		"lodash": "^4.18.1"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^19.2.2"
+		"@wordpress/scripts": "^19.2.2",
+		"mini-css-extract-plugin": "^2.10.2"
 	}
 }
