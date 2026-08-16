@@ -48,7 +48,8 @@ if(!class_exists('Counter_Font_Loader')){
 
 				$fonts = get_post_meta($post->ID, '_eb_attr', true);
 
-				if (!empty($fonts)) {
+				// is_string(): passing a non-string to explode() is a TypeError on PHP 8.0+.
+				if (!empty($fonts) && is_string($fonts)) {
 
 					$fonts = array_unique(explode(',', $fonts));
 

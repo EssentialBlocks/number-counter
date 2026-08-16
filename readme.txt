@@ -1,9 +1,10 @@
 === Number Counter ===
-Contributors: wpdevteam, re_enter_rupok, Asif2BD, hztyfoon, rahat89, fencermonir
+Contributors: wpdevteam, re_enter_rupok, Asif2BD, hztyfoon, rahat89, fencermonir, rahatsheikhleon
 Tags:              block, blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
-Requires at least: 5.6
-Tested up to:      6.5
-Stable tag:        1.1.6
+Requires at least: 6.0
+Tested up to:      7.0
+Requires PHP:      7.4
+Stable tag:        1.2.0
 License:           GPLv3 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -71,6 +72,14 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
+
+= 1.2.0 - 16/08/2026 =
+* Fixed: PHP 8.0–8.5 compatibility issues
+* Fixed: WordPress version detection
+* Fixed: PHP 7.x compatibility
+* Fixed: Asset loading issues on newer WordPress versions
+* Improved: Asset loading and overall stability
+* Tested up to WordPress 7.0.4
 
 = 1.1.6 - 18/04/2024 =
 * Fixed: compatibility support with WordPress 6.5 version

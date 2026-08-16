@@ -9,7 +9,7 @@ if(!class_exists('Counter_Post_Meta')){
 	{
 		public function __construct()
 		{
-			add_filter('init', array($this, 'register_meta'));
+			add_action('init', array($this, 'register_meta'));
 		}
 
 		/**

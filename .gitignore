@@ -31,7 +31,9 @@ notes/
 # dotenv environment variables file
 .env
 
-package-lock.json
+# package-lock.json is intentionally tracked so CI can run `npm ci`
+# and reproduce the exact dependency tree the build was verified against.
+# It is still kept out of the WordPress.org zip via .distignore/.gitattributes.
 yarn.lock
 .idea
 .DS_Store
