@@ -1,8 +1,8 @@
 # Number Counter — PHP / WordPress Compatibility Pass
 
 - **Plugin:** Number Counter (`number-counter`)
-- **Version:** 1.1.6 → **1.5.0**
-- **Branch:** `number-counter-dev` (branched off `latest`, **not** `master` — see §9)
+- **Version:** 1.1.6 → **1.2.0**
+- **Branch:** `dev` (branched off `latest`, **not** `master` — see §9)
 - **Date of version check:** 2026-08-09
 - **Nothing committed or pushed.** All changes left in the working tree.
 
@@ -106,7 +106,7 @@ Only one, and it resolved cleanly: `eb_wp_version` must remain a **float** becau
 `number-counter.php` header (three of these were previously absent):
 
 ```
-Version:           1.5.0
+Version:           1.2.0
 Requires at least: 6.0
 Tested up to:      7.0
 Requires PHP:      7.4
@@ -118,10 +118,10 @@ Requires PHP:      7.4
 Requires at least: 6.0
 Tested up to:      7.0
 Requires PHP:      7.4
-Stable tag:        1.5.0
+Stable tag:        1.2.0
 ```
 
-Version bumped **1.1.6 → 1.5.0** (minor, set explicitly by the user) and kept in sync across all four locations: plugin header, `NUMBER_COUNTER_BLOCK_VERSION`, `readme.txt` `Stable tag`, and `package.json`. A changelog entry was added to `readme.txt`. No `composer.json` exists.
+Version bumped **1.1.6 → 1.2.0** (minor, set explicitly by the user) and kept in sync across all four locations: plugin header, `NUMBER_COUNTER_BLOCK_VERSION`, `readme.txt` `Stable tag`, and `package.json`. A changelog entry was added to `readme.txt`. No `composer.json` exists.
 
 ---
 
