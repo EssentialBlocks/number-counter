@@ -8,6 +8,9 @@ const { EBDisplayIcon } = window.EBNumberCounterControls;
  * Internal dependencies
  */
 
+const TAGS = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "div", "span"];
+const safeTag = (t, d) => (TAGS.includes(t) ? t : d);
+
 const Save = ({ attributes }) => {
     const {
         // blockId attribute for making unique className and other uniqueness ⬇
@@ -30,6 +33,9 @@ const Save = ({ attributes }) => {
         titleLevel,
         classHook,
     } = attributes;
+
+    const CounterTitleTag = safeTag(attributes.counterTitleLevel, "h4");
+    const TitleTag = safeTag(titleLevel, "h3");
 
     return (
         <div {...useBlockProps.save()}>
@@ -57,7 +63,7 @@ const Save = ({ attributes }) => {
                     ) : null}
 
                     <div className="counter-contents-wrapper">
-                        <attributes.counterTitleLevel className="eb-counter-number">
+                        <CounterTitleTag className="eb-counter-number">
                             <span className="eb-counter-prefix">
                                 {counterPrefix}
                             </span>
@@ -84,10 +90,10 @@ const Save = ({ attributes }) => {
                             <span className="eb-counter-suffix">
                                 {counterSuffix}
                             </span>
-                        </attributes.counterTitleLevel>
+                        </CounterTitleTag>
 
                         <RichText.Content
-                            tagName={titleLevel}
+                            tagName={TitleTag}
                             className="eb-counter-title"
                             value={counterTitle}
                         />

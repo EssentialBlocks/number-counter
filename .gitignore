@@ -37,3 +37,6 @@ notes/
 yarn.lock
 .idea
 .DS_Store
+
+# Source maps expose the private controls source
+*.map
