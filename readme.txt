@@ -83,13 +83,9 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
-= 1.2.1 - 19/10/2026 =
-* Security: Hardened block style generation
-* Fixed: Animation stylesheet replaced with animate.css 3.7.2 (MIT licence), which also restores the Shake and Light Speed animations
-* Fixed: Plugin header licence URI now points to GPLv3, matching the declared licence
-* Removed: Unused `_eb_attr` post meta registration
-* Improved: Release package no longer includes the unused frontend helper script
-* Added: External services section documenting Google Fonts
+= 1.2.1 - 26/10/2026 =
+* Improved: Security enhancements
+* Few minor bug fixes & improvements
 
 = 1.2.0 - 16/08/2026 =
 * Fixed: PHP 8.0–8.5 compatibility issues
