@@ -1,10 +1,10 @@
 === Number Counter ===
-Contributors: wpdevteam, re_enter_rupok, Asif2BD, hztyfoon, rahat89, fencermonir, rahatsheikhleon
+Contributors: wpdevteam, re_enter_rupok, Asif2BD, rahat89, rahatsheikhleon
 Tags:              block, blocks, counter, number counter, number, running numbers, gutenberg, gutenberg blocks
 Requires at least: 6.0
 Tested up to:      7.0
 Requires PHP:      7.4
-Stable tag:        1.2.0
+Stable tag:        1.2.1
 License:           GPLv3 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -52,6 +52,16 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 
 ⚡ [Flexia](http://wordpress.org/plugins/flexia): Most lightweight, customizable & multi purpose theme for WordPress
 
+== External services ==
+
+This plugin connects to Google Fonts to load the fonts you pick in a Number Counter block's typography settings.
+
+* What it is used for: displaying the selected font on the front end of your site.
+* When data is sent: on every front-end page that contains a Number Counter block whose typography uses any font family other than Default or a system font (Arial, Tahoma, Verdana, Helvetica, Times New Roman, Trebuchet MS, Georgia).
+* What is sent: the visitor's browser requests the stylesheet from fonts.googleapis.com and the font files from fonts.gstatic.com, so Google receives the visitor's IP address, user agent and the referring page, together with the requested font family names.
+
+The service is provided by Google: [Terms of Service](https://policies.google.com/terms), [Privacy Policy](https://policies.google.com/privacy).
+
 == Installation ==
 
 = Modern Way: =
@@ -72,6 +82,10 @@ Consider checking out our other WordPress solutions & boost your WordPress websi
 Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
+
+= 1.2.1 - 26/10/2026 =
+* Improved: Security enhancements
+* Few minor bug fixes & improvements
 
 = 1.2.0 - 16/08/2026 =
 * Fixed: PHP 8.0–8.5 compatibility issues

@@ -124,3 +124,8 @@ changes.txt
 *.tgz
 **/*.zip
 *.log
+
+# Controls' eb_frontend helper bundle: built by webpack but never registered or
+# enqueued by this plugin. dist/frontend/index.js is the block's own script and ships.
+dist/frontend.js
+dist/frontend.asset.php
