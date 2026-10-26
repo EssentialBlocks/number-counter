@@ -87,9 +87,7 @@ Releases are published to WordPress.org by pushing a tag, which runs `.github/wo
 | [@wpdevteam](https://profiles.wordpress.org/wpdevteam/) | [WPDeveloper](https://github.com/WPDevelopers) |
 | [@re_enter_rupok](https://profiles.wordpress.org/re_enter_rupok/) | — |
 | [@Asif2BD](https://profiles.wordpress.org/asif2bd/) | [@Asif2BD](https://github.com/Asif2BD) |
-| [@hztyfoon](https://profiles.wordpress.org/hztyfoon/) | [@hz-tyfoon](https://github.com/hz-tyfoon) |
 | [@rahat89](https://profiles.wordpress.org/rahat89/) | — |
-| [@fencermonir](https://profiles.wordpress.org/fencermonir/) | [@fencermonir](https://github.com/fencermonir) |
 | [@rahatsheikhleon](https://profiles.wordpress.org/rahatsheikhleon/) | [@RahatSheikhLeon](https://github.com/RahatSheikhLeon) |
 
 Contributions are welcome — open an issue or a pull request on [GitHub](https://github.com/EssentialBlocks/number-counter).
