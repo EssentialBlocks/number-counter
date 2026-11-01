@@ -124,27 +124,35 @@ function number_counter_init()
 		"all"
 	);
 
-	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/number-counter')) {
-		register_block_type(
-			Number_Counter_Helper::get_block_register_path("number-counter/number-counter", NUMBER_COUNTER_BLOCK_ADMIN_PATH),
-			array(
-				'editor_script' => 'essential-blocks-separate-number-counter-editor',
-				'editor_style' 	=> 'number-counter-editor-css',
-				'render_callback' => function ($attributes, $content) {
-					if (!is_admin()) {
-						wp_enqueue_style('fontawesome-frontend-css');
-						wp_enqueue_style('essential-blocks-animation');
-						wp_enqueue_script('essential-blocks-counter-frontend');
-						wp_enqueue_script('essential-blocks-eb-animation');
-						// Google fonts are derived from this block's own typography
-						// attributes, so published posts work without a re-save.
-						Counter_Font_Loader::enqueue_for_attributes($attributes);
-					}
-					return $content;
-				}
-			)
-		);
+	$eb_has_block = WP_Block_Type_Registry::get_instance()->is_registered( 'essential-blocks/number-counter' );
+	$block_args   = array(
+		'editor_script' => 'essential-blocks-separate-number-counter-editor',
+		'editor_style' 	=> 'number-counter-editor-css',
+		'render_callback' => function ($attributes, $content) {
+			if (!is_admin()) {
+				wp_enqueue_style('fontawesome-frontend-css');
+				wp_enqueue_style('essential-blocks-animation');
+				wp_enqueue_script('essential-blocks-counter-frontend');
+				wp_enqueue_script('essential-blocks-eb-animation');
+				// Google fonts are derived from this block's own typography
+				// attributes, so published posts work without a re-save.
+				Counter_Font_Loader::enqueue_for_attributes($attributes);
+			}
+			return $content;
+		}
+	);
+
+	// Essential Blocks has its own version of this block under another name. Posts saved
+	// with this one still need its render callback and front-end assets, so keep it
+	// registered, but leave out the editor bundle, which can't run beside Essential Blocks.
+	if ( $eb_has_block ) {
+		unset( $block_args['editor_script'], $block_args['editor_style'] );
 	}
+
+	register_block_type(
+		Number_Counter_Helper::get_block_register_path("number-counter/number-counter", NUMBER_COUNTER_BLOCK_ADMIN_PATH),
+		$block_args
+	);
 }
 
 add_action('init', 'number_counter_init', 99);
