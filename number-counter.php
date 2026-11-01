@@ -160,7 +160,23 @@ function number_counter_block_icon_selected_style() {
 		'eb-block-icon-selected',
 		plugins_url( 'assets/css/block-icon-selected.css', __FILE__ ),
 		[],
-		'1.0.0'
+		NUMBER_COUNTER_BLOCK_VERSION
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'number_counter_block_icon_selected_style' );
+
+/**
+ * Let Essential Blocks' animation assets win on the front end when it is active.
+ *
+ * Both plugins register these handles and the first registration wins. This
+ * plugin's loader doesn't set `window.ebAnimationLoaded`, so Essential Blocks'
+ * failsafe would reveal every animated block without playing it. Essential Blocks
+ * registers its own at priority 20 and handles the same `.eb___animated` classes.
+ */
+function number_counter_use_essential_blocks_animation() {
+    if ( defined( 'ESSENTIAL_BLOCKS_VERSION' ) ) {
+        wp_deregister_script( 'essential-blocks-eb-animation' );
+        wp_deregister_style( 'essential-blocks-animation' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'number_counter_use_essential_blocks_animation', 19 );
