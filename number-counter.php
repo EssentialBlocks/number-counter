@@ -150,6 +150,22 @@ function number_counter_init()
 add_action('init', 'number_counter_init', 99);
 
 /**
+ * The editor canvas is an iframe, and styles enqueued on admin_enqueue_scripts stay in the
+ * outer admin page. Load the icon font and animation styles through enqueue_block_assets so
+ * icons and the animation preview render inside the canvas. Frontend loading stays with the
+ * render callback, so these are not added to every frontend page.
+ */
+function number_counter_editor_canvas_styles()
+{
+	if (!is_admin()) {
+		return;
+	}
+	wp_enqueue_style('fontawesome-frontend-css');
+	wp_enqueue_style('essential-blocks-animation');
+}
+add_action('enqueue_block_assets', 'number_counter_editor_canvas_styles');
+
+/**
  * Block icons are filled #6C3BFF, which almost disappears on the highlighted row of
  * the "/" inserter, a selected List View row and the drag chip. Recolour them there,
  * as Essential Blocks does. The handle is shared, so the stylesheet prints once when
