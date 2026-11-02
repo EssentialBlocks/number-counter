@@ -83,6 +83,11 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
+= 1.2.2 - 02/11/2026 =
+* Improved: Security enhancements
+* Fixed: Existing Number Counter blocks stopped working on the front end when Essential Blocks is active
+* Fixed: Animated blocks appeared without playing their animation when Essential Blocks is active
+
 = 1.2.1 - 26/10/2026 =
 * Improved: Security enhancements
 * Few minor bug fixes & improvements
