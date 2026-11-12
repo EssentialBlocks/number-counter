@@ -5,9 +5,19 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import { omit } from "lodash";
 
 import attributes from "./attributes";
+import Save from "./save";
 // import InfoboxContainer from "./components/infobox-save";
 
 const deprecated = [
+    {
+        // 1.2.1: image media saved an empty <img> before an image was picked
+        attributes: { ...attributes },
+        supports: {
+            align: ["wide", "full"],
+        },
+        isEligible: ({ media, imageUrl }) => media === "image" && !imageUrl,
+        save: (props) => <Save {...props} keepEmptyImage />,
+    },
     {
         attributes: { ...attributes },
         supports: {
