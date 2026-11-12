@@ -124,27 +124,35 @@ function number_counter_init()
 		"all"
 	);
 
-	if (!WP_Block_Type_Registry::get_instance()->is_registered('essential-blocks/number-counter')) {
-		register_block_type(
-			Number_Counter_Helper::get_block_register_path("number-counter/number-counter", NUMBER_COUNTER_BLOCK_ADMIN_PATH),
-			array(
-				'editor_script' => 'essential-blocks-separate-number-counter-editor',
-				'editor_style' 	=> 'number-counter-editor-css',
-				'render_callback' => function ($attributes, $content) {
-					if (!is_admin()) {
-						wp_enqueue_style('fontawesome-frontend-css');
-						wp_enqueue_style('essential-blocks-animation');
-						wp_enqueue_script('essential-blocks-counter-frontend');
-						wp_enqueue_script('essential-blocks-eb-animation');
-						// Google fonts are derived from this block's own typography
-						// attributes, so published posts work without a re-save.
-						Counter_Font_Loader::enqueue_for_attributes($attributes);
-					}
-					return $content;
-				}
-			)
-		);
+	$eb_has_block = WP_Block_Type_Registry::get_instance()->is_registered( 'essential-blocks/number-counter' );
+	$block_args   = array(
+		'editor_script' => 'essential-blocks-separate-number-counter-editor',
+		'editor_style' 	=> 'number-counter-editor-css',
+		'render_callback' => function ($attributes, $content) {
+			if (!is_admin()) {
+				wp_enqueue_style('fontawesome-frontend-css');
+				wp_enqueue_style('essential-blocks-animation');
+				wp_enqueue_script('essential-blocks-counter-frontend');
+				wp_enqueue_script('essential-blocks-eb-animation');
+				// Google fonts are derived from this block's own typography
+				// attributes, so published posts work without a re-save.
+				Counter_Font_Loader::enqueue_for_attributes($attributes);
+			}
+			return $content;
+		}
+	);
+
+	// Essential Blocks has its own version of this block under another name. Posts saved
+	// with this one still need its render callback and front-end assets, so keep it
+	// registered, but leave out the editor bundle, which can't run beside Essential Blocks.
+	if ( $eb_has_block ) {
+		unset( $block_args['editor_script'], $block_args['editor_style'] );
 	}
+
+	register_block_type(
+		Number_Counter_Helper::get_block_register_path("number-counter/number-counter", NUMBER_COUNTER_BLOCK_ADMIN_PATH),
+		$block_args
+	);
 }
 
 add_action('init', 'number_counter_init', 99);
@@ -160,7 +168,23 @@ function number_counter_block_icon_selected_style() {
 		'eb-block-icon-selected',
 		plugins_url( 'assets/css/block-icon-selected.css', __FILE__ ),
 		[],
-		'1.0.0'
+		NUMBER_COUNTER_BLOCK_VERSION
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'number_counter_block_icon_selected_style' );
+
+/**
+ * Let Essential Blocks' animation assets win on the front end when it is active.
+ *
+ * Both plugins register these handles and the first registration wins. This
+ * plugin's loader doesn't set `window.ebAnimationLoaded`, so Essential Blocks'
+ * failsafe would reveal every animated block without playing it. Essential Blocks
+ * registers its own at priority 20 and handles the same `.eb___animated` classes.
+ */
+function number_counter_use_essential_blocks_animation() {
+    if ( defined( 'ESSENTIAL_BLOCKS_VERSION' ) ) {
+        wp_deregister_script( 'essential-blocks-eb-animation' );
+        wp_deregister_style( 'essential-blocks-animation' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'number_counter_use_essential_blocks_animation', 19 );
