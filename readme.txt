@@ -4,7 +4,7 @@ Tags:              block, blocks, counter, number counter, number, running numbe
 Requires at least: 6.0
 Tested up to:      7.0
 Requires PHP:      7.4
-Stable tag:        1.2.1
+Stable tag:        1.2.2
 License:           GPLv3 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -83,10 +83,11 @@ Yes, it will work with any standard WordPress theme.
 
 == Changelog ==
 
-= 1.2.2 - 02/11/2026 =
+= 1.2.2 - 12/11/2026 =
+* Fixed: Frontend conflict with Essential Blocks
+* Fixed: Animation preview in editor
 * Improved: Security enhancements
-* Fixed: Existing Number Counter blocks stopped working on the front end when Essential Blocks is active
-* Fixed: Animated blocks appeared without playing their animation when Essential Blocks is active
+* Few minor bug fixes & improvements
 
 = 1.2.1 - 26/10/2026 =
 * Improved: Security enhancements
