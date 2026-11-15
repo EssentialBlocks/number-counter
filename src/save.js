@@ -11,7 +11,9 @@ const { EBDisplayIcon } = window.EBNumberCounterControls;
 const TAGS = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "div", "span"];
 const safeTag = (t, d) => (TAGS.includes(t) ? t : d);
 
-const Save = ({ attributes }) => {
+// keepEmptyImage reproduces the 1.2.1 markup, which printed <img src=""> before an image
+// was picked, so the deprecation in deprecated.js can still validate those blocks.
+const Save = ({ attributes, keepEmptyImage = false }) => {
     const {
         // blockId attribute for making unique className and other uniqueness ⬇
         blockId,
@@ -51,7 +53,7 @@ const Save = ({ attributes }) => {
                         </div>
                     ) : null}
 
-                    {media === "image" ? (
+                    {media === "image" && (imageUrl || keepEmptyImage) ? (
                         <div className="icon-img-wrapper">
                             <div className="eb-counter-image-wrapper">
                                 <img
